@@ -226,7 +226,7 @@ function sonBasvurular({ data, error }) {
     ? durumKutusu({ tur: 'hata', baslik: 'Okunamadı', metin: error.message })
     : !data || !data.length
       ? durumKutusu({ baslik: 'Henüz başvuru yok',
-                      metin: 'Stant ön başvuruları burada görünecek.' })
+                      metin: 'Firma kayıtları burada görünecek.' })
       : el('div', { class: 'tablo-sarmal' },
           el('table', { class: 'tablo' },
             el('thead', null, el('tr', null,
