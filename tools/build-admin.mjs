@@ -7,8 +7,9 @@
    gerekiyor; burada aynı sorunu hiç doğurmamak için kabuk tek kaynaktan
    üretiliyor. Sayfaya özgü tek şey başlık ve yüklenen modül.
 
-   Giriş sayfası (admin/index.html) bu üreticinin dışında: kendine ait bir
-   formu ve satır içi scripti var, kabuk kullanmıyor.
+   Giriş (admin/index.html) ve parola yenileme (admin/sifre-yenile.html) bu
+   üreticinin dışında: ikisi de kendi formunu ve düzenini taşıyor, panel
+   kabuğunu kullanmıyor.
    ========================================================================== */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
