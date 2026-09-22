@@ -115,13 +115,21 @@ Sonra kayıt olmayı kapatın:
 
 ### 5. `003_admin.sql` — kendinizi owner yapın
 
-Yapıştırıp çalıştırın. Sonunda bir satır dönmeli:
+Dosya dört numaralı adımdan oluşuyor. **ADIM 1 ve ADIM 2'yi çalıştırın.**
+
+ADIM 2 bir satır döndürmeli:
 
 | email | role | created_at | last_sign_in_at |
 |-------|------|-----------|-----------------|
 | 0mustafaozdemirr@gmail.com | owner | … | _(null — henüz giriş yapılmadı)_ |
 
-`Auth kullanıcısı bulunamadı` hatası alırsanız 4. adım atlanmış demektir.
+**ADIM 2 boş dönerse** admin eklenmemiştir. ADIM 3'ü çalıştırın:
+`auth_kullanicisi_var = false` çıkarsa 4. adım atlanmış ya da e-posta farklı
+yazılmıştır — ADIM 4 ile Auth'taki kullanıcıları listeleyip karşılaştırın.
+
+> Bu dosya önce bir `do $$ … $$` bloğu kullanıyordu ve ilk denemede kullanıcıyı
+> eklemedi. Artık DO bloğu ve plpgsql değişkeni yok: tek bir `insert … select`,
+> e-posta doğrudan `auth.users`'tan geliyor.
 
 ---
 
