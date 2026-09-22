@@ -138,14 +138,15 @@ function istKart(etiket, deger, alt) {
 /** ISO tarih listesini son N günün günlük sayımına çevirir. */
 function gunlukSay(satirlar, gun) {
   const kova = new Map();
-  const bugun = new Date(); bugun.setHours(0, 0, 0, 0);
+  /* Yerel (Türkiye) takvim günü — toISOString UTC'ye çevirip günü kaydırıyordu */
+  const yerelGun = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const bugun = new Date(); bugun.setHours(12, 0, 0, 0);
 
   for (let i = gun - 1; i >= 0; i--) {
-    const d = new Date(bugun.getTime() - i * 864e5);
-    kova.set(d.toISOString().slice(0, 10), 0);
+    kova.set(yerelGun(new Date(bugun.getTime() - i * 864e5)), 0);
   }
   for (const s of satirlar) {
-    const k = new Date(s.created_at).toISOString().slice(0, 10);
+    const k = yerelGun(new Date(s.created_at));
     if (kova.has(k)) kova.set(k, kova.get(k) + 1);
   }
   return [...kova.entries()].map(([tarih, sayi]) => ({ tarih, sayi }));
