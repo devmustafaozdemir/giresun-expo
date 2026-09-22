@@ -1,6 +1,7 @@
 # Giresun EXPO 2026 — El Kitapçığından Resmî İçerik
 
-> Kaynak: *Giresun Expo A5 El Kitapçığı* (organizatörün resmî yayını).
+> Kaynak: *Giresun Expo A5 El Kitapçığı* (organizatörün resmî yayını),
+> yerelde `docs/giresun-expo-2026-el-kitapcigi.pdf` (repo dışında, bkz. `.gitignore`).
 > Bu dosyadaki bilgiler **doğru kabul edilir** ve sitede birincil kaynak olarak kullanılır.
 > Metinler kitapçıktaki haliyle alınmıştır. Web için kısaltılabilir veya düzenlenebilir, ancak **anlam ve olgular değiştirilemez.**
 

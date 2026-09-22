@@ -17,3 +17,8 @@ dist/
 # Log & geçici
 *.log
 *.tmp
+
+# Kaynak dokümanlar — repoda tutulmaz (8+ MB)
+# Not: basın sayfasından kitapçık indirmesi verilecekse tek bir kopya
+# assets/files/ altına konup ayrıca izin verilmeli. Bkz. docs/acik-sorular.md #38
+docs/*.pdf

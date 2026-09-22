@@ -1,7 +1,8 @@
 # BRIEF-v2 — EK: Resmî Kitapçık Bilgileri (ÖNCELİKLİ)
 
 > Bu ek, `docs/BRIEF-v2.md` ile çelişen her noktada **geçerlidir**.
-> Resmî bilgiler: `docs/KITAPCIK-ICERIK.md`. Kitapçığın kendisi: `docs/Giresun Expo A5 El Kitapçığı.pdf`.
+> Resmî bilgiler: `docs/KITAPCIK-ICERIK.md`. Kitapçığın kendisi: `docs/giresun-expo-2026-el-kitapcigi.pdf`
+> (yerelde durur, `.gitignore` ile repo dışında).
 
 ## 1. Değişen temel olgular
 - Fuar **İstanbul'da** yapılıyor: **8–11 Ekim 2026**, Yenikapı Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi. Önceki "Giresun Fuar Alanı / Mayıs 2027" yer tutucularının tamamı kaldırılacak.
