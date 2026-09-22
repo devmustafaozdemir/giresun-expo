@@ -364,6 +364,7 @@ Allow: /
 # Yönetim paneli ve iç dokümanlar dizine girmez
 Disallow: /giresun-expo/admin/
 Disallow: /giresun-expo/docs/
+Disallow: /giresun-expo/davetiye.html
 
 Sitemap: ${SITE}/sitemap.xml
 `);

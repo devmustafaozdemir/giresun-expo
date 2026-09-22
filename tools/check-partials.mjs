@@ -24,6 +24,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP = [
   '404.html',              // stili gomulu, sadelestirilmis header
   'docs/ui-kit.html',      // bilesen vitrini
+  'davetiye.html',         // gizli davetiye uretici (menude yok)
 ];
 const SKIP_DIRS = ['admin', 'node_modules', '.git', 'assets', 'data', 'supabase', 'tools'];
 

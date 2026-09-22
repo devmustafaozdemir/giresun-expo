@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Davetiye Oluştur — Giresun EXPO</title>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/img/brand/favicon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .dv-duzen { display: grid; gap: var(--space-7); align-items: start; }
+    @media (min-width: 900px) { .dv-duzen { grid-template-columns: 22rem 1fr; } }
+    .dv-onizleme {
+      background-color: var(--color-surface-alt, #F4F7F5);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex; justify-content: center;
+    }
+    .dv-onizleme canvas {
+      width: 100%; max-width: 480px; height: auto; display: block;
+      box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,.12));
+      background-color: #fff;
+    }
+    .dv-yukleniyor { color: var(--color-muted); font-size: .9375rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="Giresun EXPO — ana sayfa">
+        <img src="assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="600" height="242">
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <h1>Davetiye Oluştur</h1>
+        <p class="lead">Ad soyad ve ünvanı yazın, davetiyeyi görsel olarak indirin.
+          Bu sayfa menüde görünmez ve arama motorlarına kapalıdır.</p>
+      </div>
+    </section>
+
+    <section class="section section--compact">
+      <div class="container dv-duzen">
+        <form class="form" id="dv-form" novalidate>
+          <div class="form__group">
+            <label class="form__label" for="dv-ad">Ad Soyad</label>
+            <input class="form__control" id="dv-ad" type="text" maxlength="60"
+                   value="Fuat KÖSE" autocomplete="off" spellcheck="false">
+            <p class="form__hint">Davetiyede kalın yazıyla çıkar.</p>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="dv-unvan">Ünvan</label>
+            <input class="form__control" id="dv-unvan" type="text" maxlength="90"
+                   value="Giresun Belediye Başkanı" autocomplete="off" spellcheck="false">
+            <p class="form__hint">Uzun ünvanlar otomatik küçülür, gerekirse iki satıra iner.</p>
+          </div>
+
+          <div class="cluster">
+            <button class="btn btn--primary" type="button" id="dv-indir">PNG indir</button>
+            <button class="btn btn--ghost" type="button" id="dv-temizle">Alanları temizle</button>
+          </div>
+          <p class="form__hint" id="dv-durum" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="dv-onizleme">
+          <canvas id="dv-tuval" width="905" height="1280" aria-label="Davetiye önizlemesi"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* Şablondaki ölçüler (905×1280 px görselin kendi koordinatları) ------- */
+    var SABLON = 'assets/img/davetiye/davet-sablon.png';
+    var EN = 905, BOY = 1280;
+    var ORTA = 452;                 // çerçeve içi yatay orta
+    var KUTU = { x: 58, y: 476, en: 789, boy: 104 };  // üzeri beyazlanan alan
+    var AD = { taban: 519, punto: 28, enAz: 17, maxEn: 700 };
+    var UNVAN = { taban: 550, punto: 25, enAz: 15, maxEn: 720, satirAralik: 27 };
+    var OLCEK = 2;                  // indirilen görsel 2 kat çözünürlükte
+
+    var tuval = document.getElementById('dv-tuval');
+    var ctx = tuval.getContext('2d');
+    var adGiris = document.getElementById('dv-ad');
+    var unvanGiris = document.getElementById('dv-unvan');
+    var durum = document.getElementById('dv-durum');
+    var gorsel = new Image();
+    var hazir = false;
+
+    tuval.width = EN * OLCEK;
+    tuval.height = BOY * OLCEK;
+
+    gorsel.onload = function () { hazir = true; durum.textContent = ''; ciz(); };
+    gorsel.onerror = function () { durum.textContent = 'Davetiye şablonu yüklenemedi.'; };
+    durum.textContent = 'Şablon yükleniyor…';
+    gorsel.src = SABLON;
+
+    /* Yazı tipi hazır olunca yeniden çiz (aksi halde yedek font ile çizer) */
+    if (document.fonts && document.fonts.load) {
+      Promise.all([
+        document.fonts.load('600 28px Inter', 'Fuat KÖSE'),
+        document.fonts.load('400 25px Inter', 'Giresun Belediye Başkanı')
+      ]).then(function () { if (hazir) ciz(); }).catch(function () {});
+    }
+
+    function yaziTipi(kalin, punto) {
+      return (kalin ? '600 ' : '400 ') + punto + 'px Inter, system-ui, sans-serif';
+    }
+
+    /** Metni verilen genişliğe sığdıracak punto */
+    function sigdir(metin, ayar, kalin) {
+      var punto = ayar.punto;
+      while (punto > ayar.enAz) {
+        ctx.font = yaziTipi(kalin, punto);
+        if (ctx.measureText(metin).width <= ayar.maxEn) break;
+        punto -= 0.5;
+      }
+      ctx.font = yaziTipi(kalin, punto);
+      return punto;
+    }
+
+    /** Ünvanı iki satıra böler (kelime sınırında) */
+    function ikiSatir(metin, punto) {
+      var kelimeler = metin.split(/\s+/);
+      ctx.font = yaziTipi(false, punto);
+      var ilk = '', ikinci = '';
+      for (var i = 0; i < kelimeler.length; i++) {
+        var deneme = ilk ? ilk + ' ' + kelimeler[i] : kelimeler[i];
+        if (ctx.measureText(deneme).width <= UNVAN.maxEn || !ilk) ilk = deneme;
+        else ikinci = ikinci ? ikinci + ' ' + kelimeler[i] : kelimeler[i];
+      }
+      return ikinci ? [ilk, ikinci] : [ilk];
+    }
+
+    function ciz() {
+      if (!hazir) return;
+      var ad = adGiris.value.trim();
+      var unvan = unvanGiris.value.trim();
+
+      ctx.setTransform(OLCEK, 0, 0, OLCEK, 0, 0);
+      ctx.clearRect(0, 0, EN, BOY);
+      ctx.drawImage(gorsel, 0, 0, EN, BOY);
+
+      /* Eski isim ve ünvanın üzerini beyazla kapat */
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(KUTU.x, KUTU.y, KUTU.en, KUTU.boy);
+
+      ctx.fillStyle = '#1a1a1a';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+
+      if (ad) {
+        sigdir(ad, AD, true);
+        ctx.fillText(ad, ORTA, AD.taban);
+      }
+
+      if (unvan) {
+        var punto = sigdir(unvan, UNVAN, false);
+        var satirlar = [unvan];
+        if (punto <= UNVAN.enAz && ctx.measureText(unvan).width > UNVAN.maxEn) {
+          punto = 21;
+          satirlar = ikiSatir(unvan, punto);
+          ctx.font = yaziTipi(false, punto);
+        }
+        if (satirlar.length === 1) {
+          ctx.fillText(satirlar[0], ORTA, UNVAN.taban);
+        } else {
+          ctx.fillText(satirlar[0], ORTA, UNVAN.taban - 12);
+          ctx.fillText(satirlar[1], ORTA, UNVAN.taban - 12 + UNVAN.satirAralik);
+        }
+      }
+    }
+
+    function slug(t) {
+      return String(t || 'davetiye').toLocaleLowerCase('tr')
+        .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+        .replace(/ö/g, 'o').replace(/ç/g, 'c')
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'davetiye';
+    }
+
+    var zaman = null;
+    function gecikmeliCiz() { clearTimeout(zaman); zaman = setTimeout(ciz, 120); }
+    adGiris.addEventListener('input', gecikmeliCiz);
+    unvanGiris.addEventListener('input', gecikmeliCiz);
+
+    document.getElementById('dv-temizle').addEventListener('click', function () {
+      adGiris.value = ''; unvanGiris.value = ''; ciz(); adGiris.focus();
+    });
+
+    document.getElementById('dv-indir').addEventListener('click', function () {
+      if (!hazir) { durum.textContent = 'Şablon henüz yüklenmedi, biraz bekleyin.'; return; }
+      ciz();
+      tuval.toBlob(function (blob) {
+        if (!blob) { durum.textContent = 'Görsel oluşturulamadı.'; return; }
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'giresun-expo-davetiye-' + slug(adGiris.value) + '.png';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+        durum.textContent = 'Davetiye indirildi.';
+      }, 'image/png');
+    });
+  })();
+  </script>
+</body>
+</html>
