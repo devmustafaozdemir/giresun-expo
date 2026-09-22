@@ -694,15 +694,15 @@ on conflict (ad_tr) do update set
   aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,
   logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;
 insert into public.sponsors (ad_tr, ad_en, aciklama_tr, aciklama_en, seviye, logo_url, web, sira) values
-  ('Giresun Federasyonu', 'Giresun Federation', '', '',
-   'partner', 'assets/img/partners/giresun-federasyonu.png', '', 2)
+  ('ŞEBİNSİAD', 'ŞEBİNSİAD', 'Şebinkarahisar Sanayici ve İş İnsanları Derneği', 'Şebinkarahisar Association of Industrialists and Businesspeople',
+   'partner', 'assets/img/partners/sebinsiad.png', '', 2)
 on conflict (ad_tr) do update set
   ad_en=excluded.ad_en, aciklama_tr=excluded.aciklama_tr,
   aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,
   logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;
 insert into public.sponsors (ad_tr, ad_en, aciklama_tr, aciklama_en, seviye, logo_url, web, sira) values
-  ('ŞEBİNSİAD', 'ŞEBİNSİAD', 'Şebinkarahisar Sanayici ve İş İnsanları Derneği', 'Şebinkarahisar Association of Industrialists and Businesspeople',
-   'partner', 'assets/img/partners/sebinsiad.png', '', 3)
+  ('Giresun Federasyonu', 'Giresun Federation', '', '',
+   'partner', 'assets/img/partners/giresun-federasyonu.png', '', 3)
 on conflict (ad_tr) do update set
   ad_en=excluded.ad_en, aciklama_tr=excluded.aciklama_tr,
   aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,

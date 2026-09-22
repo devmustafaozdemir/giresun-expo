@@ -153,10 +153,10 @@ on conflict (slug) do update set soru_tr = excluded.soru_tr, soru_en = excluded.
 update public.faqs set sira = 7 where slug = 'kim-duzenliyor';
 update public.faqs set published = false where slug in ('program', 'salonlar');
 
--- 6. Paydaş sırası: Federasyon, ŞEBİNSİAD (ortada), Vakıf -----------------------
-update public.sponsors set sira = 1 where ad_tr = 'Giresun Federasyonu';
+-- 6. Paydaş sırası: Vakıf, ŞEBİNSİAD (ortada), Federasyon -----------------------
+update public.sponsors set sira = 1 where ad_tr = 'Giresun Vakfı';
 update public.sponsors set sira = 2 where ad_tr = 'ŞEBİNSİAD';
-update public.sponsors set sira = 3 where ad_tr = 'Giresun Vakfı';
+update public.sponsors set sira = 3 where ad_tr = 'Giresun Federasyonu';
 
 -- 7. Ana sayfada öne çıkan firmalar (hiç seçilmemişse varsayılan dört firma) -----
 update public.exhibitors set featured = true

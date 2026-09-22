@@ -170,9 +170,9 @@ ${li('press')}
     </div>
 
     <div class="container site-footer__partners" data-paydas="logo">
-${partner('giresun-federasyonu.png', t.partners[1])}
-${partner('sebinsiad.png', t.partners[2])}
 ${partner('giresun-vakfi.png', t.partners[0])}
+${partner('sebinsiad.png', t.partners[2])}
+${partner('giresun-federasyonu.png', t.partners[1])}
     </div>
 
     <div class="container site-footer__bottom">

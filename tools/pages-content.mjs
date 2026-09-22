@@ -281,9 +281,9 @@ MAIN['index:en'] = `    <section class="hero">
           <h2 class="section-title">Our partners</h2>
         </div>
         <div class="grid grid--3 reveal" data-paydas="logo">
-          <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
-          <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="Şebinkarahisar Association of Industrialists and Businesspeople" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
+          <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="Şebinkarahisar Association of Industrialists and Businesspeople" width="320" height="120" loading="lazy"></div>
+          <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -566,16 +566,16 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO, Giresun\
 
         <div class="grid grid--3 reveal" data-paydas="kart">
           <div class="partner-card">
-            <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Federasyonu</h3>
+            <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Vakfı</h3>
           </div>
           <div class="partner-card">
             <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">ŞEBİNSİAD</h3>
           </div>
           <div class="partner-card">
-            <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Vakfı</h3>
+            <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Federasyonu</h3>
           </div>
         </div>
       </div>
@@ -663,16 +663,16 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO is a busi
 
         <div class="grid grid--3 reveal" data-paydas="kart">
           <div class="partner-card">
-            <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Federation</h3>
+            <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Foundation</h3>
           </div>
           <div class="partner-card">
             <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">ŞEBİNSİAD</h3>
           </div>
           <div class="partner-card">
-            <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Foundation</h3>
+            <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Federation</h3>
           </div>
         </div>
       </div>

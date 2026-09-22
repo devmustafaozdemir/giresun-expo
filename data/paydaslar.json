@@ -13,22 +13,22 @@
       "sira": 1
     },
     {
-      "slug": "giresun-federasyonu",
-      "ad_tr": "Giresun Federasyonu",
-      "ad_en": "Giresun Federation",
-      "aciklama_tr": "",
-      "aciklama_en": "",
-      "logo": "assets/img/partners/giresun-federasyonu.png",
-      "web": "",
-      "sira": 2
-    },
-    {
       "slug": "sebinsiad",
       "ad_tr": "ŞEBİNSİAD",
       "ad_en": "ŞEBİNSİAD",
       "aciklama_tr": "Şebinkarahisar Sanayici ve İş İnsanları Derneği",
       "aciklama_en": "Şebinkarahisar Association of Industrialists and Businesspeople",
       "logo": "assets/img/partners/sebinsiad.png",
+      "web": "",
+      "sira": 2
+    },
+    {
+      "slug": "giresun-federasyonu",
+      "ad_tr": "Giresun Federasyonu",
+      "ad_en": "Giresun Federation",
+      "aciklama_tr": "",
+      "aciklama_en": "",
+      "logo": "assets/img/partners/giresun-federasyonu.png",
       "web": "",
       "sira": 3
     }
