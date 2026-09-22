@@ -58,7 +58,7 @@ async function ozetYukle() {
 /* --- Liste --- */
 await listeSayfasi(icerik, {
   baslik: 'Ziyaretçi Kayıtları',
-  altBaslik: 'Siteden gelen ziyaretçi ön kayıtları. Satıra tıklayarak ayrıntıyı açın.',
+  altBaslik: 'Siteden gelen ziyaretçi kayıtları. Satıra tıklayarak ayrıntıyı açın.',
   tablo: 'visitor_registrations',
   secim: 'id, registration_no, full_name, email, phone, city, sector, days,' +
          ' checked_in_at, created_at',
@@ -96,7 +96,7 @@ await listeSayfasi(icerik, {
   ],
 
   bosBaslik: 'Henüz ziyaretçi kaydı yok',
-  bosMetin: 'Siteden gelen ön kayıtlar burada listelenecek.',
+  bosMetin: 'Siteden gelen kayıtlar burada listelenecek.',
 
   csv: {
     dosya: 'giresun-expo-ziyaretci-kayitlari',

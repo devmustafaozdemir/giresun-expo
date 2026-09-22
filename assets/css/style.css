@@ -15,7 +15,7 @@
      kontrastı 3.18 — yalnızca grafik öğe, ikon ve halka motifi için.
    - Logo yalnızca açık zeminde. Koyu bantta beyaz kart içine alınır.
      Header ve favicon: tarihsiz logo. Hero/footer/OG: tarihli logo.
-   - Mobil menü kırılım noktası 1140px — main.js'teki DESKTOP_BREAKPOINT ile eş.
+   - Mobil menü kırılım noktası 1280px — main.js'teki DESKTOP_BREAKPOINT ile eş.
    ========================================================================== */
 
 
@@ -453,7 +453,9 @@ p + p { margin-top: var(--space-4); }
   border-radius: var(--radius-pill);
 }
 
-.nav__actions { display: flex; align-items: center; gap: var(--space-4); }
+.nav__actions { display: flex; align-items: center; gap: var(--space-3); }
+.nav__cta { display: flex; align-items: center; gap: var(--space-2); }
+.nav__cta .btn { padding-inline: 0.875rem; white-space: nowrap; }
 
 .lang-switch {
   display: inline-flex;
@@ -550,6 +552,8 @@ p + p { margin-top: var(--space-4); }
 }
 .btn--secondary:hover { background-color: var(--color-primary-soft); color: var(--color-primary-dark); }
 
+.btn--navy { background-color: var(--color-secondary); color: #fff; }
+.btn--navy:hover { background-color: var(--color-secondary-dark); color: #fff; }
 .btn--ghost { color: var(--color-primary); }
 .btn--ghost:hover { background-color: var(--color-primary-soft); }
 
@@ -1784,11 +1788,11 @@ select.form__control {
 
 /* 21. Responsive
    ========================================================================== */
-@media (min-width: 1140px) {
+@media (min-width: 1280px) {
   .nav-toggle { display: none; }
 }
 
-@media (max-width: 1139.98px) {
+@media (max-width: 1279.98px) {
   .site-nav {
     position: fixed;
     inset: var(--header-h) 0 0 auto;
@@ -1827,6 +1831,7 @@ select.form__control {
 
   .nav__actions { flex-direction: column-reverse; align-items: stretch; gap: var(--space-4); }
   .nav__actions .btn { width: 100%; }
+  .nav__cta { flex-direction: column; align-items: stretch; }
   .lang-switch { justify-content: center; font-size: 0.9375rem; }
 
   .nav-overlay {
@@ -1854,3 +1859,64 @@ select.form__control {
   .toasts { right: var(--space-4); left: var(--space-4); bottom: var(--space-4); width: auto; }
   .site-footer__bottom { justify-content: flex-start; }
 }
+
+
+/* 22. Düzeltmeler (Eylül 2026 revizyonu)
+   ========================================================================== */
+/* hidden özniteliği, display tanımlı bileşenlerde de (kart, empty, vb.) gizlesin.
+   Önceki sürümde .card{display:flex} hidden'ı eziyordu: katılımcı araması ve
+   sektör filtresi kartları gizleyemiyor, "sonuç bulunamadı" hep görünüyordu. */
+[hidden] { display: none !important; }
+
+/* Masaüstü menü: 7 bağlantı + dil + 2 buton sığsın */
+@media (min-width: 1280px) {
+  .site-nav { gap: var(--space-3); }
+  .nav-list { gap: 0; }
+  .nav__link { padding-inline: 0.625rem; font-size: 0.9rem; }
+}
+
+/* Katılımcı kartı: "Stand No: A1-14" */
+.exhibitor__stand { margin-top: var(--space-3); font-size: 0.875rem; color: var(--color-body); }
+.exhibitor__stand strong { color: var(--color-secondary); font-weight: 600; }
+.ex-intro { margin-top: var(--space-6); color: var(--color-muted); max-width: none; }
+
+/* Geniş metin: sola yaslı, sağa açılan paragraflar (Hakkında, Basın, KVKK) */
+.wide-text p, .wide-text .section-subtitle, .prose--wide { max-width: none; }
+.page-header .lead { max-width: 80ch; }
+
+/* SSS: tüm genişliği kullan */
+.accordion--wide { max-width: none; }
+
+/* Harita doğrudan gömülü */
+.map--embed { min-height: 0; }
+.map--embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Galeri/Basın: sıkılaştırılmış dikey boşluk */
+.section--compact { padding-block: clamp(var(--space-6), 4vw, var(--space-8)); }
+.page-header--compact { padding-bottom: var(--space-6); }
+
+/* Buton grubu tek satır (masaüstü) */
+@media (min-width: 768px) { .cluster--nowrap { flex-wrap: nowrap; } }
+
+/* Footer sosyal medya */
+.sosyal { display: flex; flex-wrap: wrap; gap: var(--space-3); list-style: none; padding: 0; margin-top: var(--space-2); }
+.sosyal a { text-decoration: none; }
+
+/* Firma kayıt: stant alanı seçimi */
+.stand-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--space-3); }
+.stand-opt { position: relative; cursor: pointer; }
+.stand-opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.stand-opt__box {
+  display: flex; flex-direction: column; gap: var(--space-1);
+  padding: var(--space-4); border: 1.5px solid var(--color-border-mid);
+  border-radius: var(--radius); background: var(--color-surface);
+  transition: border-color var(--transition), background-color var(--transition);
+}
+.stand-opt__m2 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--color-ink); }
+.stand-opt__price { color: var(--color-muted); font-size: 0.9375rem; }
+.stand-opt input:checked + .stand-opt__box { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.stand-opt input:focus-visible + .stand-opt__box { outline: 3px solid var(--color-secondary); outline-offset: 2px; }
+.prose--wide p, .prose--wide ul, .prose--wide li { max-width: none; }
+fieldset.form__group { border: 0; padding: 0; margin-inline: 0; min-width: 0; }
+fieldset.form__group > legend { padding: 0; margin-bottom: var(--space-2); }
+@media (min-width: 768px) { .gallery { grid-template-columns: repeat(3, 1fr); } }

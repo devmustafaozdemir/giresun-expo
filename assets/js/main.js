@@ -12,7 +12,7 @@
 (function () {
   "use strict";
 
-  var DESKTOP_BREAKPOINT = 1140;  /* style.css bölüm 21 ile eş olmalı */
+  var DESKTOP_BREAKPOINT = 1280;  /* style.css bölüm 21 ile eş olmalı */
 
   /* =======================================================================
      01. Mobil menü
@@ -77,9 +77,10 @@
     if (!el) return;
 
     var body = el.querySelector("[data-countdown-body]");
-    var start = Date.parse(el.dataset.start || "");
-    var end = Date.parse(el.dataset.end || "");
-    if (!body || isNaN(start) || isNaN(end)) return;
+    if (!body || isNaN(Date.parse(el.dataset.start || "")) || isNaN(Date.parse(el.dataset.end || ""))) return;
+    /* start/end her karede yeniden okunur: site-veri.js yönetim panelindeki
+       tarihleri sonradan data-* özniteliklerine yazabilir. */
+    var start, end;
 
     var labels = {
       gun: el.dataset.labelGun || "Gün",
@@ -113,6 +114,9 @@
 
     function render() {
       var now = Date.now();
+      start = Date.parse(el.dataset.start || "");
+      end = Date.parse(el.dataset.end || "");
+      if (now <= end) el.classList.remove("countdown--live");
 
       /* Fuar bitti */
       if (now > end) {
@@ -157,15 +161,15 @@
      03. Akordeon (SSS)
      ======================================================================= */
   function initAccordions() {
-    var buttons = document.querySelectorAll(".accordion__btn");
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].addEventListener("click", function () {
-        var open = this.getAttribute("aria-expanded") === "true";
-        this.setAttribute("aria-expanded", open ? "false" : "true");
-        var panel = document.getElementById(this.getAttribute("aria-controls"));
-        if (panel) panel.hidden = open;
-      });
-    }
+    /* Olay delegasyonu: SSS listesi Supabase'den yeniden çizildiğinde de çalışır */
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest && e.target.closest(".accordion__btn");
+      if (!btn) return;
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", open ? "false" : "true");
+      var panel = document.getElementById(btn.getAttribute("aria-controls"));
+      if (panel) panel.hidden = open;
+    });
   }
 
   /* =======================================================================

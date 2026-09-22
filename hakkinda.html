@@ -31,7 +31,8 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
-
+  <script src="assets/js/config.js" defer></script>
+  <script type="module" src="assets/js/site-veri.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -50,8 +51,8 @@
         <ul class="nav-list">
           <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
           <li><a class="nav__link is-active" href="hakkinda.html" aria-current="page">Hakkında</a></li>
-          <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
-          <li><a class="nav__link" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a class="nav__link" href="katilimcilar.html">Katılımcı Firmalar</a></li>
+          <li><a class="nav__link" href="ziyaret-bilgileri.html">Fuar Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
           <li><a class="nav__link" href="basin.html">Basın</a></li>
           <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
@@ -63,7 +64,16 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link" href="en/about.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
+          <div class="nav__cta">
+            <a class="btn btn--navy btn--sm" href="stant-basvurusu.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+              Firma Kayıt
+            </a>
+            <a class="btn btn--navy btn--sm" href="ziyaretci-kaydi.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ziyaretçi Kayıt
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -87,7 +97,7 @@
     </section>
 
     <section class="section">
-      <div class="container container--narrow">
+      <div class="container wide-text">
         <div class="reveal">
           <p class="eyebrow">Amaç</p>
           <h2 class="section-title">Giresun EXPO 2026 nedir?</h2>
@@ -108,6 +118,12 @@
             sanayicileri, girişimcileri, üniversiteleri, kooperatifleri ve sivil toplum
             kuruluşlarını aynı çatı altında buluşturacaktır. Organizasyon, yeni iş birlikleri
             ve ticari bağlantılar için güçlü bir zemin oluşturacaktır.</p>
+
+          <h2 class="section-title mt-8">Gelecek hedefi</h2>
+          <p>Giresun EXPO'nun hedefi, Giresun'u ticaret ve yatırım alanında uluslararası
+            ölçekte tanınan bir merkez hâline getirmektir. Her yıl gelişen yapısıyla
+            organizasyonun, Karadeniz'in üretim gücünü Türkiye'ye ve dünyaya tanıtan prestijli
+            bir marka olması hedeflenmektedir.</p>
         </div>
       </div>
     </section>
@@ -119,8 +135,8 @@
             <p class="eyebrow">Vizyon</p>
             <h2 class="section-title">Her yıl büyüyen bir marka</h2>
             <p>Giresun EXPO, tek seferlik bir fuar değil; her yıl büyüyen, uluslararası
-              katılımı artıran ve Karadeniz'in önemli ticaret organizasyonlarından biri olmayı
-              hedefleyen sürdürülebilir bir markadır.</p>
+              katılımını artıran ve önemli ticaret organizasyonlarından biri olmayı hedefleyen
+              sürdürülebilir bir markadır.</p>
             <ul class="list-check mt-6">
               <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Yatırım fırsatlarını öne çıkarmak</span></li>
               <li><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Yeni ticaret ağları oluşturmak</span></li>
@@ -133,7 +149,7 @@
           <figure class="media media--4x3 reveal">
             <picture>
               <source srcset="assets/img/photos/uretim-sanayi.webp" type="image/webp">
-              <img src="assets/img/photos/uretim-sanayi.jpg" alt="Robotik üretim hattı" width="783" height="457" loading="lazy" decoding="async">
+              <img src="assets/img/photos/uretim-sanayi.jpg" alt="Modern bir üretim tesisi" width="783" height="457" loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
@@ -142,42 +158,23 @@
 
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Hedef</p>
-          <h2 class="section-title">Gelecek hedefi</h2>
-          <p class="section-subtitle">Giresun EXPO'nun hedefi, Giresun'u ticaret ve yatırım
-            alanında uluslararası ölçekte tanınan bir merkez hâline getirmektir. Her yıl
-            gelişen yapısıyla organizasyonun, Karadeniz'in üretim gücünü Türkiye'ye ve dünyaya
-            tanıtan prestijli bir marka olması hedeflenmektedir.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Organizasyon</p>
           <h2 class="section-title">Paydaşlarımız</h2>
-          <p class="section-subtitle">Organizasyon, Giresun'un üç güçlü sivil toplum
-            kuruluşunun ortaklığıyla hayata geçirilmektedir. Bu iş birliği, Giresun'un ortak
-            hedefler doğrultusunda hareket etme iradesini ortaya koymaktadır.</p>
         </div>
 
         <div class="grid grid--3 reveal">
           <div class="partner-card">
-            <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Vakfı</h3>
-            <p class="partner-card__desc">Kalkınma, Eğitim, Kültür, Spor ve Tanıtım</p>
-          </div>
-          <div class="partner-card">
             <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">Giresun Federasyonu</h3>
-            <p class="partner-card__desc">&nbsp;</p>
           </div>
           <div class="partner-card">
             <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">ŞEBİNSİAD</h3>
-            <p class="partner-card__desc">Şebinkarahisar Sanayici ve İş İnsanları Derneği</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Vakfı</h3>
           </div>
         </div>
       </div>
@@ -185,11 +182,11 @@
 
     <section class="section section--brand on-dark">
       <div class="container text-center">
-        <h2 class="section-title">Giresun EXPO 2026'da buluşalım</h2>
-        <p class="lead" style="margin-inline:auto">8–11 Ekim 2026, İstanbul Yenikapı.</p>
+        <h2 class="section-title section-title--plain">Giresun EXPO'da buluşalım</h2>
+        <p class="lead" style="margin-inline:auto">8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, İstanbul.</p>
         <div class="cluster mt-6" style="justify-content:center">
-          <a class="btn btn--light btn--lg" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a>
-          <a class="btn btn--outline-light btn--lg" href="katilimcilar.html">Katılımcılar</a>
+          <a class="btn btn--light btn--lg" href="ziyaret-bilgileri.html">Fuar Bilgileri</a>
+          <a class="btn btn--outline-light btn--lg" href="katilimcilar.html">Katılımcı Firmalar</a>
         </div>
       </div>
     </section>
@@ -202,7 +199,7 @@
           <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
         </span>
         <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü İstanbul'da tanıtan iş dünyası buluşması.</p>
-        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
+        <p class="site-footer__slogan" data-ayar="slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
@@ -210,7 +207,7 @@
         <ul class="site-footer__list">
           <li><a href="index.html">Ana Sayfa</a></li>
           <li><a href="hakkinda.html">Hakkında</a></li>
-          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="katilimcilar.html">Katılımcı Firmalar</a></li>
           <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
@@ -218,9 +215,9 @@
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
-          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
-          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="ziyaret-bilgileri.html">Fuar Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Kayıt</a></li>
+          <li><a href="stant-basvurusu.html">Firma Kayıt</a></li>
           <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
@@ -228,16 +225,18 @@
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
-          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
+          <p>Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828" data-ayar-telefon>0541 662 28 28</a></p>
+          <p data-ayar-eposta hidden></p>
+          <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
     <div class="container site-footer__partners">
-      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
     </div>
 
     <div class="container site-footer__bottom">

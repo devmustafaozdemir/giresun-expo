@@ -6,7 +6,7 @@
   <script>document.documentElement.classList.add('js')</script>
 
   <title>Giresun EXPO 2026 — Giresun İş Dünyası İstanbul'da Buluşuyor</title>
-  <meta name="description" content="Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul Yenikapı'da düzenleniyor. 86 katılımcı firma, üretim, yatırım, ticaret ve iş birliği tek çatı altında.">
+  <meta name="description" content="Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul'da Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi'nde düzenleniyor. Üretim, yatırım, ticaret ve iş birliği tek çatı altında.">
 
   <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/">
   <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/">
@@ -17,7 +17,7 @@
   <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:title" content="Giresun EXPO 2026 — Giresun İş Dünyası İstanbul'da Buluşuyor">
-  <meta property="og:description" content="8–11 Ekim 2026, İstanbul Yenikapı. 86 katılımcı firma, 5 salon, 4 gün.">
+  <meta property="og:description" content="8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, İstanbul.">
   <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/">
   <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/config.js" defer></script>
-  <script type="module" src="assets/js/form-gonder.js"></script>
+  <script type="module" src="assets/js/site-veri.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -52,8 +52,8 @@
         <ul class="nav-list">
           <li><a class="nav__link is-active" href="index.html" aria-current="page">Ana Sayfa</a></li>
           <li><a class="nav__link" href="hakkinda.html">Hakkında</a></li>
-          <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
-          <li><a class="nav__link" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a class="nav__link" href="katilimcilar.html">Katılımcı Firmalar</a></li>
+          <li><a class="nav__link" href="ziyaret-bilgileri.html">Fuar Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
           <li><a class="nav__link" href="basin.html">Basın</a></li>
           <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
@@ -65,7 +65,16 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link" href="en/index.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
+          <div class="nav__cta">
+            <a class="btn btn--navy btn--sm" href="stant-basvurusu.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+              Firma Kayıt
+            </a>
+            <a class="btn btn--navy btn--sm" href="ziyaretci-kaydi.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ziyaretçi Kayıt
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -81,25 +90,25 @@
       <div class="container">
         <div class="hero__inner">
           <p class="hero__logo">
-            <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026, 8–11 Ekim 2026" width="1207" height="703">
+            <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO, 8–11 Ekim 2026" width="1207" height="703">
           </p>
-          <h1>Giresun İş Dünyası İstanbul'da Buluşuyor</h1>
-          <p class="hero__slogan">Giresun İçin İş Birliği, Türkiye İçin Güç Birliği</p>
+          <h1 data-ayar="manset">Giresun İş Dünyası İstanbul'da Buluşuyor</h1>
+          <p class="hero__slogan" data-ayar="slogan">Giresun İçin İş Birliği, Türkiye İçin Güç Birliği</p>
 
           <div class="hero__meta">
             <span class="hero__meta-item">
               <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
-              8–11 Ekim 2026
+              <span data-ayar="tarih">8–11 Ekim 2026</span>
             </span>
             <span class="hero__meta-item">
               <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-              Yenikapı Etkinlik Alanı, İstanbul
+              <span data-ayar="mekan_ad">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi</span>
             </span>
           </div>
 
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="ziyaret-bilgileri.html">Ziyaret Planla</a>
-            <a class="btn btn--secondary btn--lg" href="katilimcilar.html">Katılımcıları Keşfet</a>
+            <a class="btn btn--primary btn--lg" href="ziyaret-bilgileri.html">Fuar Bilgileri</a>
+            <a class="btn btn--secondary btn--lg" href="katilimcilar.html">Katılımcı Firmalar</a>
           </div>
         </div>
       </div>
@@ -112,12 +121,12 @@
              data-start="2026-10-08T10:00:00+03:00"
              data-end="2026-10-11T18:00:00+03:00"
              data-text-before="Fuara kalan süre"
-             data-text-during="Fuar devam ediyor — 8–11 Ekim 2026, Yenikapı"
-             data-text-after="Giresun EXPO 2026 için teşekkürler. 2027'de görüşmek üzere."
+             data-text-during="Fuar devam ediyor — 8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi"
+             data-text-after="Giresun EXPO için teşekkürler. 2027'de görüşmek üzere."
              data-label-gun="Gün" data-label-saat="Saat" data-label-dakika="Dakika" data-label-saniye="Saniye"
              aria-label="Fuara kalan süre">
       <div class="container countdown__inner" data-countdown-body>
-        <p class="countdown__status">8–11 Ekim 2026 · Yenikapı Etkinlik Alanı, İstanbul</p>
+        <p class="countdown__status">8–11 Ekim 2026 · Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi</p>
       </div>
     </section>
 
@@ -126,7 +135,7 @@
       <div class="container">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Giresun EXPO</p>
-          <h2 class="section-title">Dört sütun üzerinde</h2>
+          <h2 class="section-title">Uçtan Uca</h2>
           <p class="section-subtitle">Fuar, Giresun'un ekonomik gücünü dört başlıkta bir araya getiriyor.</p>
         </div>
 
@@ -172,8 +181,8 @@
         <div class="split">
           <div class="reveal">
             <p class="eyebrow">Fuar hakkında</p>
-            <h2 class="section-title">Giresun EXPO 2026 nedir?</h2>
-            <p>Giresun EXPO 2026, Giresun'un ekonomik, ticari ve girişimcilik potansiyelini
+            <h2 class="section-title">Giresun EXPO nedir?</h2>
+            <p>Giresun EXPO, Giresun'un ekonomik, ticari ve girişimcilik potansiyelini
               ulusal ve uluslararası ölçekte tanıtmayı amaçlayan kapsamlı bir iş dünyası
               buluşmasıdır.</p>
             <p>Organizasyon; yatırımcıları, üreticileri ve girişimcileri bir araya getirerek
@@ -198,13 +207,13 @@
     <section class="section section--tight">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <h2 class="section-title">Rakamlarla fuar</h2>
+          <h2 class="section-title">Sayılarla Giresun EXPO</h2>
         </div>
-        <div class="grid grid--4 reveal">
-          <div class="stat"><span class="stat__num">86</span><span class="stat__label">Katılımcı firma</span></div>
+        <div class="grid grid--4 reveal" data-istatistikler>
+          <div class="stat"><span class="stat__num" data-sayi="firma">86</span><span class="stat__label">Katılımcı firma</span></div>
           <div class="stat"><span class="stat__num">4</span><span class="stat__label">Gün</span></div>
           <div class="stat"><span class="stat__num">3</span><span class="stat__label">Paydaş kuruluş</span></div>
-          <div class="stat"><span class="stat__num">5</span><span class="stat__label">Salon</span></div>
+          <div class="stat"><span class="stat__num" data-sayi="stand">100</span><span class="stat__label">Stand sayısı</span></div>
         </div>
       </div>
     </section>
@@ -215,13 +224,11 @@
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Organizasyon</p>
           <h2 class="section-title">Paydaşlarımız</h2>
-          <p class="section-subtitle">Giresun EXPO, Giresun'un üç sivil toplum kuruluşunun
-            ortaklığıyla hayata geçiriliyor.</p>
         </div>
         <div class="grid grid--3 reveal">
-          <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="Şebinkarahisar Sanayici ve İş İnsanları Derneği" width="320" height="120" loading="lazy"></div>
+          <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -230,52 +237,50 @@
     <section class="section">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">Katılımcılar</p>
-          <h2 class="section-title">86 firma, beş salon</h2>
-          <p class="section-subtitle">Gıdadan metale, turizmden sağlığa 17 sektörden firma
-            Yenikapı'da stant açıyor.</p>
+          <p class="eyebrow">Katılımcı Firmalar</p>
+          <h2 class="section-title"><span data-sayi="firma">86</span> firma, <span data-sayi="stand">100</span> stand</h2>
         </div>
 
-        <div class="grid grid--4 reveal">
+        <div class="grid grid--4 reveal" data-one-cikan>
           <article class="card exhibitor">
-            <div class="monogram">İM</div>
+            <div class="exhibitor__logo"><img src="assets/img/exhibitors/izya-ic-mimarlik.png" alt="İzya İç Mimarlık" loading="lazy" decoding="async"></div>
             <div class="card__body">
               <h3 class="card__title">İzya İç Mimarlık</h3>
               <p class="card__text">Mobilya &amp; İç Mimari</p>
-              <div class="exhibitor__stands"><span class="hall-badge">A</span><span class="badge">A3-10</span><span class="badge">A3-12</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>A3-10, A3-12</strong></p>
             </div>
           </article>
 
           <article class="card exhibitor">
-            <div class="monogram monogram--navy">MS</div>
+            <div class="exhibitor__logo"><img src="assets/img/exhibitors/meksan-savunma-metal-sac-sanayi.png" alt="Meksan Savunma Metal Sac Sanayi" loading="lazy" decoding="async"></div>
             <div class="card__body">
-              <h3 class="card__title">Meksan Savunma</h3>
+              <h3 class="card__title">Meksan Savunma Metal Sac Sanayi</h3>
               <p class="card__text">Metal, Makine &amp; Sanayi</p>
-              <div class="exhibitor__stands"><span class="hall-badge">T</span><span class="badge">T1-10</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>T1-10</strong></p>
             </div>
           </article>
 
           <article class="card exhibitor">
-            <div class="monogram">TO</div>
+            <div class="exhibitor__logo"><img src="assets/img/exhibitors/titanic-otel.png" alt="Titanic Otel" loading="lazy" decoding="async"></div>
             <div class="card__body">
               <h3 class="card__title">Titanic Otel</h3>
               <p class="card__text">Turizm &amp; Konaklama</p>
-              <div class="exhibitor__stands"><span class="hall-badge">T</span><span class="badge">T2-07</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>T2-07</strong></p>
             </div>
           </article>
 
           <article class="card exhibitor">
-            <div class="monogram monogram--navy">BS</div>
+            <div class="exhibitor__logo"><img src="assets/img/exhibitors/bahat-saglik-grubu.png" alt="Bahat Sağlık Grubu" loading="lazy" decoding="async"></div>
             <div class="card__body">
               <h3 class="card__title">Bahat Sağlık Grubu</h3>
               <p class="card__text">Sağlık</p>
-              <div class="exhibitor__stands"><span class="hall-badge">T</span><span class="badge">T2-13</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>T2-13</strong></p>
             </div>
           </article>
         </div>
 
         <p class="mt-8">
-          <a class="btn btn--primary" href="katilimcilar.html">Tüm katılımcıları gör</a>
+          <a class="btn btn--secondary" href="katilimcilar.html">Katılımcı Firmalar</a>
         </p>
       </div>
     </section>
@@ -290,8 +295,8 @@
             <p class="section-subtitle mb-6">Fuar dört gün boyunca ziyarete açık.</p>
 
             <div class="scroll-x">
-              <table class="hours">
-                <caption class="visually-hidden">Giresun EXPO 2026 günlük ziyaret saatleri</caption>
+              <table class="hours" data-ayar-saatler>
+                <caption class="visually-hidden">Giresun EXPO günlük ziyaret saatleri</caption>
                 <thead>
                   <tr><th scope="col">Gün</th><th scope="col">Tarih</th><th scope="col">Saat</th></tr>
                 </thead>
@@ -305,7 +310,7 @@
             </div>
 
             <p class="mt-6">
-              <a class="btn btn--secondary" href="ziyaret-bilgileri.html">Ulaşım ve ziyaret bilgileri</a>
+              <a class="btn btn--secondary" href="ziyaret-bilgileri.html">Fuar Bilgileri</a>
             </p>
           </div>
 
@@ -324,7 +329,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Konum</p>
-          <h2 class="section-title">Yenikapı'da, şehrin merkezinde</h2>
+          <h2 class="section-title">Şehrin merkezinde</h2>
           <p class="section-subtitle">Yenikapı; Marmaray ile M1A, M1B ve M2 metro hatlarının
             kesiştiği bir aktarma noktası.</p>
         </div>
@@ -361,22 +366,8 @@
           </figure>
         </div>
 
-        <!-- Gizlilik dostu harita: kullanıcı tıklamadan hiçbir dış istek yapılmaz -->
-        <div class="map mt-8 reveal" id="map"
-             data-query="Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul"
-             data-title="Fuar alanının haritadaki konumu">
-          <div class="map__prompt">
-            <svg class="icon icon--xl" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-            <p class="map__text">Harita Google Haritalar üzerinden yüklenir. Tıkladığınızda
-              Google'a bağlantı kurulur.</p>
-            <button class="btn btn--secondary" type="button" data-map-load>Haritayı yükle</button>
-            <p class="map__alt">
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Dr.+Mimar+Kadir+Topba%C5%9F+G%C3%B6steri+ve+Sanat+Merkezi%2C+Yenikap%C4%B1%2C+Fatih%2C+%C4%B0stanbul" target="_blank" rel="noopener noreferrer">
-                Yeni sekmede aç
-                <svg class="icon icon--sm" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-              </a>
-            </p>
-          </div>
+        <div class="map map--embed mt-8 reveal" id="map">
+          <iframe src="https://maps.google.com/maps?q=Dr.%20Mimar%20Kadir%20Topba%C5%9F%20G%C3%B6steri%20ve%20Sanat%20Merkezi%2C%20Yenikap%C4%B1%2C%20Fatih%2C%20%C4%B0stanbul&amp;output=embed" title="Fuar alanının haritadaki konumu" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -389,10 +380,10 @@
           <h2 class="section-title">Merak edilenler</h2>
         </div>
 
-        <div class="accordion reveal">
+        <div class="accordion accordion--wide reveal" data-sss>
           <div class="accordion__item">
             <h3><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="sss-1">
-              Giresun EXPO 2026 ne zaman ve nerede düzenleniyor?
+              Giresun EXPO ne zaman ve nerede düzenleniyor?
               <svg class="accordion__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button></h3>
             <div class="accordion__panel" id="sss-1" hidden>
@@ -442,7 +433,7 @@
               <svg class="accordion__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button></h3>
             <div class="accordion__panel" id="sss-5" hidden>
-              <p>86 katılımcı firma beş salonda stant açıyor. Fuar; kamu kurumlarını, özel
+              <p>Katılımcı firmalar fuar alanında stant açıyor. Fuar; kamu kurumlarını, özel
                 sektörü, yatırımcıları, üreticileri, sanayicileri, girişimcileri, üniversiteleri,
                 kooperatifleri ve sivil toplum kuruluşlarını aynı çatı altında buluşturuyor.</p>
             </div>
@@ -450,54 +441,27 @@
 
           <div class="accordion__item">
             <h3><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="sss-6">
-              Etkinlik programı açıklandı mı?
+              Girişler ücretli mi?
               <svg class="accordion__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button></h3>
             <div class="accordion__panel" id="sss-6" hidden>
-              <p>Panel, sunum ve oturum programı henüz açıklanmadı. Açıklandığında bu sitede
-                yayımlanacak.</p>
+              <p>Hayır. Giresun EXPO'ya giriş ücretsizdir; tüm ziyaretçilerimizi fuar alanına bekliyoruz.</p>
             </div>
           </div>
+
         </div>
-      </div>
-    </section>
-
-    <!-- ==== Bülten ======================================================= -->
-    <section class="section section--alt">
-      <div class="container container--narrow text-center">
-        <p class="eyebrow">Bülten</p>
-        <h2 class="section-title section-title--plain">Fuar haberlerinden haberdar olun</h2>
-        <p class="section-subtitle" style="margin-inline:auto">E-posta adresinizi bırakın;
-          program duyuruları ve ziyaret bilgilerini sizinle paylaşalım.</p>
-
-        <form class="form newsletter mt-6" data-form="newsletter" novalidate>
-          <div class="newsletter__row">
-            <div class="form__group">
-              <label class="form__label visually-hidden" for="nl-mail">E-posta</label>
-              <input class="form__control" id="nl-mail" name="email" type="email" required
-                     placeholder="ornek@eposta.com" autocomplete="email" maxlength="160">
-            </div>
-            <button class="btn btn--primary" type="submit">Abone Ol</button>
-          </div>
-          <div class="hp-field" aria-hidden="true">
-            <label for="hp-website">Bu alanı boş bırakın</label>
-            <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <p class="form__hint">Adresinizi yalnızca fuar duyuruları için kullanırız. Ayrıntı için
-            <a href="kvkk.html">KVKK Aydınlatma Metni</a>.</p>
-        </form>
       </div>
     </section>
 
     <!-- ==== Kapanış CTA =================================================== -->
     <section class="section section--brand on-dark">
       <div class="container text-center">
-        <h2 class="section-title">Giresun EXPO 2026'da buluşalım</h2>
+        <h2 class="section-title section-title--plain">Giresun EXPO'da buluşalım</h2>
         <p class="lead" style="margin-inline:auto">Ziyaretinizi şimdiden planlayın; fuar
           günü doğrudan stantlara gidin.</p>
         <div class="cluster mt-6" style="justify-content:center">
-          <a class="btn btn--light btn--lg" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
-          <a class="btn btn--outline-light btn--lg" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a>
+          <a class="btn btn--light btn--lg" href="ziyaretci-kaydi.html">Ziyaretçi Kayıt</a>
+          <a class="btn btn--outline-light btn--lg" href="ziyaret-bilgileri.html">Fuar Bilgileri</a>
         </div>
       </div>
     </section>
@@ -512,7 +476,7 @@
           <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
         </span>
         <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü İstanbul'da tanıtan iş dünyası buluşması.</p>
-        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
+        <p class="site-footer__slogan" data-ayar="slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
@@ -520,7 +484,7 @@
         <ul class="site-footer__list">
           <li><a href="index.html">Ana Sayfa</a></li>
           <li><a href="hakkinda.html">Hakkında</a></li>
-          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="katilimcilar.html">Katılımcı Firmalar</a></li>
           <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
@@ -528,9 +492,9 @@
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
-          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
-          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="ziyaret-bilgileri.html">Fuar Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Kayıt</a></li>
+          <li><a href="stant-basvurusu.html">Firma Kayıt</a></li>
           <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
@@ -538,16 +502,18 @@
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
-          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
+          <p>Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828" data-ayar-telefon>0541 662 28 28</a></p>
+          <p data-ayar-eposta hidden></p>
+          <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
     <div class="container site-footer__partners">
-      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
     </div>
 
     <div class="container site-footer__bottom">
@@ -566,10 +532,6 @@
       <p>Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya reklam çerezi yoktur. Ayrıntı için <a href="cerez-politikasi.html">Çerez Politikası</a>.</p>
       <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Anladım</button>
     </div>
-  </div>
-  </div>
-  </div>
-  </div>
   </div>
 </body>
 </html>

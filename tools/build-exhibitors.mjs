@@ -67,11 +67,8 @@ const sectorsById = Object.fromEntries(db.sectors.map((s) => [s.id, s]));
 function card(ex, lang, depth) {
   const sector = sectorsById[ex.sector] || { name_tr: 'Diğer', name_en: 'Other' };
   const sectorName = lang === 'tr' ? sector.name_tr : sector.name_en;
-  const stands = ex.stands.map((s) => `<span class="badge">${esc(s)}</span>`).join('');
 
-  /* Logo varsa logo, yoksa baş harflerden monogram.
-     Logolar henüz toplanmadı (docs/acik-sorular.md #20); alan dolduğunda
-     bu script yeniden çalıştırılınca kartlar otomatik logoya geçer. */
+  /* Logo varsa logo, yoksa baş harflerden monogram. */
   let gorsel;
   if (ex.logo) {
     gorsel = `<div class="exhibitor__logo"><img src="${depth}${esc(ex.logo)}" alt="${esc(ex.name)}" loading="lazy" decoding="async"></div>`;
@@ -85,17 +82,14 @@ function card(ex, lang, depth) {
   return `        <article class="card exhibitor" data-ex
                  data-search="${esc(search)}"
                  data-sector="${esc(ex.sector)}"
-                 data-hall="${esc(ex.hall)}"
+                 data-sector-name="${esc(fold(sectorName))}"
                  data-name="${esc(fold(ex.name))}"
                  data-stand="${esc(standKey(ex.stands[0]))}"${featured}>
           ${gorsel}
           <div class="card__body">
             <h3 class="card__title">${esc(ex.name)}</h3>
             <p class="card__text">${esc(sectorName)}</p>
-            <div class="exhibitor__stands">
-              <span class="hall-badge" title="${lang === 'tr' ? 'Salon' : 'Hall'} ${esc(ex.hall)}">${esc(ex.hall)}</span>
-              ${stands}
-            </div>
+            <p class="exhibitor__stand">${lang === 'tr' ? 'Stand No' : 'Stand No'}: <strong>${esc(ex.stands.join(', '))}</strong></p>
           </div>
         </article>`;
 }
@@ -126,10 +120,9 @@ const targets = [
   { file: 'en/exhibitors.html', lang: 'en', depth: '../' },
 ];
 
-/* Varsayilan sira: salon, sonra stant numarasi */
-const sorted = [...db.exhibitors].sort((a, b) =>
-  standKey(a.stands[0]).localeCompare(standKey(b.stands[0]))
-);
+/* Varsayilan sira: firma adina gore alfabetik (Turkce) */
+const sorted = db.exhibitors.filter((e) => e.published !== false)
+  .sort((a, b) => a.name.localeCompare(b.name, 'tr'));
 
 for (const t of targets) {
   const path = join(ROOT, t.file);

@@ -13,13 +13,11 @@
 export const PAGES = {
   index: {
     tr: { file: 'index.html', nav: 'Ana Sayfa', title: 'Giresun EXPO 2026 — Giresun İş Dünyası İstanbul\'da Buluşuyor',
-          desc: 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul Yenikapı\'da düzenleniyor. 86 katılımcı firma, üretim, yatırım, ticaret ve iş birliği tek çatı altında.',
-          ogDesc: '8–11 Ekim 2026, İstanbul Yenikapı. 86 katılımcı firma, 5 salon, 4 gün.',
-          scripts: ['config.js'], modules: ['form-gonder.js'] },
+          desc: 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul\'da Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Üretim, yatırım, ticaret ve iş birliği tek çatı altında.',
+          ogDesc: '8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, İstanbul.' },
     en: { file: 'index.html', nav: 'Home', title: 'Giresun EXPO 2026 — Giresun\'s Business Community Meets in Istanbul',
-          desc: 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at Yenikapı, Istanbul. 86 exhibiting companies across production, investment, trade and cooperation.',
-          ogDesc: '8–11 October 2026, Yenikapı, Istanbul. 86 companies, 5 halls, 4 days.',
-          scripts: ['config.js'], modules: ['form-gonder.js'] },
+          desc: 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Production, investment, trade and cooperation.',
+          ogDesc: '8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul.' },
   },
   about: {
     tr: { file: 'hakkinda.html', nav: 'Hakkında', title: 'Fuar Hakkında — Giresun EXPO 2026',
@@ -28,17 +26,17 @@ export const PAGES = {
           desc: 'The purpose, vision and organisers of Giresun EXPO 2026, held jointly by the Giresun Foundation, the Giresun Federation and ŞEBİNSİAD.' },
   },
   exhibitors: {
-    tr: { file: 'katilimcilar.html', nav: 'Katılımcılar', title: 'Katılımcılar — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026\'da yer alan 86 katılımcı firma. Sektöre ve salona göre filtreleyin, stant numaralarını görün.',
-          ogDesc: '86 katılımcı firma, 5 salon, 17 sektör.', scripts: ['katilimcilar.js'] },
+    tr: { file: 'katilimcilar.html', nav: 'Katılımcı Firmalar', title: 'Katılımcı Firmalar — Giresun EXPO 2026',
+          desc: 'Giresun EXPO 2026\'da yer alan katılımcı firmalar. Firma arayın, sektöre göre filtreleyin, stand numaralarını görün.',
+          ogDesc: 'Giresun EXPO 2026 katılımcı firmaları ve stand numaraları.', modules: ['katilimcilar.js'] },
     en: { file: 'exhibitors.html', nav: 'Exhibitors', title: 'Exhibitors — Giresun EXPO 2026',
-          desc: 'The 86 companies exhibiting at Giresun EXPO 2026. Filter by sector and hall, and find stand numbers.',
-          ogDesc: '86 exhibiting companies, 5 halls, 17 sectors.', scripts: ['katilimcilar.js'] },
+          desc: 'The companies exhibiting at Giresun EXPO 2026. Search, filter by sector and find stand numbers.',
+          ogDesc: 'Giresun EXPO 2026 exhibitors and stand numbers.', modules: ['katilimcilar.js'] },
   },
   visit: {
-    tr: { file: 'ziyaret-bilgileri.html', nav: 'Ziyaret Bilgileri', title: 'Ziyaret Bilgileri — Giresun EXPO 2026',
+    tr: { file: 'ziyaret-bilgileri.html', nav: 'Fuar Bilgileri', title: 'Fuar Bilgileri — Giresun EXPO 2026',
           desc: 'Giresun EXPO 2026 ziyaret saatleri, adres ve ulaşım. Yenikapı\'ya Marmaray, M1A, M1B, M2 metro hatları ve İETT otobüsleriyle ulaşım.' },
-    en: { file: 'plan-your-visit.html', nav: 'Plan Your Visit', title: 'Plan Your Visit — Giresun EXPO 2026',
+    en: { file: 'plan-your-visit.html', nav: 'Fair Information', title: 'Fair Information — Giresun EXPO 2026',
           desc: 'Opening hours, address and travel information for Giresun EXPO 2026. Yenikapı is served by the Marmaray and the M1A, M1B and M2 metro lines.' },
   },
   gallery: {
@@ -62,20 +60,20 @@ export const PAGES = {
           scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   register: {
-    tr: { file: 'ziyaretci-kaydi.html', nav: 'Ziyaretçi Ön Kaydı', title: 'Ziyaretçi Ön Kaydı — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 için ziyaretçi ön kaydı. Kaydınızı yapın, fuar günü doğrudan stantlara gidin.',
+    tr: { file: 'ziyaretci-kaydi.html', nav: 'Ziyaretçi Kayıt', title: 'Ziyaretçi Kayıt — Giresun EXPO 2026',
+          desc: 'Giresun EXPO 2026 için ziyaretçi kaydı. Kaydınızı yapın, fuar günü doğrudan stantlara gidin.',
           scripts: ['config.js'], modules: ['form-gonder.js'] },
-    en: { file: 'visitor-registration.html', nav: 'Visitor Pre-registration', title: 'Visitor Pre-registration — Giresun EXPO 2026',
-          desc: 'Pre-register as a visitor for Giresun EXPO 2026 and head straight to the stands on the day.',
+    en: { file: 'visitor-registration.html', nav: 'Visitor Registration', title: 'Visitor Registration — Giresun EXPO 2026',
+          desc: 'Register as a visitor for Giresun EXPO 2026 and head straight to the stands on the day.',
           scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   stand: {
-    tr: { file: 'stant-basvurusu.html', nav: 'Stant Başvurusu', title: 'Stant Başvurusu — Giresun EXPO 2027',
-          desc: 'Giresun EXPO 2027 için stant ön başvurusu. Firma bilgilerinizi bırakın, satış ekibimiz sizinle iletişime geçsin.',
-          scripts: ['config.js', 'form-adimlar.js'], modules: ['form-gonder.js'] },
-    en: { file: 'stand-application.html', nav: 'Stand Application', title: 'Stand Application — Giresun EXPO 2027',
-          desc: 'Pre-apply for a stand at Giresun EXPO 2027. Leave your company details and our team will get in touch.',
-          scripts: ['config.js', 'form-adimlar.js'], modules: ['form-gonder.js'] },
+    tr: { file: 'stant-basvurusu.html', nav: 'Firma Kayıt', title: 'Firma Kayıt — Giresun EXPO',
+          desc: 'Giresun EXPO katılımcı başvuru formu. Firma bilgilerinizi ve stand alanı tercihinizi bırakın, ekibimiz sizinle iletişime geçsin.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
+    en: { file: 'stand-application.html', nav: 'Company Registration', title: 'Company Registration — Giresun EXPO',
+          desc: 'Giresun EXPO exhibitor application form. Leave your company details and stand size preference and our team will get in touch.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   program: {
     tr: { file: 'program.html', nav: 'Program', title: 'Etkinlik Programı — Giresun EXPO 2026',
@@ -174,19 +172,19 @@ MAIN['index:en'] = `    <section class="hero">
       <div class="container">
         <div class="hero__inner">
           <p class="hero__logo">
-            <img src="../assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026, 8–11 October 2026" width="1207" height="703">
+            <img src="../assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO, 8–11 October 2026" width="1207" height="703">
           </p>
-          <h1>Giresun's Business Community Meets in Istanbul</h1>
-          <p class="hero__slogan">Cooperation for Giresun, Strength for Türkiye</p>
+          <h1 data-ayar="manset">Giresun's Business Community Meets in Istanbul</h1>
+          <p class="hero__slogan" data-ayar="slogan">Cooperation for Giresun, Strength for Türkiye</p>
 
           <div class="hero__meta">
-            <span class="hero__meta-item">${I.calendar} 8–11 October 2026</span>
-            <span class="hero__meta-item">${I.pin} Yenikapı Event Area, Istanbul</span>
+            <span class="hero__meta-item">${I.calendar} <span data-ayar="tarih">8–11 October 2026</span></span>
+            <span class="hero__meta-item">${I.pin} <span data-ayar="mekan_ad">Dr. Mimar Kadir Topbaş Arts and Performance Centre</span></span>
           </div>
 
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="plan-your-visit.html">Plan Your Visit</a>
-            <a class="btn btn--secondary btn--lg" href="exhibitors.html">Explore Exhibitors</a>
+            <a class="btn btn--primary btn--lg" href="plan-your-visit.html">Fair Information</a>
+            <a class="btn btn--secondary btn--lg" href="exhibitors.html">Exhibitors</a>
           </div>
         </div>
       </div>
@@ -196,12 +194,12 @@ MAIN['index:en'] = `    <section class="hero">
              data-start="2026-10-08T10:00:00+03:00"
              data-end="2026-10-11T18:00:00+03:00"
              data-text-before="Time until the fair"
-             data-text-during="The fair is open — 8–11 October 2026, Yenikapı"
-             data-text-after="Thank you for Giresun EXPO 2026. See you in 2027."
+             data-text-during="The fair is open — 8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre"
+             data-text-after="Thank you for Giresun EXPO. See you in 2027."
              data-label-gun="Days" data-label-saat="Hours" data-label-dakika="Minutes" data-label-saniye="Seconds"
              aria-label="Time until the fair">
       <div class="container countdown__inner" data-countdown-body>
-        <p class="countdown__status">8–11 October 2026 · Yenikapı Event Area, Istanbul</p>
+        <p class="countdown__status">8–11 October 2026 · Dr. Mimar Kadir Topbaş Arts and Performance Centre</p>
       </div>
     </section>
 
@@ -209,7 +207,7 @@ MAIN['index:en'] = `    <section class="hero">
       <div class="container">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Giresun EXPO</p>
-          <h2 class="section-title">Built on four pillars</h2>
+          <h2 class="section-title">End to End</h2>
           <p class="section-subtitle">The fair brings Giresun's economic strength together under four themes.</p>
         </div>
 
@@ -243,8 +241,8 @@ MAIN['index:en'] = `    <section class="hero">
         <div class="split">
           <div class="reveal">
             <p class="eyebrow">About the fair</p>
-            <h2 class="section-title">What is Giresun EXPO 2026?</h2>
-            <p>Giresun EXPO 2026 is a comprehensive business gathering that sets out to present
+            <h2 class="section-title">What is Giresun EXPO?</h2>
+            <p>Giresun EXPO is a comprehensive business gathering that sets out to present
               Giresun's economic, commercial and entrepreneurial potential on a national and
               international scale.</p>
             <p>By bringing investors, producers and entrepreneurs together, it aims to help new
@@ -265,13 +263,13 @@ MAIN['index:en'] = `    <section class="hero">
     <section class="section section--tight">
       <div class="container">
         <div class="section-head section-head--center reveal">
-          <h2 class="section-title">The fair in numbers</h2>
+          <h2 class="section-title">Giresun EXPO in Numbers</h2>
         </div>
-        <div class="grid grid--4 reveal">
-          <div class="stat"><span class="stat__num">86</span><span class="stat__label">Exhibiting companies</span></div>
+        <div class="grid grid--4 reveal" data-istatistikler>
+          <div class="stat"><span class="stat__num" data-sayi="firma">86</span><span class="stat__label">Exhibiting companies</span></div>
           <div class="stat"><span class="stat__num">4</span><span class="stat__label">Days</span></div>
           <div class="stat"><span class="stat__num">3</span><span class="stat__label">Partner institutions</span></div>
-          <div class="stat"><span class="stat__num">5</span><span class="stat__label">Halls</span></div>
+          <div class="stat"><span class="stat__num" data-sayi="stand">100</span><span class="stat__label">Stands</span></div>
         </div>
       </div>
     </section>
@@ -281,13 +279,11 @@ MAIN['index:en'] = `    <section class="hero">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Organisation</p>
           <h2 class="section-title">Our partners</h2>
-          <p class="section-subtitle">Giresun EXPO is delivered jointly by three civil society
-            organisations from Giresun.</p>
         </div>
         <div class="grid grid--3 reveal">
-          <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="Şebinkarahisar Association of Industrialists and Businesspeople" width="320" height="120" loading="lazy"></div>
+          <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
         </div>
       </div>
     </section>
@@ -296,47 +292,48 @@ MAIN['index:en'] = `    <section class="hero">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Exhibitors</p>
-          <h2 class="section-title">86 companies, five halls</h2>
-          <p class="section-subtitle">Companies from 17 sectors — from food to metal, tourism to
-            healthcare — are exhibiting at Yenikapı.</p>
+          <h2 class="section-title"><span data-sayi="firma">86</span> companies, <span data-sayi="stand">100</span> stands</h2>
         </div>
 
-        <div class="grid grid--4 reveal">
+        <div class="grid grid--4 reveal" data-one-cikan>
           <article class="card exhibitor">
-            <div class="monogram">İM</div>
+            <div class="exhibitor__logo"><img src="../assets/img/exhibitors/izya-ic-mimarlik.png" alt="İzya İç Mimarlık" loading="lazy" decoding="async"></div>
             <div class="card__body">
               <h3 class="card__title">İzya İç Mimarlık</h3>
               <p class="card__text">Furniture &amp; Interior Design</p>
-              <div class="exhibitor__stands"><span class="hall-badge">A</span><span class="badge">A3-10</span><span class="badge">A3-12</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>A3-10, A3-12</strong></p>
             </div>
           </article>
+
           <article class="card exhibitor">
-            <div class="monogram monogram--navy">MS</div>
+            <div class="exhibitor__logo"><img src="../assets/img/exhibitors/meksan-savunma-metal-sac-sanayi.png" alt="Meksan Savunma Metal Sac Sanayi" loading="lazy" decoding="async"></div>
             <div class="card__body">
-              <h3 class="card__title">Meksan Savunma</h3>
+              <h3 class="card__title">Meksan Savunma Metal Sac Sanayi</h3>
               <p class="card__text">Metal, Machinery &amp; Industry</p>
-              <div class="exhibitor__stands"><span class="hall-badge">T</span><span class="badge">T1-10</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>T1-10</strong></p>
             </div>
           </article>
+
           <article class="card exhibitor">
-            <div class="monogram">TO</div>
+            <div class="exhibitor__logo"><img src="../assets/img/exhibitors/titanic-otel.png" alt="Titanic Otel" loading="lazy" decoding="async"></div>
             <div class="card__body">
               <h3 class="card__title">Titanic Otel</h3>
               <p class="card__text">Tourism &amp; Hospitality</p>
-              <div class="exhibitor__stands"><span class="hall-badge">T</span><span class="badge">T2-07</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>T2-07</strong></p>
             </div>
           </article>
+
           <article class="card exhibitor">
-            <div class="monogram monogram--navy">BS</div>
+            <div class="exhibitor__logo"><img src="../assets/img/exhibitors/bahat-saglik-grubu.png" alt="Bahat Sağlık Grubu" loading="lazy" decoding="async"></div>
             <div class="card__body">
               <h3 class="card__title">Bahat Sağlık Grubu</h3>
               <p class="card__text">Healthcare</p>
-              <div class="exhibitor__stands"><span class="hall-badge">T</span><span class="badge">T2-13</span></div>
+              <p class="exhibitor__stand">Stand No: <strong>T2-13</strong></p>
             </div>
           </article>
         </div>
 
-        <p class="mt-8"><a class="btn btn--primary" href="exhibitors.html">See all exhibitors</a></p>
+        <p class="mt-8"><a class="btn btn--secondary" href="exhibitors.html">Exhibitors</a></p>
       </div>
     </section>
 
@@ -349,8 +346,8 @@ MAIN['index:en'] = `    <section class="hero">
             <p class="section-subtitle mb-6">The fair is open to visitors for four days.</p>
 
             <div class="scroll-x">
-              <table class="hours">
-                <caption class="visually-hidden">Daily opening hours for Giresun EXPO 2026</caption>
+              <table class="hours" data-ayar-saatler>
+                <caption class="visually-hidden">Daily opening hours for Giresun EXPO</caption>
                 <thead><tr><th scope="col">Day</th><th scope="col">Date</th><th scope="col">Hours</th></tr></thead>
                 <tbody>
                   <tr><th scope="row">Thursday</th><td>8 October 2026</td><td>10:00 – 19:00</td></tr>
@@ -361,7 +358,7 @@ MAIN['index:en'] = `    <section class="hero">
               </table>
             </div>
 
-            <p class="mt-6"><a class="btn btn--secondary" href="plan-your-visit.html">Travel and visit information</a></p>
+            <p class="mt-6"><a class="btn btn--secondary" href="plan-your-visit.html">Fair Information</a></p>
           </div>
 
           <figure class="media media--4x3 reveal">
@@ -378,7 +375,7 @@ MAIN['index:en'] = `    <section class="hero">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Location</p>
-          <h2 class="section-title">At Yenikapı, in the centre of the city</h2>
+          <h2 class="section-title">In the centre of the city</h2>
           <p class="section-subtitle">Yenikapı is an interchange where the Marmaray line meets
             the M1A, M1B and M2 metro lines.</p>
         </div>
@@ -406,15 +403,8 @@ MAIN['index:en'] = `    <section class="hero">
           </figure>
         </div>
 
-        <div class="map mt-8 reveal" id="map"
-             data-query="Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul"
-             data-title="Map showing the location of the venue">
-          <div class="map__prompt">
-            ${I.pin.replace('class="icon"', 'class="icon icon--xl"')}
-            <p class="map__text">The map is loaded from Google Maps. Clicking will open a
-              connection to Google.</p>
-            <button class="btn btn--secondary" type="button" data-map-load>Load map</button>
-          </div>
+        <div class="map map--embed mt-8 reveal" id="map">
+          <iframe src="https://maps.google.com/maps?q=Dr.%20Mimar%20Kadir%20Topba%C5%9F%20G%C3%B6steri%20ve%20Sanat%20Merkezi%2C%20Yenikap%C4%B1%2C%20Fatih%2C%20%C4%B0stanbul&amp;output=embed" title="Map showing the location of the venue" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -426,10 +416,10 @@ MAIN['index:en'] = `    <section class="hero">
           <h2 class="section-title">Common questions</h2>
         </div>
 
-        <div class="accordion reveal">
+        <div class="accordion accordion--wide reveal" data-sss>
           <div class="accordion__item">
             <h3><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="faq-1">
-              When and where is Giresun EXPO 2026 held?
+              When and where is Giresun EXPO held?
               ${icon('<path d="m6 9 6 6 6-6"/>').replace('class="icon"', 'class="accordion__icon"')}
             </button></h3>
             <div class="accordion__panel" id="faq-1" hidden>
@@ -474,59 +464,32 @@ MAIN['index:en'] = `    <section class="hero">
               ${icon('<path d="m6 9 6 6 6-6"/>').replace('class="icon"', 'class="accordion__icon"')}
             </button></h3>
             <div class="accordion__panel" id="faq-5" hidden>
-              <p>86 exhibiting companies have stands across five halls. The fair brings together
+              <p>Exhibiting companies have stands at the venue. The fair brings together
                 public institutions, the private sector, investors, producers, industrialists,
                 entrepreneurs, universities, cooperatives and civil society organisations.</p>
             </div>
           </div>
           <div class="accordion__item">
             <h3><button class="accordion__btn" type="button" aria-expanded="false" aria-controls="faq-6">
-              Has the programme been announced?
+              Is admission free?
               ${icon('<path d="m6 9 6 6 6-6"/>').replace('class="icon"', 'class="accordion__icon"')}
             </button></h3>
             <div class="accordion__panel" id="faq-6" hidden>
-              <p>The programme of panels, presentations and sessions has not been announced yet.
-                It will be published on this site once available.</p>
+              <p>Yes. Admission to Giresun EXPO is free of charge; all visitors are welcome.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container container--narrow text-center">
-        <p class="eyebrow">Newsletter</p>
-        <h2 class="section-title section-title--plain">Keep up with fair news</h2>
-        <p class="section-subtitle" style="margin-inline:auto">Leave your e-mail and we will
-          let you know about programme announcements and visitor information.</p>
-
-        <form class="form newsletter mt-6" data-form="newsletter" novalidate>
-          <div class="newsletter__row">
-            <div class="form__group">
-              <label class="form__label visually-hidden" for="nl-mail">E-mail</label>
-              <input class="form__control" id="nl-mail" name="email" type="email" required
-                     placeholder="you@example.com" autocomplete="email" maxlength="160">
-            </div>
-            <button class="btn btn--primary" type="submit">Subscribe</button>
-          </div>
-          <div class="hp-field" aria-hidden="true">
-            <label for="hp-website">Leave this field empty</label>
-            <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
-          </div>
-          <p class="form__hint">We only use your address for fair announcements. See the
-            <a href="data-protection.html">Data Protection Notice</a>.</p>
-        </form>
-      </div>
-    </section>
-
     <section class="section section--brand on-dark">
       <div class="container text-center">
-        <h2 class="section-title">See you at Giresun EXPO 2026</h2>
+        <h2 class="section-title section-title--plain">See you at Giresun EXPO</h2>
         <p class="lead" style="margin-inline:auto">Plan your visit now and head straight to the
           stands on the day.</p>
         <div class="cluster mt-6" style="justify-content:center">
-          <a class="btn btn--light btn--lg" href="visitor-registration.html">Visitor Pre-registration</a>
-          <a class="btn btn--outline-light btn--lg" href="plan-your-visit.html">Plan Your Visit</a>
+          <a class="btn btn--light btn--lg" href="visitor-registration.html">Visitor Registration</a>
+          <a class="btn btn--outline-light btn--lg" href="plan-your-visit.html">Fair Information</a>
         </div>
       </div>
     </section>`;
@@ -535,7 +498,7 @@ MAIN['index:en'] = `    <section class="hero">
 MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Giresun\'un ekonomik ve ticari potansiyelini İstanbul\'da tanıtan bir iş dünyası buluşmasıdır.', 'Hakkında')}
 
     <section class="section">
-      <div class="container container--narrow">
+      <div class="container wide-text">
         <div class="reveal">
           <p class="eyebrow">Amaç</p>
           <h2 class="section-title">Giresun EXPO 2026 nedir?</h2>
@@ -556,6 +519,12 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
             sanayicileri, girişimcileri, üniversiteleri, kooperatifleri ve sivil toplum
             kuruluşlarını aynı çatı altında buluşturacaktır. Organizasyon, yeni iş birlikleri
             ve ticari bağlantılar için güçlü bir zemin oluşturacaktır.</p>
+
+          <h2 class="section-title mt-8">Gelecek hedefi</h2>
+          <p>Giresun EXPO'nun hedefi, Giresun'u ticaret ve yatırım alanında uluslararası
+            ölçekte tanınan bir merkez hâline getirmektir. Her yıl gelişen yapısıyla
+            organizasyonun, Karadeniz'in üretim gücünü Türkiye'ye ve dünyaya tanıtan prestijli
+            bir marka olması hedeflenmektedir.</p>
         </div>
       </div>
     </section>
@@ -567,8 +536,8 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
             <p class="eyebrow">Vizyon</p>
             <h2 class="section-title">Her yıl büyüyen bir marka</h2>
             <p>Giresun EXPO, tek seferlik bir fuar değil; her yıl büyüyen, uluslararası
-              katılımı artıran ve Karadeniz'in önemli ticaret organizasyonlarından biri olmayı
-              hedefleyen sürdürülebilir bir markadır.</p>
+              katılımını artıran ve önemli ticaret organizasyonlarından biri olmayı hedefleyen
+              sürdürülebilir bir markadır.</p>
             <ul class="list-check mt-6">
               <li>${I.pin}<span>Yatırım fırsatlarını öne çıkarmak</span></li>
               <li>${I.pin}<span>Yeni ticaret ağları oluşturmak</span></li>
@@ -581,7 +550,7 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
           <figure class="media media--4x3 reveal">
             <picture>
               <source srcset="assets/img/photos/uretim-sanayi.webp" type="image/webp">
-              <img src="assets/img/photos/uretim-sanayi.jpg" alt="Robotik üretim hattı" width="783" height="457" loading="lazy" decoding="async">
+              <img src="assets/img/photos/uretim-sanayi.jpg" alt="Modern bir üretim tesisi" width="783" height="457" loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
@@ -590,42 +559,23 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
 
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Hedef</p>
-          <h2 class="section-title">Gelecek hedefi</h2>
-          <p class="section-subtitle">Giresun EXPO'nun hedefi, Giresun'u ticaret ve yatırım
-            alanında uluslararası ölçekte tanınan bir merkez hâline getirmektir. Her yıl
-            gelişen yapısıyla organizasyonun, Karadeniz'in üretim gücünü Türkiye'ye ve dünyaya
-            tanıtan prestijli bir marka olması hedeflenmektedir.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Organizasyon</p>
           <h2 class="section-title">Paydaşlarımız</h2>
-          <p class="section-subtitle">Organizasyon, Giresun'un üç güçlü sivil toplum
-            kuruluşunun ortaklığıyla hayata geçirilmektedir. Bu iş birliği, Giresun'un ortak
-            hedefler doğrultusunda hareket etme iradesini ortaya koymaktadır.</p>
         </div>
 
         <div class="grid grid--3 reveal">
           <div class="partner-card">
-            <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Vakfı</h3>
-            <p class="partner-card__desc">Kalkınma, Eğitim, Kültür, Spor ve Tanıtım</p>
-          </div>
-          <div class="partner-card">
             <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">Giresun Federasyonu</h3>
-            <p class="partner-card__desc">&nbsp;</p>
           </div>
           <div class="partner-card">
             <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">ŞEBİNSİAD</h3>
-            <p class="partner-card__desc">Şebinkarahisar Sanayici ve İş İnsanları Derneği</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Vakfı</h3>
           </div>
         </div>
       </div>
@@ -633,11 +583,11 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
 
     <section class="section section--brand on-dark">
       <div class="container text-center">
-        <h2 class="section-title">Giresun EXPO 2026'da buluşalım</h2>
-        <p class="lead" style="margin-inline:auto">8–11 Ekim 2026, İstanbul Yenikapı.</p>
+        <h2 class="section-title section-title--plain">Giresun EXPO'da buluşalım</h2>
+        <p class="lead" style="margin-inline:auto">8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, İstanbul.</p>
         <div class="cluster mt-6" style="justify-content:center">
-          <a class="btn btn--light btn--lg" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a>
-          <a class="btn btn--outline-light btn--lg" href="katilimcilar.html">Katılımcılar</a>
+          <a class="btn btn--light btn--lg" href="ziyaret-bilgileri.html">Fuar Bilgileri</a>
+          <a class="btn btn--outline-light btn--lg" href="katilimcilar.html">Katılımcı Firmalar</a>
         </div>
       </div>
     </section>`;
@@ -645,7 +595,7 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
 MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a business gathering that presents Giresun\'s economic and commercial potential in Istanbul.', 'About')}
 
     <section class="section">
-      <div class="container container--narrow">
+      <div class="container wide-text">
         <div class="reveal">
           <p class="eyebrow">Purpose</p>
           <h2 class="section-title">What is Giresun EXPO 2026?</h2>
@@ -666,6 +616,12 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a
             industrialists, entrepreneurs, universities, cooperatives and civil society
             organisations under one roof, creating solid ground for new partnerships and
             commercial connections.</p>
+
+          <h2 class="section-title mt-8">Looking ahead</h2>
+          <p>The goal of Giresun EXPO is to establish Giresun as a centre recognised
+            internationally for trade and investment. With a structure that develops each year,
+            the organisation aims to become a respected brand that presents the production
+            capacity of the Black Sea region to Türkiye and the wider world.</p>
         </div>
       </div>
     </section>
@@ -676,9 +632,9 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a
           <div class="reveal">
             <p class="eyebrow">Vision</p>
             <h2 class="section-title">A brand that grows each year</h2>
-            <p>Giresun EXPO is not a one-off fair. It is a sustainable brand intended to grow
-              every year, to increase international participation and to become one of the
-              significant trade organisations of the Black Sea region.</p>
+            <p>Giresun EXPO is not a one-off fair; it is a sustainable brand that grows every
+              year, increases its international participation and aims to become one of the
+              leading trade organisations.</p>
             <ul class="list-check mt-6">
               <li>${I.pin}<span>Highlighting investment opportunities</span></li>
               <li>${I.pin}<span>Building new trade networks</span></li>
@@ -691,7 +647,7 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a
           <figure class="media media--4x3 reveal">
             <picture>
               <source srcset="../assets/img/photos/uretim-sanayi.webp" type="image/webp">
-              <img src="../assets/img/photos/uretim-sanayi.jpg" alt="Robotic production line" width="783" height="457" loading="lazy" decoding="async">
+              <img src="../assets/img/photos/uretim-sanayi.jpg" alt="A modern production facility" width="783" height="457" loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
@@ -700,42 +656,23 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a
 
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Goal</p>
-          <h2 class="section-title">Looking ahead</h2>
-          <p class="section-subtitle">The goal of Giresun EXPO is to establish Giresun as a
-            centre recognised internationally for trade and investment. With a structure that
-            develops each year, the organisation aims to become a respected brand that presents
-            the production capacity of the Black Sea region to Türkiye and the wider world.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
         <div class="section-head section-head--center reveal">
           <p class="eyebrow">Organisation</p>
           <h2 class="section-title">Our partners</h2>
-          <p class="section-subtitle">The event is delivered jointly by three civil society
-            organisations from Giresun. This partnership reflects a shared commitment to acting
-            towards common goals.</p>
         </div>
 
         <div class="grid grid--3 reveal">
           <div class="partner-card">
-            <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
-            <h3 class="partner-card__name">Giresun Foundation</h3>
-            <p class="partner-card__desc">Development, Education, Culture, Sport and Promotion</p>
-          </div>
-          <div class="partner-card">
             <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">Giresun Federation</h3>
-            <p class="partner-card__desc">&nbsp;</p>
           </div>
           <div class="partner-card">
             <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">ŞEBİNSİAD</h3>
-            <p class="partner-card__desc">Şebinkarahisar Association of Industrialists and Businesspeople</p>
+          </div>
+          <div class="partner-card">
+            <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
+            <h3 class="partner-card__name">Giresun Foundation</h3>
           </div>
         </div>
       </div>
@@ -743,10 +680,10 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a
 
     <section class="section section--brand on-dark">
       <div class="container text-center">
-        <h2 class="section-title">Join us at Giresun EXPO 2026</h2>
-        <p class="lead" style="margin-inline:auto">8–11 October 2026, Yenikapı, Istanbul.</p>
+        <h2 class="section-title section-title--plain">Join us at Giresun EXPO</h2>
+        <p class="lead" style="margin-inline:auto">8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul.</p>
         <div class="cluster mt-6" style="justify-content:center">
-          <a class="btn btn--light btn--lg" href="plan-your-visit.html">Plan Your Visit</a>
+          <a class="btn btn--light btn--lg" href="plan-your-visit.html">Fair Information</a>
           <a class="btn btn--outline-light btn--lg" href="exhibitors.html">Exhibitors</a>
         </div>
       </div>
@@ -803,36 +740,36 @@ MAIN['program:en'] = `${pageHeader('en', 'Programme', 'The programme of panels, 
     </section>`;
 
 /* ---------- Galeri ------------------------------------------------------ */
-MAIN['gallery:tr'] = `${pageHeader('tr', 'Galeri', 'Fuar alanından ve Giresun\'dan kareler.', 'Galeri')}
+MAIN['gallery:tr'] = `${pageHeader('tr', 'Galeri', 'Çeşitli ziyaretler ve fuar alanından görseller.', 'Galeri')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container">
         <div class="gallery reveal">
 ${galleryItems('tr', '')}
         </div>
-        <p class="text-muted mt-8" style="font-size:.875rem">
+        <p class="text-muted mt-6" style="font-size:.875rem">
           Fuar sırasında çekilecek fotoğraflar etkinlik sonrasında bu sayfaya eklenecektir.
         </p>
       </div>
     </section>`;
 
-MAIN['gallery:en'] = `${pageHeader('en', 'Gallery', 'Images from the fairground and from Giresun.', 'Gallery')}
+MAIN['gallery:en'] = `${pageHeader('en', 'Gallery', 'Images from various visits and the fairground.', 'Gallery')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container">
         <div class="gallery reveal">
 ${galleryItems('en', '../')}
         </div>
-        <p class="text-muted mt-8" style="font-size:.875rem">
+        <p class="text-muted mt-6" style="font-size:.875rem">
           Photographs taken during the fair will be added to this page afterwards.
         </p>
       </div>
     </section>`;
 
 /* ---------- Basin ------------------------------------------------------- */
-MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO 2026 hakkında haber yapacak basın mensupları için kaynaklar.', 'Basın')}
+MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO hakkında basın mensupları için kaynaklar.', 'Basın')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Basın kiti</p>
@@ -873,7 +810,7 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO 2026 hakkında ha
       </div>
     </section>
 
-    <section class="section section--alt">
+    <section class="section section--alt section--compact">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Künye</p>
@@ -883,10 +820,10 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO 2026 hakkında ha
           <table class="hours">
             <caption class="visually-hidden">Giresun EXPO 2026 künye bilgileri</caption>
             <tbody>
-              <tr><th scope="row">Etkinlik</th><td colspan="2">Giresun EXPO 2026</td></tr>
-              <tr><th scope="row">Tarih</th><td colspan="2">8–11 Ekim 2026</td></tr>
+              <tr><th scope="row">Etkinlik</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO 2026</td></tr>
+              <tr><th scope="row">Tarih</th><td colspan="2" data-ayar="tarih">8–11 Ekim 2026</td></tr>
               <tr><th scope="row">Yer</th><td colspan="2">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı Etkinlik Alanı, İstanbul</td></tr>
-              <tr><th scope="row">Katılımcı</th><td colspan="2">86 firma, 5 salon</td></tr>
+              <tr><th scope="row">Katılımcı</th><td colspan="2"><span data-sayi="firma">86</span> firma, <span data-sayi="stand">100</span> stand</td></tr>
               <tr><th scope="row">Organizasyon</th><td colspan="2">Giresun Vakfı, Giresun Federasyonu, ŞEBİNSİAD</td></tr>
               <tr><th scope="row">Slogan</th><td colspan="2">Giresun İçin İş Birliği, Türkiye İçin Güç Birliği</td></tr>
             </tbody>
@@ -895,8 +832,8 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO 2026 hakkında ha
       </div>
     </section>
 
-    <section class="section">
-      <div class="container container--narrow">
+    <section class="section section--compact">
+      <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">İletişim</p>
           <h2 class="section-title">Basın iletişimi</h2>
@@ -912,9 +849,9 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO 2026 hakkında ha
       </div>
     </section>`;
 
-MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for journalists covering Giresun EXPO 2026.', 'Press')}
+MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for members of the press about Giresun EXPO.', 'Press')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Press kit</p>
@@ -955,7 +892,7 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for journalists cover
       </div>
     </section>
 
-    <section class="section section--alt">
+    <section class="section section--alt section--compact">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Fact sheet</p>
@@ -965,10 +902,10 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for journalists cover
           <table class="hours">
             <caption class="visually-hidden">Giresun EXPO 2026 key details</caption>
             <tbody>
-              <tr><th scope="row">Event</th><td colspan="2">Giresun EXPO 2026</td></tr>
+              <tr><th scope="row">Event</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO 2026</td></tr>
               <tr><th scope="row">Dates</th><td colspan="2">8–11 October 2026</td></tr>
               <tr><th scope="row">Venue</th><td colspan="2">Dr. Mimar Kadir Topbaş Arts and Performance Centre, Yenikapı Event Area, Istanbul</td></tr>
-              <tr><th scope="row">Exhibitors</th><td colspan="2">86 companies, 5 halls</td></tr>
+              <tr><th scope="row">Exhibitors</th><td colspan="2"><span data-sayi="firma">86</span> companies, <span data-sayi="stand">100</span> stands</td></tr>
               <tr><th scope="row">Organisers</th><td colspan="2">Giresun Foundation, Giresun Federation, ŞEBİNSİAD</td></tr>
               <tr><th scope="row">Tagline</th><td colspan="2">Cooperation for Giresun, Strength for Türkiye</td></tr>
             </tbody>
@@ -977,8 +914,8 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for journalists cover
       </div>
     </section>
 
-    <section class="section">
-      <div class="container container--narrow">
+    <section class="section section--compact">
+      <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Contact</p>
           <h2 class="section-title">Press enquiries</h2>
@@ -1020,7 +957,7 @@ const contactBody = (lang, r) => {
        : 'Get in touch with the organising team with any questions.',
     tr ? 'İletişim' : 'Contact')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container">
         <div class="grid grid--3 reveal">
           <article class="card">
@@ -1053,8 +990,8 @@ const contactBody = (lang, r) => {
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container container--narrow">
+    <section class="section section--alt section--compact">
+      <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">${tr ? 'Mesaj' : 'Message'}</p>
           <h2 class="section-title">${tr ? 'Bize yazın' : 'Write to us'}</h2>
@@ -1105,17 +1042,17 @@ MAIN['contact:en'] = contactBody('en', '../');
 /* ---------- Ziyaretci on kaydi ------------------------------------------ */
 const registerBody = (lang) => {
   const tr = lang === 'tr';
-  return `${pageHeader(lang, tr ? 'Ziyaretçi Ön Kaydı' : 'Visitor Pre-registration',
-    tr ? 'Ön kaydınızı bırakın; fuar yaklaştığında ziyaret bilgilerini sizinle paylaşalım.'
-       : 'Leave your details and we will share visit information with you as the fair approaches.',
-    tr ? 'Ziyaretçi Ön Kaydı' : 'Visitor Pre-registration')}
+  return `${pageHeader(lang, tr ? 'Ziyaretçi Kayıt' : 'Visitor Registration',
+    tr ? 'Kaydınızı yapın; fuar yaklaştığında ziyaret bilgilerini sizinle paylaşalım.'
+       : 'Register and we will share visit information with you as the fair approaches.',
+    tr ? 'Ziyaretçi Kayıt' : 'Visitor Registration')}
 
     <section class="section">
       <div class="container container--narrow">
         <div class="reveal">
           <p>${tr
-    ? 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul Yenikapı\'da düzenleniyor. Giriş koşulları organizasyon tarafından ayrıca duyurulacaktır.'
-    : 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at Yenikapı, Istanbul. Entry conditions will be announced separately by the organisers.'}</p>
+    ? 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul\'da, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Giriş ücretsizdir.'
+    : 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Admission is free.'}</p>
         </div>
 
         <form class="form mt-8 reveal" data-form="visitor" novalidate>
@@ -1157,13 +1094,13 @@ ${honeypot(lang)}
           <label class="form__check">
             <input type="checkbox" name="consent" required>
             <span>${tr
-    ? '<a href="kvkk.html">KVKK Aydınlatma Metni</a>\'ni okudum, kişisel verilerimin ön kayıt kapsamında işlenmesini kabul ediyorum.'
-    : 'I have read the <a href="data-protection.html">Data Protection Notice</a> and consent to my personal data being processed for pre-registration.'} <span class="req">*</span></span>
+    ? '<a href="kvkk.html">KVKK Aydınlatma Metni</a>\'ni okudum, kişisel verilerimin ziyaretçi kaydı kapsamında işlenmesini kabul ediyorum.'
+    : 'I have read the <a href="data-protection.html">Data Protection Notice</a> and consent to my personal data being processed for visitor registration.'} <span class="req">*</span></span>
           </label>
 
           <div class="form__actions">
-            <button class="btn btn--primary btn--lg" type="submit">${tr ? 'Ön Kaydı Tamamla' : 'Complete Pre-registration'}</button>
-            <a class="btn btn--ghost" href="${tr ? 'ziyaret-bilgileri.html' : 'plan-your-visit.html'}">${tr ? 'Ziyaret bilgileri' : 'Visit information'}</a>
+            <button class="btn btn--primary btn--lg" type="submit">${tr ? 'Kaydı Tamamla' : 'Complete Registration'}</button>
+            <a class="btn btn--ghost" href="${tr ? 'ziyaret-bilgileri.html' : 'plan-your-visit.html'}">${tr ? 'Fuar Bilgileri' : 'Fair Information'}</a>
           </div>
         </form>
       </div>
@@ -1173,160 +1110,106 @@ ${honeypot(lang)}
 MAIN['register:tr'] = registerBody('tr');
 MAIN['register:en'] = registerBody('en');
 
-/* ---------- Stant basvurusu (cok adimli) -------------------------------- */
+/* ---------- Firma kayit (katilimci basvuru formu) ----------------------
+   giresunexpo.com'daki "Katılımcı Başvuru Formu" ile aynı alanlar; ziyaretçi
+   seçeneği yok (ziyaretçiler Ziyaretçi Kayıt sayfasını kullanır).
+   Stant alanı seçenekleri ve fiyatları admin > Site Ayarları > Stant fiyatları
+   alanından güncellenir (site-veri.js); aşağıdakiler varsayılan değerlerdir.
+   ------------------------------------------------------------------------ */
+const SEKTORLER = [
+  ['Gıda & İçecek', 'Food & Beverage'], ['Yapı & İnşaat', 'Construction & Building'],
+  ['Metal, Makine & Sanayi', 'Metal, Machinery & Industry'], ['Enerji & Elektrik', 'Energy & Electrical'],
+  ['Mobilya & İç Mimari', 'Furniture & Interior Design'], ['Otomotiv & Lojistik', 'Automotive & Logistics'],
+  ['Turizm & Konaklama', 'Tourism & Hospitality'], ['Sağlık', 'Healthcare'],
+  ['Kimya, Boya & Plastik', 'Chemicals, Paints & Plastics'], ['Reklam, Medya & Basım', 'Advertising, Media & Print'],
+  ['Denizcilik & Gemi İnşa', 'Maritime & Shipbuilding'], ['Teknoloji & Bilişim', 'Technology & IT'],
+  ['Tekstil', 'Textiles'], ['Su & Çevre Teknolojileri', 'Water & Environmental Tech'],
+  ['Tarım', 'Agriculture'], ['Hizmet, Finans & Ticaret', 'Services, Finance & Trade'], ['Diğer', 'Other'],
+];
+const STANT_ALANLARI = [
+  { m2: 15, tr: '100.000 TL + KDV', en: 'TRY 100,000 + VAT' },
+  { m2: 25, tr: '150.000 TL + KDV', en: 'TRY 150,000 + VAT' },
+  { m2: 40, tr: '200.000 TL + KDV', en: 'TRY 200,000 + VAT' },
+];
+
 const standBody = (lang) => {
   const tr = lang === 'tr';
-  return `${pageHeader(lang, tr ? 'Katılımcı Olun' : 'Become an Exhibitor',
-    tr ? 'Giresun EXPO 2026 stantları dağıtılmıştır. Aşağıdaki form 2027 ön başvurusu içindir.'
-       : 'Stands for Giresun EXPO 2026 have been allocated. The form below is a pre-application for 2027.',
-    tr ? 'Stant Başvurusu' : 'Stand Application')}
+  const sektor = SEKTORLER.map(([t, e]) =>
+    `                  <option value="${t}">${(tr ? t : e).replace(/&/g, '&amp;')}</option>`).join('\n');
+  const alanlar = STANT_ALANLARI.map((a, i) => `              <label class="stand-opt">
+                <input type="radio" name="area" value="${a.m2}" required${i === 0 ? '' : ''}>
+                <span class="stand-opt__box">
+                  <span class="stand-opt__m2">${a.m2} m²</span>
+                  <span class="stand-opt__price">${tr ? a.tr : a.en}</span>
+                </span>
+              </label>`).join('\n');
 
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">${tr ? 'Neden katılmalı?' : 'Why exhibit?'}</p>
-          <h2 class="section-title">${tr ? 'Giresun EXPO 2027' : 'Giresun EXPO 2027'}</h2>
-        </div>
-        <div class="grid grid--3 reveal">
-          <div class="pillar">
-            <span class="pillar__icon">${I.pin}</span>
-            <h3 class="pillar__title">${tr ? 'Doğru kitle' : 'The right audience'}</h3>
-            <p class="pillar__text">${tr
-    ? 'Kamu kurumları, yatırımcılar, üreticiler ve sanayiciler aynı çatı altında.'
-    : 'Public institutions, investors, producers and industrialists under one roof.'}</p>
-          </div>
-          <div class="pillar">
-            <span class="pillar__icon">${I.calendar}</span>
-            <h3 class="pillar__title">${tr ? 'Dört gün' : 'Four days'}</h3>
-            <p class="pillar__text">${tr
-    ? 'Dört gün boyunca kesintisiz ziyaretçi akışı ve ikili görüşme imkânı.'
-    : 'Four days of continuous visitor flow and one-to-one meetings.'}</p>
-          </div>
-          <div class="pillar">
-            <span class="pillar__icon">${I.clock}</span>
-            <h3 class="pillar__title">${tr ? 'Erken başvuru' : 'Early application'}</h3>
-            <p class="pillar__text">${tr
-    ? '2026\'da 86 firma stant açtı. 2027 için erken başvuru yer seçiminde avantaj sağlar.'
-    : '86 companies exhibited in 2026. Applying early for 2027 gives you more choice of location.'}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  return `${pageHeader(lang, tr ? 'Firma Kayıt' : 'Company Registration',
+    tr ? 'Giresun EXPO katılımcı başvuru formu. Bilgilerinizi bırakın, ekibimiz sizinle iletişime geçsin.'
+       : 'Giresun EXPO exhibitor application form. Leave your details and our team will get in touch.',
+    tr ? 'Firma Kayıt' : 'Company Registration')}
 
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">${tr ? 'Süreç' : 'Process'}</p>
-          <h2 class="section-title">${tr ? 'Dört adım' : 'Four steps'}</h2>
-        </div>
-        <ol class="process reveal">
-          <li class="process__step"><span class="process__num">1</span>
-            <h3 class="process__title">${tr ? 'Başvuru' : 'Application'}</h3>
-            <p class="process__text">${tr ? 'Aşağıdaki formu doldurun.' : 'Fill in the form below.'}</p></li>
-          <li class="process__step"><span class="process__num">2</span>
-            <h3 class="process__title">${tr ? 'Değerlendirme' : 'Review'}</h3>
-            <p class="process__text">${tr ? 'Ekibimiz başvurunuzu inceler ve sizinle iletişime geçer.' : 'Our team reviews your application and contacts you.'}</p></li>
-          <li class="process__step"><span class="process__num">3</span>
-            <h3 class="process__title">${tr ? 'Sözleşme' : 'Agreement'}</h3>
-            <p class="process__text">${tr ? 'Stant tipi ve alan birlikte belirlenir.' : 'Stand type and space are agreed together.'}</p></li>
-          <li class="process__step"><span class="process__num">4</span>
-            <h3 class="process__title">${tr ? 'Kurulum' : 'Build-up'}</h3>
-            <p class="process__text">${tr ? 'Fuar öncesi kurulum takvimi paylaşılır.' : 'The build-up schedule is shared before the fair.'}</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section section--compact">
       <div class="container container--narrow">
-        <div class="section-head reveal">
-          <p class="eyebrow">${tr ? 'Başvuru' : 'Application'}</p>
-          <h2 class="section-title">${tr ? 'Ön başvuru formu' : 'Pre-application form'}</h2>
-        </div>
+        <div class="notice notice--info" data-stant-kapali hidden><p></p></div>
 
-        <form class="form reveal" id="stand-form" data-form="stand" data-steps novalidate>
-          <ol class="steps" data-steps-nav>
-            <li class="steps__item is-active">1. ${tr ? 'Firma bilgileri' : 'Company details'}</li>
-            <li class="steps__item">2. ${tr ? 'Stant tercihi' : 'Stand preference'}</li>
-            <li class="steps__item">3. ${tr ? 'Onay ve gönder' : 'Confirm and send'}</li>
-          </ol>
-
-          <fieldset class="fieldset form" data-step="1">
-            <legend>${tr ? 'Firma bilgileri' : 'Company details'}</legend>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-company">${tr ? 'Firma adı' : 'Company name'} <span class="req">*</span></label>
-                <input class="form__control" id="s-company" name="company" type="text" required maxlength="160" autocomplete="organization">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-sector">${tr ? 'Sektör' : 'Sector'} <span class="req">*</span></label>
-                <input class="form__control" id="s-sector" name="sector" type="text" required maxlength="80">
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-contact">${tr ? 'Yetkili ad soyad' : 'Contact person'} <span class="req">*</span></label>
-                <input class="form__control" id="s-contact" name="contactName" type="text" required maxlength="120" autocomplete="name">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-mail">${tr ? 'E-posta' : 'E-mail'} <span class="req">*</span></label>
-                <input class="form__control" id="s-mail" name="email" type="email" required maxlength="160" autocomplete="email">
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-phone">${tr ? 'Telefon' : 'Phone'} <span class="req">*</span></label>
-                <input class="form__control" id="s-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-web">${tr ? 'Web sitesi' : 'Website'}</label>
-                <input class="form__control" id="s-web" name="website" type="url" placeholder="https://" maxlength="200">
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset class="fieldset form" data-step="2" hidden>
-            <legend>${tr ? 'Stant tercihi' : 'Stand preference'}</legend>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-type">${tr ? 'Stant tipi' : 'Stand type'} <span class="req">*</span></label>
-                <select class="form__control" id="s-type" name="standType" required>
-                  <option value="">${tr ? 'Seçiniz' : 'Select'}</option>
-                  <option value="hazir">${tr ? 'Hazır stant' : 'Shell scheme'}</option>
-                  <option value="bos">${tr ? 'Boş alan' : 'Bare space'}</option>
-                  <option value="acik">${tr ? 'Açık alan' : 'Outdoor space'}</option>
-                </select>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-area">${tr ? 'Yaklaşık alan (m²)' : 'Approximate area (m²)'}</label>
-                <input class="form__control" id="s-area" name="area" type="number" min="1" max="500" step="1" inputmode="numeric">
-              </div>
+        <form class="form reveal" id="stand-form" data-form="stand" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="s-contact">${tr ? 'Ad Soyad' : 'Full Name'} <span class="req">*</span></label>
+              <input class="form__control" id="s-contact" name="contactName" type="text" required maxlength="120" autocomplete="name">
             </div>
             <div class="form__group">
-              <label class="form__label" for="s-note">${tr ? 'Eklemek istedikleriniz' : 'Anything to add'}</label>
-              <textarea class="form__control" id="s-note" name="note" maxlength="1500"></textarea>
-              <p class="form__hint">${tr
-    ? 'Fiyatlandırma için ekibimiz sizinle iletişime geçecektir.'
-    : 'Our team will contact you regarding pricing.'}</p>
+              <label class="form__label" for="s-company">${tr ? 'Şirket Ünvanı' : 'Company Name'} <span class="req">*</span></label>
+              <input class="form__control" id="s-company" name="company" type="text" required maxlength="160" autocomplete="organization">
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="s-title">${tr ? 'Unvan / Görev' : 'Job Title'} <span class="req">*</span></label>
+              <input class="form__control" id="s-title" name="title" type="text" required maxlength="120" autocomplete="organization-title">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="s-phone">${tr ? 'Cep Telefonu' : 'Mobile Phone'} <span class="req">*</span></label>
+              <input class="form__control" id="s-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="05xx xxx xx xx">
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="s-mail">${tr ? 'Kurumsal E-posta' : 'Corporate E-mail'} <span class="req">*</span></label>
+              <input class="form__control" id="s-mail" name="email" type="email" required maxlength="160" autocomplete="email">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="s-sector">${tr ? 'Sektör' : 'Sector'} <span class="req">*</span></label>
+              <select class="form__control" id="s-sector" name="sector" required>
+                <option value="">${tr ? 'Seçiniz' : 'Select'}</option>
+${sektor}
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form__group">
+            <legend class="form__label">${tr ? 'Stant Alanı Seçimi' : 'Stand Size'} <span class="req">*</span></legend>
+            <div class="stand-opts" data-stant-alanlari>
+${alanlar}
             </div>
           </fieldset>
 
-          <fieldset class="fieldset form" data-step="3" hidden>
-            <legend>${tr ? 'Onay ve gönder' : 'Confirm and send'}</legend>
-            <dl class="summary" data-summary></dl>
 ${honeypot(lang)}
-            <label class="form__check">
-              <input type="checkbox" name="consent" required>
-              <span>${tr
-    ? '<a href="kvkk.html">KVKK Aydınlatma Metni</a>\'ni okudum, firma ve iletişim bilgilerimin başvuru sürecinde işlenmesini kabul ediyorum.'
-    : 'I have read the <a href="data-protection.html">Data Protection Notice</a> and consent to my company and contact details being processed for this application.'} <span class="req">*</span></span>
-            </label>
-          </fieldset>
+
+          <label class="form__check">
+            <input type="checkbox" name="consent" required>
+            <span>${tr
+    ? '<a href="kvkk.html">KVKK Aydınlatma Metni</a>\'ni okudum, bilgilerimin başvuru sürecinde işlenmesini kabul ediyorum.'
+    : 'I have read the <a href="data-protection.html">Data Protection Notice</a> and consent to my details being processed for this application.'} <span class="req">*</span></span>
+          </label>
 
           <div class="form__actions">
-            <button class="btn btn--ghost" type="button" data-step-prev hidden>${tr ? 'Geri' : 'Back'}</button>
-            <button class="btn btn--primary btn--lg" type="button" data-step-next>${tr ? 'Devam et' : 'Continue'}</button>
-            <button class="btn btn--primary btn--lg" type="submit" data-step-submit hidden>${tr ? 'Başvuruyu Gönder' : 'Submit Application'}</button>
+            <button class="btn btn--primary btn--lg" type="submit">${tr ? 'Başvuruyu Gönder' : 'Submit Application'}</button>
           </div>
+          <p class="form__hint">${tr
+    ? 'Bilgileriniz yalnızca etkinlik organizasyonu için kullanılacaktır.'
+    : 'Your details will be used only for organising the event.'}</p>
         </form>
       </div>
     </section>`;
@@ -1338,11 +1221,9 @@ MAIN['stand:en'] = standBody('en');
 /* ---------- Yasal ------------------------------------------------------- */
 const legalPage = (lang, title, crumb, lead, body) => `${pageHeader(lang, title, lead, crumb)}
 
-    <section class="section">
-      <div class="container container--narrow">
-${legalNotice(lang)}
-
-        <div class="prose mt-8">
+    <section class="section section--compact">
+      <div class="container">
+        <div class="prose prose--wide">
 ${body}
         </div>
       </div>
@@ -1359,8 +1240,8 @@ MAIN['kvkk:tr'] = legalPage('tr', 'KVKK Aydınlatma Metni', 'KVKK Aydınlatma Me
           <h2>Hangi veriler işleniyor?</h2>
           <p>Bu sitedeki formlar aracılığıyla yalnızca sizin ilettiğiniz veriler işlenir:</p>
           <ul>
-            <li><strong>Ziyaretçi ön kaydı:</strong> ad soyad, e-posta, telefon, şehir, katılmayı planladığınız günler</li>
-            <li><strong>Stant başvurusu:</strong> firma adı, sektör, yetkili adı, e-posta, telefon, web sitesi, stant tercihi</li>
+            <li><strong>Ziyaretçi kaydı:</strong> ad soyad, e-posta, telefon, şehir, katılmayı planladığınız günler</li>
+            <li><strong>Firma kayıt:</strong> ad soyad, şirket ünvanı, unvan/görev, cep telefonu, kurumsal e-posta, sektör, stant alanı tercihi</li>
             <li><strong>İletişim formu:</strong> ad soyad, e-posta, konu, mesaj içeriği</li>
           </ul>
 
@@ -1392,8 +1273,8 @@ MAIN['kvkk:en'] = legalPage('en', 'Data Protection Notice', 'Data Protection Not
           <h2>What data is processed?</h2>
           <p>Only the information you submit through the forms on this site is processed:</p>
           <ul>
-            <li><strong>Visitor pre-registration:</strong> name, e-mail, phone, city, days you plan to attend</li>
-            <li><strong>Stand application:</strong> company name, sector, contact name, e-mail, phone, website, stand preference</li>
+            <li><strong>Visitor registration:</strong> name, e-mail, phone, city, days you plan to attend</li>
+            <li><strong>Company registration:</strong> full name, company name, job title, mobile phone, corporate e-mail, sector, stand size preference</li>
             <li><strong>Contact form:</strong> name, e-mail, subject, message</li>
           </ul>
 
@@ -1430,10 +1311,10 @@ MAIN['cookies:tr'] = legalPage('tr', 'Çerez Politikası', 'Çerez Politikası',
           </div>
 
           <h2>Üçüncü taraf içerik</h2>
-          <p>Ziyaret Bilgileri ve Ana Sayfa'daki harita, <strong>siz "Haritayı yükle"
-            düğmesine basmadan yüklenmez</strong>. Düğmeye bastığınızda Google Haritalar'a
-            bağlantı kurulur ve Google kendi çerezlerini kullanabilir. Düğmeye basmadığınız
-            sürece bu site hiçbir üçüncü tarafa istek göndermez.</p>
+          <p>Ana Sayfa ve Fuar Bilgileri sayfalarında fuar alanının konumunu gösteren
+            <strong>Google Haritalar</strong> gömülüdür. Harita görüntülendiğinde Google
+            Haritalar'a bağlantı kurulur ve Google kendi çerezlerini kullanabilir. Bu çerezler
+            Google'ın gizlilik politikasına tabidir.</p>
 
           <h2>Yazı tipleri ve görseller</h2>
           <p>Yazı tipleri, ikonlar ve görsellerin tamamı bu sitenin kendi sunucusundan
@@ -1458,9 +1339,9 @@ MAIN['cookies:en'] = legalPage('en', 'Cookie Policy', 'Cookie Policy',
           </div>
 
           <h2>Third-party content</h2>
-          <p>The map on the Plan Your Visit and Home pages <strong>is not loaded until you press
-            the "Load map" button</strong>. Pressing it opens a connection to Google Maps, which
-            may set its own cookies. Until you do, this site makes no third-party requests.</p>
+          <p>The Home and Fair Information pages embed <strong>Google Maps</strong> to show the
+            location of the venue. When the map is displayed, a connection is made to Google
+            Maps, which may set its own cookies under Google's privacy policy.</p>
 
           <h2>Fonts and images</h2>
           <p>All fonts, icons and images are served from this site's own domain; no external

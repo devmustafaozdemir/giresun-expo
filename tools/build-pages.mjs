@@ -29,11 +29,11 @@ const L = {
   tr: {
     skip: 'İçeriğe geç', menu: 'Menüyü aç/kapat', nav: 'Ana menü',
     logoAria: 'Giresun EXPO 2026 — ana sayfa',
-    cta: 'Ziyaretçi Ön Kaydı', ctaKey: 'register',
+    cta: 'Ziyaretçi Kayıt', cta2: 'Firma Kayıt', ctaKey: 'register',
     footAbout: 'Giresun\'un üretim, yatırım ve ticaret gücünü İstanbul\'da tanıtan iş dünyası buluşması.',
     slogan: 'Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği',
     colA: 'Keşfet', colB: 'Katılım', colC: 'İletişim',
-    addr: 'Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul',
+    addr: 'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul',
     phone: '0541 662 28 28',
     rights: 'Tüm hakları saklıdır.',
     cookie: 'Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya reklam çerezi yoktur. Ayrıntı için',
@@ -43,11 +43,11 @@ const L = {
   en: {
     skip: 'Skip to content', menu: 'Toggle menu', nav: 'Main menu',
     logoAria: 'Giresun EXPO 2026 — home',
-    cta: 'Visitor Pre-registration', ctaKey: 'register',
+    cta: 'Visitor Registration', cta2: 'Company Registration', ctaKey: 'register',
     footAbout: 'A business gathering presenting Giresun\'s production, investment and trade capacity in Istanbul.',
     slogan: 'Cooperation for Giresun,<br>Strength for Türkiye',
     colA: 'Explore', colB: 'Take Part', colC: 'Contact',
-    addr: 'Yenikapı Event Area<br>Kennedy Caddesi No: 11/1<br>Fatih / Istanbul',
+    addr: 'Dr. Mimar Kadir Topbaş Arts and Performance Centre<br>Kennedy Caddesi No: 11/1<br>Fatih / Istanbul',
     phone: '+90 541 662 28 28',
     rights: 'All rights reserved.',
     cookie: 'This site uses only the cookies required for it to work; there are no tracking or advertising cookies. See the',
@@ -101,7 +101,16 @@ ${links}
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="${enCls}" href="${enHref}" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--primary btn--sm" href="${P('register', lang)}">${t.cta}</a>
+          <div class="nav__cta">
+            <a class="btn btn--navy btn--sm" href="${P('stand', lang)}">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+              ${t.cta2}
+            </a>
+            <a class="btn btn--navy btn--sm" href="${P('register', lang)}">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              ${t.cta}
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -125,7 +134,7 @@ function footer(lang) {
           <img src="${r}assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
         </span>
         <p class="site-footer__text">${t.footAbout}</p>
-        <p class="site-footer__slogan">${t.slogan}</p>
+        <p class="site-footer__slogan" data-ayar="slogan">${t.slogan}</p>
       </div>
 
       <div>
@@ -152,15 +161,17 @@ ${li('press')}
         <h2 class="site-footer__title">${t.colC}</h2>
         <address>
           <p>${t.addr}</p>
-          <p><a href="tel:+905416622828">${t.phone}</a></p>
+          <p><a href="tel:+905416622828" data-ayar-telefon>${t.phone}</a></p>
+          <p data-ayar-eposta hidden></p>
+          <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
     <div class="container site-footer__partners">
-${partner('giresun-vakfi.png', t.partners[0])}
 ${partner('giresun-federasyonu.png', t.partners[1])}
 ${partner('sebinsiad.png', t.partners[2])}
+${partner('giresun-vakfi.png', t.partners[0])}
     </div>
 
     <div class="container site-footer__bottom">
@@ -194,8 +205,12 @@ function head(key, lang) {
   const selfUrl = lang === 'tr' ? trUrl : enUrl;
   /* Klasik script'ler + ES modülleri.
      config.js klasik ve modülden ÖNCE gelmeli: modül window.GE_CONFIG'i okur. */
-  const klasik = (p.scripts || []).map((s) => `  <script src="${r}assets/js/${s}" defer></script>`);
-  const moduller = (p.modules || []).map((s) => `  <script type="module" src="${r}assets/js/${s}"></script>`);
+  /* config.js + site-veri.js her sayfada: admin panelindeki Site Ayarları
+     (telefon, e-posta, sosyal medya, duyuru, saatler, sayılar…) buradan uygulanır. */
+  const scripts = ['config.js', ...(p.scripts || []).filter((s) => s !== 'config.js')];
+  const modules = [...(p.modules || []), 'site-veri.js'];
+  const klasik = scripts.map((s) => `  <script src="${r}assets/js/${s}" defer></script>`);
+  const moduller = modules.map((s) => `  <script type="module" src="${r}assets/js/${s}"></script>`);
   const extra = [...klasik, ...moduller].join('\n');
   const noindex = p.noindex ? '\n  <meta name="robots" content="noindex, nofollow">' : '';
 
@@ -298,8 +313,10 @@ for (const key of Object.keys(PAGES)) {
     html = replaceBlock(html, 'footer', 'site-footer', footer(lang));
 
     /* Çerez bandı yoksa </body> öncesine eklenir */
-    const withBar = replaceBlock(html, 'div', 'cookie-bar', cookieBar(lang), false);
-    html = withBar !== null ? withBar : html.replace('</body>', `${cookieBar(lang)}\n</body>`);
+    /* Çerez bandından </body>'ye kadar her şey yeniden yazılır. (Eski sürüm
+       iç içe </div>'lerde erken kapanıp her koşumda sona fazladan </div> ekliyordu.) */
+    html = html.replace(/^[ \t]*<div class="cookie-bar"[\s\S]*?(?=<\/body>)/m, '')
+               .replace('</body>', `${cookieBar(lang)}\n</body>`);
 
     writeFileSync(path, html);
     tazelendi++;

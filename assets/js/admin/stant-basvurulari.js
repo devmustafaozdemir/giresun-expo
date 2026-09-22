@@ -20,7 +20,7 @@ import {
 const oturum = await korumaliSayfa();
 oturumIzle();
 
-const icerik = kabukKur({ aktif: 'stant', baslik: 'Stant Başvuruları', oturum });
+const icerik = kabukKur({ aktif: 'stant', baslik: 'Firma Kayıtları', oturum });
 const sb = await getClient();
 
 const SAYFA_BOYU = 25;
@@ -58,7 +58,7 @@ const sonucBilgi = el('span', { class: 'sayfalama__bilgi' });
 icerik.append(
   el('div', { class: 'sayfa-bas' },
     el('div', { class: 'sayfa-bas__metin' },
-      el('h1', null, 'Stant Başvuruları'),
+      el('h1', null, 'Firma Kayıtları'),
       el('p', { class: 'sayfa-bas__alt' },
         'Satıra tıklayarak ayrıntıyı açın, durumu değiştirin ve not ekleyin.'))
   ),
@@ -124,7 +124,7 @@ yukle();
 
 function sorgu(sayimIcin = false) {
   let s = sb.from('stand_applications').select(
-    'id, application_no, company, sector, website, contact_name, email, phone,' +
+    'id, application_no, company, sector, website, contact_name, title, email, phone,' +
     ' stand_type, area_m2, note, status, admin_note, created_at',
     sayimIcin ? { count: 'exact', head: true } : { count: 'exact' }
   );
@@ -136,7 +136,7 @@ function sorgu(sayimIcin = false) {
     if (q) {
       s = s.or(
         `company.ilike.%${q}%,contact_name.ilike.%${q}%,` +
-        `email.ilike.%${q}%,application_no.ilike.%${q}%`
+        `email.ilike.%${q}%,application_no.ilike.%${q}%,phone.ilike.%${q}%,sector.ilike.%${q}%`
       );
     }
   }
@@ -179,7 +179,7 @@ async function yukle() {
       baslik: durum.q || durum.status ? 'Eşleşen başvuru yok' : 'Henüz başvuru yok',
       metin: durum.q || durum.status
         ? 'Arama veya filtreyi değiştirip tekrar deneyin.'
-        : 'Siteden gelen stant ön başvuruları burada listelenecek.',
+        : 'Siteden gelen firma kayıtları burada listelenecek.',
       eylem: (durum.q || durum.status)
         ? el('button', {
             class: 'btn btn--ghost btn--sm', type: 'button',
@@ -231,7 +231,7 @@ function tabloYap(satirlar) {
       el('td', { class: 'tablo__no' }, r.application_no || '—'),
       el('td', null, r.company),
       el('td', null, r.contact_name),
-      el('td', null, STANT_TIPI[r.stand_type] || '—'),
+      el('td', null, r.area_m2 ? r.area_m2 + ' m²' : (STANT_TIPI[r.stand_type] || '—')),
       el('td', null, durumRozeti(r.status)),
       el('td', { class: 'tablo__tarih' }, tarihSaat(r.created_at))
     );
@@ -249,7 +249,7 @@ function tabloYap(satirlar) {
         baslikHucre('No', 'application_no'),
         baslikHucre('Firma', 'company'),
         baslikHucre('Yetkili', 'contact_name'),
-        baslikHucre('Stant tipi', 'stand_type'),
+        baslikHucre('Stant alanı', 'area_m2'),
         baslikHucre('Durum', 'status'),
         baslikHucre('Tarih', 'created_at')
       )),
@@ -316,6 +316,7 @@ function cekmeceAc(r) {
         ? el('a', { href: guvenliUrl(r.website), target: '_blank', rel: 'noopener noreferrer' }, r.website)
         : '—'),
       kunye('Yetkili', r.contact_name),
+      kunye('Unvan / Görev', r.title || '—'),
       kunye('E-posta', el('a', { href: 'mailto:' + r.email }, r.email)),
       kunye('Telefon', el('a', { href: 'tel:' + r.phone.replace(/\s/g, '') }, r.phone)),
       kunye('Stant tipi', STANT_TIPI[r.stand_type] || '—'),
@@ -482,10 +483,10 @@ async function csvAktar() {
 
   csvIndir(
     `giresun-expo-stant-basvurulari-${bugun()}.csv`,
-    ['Başvuru No', 'Firma', 'Sektör', 'Web', 'Yetkili', 'E-posta', 'Telefon',
+    ['Başvuru No', 'Firma', 'Sektör', 'Web', 'Yetkili', 'Unvan / Görev', 'E-posta', 'Telefon',
      'Stant tipi', 'Alan (m²)', 'Başvuru notu', 'Durum', 'Yönetim notu', 'Tarih'],
     data.map((r) => [
-      r.application_no, r.company, r.sector, r.website, r.contact_name, r.email, r.phone,
+      r.application_no, r.company, r.sector, r.website, r.contact_name, r.title || '', r.email, r.phone,
       STANT_TIPI[r.stand_type] || '', r.area_m2 ?? '', r.note,
       DURUM_ETIKET[r.status] || r.status, r.admin_note, tarihSaat(r.created_at)
     ])

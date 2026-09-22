@@ -162,22 +162,40 @@ async function rpc(ad, parametreler, dil) {
   return data;
 }
 
-/** Stant ön başvurusu → başvuru numarası (gönderim yılı: GE-2026-0001) */
-export function stantBasvurusu(v, dil) {
+/** Firma kayıt (katılımcı başvuru formu) → referans numarası (GE-1234)
+    005_eylul_revizyon.sql henüz çalıştırılmadıysa submit_firma_kaydi bulunamaz;
+    bu durumda eski submit_stand_application'a düşülür (görev bilgisi nota yazılır),
+    böylece form hiçbir zaman kırılmaz. */
+export async function stantBasvurusu(v, dil) {
+  const sb = await getClient();
+  if (sb) {
+    const { data, error } = await sb.rpc('submit_firma_kaydi', {
+      p_contact_name: v.contactName,
+      p_company: v.company,
+      p_title: v.title || '',
+      p_phone: v.phone,
+      p_email: v.email,
+      p_sector: v.sector || '',
+      p_area_m2: v.area ? parseInt(v.area, 10) : null
+    });
+    if (!error) return data;
+    const yok = error.code === 'PGRST202' || /could not find the function|does not exist/i.test(error.message || '');
+    if (!yok) throw new Error(hataMesaji(error, dil));
+  }
   return rpc('submit_stand_application', {
     p_company: v.company,
     p_sector: v.sector || '',
-    p_website: v.website || '',
+    p_website: '',
     p_contact_name: v.contactName,
     p_email: v.email,
     p_phone: v.phone,
-    p_stand_type: v.standType || '',
+    p_stand_type: '',
     p_area_m2: v.area ? parseInt(v.area, 10) : null,
-    p_note: v.note || ''
+    p_note: v.title ? `Unvan / Görev: ${v.title}` : ''
   }, dil);
 }
 
-/** Ziyaretçi ön kaydı → kayıt numarası (GE-Z-2026-00001) */
+/** Ziyaretçi kaydı → referans numarası (GE-1234) */
 export function ziyaretciKaydi(v, dil) {
   return rpc('submit_visitor_registration', {
     p_full_name: v.fullName,

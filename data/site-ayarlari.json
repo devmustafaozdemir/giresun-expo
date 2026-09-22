@@ -1,7 +1,6 @@
 {
   "_kaynak": "docs/KITAPCIK-ICERIK.md — Giresun EXPO 2026 A5 El Kitapçığı",
   "_not": "Bu dosya C aşamasında Supabase site_settings tablosuna taşınacak. O zamana kadar sitenin tek veri kaynağıdır. Boş bırakılan alanlar sitede HİÇ GÖRÜNMEZ (kırık link veya 'TODO' yazısı çıkmaz).",
-
   "etkinlik": {
     "ad": "Giresun EXPO 2026",
     "baslangic": "2026-10-08",
@@ -9,12 +8,10 @@
     "geri_sayim_hedefi": "2026-10-08T10:00:00+03:00",
     "saat_dilimi": "Europe/Istanbul"
   },
-
   "manset_tr": "Giresun İş Dünyası İstanbul'da Buluşuyor",
   "manset_en": "Giresun's Business Community Meets in Istanbul",
   "slogan_tr": "Giresun İçin İş Birliği, Türkiye İçin Güç Birliği",
   "slogan_en": "Cooperation for Giresun, Strength for Türkiye",
-
   "mekan": {
     "ad_tr": "Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi",
     "ad_en": "Dr. Mimar Kadir Topbaş Arts and Performance Centre",
@@ -25,14 +22,36 @@
     "adres_en": "Aksaray Mahallesi, Yenikapı Event Area, Kennedy Caddesi No: 11/1, Fatih/Istanbul",
     "harita_sorgusu": "Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul"
   },
-
   "ziyaret_saatleri": [
-    { "tarih": "2026-10-08", "gun_tr": "Perşembe", "gun_en": "Thursday", "acilis": "10:00", "kapanis": "19:00" },
-    { "tarih": "2026-10-09", "gun_tr": "Cuma",     "gun_en": "Friday",   "acilis": "10:00", "kapanis": "19:00" },
-    { "tarih": "2026-10-10", "gun_tr": "Cumartesi","gun_en": "Saturday", "acilis": "10:00", "kapanis": "20:00" },
-    { "tarih": "2026-10-11", "gun_tr": "Pazar",    "gun_en": "Sunday",   "acilis": "10:00", "kapanis": "18:00" }
+    {
+      "tarih": "2026-10-08",
+      "gun_tr": "Perşembe",
+      "gun_en": "Thursday",
+      "acilis": "10:00",
+      "kapanis": "19:00"
+    },
+    {
+      "tarih": "2026-10-09",
+      "gun_tr": "Cuma",
+      "gun_en": "Friday",
+      "acilis": "10:00",
+      "kapanis": "19:00"
+    },
+    {
+      "tarih": "2026-10-10",
+      "gun_tr": "Cumartesi",
+      "gun_en": "Saturday",
+      "acilis": "10:00",
+      "kapanis": "20:00"
+    },
+    {
+      "tarih": "2026-10-11",
+      "gun_tr": "Pazar",
+      "gun_en": "Sunday",
+      "acilis": "10:00",
+      "kapanis": "18:00"
+    }
   ],
-
   "iletisim": {
     "telefon": "0541 662 28 28",
     "telefon_href": "tel:+905416622828",
@@ -40,7 +59,6 @@
     "eposta": "",
     "_eposta_notu": "Kitapçıkta yok. Boş olduğu sürece sitede gösterilmez."
   },
-
   "sosyal": {
     "_not": "Kitapçıkta yok. Hepsi boş olduğu sürece sosyal medya bölümü sitede hiç render edilmez.",
     "instagram": "",
@@ -49,46 +67,56 @@
     "facebook": "",
     "youtube": ""
   },
-
   "istatistikler": [
-    { "deger": "86", "etiket_tr": "Katılımcı firma", "etiket_en": "Exhibiting companies" },
-    { "deger": "4",  "etiket_tr": "Gün",             "etiket_en": "Days" },
-    { "deger": "3",  "etiket_tr": "Paydaş kuruluş",  "etiket_en": "Partner institutions" },
-    { "deger": "5",  "etiket_tr": "Salon",           "etiket_en": "Halls" }
+    {
+      "deger": "",
+      "etiket_tr": "Katılımcı firma",
+      "etiket_en": "Exhibiting companies"
+    },
+    {
+      "deger": "4",
+      "etiket_tr": "Gün",
+      "etiket_en": "Days"
+    },
+    {
+      "deger": "3",
+      "etiket_tr": "Paydaş kuruluş",
+      "etiket_en": "Partner institutions"
+    },
+    {
+      "deger": "100",
+      "etiket_tr": "Stand sayısı",
+      "etiket_en": "Stands"
+    }
   ],
-  "_istatistik_notu": "Yalnızca kitapçıktan doğrulanabilen rakamlar. Ziyaretçi sayısı veya m² gibi veriler uydurulmadı.",
-
+  "_istatistik_notu": "Değer boş bırakılırsa firma/stand sayısı katılımcı listesinden otomatik hesaplanır.",
   "duyuru_cubugu": {
     "aktif": false,
     "metin_tr": "",
     "metin_en": "",
     "link": ""
   },
-
   "etkinlik_durumu": {
     "_not": "Geri sayım şeridi bu üç metni kullanır; hangisinin görüneceğini tarih belirler.",
     "oncesi_tr": "Fuara kalan süre",
     "oncesi_en": "Time until the fair",
-    "sirasinda_tr": "Fuar devam ediyor — 8–11 Ekim 2026, Yenikapı",
-    "sirasinda_en": "The fair is open — 8–11 October 2026, Yenikapı",
-    "sonrasi_tr": "Giresun EXPO 2026 için teşekkürler. 2027'de görüşmek üzere.",
-    "sonrasi_en": "Thank you for Giresun EXPO 2026. See you in 2027."
+    "sirasinda_tr": "Fuar devam ediyor — 8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi",
+    "sirasinda_en": "The fair is open — 8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre",
+    "sonrasi_tr": "Giresun EXPO için teşekkürler. 2027'de görüşmek üzere.",
+    "sonrasi_en": "Thank you for Giresun EXPO. See you in 2027."
   },
-
   "stant_basvurusu": {
     "acik": true,
-    "baslik_tr": "Katılımcı Olun: Giresun EXPO 2027 ön başvurusu",
-    "baslik_en": "Become an Exhibitor: Giresun EXPO 2027 pre-application",
+    "baslik_tr": "Firma Kayıt",
+    "baslik_en": "Company Registration",
     "kapali_mesaji_tr": "Başvurular şu anda kapalı. Yeniden açıldığında bu sayfadan duyurulacak.",
     "kapali_mesaji_en": "Applications are currently closed. They will be announced here when they reopen.",
     "_not": "2026 stantları dağıtıldı; form 2027 ön başvurusu olarak çalışıyor."
   },
-
   "ziyaretci_kaydi": {
     "acik": true,
     "_not": "Giriş ücretli mi, kayıt zorunlu mu bilinmiyor (bkz. docs/acik-sorular.md #18). Bu netleşene kadar form 'ön kayıt' olarak çalışır ve hiçbir yerde 'ücretsiz' iddiası yazılmaz."
   },
-
   "program": {
     "yayinda": false,
     "_not": "Kitapçıkta program ve konuşmacı yok. yayinda=false iken Program sayfası 'yakında açıklanacak' durumunda kalır ve menüde görünmez; yerine Ziyaret Bilgileri görünür."

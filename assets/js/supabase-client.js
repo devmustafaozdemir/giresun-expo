@@ -12,17 +12,17 @@ const SURUM = '2.58.0';
 const CDN = `https://cdn.jsdelivr.net/npm/@supabase/supabase-js@${SURUM}/+esm`;
 
 let istemci = null;
-let denendi = false;
+let yukleniyor = null;
 
-/**
- * Supabase istemcisini döndürür; yapılandırma yoksa veya kütüphane
- * yüklenemezse null döner. Hiçbir zaman hata fırlatmaz — public site
- * Supabase olmadan da çalışmak zorunda.
- */
-export async function getClient() {
-  if (denendi) return istemci;
-  denendi = true;
+/* Eşzamanlı çağrılar AYNI promise'i bekler. (Önceki sürümde ikinci çağrı,
+   ilk çağrı CDN'den kütüphaneyi indirirken null alıyor ve sessizce JSON
+   yedeğine düşüyordu: ör. site ayarları okunurken katılımcılar JSON'dan geliyordu.) */
+export function getClient() {
+  if (!yukleniyor) yukleniyor = olustur();
+  return yukleniyor;
+}
 
+async function olustur() {
   const cfg = window.GE_CONFIG;
   if (!cfg || !cfg.hazir) return null;
 
@@ -40,7 +40,6 @@ export async function getClient() {
   }
 }
 
-/** Supabase yapılandırılmış mı? (ağ denemesi yapmaz) */
 export function yapilandirildiMi() {
   return !!(window.GE_CONFIG && window.GE_CONFIG.hazir);
 }

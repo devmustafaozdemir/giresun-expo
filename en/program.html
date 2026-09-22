@@ -31,7 +31,8 @@
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
-
+  <script src="../assets/js/config.js" defer></script>
+  <script type="module" src="../assets/js/site-veri.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -51,7 +52,7 @@
           <li><a class="nav__link" href="index.html">Home</a></li>
           <li><a class="nav__link" href="about.html">About</a></li>
           <li><a class="nav__link" href="exhibitors.html">Exhibitors</a></li>
-          <li><a class="nav__link" href="plan-your-visit.html">Plan Your Visit</a></li>
+          <li><a class="nav__link" href="plan-your-visit.html">Fair Information</a></li>
           <li><a class="nav__link" href="gallery.html">Gallery</a></li>
           <li><a class="nav__link" href="press.html">Press</a></li>
           <li><a class="nav__link" href="contact.html">Contact</a></li>
@@ -63,7 +64,16 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link is-active" href="program.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--primary btn--sm" href="visitor-registration.html">Visitor Pre-registration</a>
+          <div class="nav__cta">
+            <a class="btn btn--navy btn--sm" href="stand-application.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+              Company Registration
+            </a>
+            <a class="btn btn--navy btn--sm" href="visitor-registration.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Visitor Registration
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -117,7 +127,7 @@
           <img src="../assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
         </span>
         <p class="site-footer__text">A business gathering presenting Giresun's production, investment and trade capacity in Istanbul.</p>
-        <p class="site-footer__slogan">Cooperation for Giresun,<br>Strength for Türkiye</p>
+        <p class="site-footer__slogan" data-ayar="slogan">Cooperation for Giresun,<br>Strength for Türkiye</p>
       </div>
 
       <div>
@@ -133,9 +143,9 @@
       <div>
         <h2 class="site-footer__title">Take Part</h2>
         <ul class="site-footer__list">
-          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
-          <li><a href="visitor-registration.html">Visitor Pre-registration</a></li>
-          <li><a href="stand-application.html">Stand Application</a></li>
+          <li><a href="plan-your-visit.html">Fair Information</a></li>
+          <li><a href="visitor-registration.html">Visitor Registration</a></li>
+          <li><a href="stand-application.html">Company Registration</a></li>
           <li><a href="press.html">Press</a></li>
         </ul>
       </div>
@@ -143,16 +153,18 @@
       <div>
         <h2 class="site-footer__title">Contact</h2>
         <address>
-          <p>Yenikapı Event Area<br>Kennedy Caddesi No: 11/1<br>Fatih / Istanbul</p>
-          <p><a href="tel:+905416622828">+90 541 662 28 28</a></p>
+          <p>Dr. Mimar Kadir Topbaş Arts and Performance Centre<br>Kennedy Caddesi No: 11/1<br>Fatih / Istanbul</p>
+          <p><a href="tel:+905416622828" data-ayar-telefon>+90 541 662 28 28</a></p>
+          <p data-ayar-eposta hidden></p>
+          <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
     <div class="container site-footer__partners">
-      <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
     </div>
 
     <div class="container site-footer__bottom">

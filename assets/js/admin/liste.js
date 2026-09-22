@@ -146,7 +146,16 @@ export async function listeSayfasi(kok, ayar) {
 
     if (durum.q && ayar.aramaAlanlari) {
       const q = durum.q.replace(/[%,()]/g, ' ').trim();
-      if (q) s = s.or(ayar.aramaAlanlari.map((a) => `${a}.ilike.%${q}%`).join(','));
+      if (q) {
+        /* text[] sütunlarda ilike çalışmaz (sorgu hata verir, arama "çalışmıyor"
+           gibi görünür). Dizi sütunları için tam eleman eşleşmesi (cs) kullanılır. */
+        const kosul = ayar.aramaAlanlari.map((a) => `${a}.ilike.%${q}%`);
+        for (const d of (ayar.aramaDiziAlanlari || [])) {
+          const t = q.replace(/[{}"\s]/g, '').toUpperCase();
+          if (t) kosul.push(`${d}.cs.{${t}}`);
+        }
+        s = s.or(kosul.join(','));
+      }
     }
     return s;
   }
@@ -345,7 +354,7 @@ export async function listeSayfasi(kok, ayar) {
   urlOku();
   await yukle();
 
-  return { yukle, cekmeceKapat, durum };
+  return { yukle, cekmeceKapat, cekmeceAc, durum };
 }
 
 /** Çekmecelerde kullanılan etiket/değer satırı */

@@ -708,9 +708,9 @@ on conflict (ad_tr) do update set
   aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,
   logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;
 
--- SSS (8 soru — hepsi kitapçıktan doğrulanabilir) ---------------------
+-- SSS (7 soru — hepsi kitapçıktan doğrulanabilir) ---------------------
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
-  ('ne-zaman-nerede', 'Giresun EXPO 2026 ne zaman ve nerede düzenleniyor?', 'When and where is Giresun EXPO 2026 held?', '8–11 Ekim 2026 tarihlerinde, İstanbul Yenikapı Etkinlik Alanı''ndaki Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi''nde düzenlenecek.', 'From 8 to 11 October 2026, at the Dr. Mimar Kadir Topbaş Arts and Performance Centre in the Yenikapı Event Area, Istanbul.', 1)
+  ('ne-zaman-nerede', 'Giresun EXPO ne zaman ve nerede düzenleniyor?', 'When and where is Giresun EXPO held?', '8–11 Ekim 2026 tarihlerinde, İstanbul Yenikapı Etkinlik Alanı''ndaki Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi''nde düzenlenecek.', 'From 8 to 11 October 2026, at the Dr. Mimar Kadir Topbaş Arts and Performance Centre in the Yenikapı Event Area, Istanbul.', 1)
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
@@ -726,19 +726,15 @@ insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) value
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
-  ('kimler-katiliyor', 'Fuarda kimler yer alıyor?', 'Who takes part in the fair?', '86 katılımcı firma beş salonda stant açıyor. Fuar; kamu kurumlarını, özel sektörü, yatırımcıları, üreticileri, sanayicileri, girişimcileri, üniversiteleri, kooperatifleri ve sivil toplum kuruluşlarını aynı çatı altında buluşturuyor.', '86 exhibiting companies have stands across five halls. The fair brings together public institutions, the private sector, investors, producers, industrialists, entrepreneurs, universities, cooperatives and civil society organisations.', 5)
+  ('kimler-katiliyor', 'Fuarda kimler yer alıyor?', 'Who takes part in the fair?', 'Katılımcı firmalar fuar alanında stant açıyor. Fuar; kamu kurumlarını, özel sektörü, yatırımcıları, üreticileri, sanayicileri, girişimcileri, üniversiteleri, kooperatifleri ve sivil toplum kuruluşlarını aynı çatı altında buluşturuyor.', 'Exhibiting companies have stands at the venue. The fair brings together public institutions, the private sector, investors, producers, industrialists, entrepreneurs, universities, cooperatives and civil society organisations.', 5)
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
-  ('kim-duzenliyor', 'Fuarı kim düzenliyor?', 'Who organises the fair?', 'Organizasyon; Giresun Vakfı, Giresun Federasyonu ve Şebinkarahisar Sanayici ve İş İnsanları Derneği (ŞEBİNSİAD) ortaklığıyla hayata geçiriliyor.', 'The fair is organised jointly by the Giresun Foundation, the Giresun Federation and the Şebinkarahisar Association of Industrialists and Businesspeople (ŞEBİNSİAD).', 6)
+  ('giris-ucretli-mi', 'Girişler ücretli mi?', 'Is admission free?', 'Hayır. Giresun EXPO''ya giriş ücretsizdir; tüm ziyaretçilerimizi fuar alanına bekliyoruz.', 'Yes. Admission to Giresun EXPO is free of charge; all visitors are welcome.', 6)
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
-  ('salonlar', 'Salonlar nasıl düzenlenmiş?', 'How are the halls organised?', 'Stantlar A, T, G, P ve E olmak üzere beş alana dağılmış durumda. Stant numarasının ilk harfi bulunduğu alanı gösterir; Katılımcılar sayfasından salona göre filtreleyebilirsiniz.', 'Stands are spread across five areas: A, T, G, P and E. The first letter of a stand number indicates its area; you can filter by hall on the Exhibitors page.', 7)
-on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
-  cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
-insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
-  ('program', 'Etkinlik programı açıklandı mı?', 'Has the event programme been announced?', 'Panel, sunum ve oturum programı henüz açıklanmadı. Açıklandığında bu sitede yayımlanacak.', 'The programme of panels, presentations and sessions has not been announced yet. It will be published on this site once available.', 8)
+  ('kim-duzenliyor', 'Fuarı kim düzenliyor?', 'Who organises the fair?', 'Organizasyon; Giresun Vakfı, Giresun Federasyonu ve Şebinkarahisar Sanayici ve İş İnsanları Derneği (ŞEBİNSİAD) ortaklığıyla hayata geçiriliyor.', 'The fair is organised jointly by the Giresun Foundation, the Giresun Federation and the Şebinkarahisar Association of Industrialists and Businesspeople (ŞEBİNSİAD).', 7)
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 
@@ -787,11 +783,11 @@ insert into public.site_settings (
   'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi', 'Dr. Mimar Kadir Topbaş Arts and Performance Centre', 'Yenikapı Etkinlik Alanı', 'Yenikapı Event Area', 'İstanbul',
   'Aksaray Mahallesi, Yenikapı Etkinlik Alanı, Kennedy Caddesi No: 11/1, Fatih/İstanbul', 'Aksaray Mahallesi, Yenikapı Event Area, Kennedy Caddesi No: 11/1, Fatih/Istanbul', 'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul',
   '0541 662 28 28', '', 'giresunexpo.com', '{"_not":"Kitapçıkta yok. Hepsi boş olduğu sürece sosyal medya bölümü sitede hiç render edilmez.","instagram":"","linkedin":"","x":"","facebook":"","youtube":""}'::jsonb,
-  '[{"tarih":"2026-10-08","gun_tr":"Perşembe","gun_en":"Thursday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-09","gun_tr":"Cuma","gun_en":"Friday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-10","gun_tr":"Cumartesi","gun_en":"Saturday","acilis":"10:00","kapanis":"20:00"},{"tarih":"2026-10-11","gun_tr":"Pazar","gun_en":"Sunday","acilis":"10:00","kapanis":"18:00"}]'::jsonb, '[{"deger":"86","etiket_tr":"Katılımcı firma","etiket_en":"Exhibiting companies"},{"deger":"4","etiket_tr":"Gün","etiket_en":"Days"},{"deger":"3","etiket_tr":"Paydaş kuruluş","etiket_en":"Partner institutions"},{"deger":"5","etiket_tr":"Salon","etiket_en":"Halls"}]'::jsonb,
+  '[{"tarih":"2026-10-08","gun_tr":"Perşembe","gun_en":"Thursday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-09","gun_tr":"Cuma","gun_en":"Friday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-10","gun_tr":"Cumartesi","gun_en":"Saturday","acilis":"10:00","kapanis":"20:00"},{"tarih":"2026-10-11","gun_tr":"Pazar","gun_en":"Sunday","acilis":"10:00","kapanis":"18:00"}]'::jsonb, '[{"deger":"","etiket_tr":"Katılımcı firma","etiket_en":"Exhibiting companies"},{"deger":"4","etiket_tr":"Gün","etiket_en":"Days"},{"deger":"3","etiket_tr":"Paydaş kuruluş","etiket_en":"Partner institutions"},{"deger":"100","etiket_tr":"Stand sayısı","etiket_en":"Stands"}]'::jsonb,
   false, '', '', '',
-  'Fuara kalan süre', 'Time until the fair', 'Fuar devam ediyor — 8–11 Ekim 2026, Yenikapı', 'The fair is open — 8–11 October 2026, Yenikapı',
-  'Giresun EXPO 2026 için teşekkürler. 2027''de görüşmek üzere.', 'Thank you for Giresun EXPO 2026. See you in 2027.',
-  true, 'Katılımcı Olun: Giresun EXPO 2027 ön başvurusu', 'Become an Exhibitor: Giresun EXPO 2027 pre-application', 'Başvurular şu anda kapalı. Yeniden açıldığında bu sayfadan duyurulacak.', 'Applications are currently closed. They will be announced here when they reopen.',
+  'Fuara kalan süre', 'Time until the fair', 'Fuar devam ediyor — 8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi', 'The fair is open — 8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre',
+  'Giresun EXPO için teşekkürler. 2027''de görüşmek üzere.', 'Thank you for Giresun EXPO. See you in 2027.',
+  true, 'Firma Kayıt', 'Company Registration', 'Başvurular şu anda kapalı. Yeniden açıldığında bu sayfadan duyurulacak.', 'Applications are currently closed. They will be announced here when they reopen.',
   true, false
 )
 on conflict (id) do update set
@@ -810,6 +806,6 @@ on conflict (id) do update set
   stant_baslik_tr=excluded.stant_baslik_tr, stant_baslik_en=excluded.stant_baslik_en;
 
 -- =============================================================================
--- Özet: 17 sektör · 86 katılımcı · 3 paydaş · 8 SSS · 4 ulaşım · 1 site ayarı satırı
+-- Özet: 17 sektör · 86 katılımcı · 3 paydaş · 7 SSS · 4 ulaşım · 1 site ayarı satırı
 -- Logolu katılımcı: 45 / 86
 -- =============================================================================

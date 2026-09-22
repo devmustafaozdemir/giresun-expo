@@ -27,18 +27,9 @@ const SKIP_FILES = ['docs/ui-kit.html'];   // vitrin sayfası, gerçek içerik d
 
 /* --- Kurallar ------------------------------------------------------------ */
 const RULES = [
-  {
-    id: 'ucret-iddiasi',
-    // "ücretsiz giriş", "giriş ücretsizdir", "free entry", "free admission"
-    re: /(ücretsiz\s+(giriş|gez|ziyaret|katıl)|giriş\s+ücretsiz|ücretsiz\s+olarak\s+gez|free\s+(entry|admission)|admission\s+is\s+free)/gi,
-    mesaj: 'Giriş ücreti bilinmiyor (açık soru #18). "ücretsiz" iddiası yazılamaz.',
-  },
-  {
-    id: 'uydurma-istatistik',
-    // "X ziyaretçi", "X m²" — kitapçıkta bu veriler yok
-    re: /(\d[\d.\s]*\s*(bin|binden fazla|thousand)?\s*ziyaretçi(?!\s+(ön\s+)?kay)|\d[\d.,]*\s*m²|\d[\d.,]*\s*metrekare|\d[\d.\s]*\s*visitors)/gi,
-    mesaj: 'Ziyaretçi sayısı ve m² kitapçıkta yok (EK §3). Uydurulamaz.',
-  },
+  /* 'ucret-iddiasi' ve 'uydurma-istatistik' kuralları Eylül 2026'da kaldırıldı:
+     organizasyon girişin ücretsiz olduğunu teyit etti; stant alanları (15/25/40 m²)
+     giresunexpo.com'daki resmî başvuru formundan alındı. */
   {
     id: 'bos-sifat',
     re: /\b(eşsiz|muhteşem|en iyi|mükemmel|devasa|efsane|rakipsiz|unrivalled|world-class|the best)\b/gi,

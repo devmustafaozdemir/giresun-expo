@@ -275,7 +275,7 @@ function formKur(v) {
   const form = el('form', { id: 'ayar-formu' },
 
     bolum('Künye', 'Etkinliğin adı ve tarihleri. Geri sayım bu tarihlere göre çalışır.',
-      metin('etkinlik_adi', 'Etkinlik adı', v.etkinlik_adi),
+      metin('etkinlik_adi', 'Etkinlik adı', v.etkinlik_adi, { ipucu: 'Basın sayfasındaki künyede görünür. Tarihler ana sayfa, geri sayım ve künyede kullanılır.' }),
       metin('baslangic_tarihi', 'Başlangıç tarihi', v.baslangic_tarihi, { tip: 'date' }),
       metin('bitis_tarihi', 'Bitiş tarihi', v.bitis_tarihi, { tip: 'date' }),
       metin('geri_sayim_hedefi', 'Geri sayım hedefi (Türkiye saati)',
@@ -327,7 +327,7 @@ function formKur(v) {
       { ad: 'deger',     etiket: 'Değer',      ornek: '86' },
       { ad: 'etiket_tr', etiket: 'Etiket (TR)', ornek: 'Katılımcı firma' },
       { ad: 'etiket_en', etiket: 'Etiket (EN)', ornek: 'Exhibitors' }
-    ], v.istatistikler, 'İstatistik yok. Yalnızca doğrulanabilir sayılar girin.'),
+    ], v.istatistikler, 'İstatistik yok. Değer boş bırakılırsa "Katılımcı firma" ve "Stand sayısı" katılımcı listesinden otomatik hesaplanır.'),
 
     bolum('Duyuru çubuğu', 'Sitenin en üstünde çıkan ince şerit.',
       anahtar('duyuru_aktif', 'Duyuru çubuğu görünsün', !!v.duyuru_aktif,
@@ -346,23 +346,23 @@ function formKur(v) {
 
     bolum('Başvuru ve kayıt anahtarları',
       'Bu anahtarlar veritabanında zorlanır: kapalıyken form tarayıcıdan zorlansa bile gönderim reddedilir.',
-      anahtar('stant_basvuru_acik', 'Stant başvuruları açık', !!v.stant_basvuru_acik,
+      anahtar('stant_basvuru_acik', 'Firma kayıtları açık', !!v.stant_basvuru_acik,
               'Kapatılırsa form yerine kapalı mesajı gösterilir.'),
-      anahtar('ziyaretci_kaydi_acik', 'Ziyaretçi ön kaydı açık', !!v.ziyaretci_kaydi_acik,
-              'Kapatılırsa ziyaretçi ön kayıt formu kapanır.'),
+      anahtar('ziyaretci_kaydi_acik', 'Ziyaretçi kaydı açık', !!v.ziyaretci_kaydi_acik,
+              'Kapatılırsa ziyaretçi kayıt formu kapanır.'),
       anahtar('program_yayinda', 'Program yayında', !!v.program_yayinda,
-              'Kapalıyken menüde Program yerine Ziyaret Bilgileri görünür.'),
-      ikili('stant_baslik', 'Stant sayfası başlığı', v),
+              'Fuar Bilgileri sayfasındaki Etkinlik programı sayfası için; program eklendiğinde açın.'),
+      ikili('stant_baslik', 'Firma Kayıt sayfası başlığı', v),
       ikili('stant_kapali', 'Başvuru kapalı mesajı', v, { cokSatir: true })
     ),
 
-    tekrarlayici('stant_fiyatlari', 'Stant fiyatları', [
-      { ad: 'tip_tr',    etiket: 'Tip (TR)',    ornek: 'Hazır stant' },
-      { ad: 'tip_en',    etiket: 'Tip (EN)',    ornek: 'Shell scheme' },
-      { ad: 'fiyat',     etiket: 'Fiyat',       ornek: 'Fiyat için iletişime geçin' },
+    tekrarlayici('stant_fiyatlari', 'Firma Kayıt — stant alanı seçenekleri', [
+      { ad: 'tip_tr',    etiket: 'Alan (TR)',   ornek: '15 m²' },
+      { ad: 'tip_en',    etiket: 'Alan (EN)',   ornek: '15 m²' },
+      { ad: 'fiyat',     etiket: 'Fiyat',       ornek: '100.000 TL + KDV' },
       { ad: 'aciklama_tr', etiket: 'Açıklama (TR)' },
       { ad: 'aciklama_en', etiket: 'Açıklama (EN)' }
-    ], v.stant_fiyatlari, 'Fiyat girilmedi. Boşsa sitede fiyat tablosu görünmez.')
+    ], v.stant_fiyatlari, 'Seçenek yok. Firma Kayıt formunda varsayılan alanlar (15/25/40 m²) gösterilir.')
   );
 
   const kaydetBtn = el('button', { class: 'btn btn--primary', type: 'submit' }, 'Kaydet');
@@ -483,8 +483,8 @@ async function kaydet(btn) {
   /* Herkese açık bir formu KAPATMAK dışarıdan görünür bir etki. Yanlışlıkla
      olmasın diye onay isteriz. Açmak için onay gerekmez. */
   const kritik = [
-    ['stant_basvuru_acik',   'Stant başvuruları'],
-    ['ziyaretci_kaydi_acik', 'Ziyaretçi ön kaydı']
+    ['stant_basvuru_acik',   'Firma kayıtları'],
+    ['ziyaretci_kaydi_acik', 'Ziyaretçi kaydı']
   ];
   const kapananlar = kritik
     .filter(([k]) => ilkDeger[k] === true && yama[k] === false)

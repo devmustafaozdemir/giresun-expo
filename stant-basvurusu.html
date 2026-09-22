@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.documentElement.classList.add('js')</script>
 
-  <title>Stant Başvurusu — Giresun EXPO 2027</title>
-  <meta name="description" content="Giresun EXPO 2027 için stant ön başvurusu. Firma bilgilerinizi bırakın, satış ekibimiz sizinle iletişime geçsin.">
+  <title>Firma Kayıt — Giresun EXPO</title>
+  <meta name="description" content="Giresun EXPO katılımcı başvuru formu. Firma bilgilerinizi ve stand alanı tercihinizi bırakın, ekibimiz sizinle iletişime geçsin.">
 
   <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html">
   <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html">
@@ -16,8 +16,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:title" content="Stant Başvurusu — Giresun EXPO 2027">
-  <meta property="og:description" content="Giresun EXPO 2027 için stant ön başvurusu. Firma bilgilerinizi bırakın, satış ekibimiz sizinle iletişime geçsin.">
+  <meta property="og:title" content="Firma Kayıt — Giresun EXPO">
+  <meta property="og:description" content="Giresun EXPO katılımcı başvuru formu. Firma bilgilerinizi ve stand alanı tercihinizi bırakın, ekibimiz sizinle iletişime geçsin.">
   <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html">
   <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -32,8 +32,8 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/config.js" defer></script>
-  <script src="assets/js/form-adimlar.js" defer></script>
   <script type="module" src="assets/js/form-gonder.js"></script>
+  <script type="module" src="assets/js/site-veri.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -52,8 +52,8 @@
         <ul class="nav-list">
           <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
           <li><a class="nav__link" href="hakkinda.html">Hakkında</a></li>
-          <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
-          <li><a class="nav__link" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a class="nav__link" href="katilimcilar.html">Katılımcı Firmalar</a></li>
+          <li><a class="nav__link" href="ziyaret-bilgileri.html">Fuar Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
           <li><a class="nav__link" href="basin.html">Basın</a></li>
           <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
@@ -65,7 +65,16 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link" href="en/stand-application.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
+          <div class="nav__cta">
+            <a class="btn btn--navy btn--sm" href="stant-basvurusu.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+              Firma Kayıt
+            </a>
+            <a class="btn btn--navy btn--sm" href="ziyaretci-kaydi.html">
+              <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Ziyaretçi Kayıt
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -80,153 +89,110 @@
           <ol class="breadcrumb">
             <li><a href="index.html">Ana Sayfa</a></li>
             <li aria-hidden="true">›</li>
-            <li>Stant Başvurusu</li>
+            <li>Firma Kayıt</li>
           </ol>
         </nav>
-        <h1>Katılımcı Olun</h1>
-        <p class="lead">Giresun EXPO 2026 stantları dağıtılmıştır. Aşağıdaki form 2027 ön başvurusu içindir.</p>
+        <h1>Firma Kayıt</h1>
+        <p class="lead">Giresun EXPO katılımcı başvuru formu. Bilgilerinizi bırakın, ekibimiz sizinle iletişime geçsin.</p>
       </div>
     </section>
 
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Neden katılmalı?</p>
-          <h2 class="section-title">Giresun EXPO 2027</h2>
-        </div>
-        <div class="grid grid--3 reveal">
-          <div class="pillar">
-            <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
-            <h3 class="pillar__title">Doğru kitle</h3>
-            <p class="pillar__text">Kamu kurumları, yatırımcılar, üreticiler ve sanayiciler aynı çatı altında.</p>
-          </div>
-          <div class="pillar">
-            <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
-            <h3 class="pillar__title">Dört gün</h3>
-            <p class="pillar__text">Dört gün boyunca kesintisiz ziyaretçi akışı ve ikili görüşme imkânı.</p>
-          </div>
-          <div class="pillar">
-            <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></span>
-            <h3 class="pillar__title">Erken başvuru</h3>
-            <p class="pillar__text">2026'da 86 firma stant açtı. 2027 için erken başvuru yer seçiminde avantaj sağlar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Süreç</p>
-          <h2 class="section-title">Dört adım</h2>
-        </div>
-        <ol class="process reveal">
-          <li class="process__step"><span class="process__num">1</span>
-            <h3 class="process__title">Başvuru</h3>
-            <p class="process__text">Aşağıdaki formu doldurun.</p></li>
-          <li class="process__step"><span class="process__num">2</span>
-            <h3 class="process__title">Değerlendirme</h3>
-            <p class="process__text">Ekibimiz başvurunuzu inceler ve sizinle iletişime geçer.</p></li>
-          <li class="process__step"><span class="process__num">3</span>
-            <h3 class="process__title">Sözleşme</h3>
-            <p class="process__text">Stant tipi ve alan birlikte belirlenir.</p></li>
-          <li class="process__step"><span class="process__num">4</span>
-            <h3 class="process__title">Kurulum</h3>
-            <p class="process__text">Fuar öncesi kurulum takvimi paylaşılır.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
+    <section class="section section--compact">
       <div class="container container--narrow">
-        <div class="section-head reveal">
-          <p class="eyebrow">Başvuru</p>
-          <h2 class="section-title">Ön başvuru formu</h2>
-        </div>
+        <div class="notice notice--info" data-stant-kapali hidden><p></p></div>
 
-        <form class="form reveal" id="stand-form" data-form="stand" data-steps novalidate>
-          <ol class="steps" data-steps-nav>
-            <li class="steps__item is-active">1. Firma bilgileri</li>
-            <li class="steps__item">2. Stant tercihi</li>
-            <li class="steps__item">3. Onay ve gönder</li>
-          </ol>
-
-          <fieldset class="fieldset form" data-step="1">
-            <legend>Firma bilgileri</legend>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-company">Firma adı <span class="req">*</span></label>
-                <input class="form__control" id="s-company" name="company" type="text" required maxlength="160" autocomplete="organization">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-sector">Sektör <span class="req">*</span></label>
-                <input class="form__control" id="s-sector" name="sector" type="text" required maxlength="80">
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-contact">Yetkili ad soyad <span class="req">*</span></label>
-                <input class="form__control" id="s-contact" name="contactName" type="text" required maxlength="120" autocomplete="name">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-mail">E-posta <span class="req">*</span></label>
-                <input class="form__control" id="s-mail" name="email" type="email" required maxlength="160" autocomplete="email">
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-phone">Telefon <span class="req">*</span></label>
-                <input class="form__control" id="s-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel">
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-web">Web sitesi</label>
-                <input class="form__control" id="s-web" name="website" type="url" placeholder="https://" maxlength="200">
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset class="fieldset form" data-step="2" hidden>
-            <legend>Stant tercihi</legend>
-            <div class="form__row">
-              <div class="form__group">
-                <label class="form__label" for="s-type">Stant tipi <span class="req">*</span></label>
-                <select class="form__control" id="s-type" name="standType" required>
-                  <option value="">Seçiniz</option>
-                  <option value="hazir">Hazır stant</option>
-                  <option value="bos">Boş alan</option>
-                  <option value="acik">Açık alan</option>
-                </select>
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="s-area">Yaklaşık alan (m²)</label>
-                <input class="form__control" id="s-area" name="area" type="number" min="1" max="500" step="1" inputmode="numeric">
-              </div>
+        <form class="form reveal" id="stand-form" data-form="stand" novalidate>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="s-contact">Ad Soyad <span class="req">*</span></label>
+              <input class="form__control" id="s-contact" name="contactName" type="text" required maxlength="120" autocomplete="name">
             </div>
             <div class="form__group">
-              <label class="form__label" for="s-note">Eklemek istedikleriniz</label>
-              <textarea class="form__control" id="s-note" name="note" maxlength="1500"></textarea>
-              <p class="form__hint">Fiyatlandırma için ekibimiz sizinle iletişime geçecektir.</p>
+              <label class="form__label" for="s-company">Şirket Ünvanı <span class="req">*</span></label>
+              <input class="form__control" id="s-company" name="company" type="text" required maxlength="160" autocomplete="organization">
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="s-title">Unvan / Görev <span class="req">*</span></label>
+              <input class="form__control" id="s-title" name="title" type="text" required maxlength="120" autocomplete="organization-title">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="s-phone">Cep Telefonu <span class="req">*</span></label>
+              <input class="form__control" id="s-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="05xx xxx xx xx">
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="s-mail">Kurumsal E-posta <span class="req">*</span></label>
+              <input class="form__control" id="s-mail" name="email" type="email" required maxlength="160" autocomplete="email">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="s-sector">Sektör <span class="req">*</span></label>
+              <select class="form__control" id="s-sector" name="sector" required>
+                <option value="">Seçiniz</option>
+                  <option value="Gıda & İçecek">Gıda &amp; İçecek</option>
+                  <option value="Yapı & İnşaat">Yapı &amp; İnşaat</option>
+                  <option value="Metal, Makine & Sanayi">Metal, Makine &amp; Sanayi</option>
+                  <option value="Enerji & Elektrik">Enerji &amp; Elektrik</option>
+                  <option value="Mobilya & İç Mimari">Mobilya &amp; İç Mimari</option>
+                  <option value="Otomotiv & Lojistik">Otomotiv &amp; Lojistik</option>
+                  <option value="Turizm & Konaklama">Turizm &amp; Konaklama</option>
+                  <option value="Sağlık">Sağlık</option>
+                  <option value="Kimya, Boya & Plastik">Kimya, Boya &amp; Plastik</option>
+                  <option value="Reklam, Medya & Basım">Reklam, Medya &amp; Basım</option>
+                  <option value="Denizcilik & Gemi İnşa">Denizcilik &amp; Gemi İnşa</option>
+                  <option value="Teknoloji & Bilişim">Teknoloji &amp; Bilişim</option>
+                  <option value="Tekstil">Tekstil</option>
+                  <option value="Su & Çevre Teknolojileri">Su &amp; Çevre Teknolojileri</option>
+                  <option value="Tarım">Tarım</option>
+                  <option value="Hizmet, Finans & Ticaret">Hizmet, Finans &amp; Ticaret</option>
+                  <option value="Diğer">Diğer</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form__group">
+            <legend class="form__label">Stant Alanı Seçimi <span class="req">*</span></legend>
+            <div class="stand-opts" data-stant-alanlari>
+              <label class="stand-opt">
+                <input type="radio" name="area" value="15" required>
+                <span class="stand-opt__box">
+                  <span class="stand-opt__m2">15 m²</span>
+                  <span class="stand-opt__price">100.000 TL + KDV</span>
+                </span>
+              </label>
+              <label class="stand-opt">
+                <input type="radio" name="area" value="25" required>
+                <span class="stand-opt__box">
+                  <span class="stand-opt__m2">25 m²</span>
+                  <span class="stand-opt__price">150.000 TL + KDV</span>
+                </span>
+              </label>
+              <label class="stand-opt">
+                <input type="radio" name="area" value="40" required>
+                <span class="stand-opt__box">
+                  <span class="stand-opt__m2">40 m²</span>
+                  <span class="stand-opt__price">200.000 TL + KDV</span>
+                </span>
+              </label>
             </div>
           </fieldset>
 
-          <fieldset class="fieldset form" data-step="3" hidden>
-            <legend>Onay ve gönder</legend>
-            <dl class="summary" data-summary></dl>
             <div class="hp-field" aria-hidden="true">
               <label for="hp-website">Bu alanı boş bırakın</label>
               <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
             </div>
-            <label class="form__check">
-              <input type="checkbox" name="consent" required>
-              <span><a href="kvkk.html">KVKK Aydınlatma Metni</a>'ni okudum, firma ve iletişim bilgilerimin başvuru sürecinde işlenmesini kabul ediyorum. <span class="req">*</span></span>
-            </label>
-          </fieldset>
+
+          <label class="form__check">
+            <input type="checkbox" name="consent" required>
+            <span><a href="kvkk.html">KVKK Aydınlatma Metni</a>'ni okudum, bilgilerimin başvuru sürecinde işlenmesini kabul ediyorum. <span class="req">*</span></span>
+          </label>
 
           <div class="form__actions">
-            <button class="btn btn--ghost" type="button" data-step-prev hidden>Geri</button>
-            <button class="btn btn--primary btn--lg" type="button" data-step-next>Devam et</button>
-            <button class="btn btn--primary btn--lg" type="submit" data-step-submit hidden>Başvuruyu Gönder</button>
+            <button class="btn btn--primary btn--lg" type="submit">Başvuruyu Gönder</button>
           </div>
+          <p class="form__hint">Bilgileriniz yalnızca etkinlik organizasyonu için kullanılacaktır.</p>
         </form>
       </div>
     </section>
@@ -239,7 +205,7 @@
           <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
         </span>
         <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü İstanbul'da tanıtan iş dünyası buluşması.</p>
-        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
+        <p class="site-footer__slogan" data-ayar="slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
@@ -247,7 +213,7 @@
         <ul class="site-footer__list">
           <li><a href="index.html">Ana Sayfa</a></li>
           <li><a href="hakkinda.html">Hakkında</a></li>
-          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="katilimcilar.html">Katılımcı Firmalar</a></li>
           <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
@@ -255,9 +221,9 @@
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
-          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
-          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="ziyaret-bilgileri.html">Fuar Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Kayıt</a></li>
+          <li><a href="stant-basvurusu.html">Firma Kayıt</a></li>
           <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
@@ -265,16 +231,18 @@
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
-          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
+          <p>Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828" data-ayar-telefon>0541 662 28 28</a></p>
+          <p data-ayar-eposta hidden></p>
+          <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
     <div class="container site-footer__partners">
-      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
     </div>
 
     <div class="container site-footer__bottom">

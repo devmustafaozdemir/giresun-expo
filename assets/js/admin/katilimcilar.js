@@ -18,6 +18,23 @@ import { listeSayfasi, kunye } from './liste.js';
 import { el, kabukKur, tarihSaat, toast, onayla } from './ui.js';
 
 const oturum = await korumaliSayfa();
+
+/* Stand numaraları veritabanında text[] olarak tutulur. Formda "P1-03, P1-06"
+   gibi düz metin yazılır; buradan diziye çevrilir. (Önceki sürüm düz metni
+   gönderiyordu ve Supabase "malformed array literal" hatası veriyordu.) */
+function standDizisi(metin) {
+  return String(metin || '').split(/[,;\s]+/).map((x) => x.trim().toUpperCase()).filter(Boolean);
+}
+function standMetni(d) {
+  return Array.isArray(d) ? d.join(', ') : String(d || '');
+}
+function slugYap(ad) {
+  const t = String(ad).toLowerCase()
+    .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+    .replace(/ö/g, 'o').replace(/ç/g, 'c').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return (t || 'firma') + '-' + Math.random().toString(36).slice(2, 6);
+}
 oturumIzle();
 
 const icerik = kabukKur({ aktif: 'katilimci', baslik: 'Katılımcılar', oturum });
@@ -68,8 +85,16 @@ const liste = await listeSayfasi(icerik, {
   tablo: 'exhibitors',
   secim: 'id, name, slug, sector_id, stands, hall, logo_url, aciklama_tr, aciklama_en,' +
          ' web, featured, published, sira, created_at',
-  aramaAlanlari: ['name', 'slug', 'stands', 'hall'],
-  aramaIpucu: 'Firma adı, stant no veya salon…',
+  aramaAlanlari: ['name', 'slug', 'hall'],
+  aramaDiziAlanlari: ['stands'],
+  aramaIpucu: 'Firma adı veya stand no (ör. P1-10)…',
+  sayfaEylemi: el('button', {
+    class: 'btn btn--primary btn--sm', type: 'button',
+    onclick: () => liste.cekmeceAc({
+      yeni: true, name: '', slug: '', sector_id: null, stands: [], hall: null, logo_url: '',
+      aciklama_tr: '', aciklama_en: '', web: '', featured: false, published: true, sira: 999
+    })
+  }, '+ Yeni katılımcı'),
   varsayilanSirala: 'name',
   varsayilanArtan: true,
 
@@ -105,7 +130,7 @@ const liste = await listeSayfasi(icerik, {
                                   style: 'margin-left:8px' }, 'Öne çıkan') : null) },
     { baslik: 'Sektör', sirala: 'sector_id',
       render: (r) => sektorAdi[r.sector_id] || '—' },
-    { baslik: 'Stant', sirala: 'stands', render: (r) => r.stands || '—' },
+    { baslik: 'Stand No', sirala: 'stands', render: (r) => standMetni(r.stands) || '—' },
     { baslik: 'Salon', sirala: 'hall', render: (r) => r.hall
         ? el('span', { class: 'durum durum--notr' }, r.hall) : '—' },
     { baslik: 'Durum', render: (r) => r.published
@@ -120,7 +145,7 @@ const liste = await listeSayfasi(icerik, {
     dosya: 'giresun-expo-katilimcilar',
     basliklar: ['Firma', 'Slug', 'Sektör', 'Stant', 'Salon', 'Logo', 'Web',
                 'Öne çıkan', 'Yayında'],
-    satir: (r) => [r.name, r.slug, sektorAdi[r.sector_id] || '', r.stands, r.hall,
+    satir: (r) => [r.name, r.slug, sektorAdi[r.sector_id] || '', standMetni(r.stands), r.hall,
                    r.logo_url || '', r.web, r.featured ? 'Evet' : 'Hayır',
                    r.published ? 'Evet' : 'Hayır']
   },
@@ -209,11 +234,12 @@ function duzenleCekmecesi(r, arac) {
 
   const dosyaGiris = el('input', {
     type: 'file', id: 'k-logo', class: 'form__control',
-    accept: IZINLI_TIP.join(',')
+    accept: IZINLI_TIP.join(','), disabled: !!r.yeni
   });
 
   const yukleDurum = el('p', { class: 'form__hint' },
-    r.logo_url ? 'Mevcut logo yukarıda. Yenisini seçerek değiştirebilirsiniz.'
+    r.yeni ? 'Logo, firma kaydedildikten sonra yüklenebilir.'
+    : r.logo_url ? 'Mevcut logo yukarıda. Yenisini seçerek değiştirebilirsiniz.'
                : 'Logo yok. PNG, JPEG, WEBP veya SVG — en fazla 5 MB.');
 
   const logoSilBtn = r.logo_url
@@ -309,11 +335,14 @@ function duzenleCekmecesi(r, arac) {
 
   const kaydetBtn = el('button', { class: 'btn btn--primary', type: 'button' }, 'Kaydet');
   kaydetBtn.addEventListener('click', async () => {
+    const stands = standDizisi(alan.stands.value);
+    const ilkHarf = (stands[0] || '').charAt(0);
     const yama = {
       name: alan.name.value.trim(),
       sector_id: sektorSec.value || null,
-      stands: alan.stands.value.trim(),
-      hall: alan.hall.value.trim(),
+      stands,
+      hall: ['A', 'T', 'G', 'P', 'E'].includes(ilkHarf) ? ilkHarf : null,
+      sira: parseInt(alan.sira.value, 10) || 0,
       web: alan.web.value.trim(),
       aciklama_tr: alan.aciklama_tr.value.trim(),
       aciklama_en: alan.aciklama_en.value.trim(),
@@ -325,14 +354,26 @@ function duzenleCekmecesi(r, arac) {
 
     kaydetBtn.disabled = true;
     kaydetBtn.classList.add('is-loading');
-    const { error } = await sb.from('exhibitors').update(yama).eq('id', r.id);
+    let error, yeniId = r.id;
+    if (r.yeni) {
+      yama.slug = slugYap(yama.name);
+      const sonuc = await sb.from('exhibitors').insert(yama).select('id').single();
+      error = sonuc.error; yeniId = sonuc.data && sonuc.data.id;
+    } else {
+      ({ error } = await sb.from('exhibitors').update(yama).eq('id', r.id));
+    }
     kaydetBtn.disabled = false;
     kaydetBtn.classList.remove('is-loading');
 
-    if (error) { toast('Kaydedilemedi: ' + error.message, 'hata', 9000); return; }
+    if (error) {
+      const m = /duplicate|unique/i.test(error.message)
+        ? 'Bu adla bir firma zaten var.' : error.message;
+      toast('Kaydedilemedi: ' + m, 'hata', 9000); return;
+    }
 
-    const degisen = Object.keys(yama).filter((k) => yama[k] !== r[k]);
-    gunlukYaz({ tablo: 'exhibitors', kayit_id: r.id, islem: 'update',
+    const degisen = r.yeni ? ['yeni kayıt']
+      : Object.keys(yama).filter((k) => JSON.stringify(yama[k]) !== JSON.stringify(r[k]));
+    gunlukYaz({ tablo: 'exhibitors', kayit_id: yeniId, islem: r.yeni ? 'insert' : 'update',
                 ozet: `${yama.name}: ${degisen.join(', ') || 'değişiklik yok'}` });
 
     toast('Kaydedildi.', 'basari');
@@ -352,8 +393,9 @@ function duzenleCekmecesi(r, arac) {
       el('div', { class: 'form__group' },
         el('label', { class: 'form__label', for: 'k-sektor' }, 'Sektör'), sektorSec),
       el('div', { style: 'display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)' },
-        yap('stands', 'Stant no', r.stands),
-        yap('hall', 'Salon', r.hall, { ipucu: 'Tek harf: A, T, G, P veya E' })),
+        yap('stands', 'Stand no', standMetni(r.stands),
+            { ipucu: 'Birden fazlaysa virgülle ayırın: P1-03, P1-06' }),
+        yap('sira', 'Sıra', String(r.sira ?? ''), { ipucu: 'Küçük sayı önce gelir' })),
       yap('web', 'Web sitesi', r.web),
       yap('aciklama_tr', 'Açıklama (TR)', r.aciklama_tr, { cokSatir: true }),
       yap('aciklama_en', 'Açıklama (EN)', r.aciklama_en, { cokSatir: true }),
@@ -366,13 +408,31 @@ function duzenleCekmecesi(r, arac) {
                                style: 'margin:0' }, 'Ana sayfada öne çıkar'))
     ),
 
-    el('dl', { class: 'kunye', style: 'margin-top:var(--space-5)' },
+    r.yeni ? null : el('dl', { class: 'kunye', style: 'margin-top:var(--space-5)' },
       kunye('Slug', r.slug),
       kunye('Logo yolu', r.logo_url || '—'),
       kunye('Eklenme', tarihSaat(r.created_at)))
   );
 
-  return { baslik: r.name, govde, eylemler: [kaydetBtn] };
+  const silBtn = r.yeni ? null
+    : el('button', { class: 'btn btn--ghost', type: 'button', style: 'margin-right:auto' }, 'Sil');
+  if (silBtn) {
+    silBtn.addEventListener('click', async () => {
+      const ok = await onayla({
+        baslik: `${r.name} silinsin mi?`,
+        metin: 'Firma sitedeki listeden kalıcı olarak kaldırılır. Yalnızca geçici olarak gizlemek için "Yayında" kutusunu kaldırmanız yeterli.',
+        onayMetni: 'Evet, sil', tehlike: true
+      });
+      if (!ok) return;
+      const { error } = await sb.from('exhibitors').delete().eq('id', r.id);
+      if (error) { toast('Silinemedi: ' + error.message, 'hata', 9000); return; }
+      gunlukYaz({ tablo: 'exhibitors', kayit_id: r.id, islem: 'delete', ozet: `${r.name} silindi` });
+      toast('Firma silindi.', 'basari');
+      arac.kapat(); arac.yenile(); ozetYukle();
+    });
+  }
+
+  return { baslik: r.yeni ? 'Yeni katılımcı' : r.name, govde, eylemler: [silBtn, kaydetBtn].filter(Boolean) };
 }
 
 function yuklemeCevir(error) {

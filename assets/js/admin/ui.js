@@ -89,7 +89,7 @@ export const MENU = [
     { id: 'pano', ad: 'Pano', dosya: 'pano.html', ikon: 'pano' }
   ]},
   { grup: 'Başvurular', ogeler: [
-    { id: 'stant',     ad: 'Stant Başvuruları', dosya: 'stant-basvurulari.html', ikon: 'stant',     sayac: 'stant' },
+    { id: 'stant',     ad: 'Firma Kayıtları', dosya: 'stant-basvurulari.html', ikon: 'stant',     sayac: 'stant' },
     { id: 'ziyaretci', ad: 'Ziyaretçi Kayıtları', dosya: 'ziyaretci-kayitlari.html', ikon: 'ziyaretci' },
     { id: 'mesaj',     ad: 'Mesajlar',          dosya: 'mesajlar.html',          ikon: 'mesaj',     sayac: 'mesaj' }
   ]},

@@ -24,7 +24,7 @@ const ISLEM_SINIF = {
   login: 'notr',      export: 'new'
 };
 const TABLO_ADI = {
-  stand_applications: 'Stant başvuruları',
+  stand_applications: 'Firma kayıtları',
   visitor_registrations: 'Ziyaretçi kayıtları',
   contact_messages: 'Mesajlar',
   newsletter_subscribers: 'Bülten aboneleri',

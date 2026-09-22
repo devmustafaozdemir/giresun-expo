@@ -99,8 +99,8 @@ async function yukle() {
 
   /* --- Özet kartları --- */
   istAlan.replaceChildren(
-    istKart('Stant başvurusu', stantTop.count, `${stantYeni.count ?? 0} tanesi yeni`),
-    istKart('Ziyaretçi ön kaydı', ziyTop.count),
+    istKart('Firma kaydı', stantTop.count, `${stantYeni.count ?? 0} tanesi yeni`),
+    istKart('Ziyaretçi kaydı', ziyTop.count),
     istKart('Okunmamış mesaj', mesajOkunmamis.count),
     istKart('Yayındaki katılımcı', katTop.count)
   );
@@ -111,7 +111,7 @@ async function yukle() {
   /* --- 30 günlük grafik --- */
   grafikAlan.replaceChildren(
     el('div', { class: 'panel__bas' },
-      el('h2', { class: 'panel__baslik' }, 'Son 30 günde stant başvuruları')),
+      el('h2', { class: 'panel__baslik' }, 'Son 30 günde firma kayıtları')),
     el('div', { class: 'panel__govde' },
       stantSeri.error
         ? durumKutusu({ tur: 'hata', baslik: 'Grafik yüklenemedi', metin: stantSeri.error.message })
@@ -242,7 +242,7 @@ function sonBasvurular({ data, error }) {
 
   return el('section', { class: 'panel' },
     el('div', { class: 'panel__bas' },
-      el('h2', { class: 'panel__baslik' }, 'Son stant başvuruları'),
+      el('h2', { class: 'panel__baslik' }, 'Son firma kayıtları'),
       el('a', { class: 'btn btn--ghost btn--sm', href: 'stant-basvurulari.html',
                 style: 'margin-left:auto' }, 'Tümü')),
     el('div', { class: 'panel__govde panel__govde--sikisik' }, govde)
