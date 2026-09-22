@@ -549,8 +549,8 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
 
           <figure class="media media--4x3 reveal">
             <picture>
-              <source srcset="assets/img/photos/uretim-sanayi.webp" type="image/webp">
-              <img src="assets/img/photos/uretim-sanayi.jpg" alt="Modern bir üretim tesisi" width="783" height="457" loading="lazy" decoding="async">
+              <source srcset="assets/img/photos/fabrika.webp" type="image/webp">
+              <img src="assets/img/photos/fabrika.jpg" alt="Modern bir üretim tesisi" width="1600" height="1066" loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
@@ -646,8 +646,8 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a
 
           <figure class="media media--4x3 reveal">
             <picture>
-              <source srcset="../assets/img/photos/uretim-sanayi.webp" type="image/webp">
-              <img src="../assets/img/photos/uretim-sanayi.jpg" alt="A modern production facility" width="783" height="457" loading="lazy" decoding="async">
+              <source srcset="../assets/img/photos/fabrika.webp" type="image/webp">
+              <img src="../assets/img/photos/fabrika.jpg" alt="A modern production facility" width="1600" height="1066" loading="lazy" decoding="async">
             </picture>
           </figure>
         </div>
