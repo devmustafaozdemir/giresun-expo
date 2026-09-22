@@ -45,7 +45,7 @@ işaretlenir ve burada "varsayımla ilerlendi" notu düşülür.
 | 17 | **E-posta adresi ve sosyal medya hesapları** | 🔴 | EK §4 gereği alanlar boş kalır ve **sitede hiç görünmez**. Kırık link veya "TODO" yazısı olmayacak |
 | 18 | **Ziyaretçi girişi ücretli mi, ücretsiz mi? Kayıt zorunlu mu?** | 🔴 | O zamana kadar **"Ön kayıt"** olarak çalışır, **"ücretsiz" iddiası yazılmaz** (EK §4) |
 | 19 | **Etkinlik programı, konuşmacılar, paneller var mı?** | 🔴 | Program sayfası "yakında açıklanacak" durumunda; oturum eklenmezse menüde **Program yerine Ziyaret Bilgileri** görünür |
-| 20 | **86 firmanın logoları toplanacak mı?** | 🔴 | Logosuz firmalar için baş harflerden **monogram kartı** kullanılacak (A18) |
+| 20 | **86 firmanın logoları toplanacak mı?** | 🔴 | **Elimizde hiç logo yok.** Boru hattı hazır: `data/exhibitors.json` içindeki `logo` alanı dolunca kart otomatik logoya geçiyor, boşken baş harflerden monogram gösteriliyor. Yönerge: `assets/img/exhibitors/README.md`. Tek tek eklenebilir |
 | 21 | **Irmak** ve **Hız İnşaat** stant listesinde neden yok? | 🔴 | Kitapçığın logo sayfasında var, stant listesinde yok. Şu an `exhibitors.json`'da yoklar → 86 sayısı bu ikisi olmadan |
 | 22 | **"ANADOLU İNDİKSİYON"** yazımı doğru mu? | 🔴 | "İndüksiyon" olabilir. Kitapçıktaki hâliyle bırakıldı; teyit gerekiyor. ("ALİMİNYUM" → "Alüminyum" olarak düzeltilmiş) |
 | 23 | **Salon planı (A/T/G/P/E krokisi)** var mı? | 🔴 | Varsa Ziyaret Bilgileri sayfasına kroki eklenir; yoksa yalnızca salon filtresi ve stant numarası |

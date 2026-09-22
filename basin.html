@@ -1,27 +1,46 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-root="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Haberler | Giresun Expo</title>
-  <meta name="description" content="Giresun Expo duyuruları, basın bültenleri ve sektör haberleri.">
-  <link rel="alternate" hreflang="tr" href="haberler.html">
-  <link rel="alternate" hreflang="en" href="en/news.html">
-  <link rel="alternate" hreflang="x-default" href="haberler.html">
+  <script>document.documentElement.classList.add('js')</script>
+
+  <title>Basın — Giresun EXPO 2026</title>
+  <meta name="description" content="Giresun EXPO 2026 basın kiti: logo paketi, el kitapçığı ve künye bilgileri.">
+
+  <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html">
+  <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html">
+  <link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/press.html">
+  <link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Haberler | Giresun Expo">
-  <meta property="og:description" content="Giresun Expo duyuruları, basın bültenleri ve sektör haberleri.">
+  <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Basın — Giresun EXPO 2026">
+  <meta property="og:description" content="Giresun EXPO 2026 basın kiti: logo paketi, el kitapçığı ve künye bilgileri.">
+  <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/basin.html">
+  <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/brand/favicon-180.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-var-latin-ext.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
+
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
 
-  <!-- ==== Ortak header — tüm sayfalarda birebir aynıdır ==================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+      <a class="logo" href="index.html" aria-label="Giresun EXPO 2026 — ana sayfa">
+        <img src="assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="1206" height="703">
+      </a>
 
       <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menüyü aç/kapat">
         <span class="nav-toggle__box"></span>
@@ -30,22 +49,21 @@
       <nav class="site-nav" id="site-nav" aria-label="Ana menü">
         <ul class="nav-list">
           <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
-          <li><a class="nav__link" href="hakkinda.html">Fuar Hakkında</a></li>
+          <li><a class="nav__link" href="hakkinda.html">Hakkında</a></li>
           <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
-          <li><a class="nav__link" href="ziyaretci.html">Ziyaretçi</a></li>
-          <li><a class="nav__link" href="program.html">Program</a></li>
+          <li><a class="nav__link" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
-          <li><a class="nav__link is-active" href="haberler.html" aria-current="page">Haberler</a></li>
+          <li><a class="nav__link is-active" href="basin.html" aria-current="page">Basın</a></li>
           <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
         </ul>
 
         <div class="nav__actions">
           <div class="lang-switch">
-            <a class="lang-switch__link is-active" href="haberler.html" lang="tr" hreflang="tr">TR</a>
+            <a class="lang-switch__link is-active" href="basin.html" lang="tr" hreflang="tr">TR</a>
             <span class="lang-switch__sep" aria-hidden="true">|</span>
-            <a class="lang-switch__link" href="en/news.html" lang="en" hreflang="en">EN</a>
+            <a class="lang-switch__link" href="en/press.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--accent btn--sm" href="stant-basvurusu.html">Stant Başvurusu</a>
+          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
         </div>
       </nav>
 
@@ -54,128 +72,161 @@
   </header>
 
   <main id="main">
-      <section class="page-header">
-        <div class="container">
-          <h1>Haberler</h1>
-          <p class="lead">Fuar duyuruları, basın bültenleri ve sektörden gelişmeler.</p>
+    <section class="page-header">
+      <div class="container">
+        <nav aria-label="Sayfa yolu">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li aria-hidden="true">›</li>
+            <li>Basın</li>
+          </ol>
+        </nav>
+        <h1>Basın</h1>
+        <p class="lead">Giresun EXPO 2026 hakkında haber yapacak basın mensupları için kaynaklar.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Basın kiti</p>
+          <h2 class="section-title">İndirilebilir kaynaklar</h2>
         </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="grid grid--3">
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-          </div>
+
+        <div class="grid grid--2 reveal">
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></span>
+              <h3 class="card__title">El Kitapçığı (PDF)</h3>
+              <p class="card__text">Fuarın resmî el kitapçığı: künye, ziyaret saatleri,
+                ulaşım, paydaşlar ve katılımcı listesi. 12 sayfa, 2,2 MB.</p>
+              <p class="card__footer">
+                <a class="btn btn--primary" href="assets/files/giresun-expo-2026-el-kitapcigi.pdf" download>
+                  <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+                  Kitapçığı indir
+                </a>
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span>
+              <h3 class="card__title">Logo paketi</h3>
+              <p class="card__text">Giresun EXPO logosunun tarihli ve tarihsiz sürümleri,
+                şeffaf zeminli PNG. Logo yeniden çizilmemeli, renkleri değiştirilmemelidir.</p>
+              <p class="card__footer">
+                <span class="cluster">
+                  <a class="btn btn--secondary btn--sm" href="assets/img/brand/giresun-expo-logo.png" download>Tarihli logo</a>
+                  <a class="btn btn--secondary btn--sm" href="assets/img/brand/giresun-expo-logo-tarihsiz.png" download>Tarihsiz logo</a>
+                </span>
+              </p>
+            </div>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Künye</p>
+          <h2 class="section-title">Hızlı bilgiler</h2>
+        </div>
+        <div class="scroll-x reveal">
+          <table class="hours">
+            <caption class="visually-hidden">Giresun EXPO 2026 künye bilgileri</caption>
+            <tbody>
+              <tr><th scope="row">Etkinlik</th><td colspan="2">Giresun EXPO 2026</td></tr>
+              <tr><th scope="row">Tarih</th><td colspan="2">8–11 Ekim 2026</td></tr>
+              <tr><th scope="row">Yer</th><td colspan="2">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı Etkinlik Alanı, İstanbul</td></tr>
+              <tr><th scope="row">Katılımcı</th><td colspan="2">86 firma, 5 salon</td></tr>
+              <tr><th scope="row">Organizasyon</th><td colspan="2">Giresun Vakfı, Giresun Federasyonu, ŞEBİNSİAD</td></tr>
+              <tr><th scope="row">Slogan</th><td colspan="2">Giresun İçin İş Birliği, Türkiye İçin Güç Birliği</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">İletişim</p>
+          <h2 class="section-title">Basın iletişimi</h2>
+          <p class="section-subtitle">Röportaj talebi, akreditasyon ve ek görsel istekleri için
+            organizasyon ekibine ulaşabilirsiniz.</p>
+        </div>
+        <p class="reveal">
+          <a class="btn btn--primary" href="tel:+905416622828">
+            <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+            0541 662 28 28
+          </a>
+        </p>
+      </div>
+    </section>
   </main>
 
-  <!-- ==== Ortak footer — tüm sayfalarda birebir aynıdır ==================== -->
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
-        <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
-        <p class="site-footer__text">Giresun Expo; fındık, tarım ve gıda sektörlerini üretici, sanayici ve uluslararası alıcılarla buluşturan bölgesel fuar organizasyonudur.</p>
+        <span class="footer-logo">
+          <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
+        </span>
+        <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü İstanbul'da tanıtan iş dünyası buluşması.</p>
+        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
         <h2 class="site-footer__title">Keşfet</h2>
         <ul class="site-footer__list">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="hakkinda.html">Fuar Hakkında</a></li>
-            <li><a href="program.html">Program</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="haberler.html">Haberler</a></li>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hakkinda.html">Hakkında</a></li>
+          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-            <li><a href="katilimcilar.html">Katılımcılar</a></li>
-            <li><a href="ziyaretci.html">Ziyaretçi</a></li>
-            <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
+          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Fuar Alanı, Giresun, Türkiye</p>
-          <p><a href="mailto:info@giresunexpo.com">info@giresunexpo.com</a></p>
-          <p><a href="tel:+900000000000">+90 (000) 000 00 00</a></p>
+          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
         </address>
-        <ul class="social mt-4">
-          <li><a href="#" aria-label="Instagram">IG</a></li>
-          <li><a href="#" aria-label="LinkedIn">IN</a></li>
-          <li><a href="#" aria-label="X">X</a></li>
-        </ul>
       </div>
     </div>
 
+    <div class="container site-footer__partners">
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+    </div>
+
     <div class="container site-footer__bottom">
-      <p>&copy; <span id="year">2026</span> Giresun Expo. Tüm hakları saklıdır.</p>
-      <p><a href="#">Gizlilik Politikası</a></p>
+      <p>&copy; <span id="year">2026</span> Giresun EXPO. Tüm hakları saklıdır.</p>
+      <p>
+        <a href="kvkk.html">KVKK Aydınlatma Metni</a> ·
+        <a href="cerez-politikasi.html">Çerez Politikası</a> ·
+        <a href="gizlilik.html">Gizlilik</a>
+      </p>
     </div>
   </footer>
+
+  <div class="cookie-bar" id="cookie-bar" role="region" aria-label="Çerez bildirimi" hidden>
+    <div class="container cookie-bar__inner">
+      <p>Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya reklam çerezi yoktur. Ayrıntı için <a href="cerez-politikasi.html">Çerez Politikası</a>.</p>
+      <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Anladım</button>
+    </div>
+  </div>
 </body>
 </html>

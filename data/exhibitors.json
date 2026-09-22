@@ -97,6 +97,7 @@
         "A1-14"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -110,6 +111,7 @@
         "A2-02"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -123,6 +125,7 @@
         "A2-12"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -136,6 +139,7 @@
         "A3-02"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -149,6 +153,7 @@
         "A3-03"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -162,6 +167,7 @@
         "A3-05"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -175,6 +181,7 @@
         "A3-07"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -188,6 +195,7 @@
         "A3-08"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -202,6 +210,7 @@
         "A3-12"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -215,6 +224,7 @@
         "A3-13"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -228,6 +238,7 @@
         "A3-14"
       ],
       "hall": "A",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -241,6 +252,7 @@
         "T1-07"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -254,6 +266,7 @@
         "T1-08"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -267,6 +280,7 @@
         "T1-09"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -280,6 +294,7 @@
         "T1-10"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -293,6 +308,7 @@
         "T1-11"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -306,6 +322,7 @@
         "T1-12"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -319,6 +336,7 @@
         "T1-14"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -332,6 +350,7 @@
         "T2-05"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -345,6 +364,7 @@
         "T2-06"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -358,6 +378,7 @@
         "T2-07"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -371,6 +392,7 @@
         "T2-08"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -384,6 +406,7 @@
         "T2-09"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -397,6 +420,7 @@
         "T2-10"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -410,6 +434,7 @@
         "T2-11"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -423,6 +448,7 @@
         "T2-12"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -436,6 +462,7 @@
         "T2-13"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -449,6 +476,7 @@
         "T2-14"
       ],
       "hall": "T",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -462,6 +490,7 @@
         "G1-02"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -475,6 +504,7 @@
         "G1-05"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -488,6 +518,7 @@
         "G1-06"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -502,6 +533,7 @@
         "G1-09"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -516,6 +548,7 @@
         "G2-07"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -529,6 +562,7 @@
         "G2-01"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -542,6 +576,7 @@
         "G2-03"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -555,6 +590,7 @@
         "G2-04"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -568,6 +604,7 @@
         "G2-05"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -581,6 +618,7 @@
         "G2-06"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -594,6 +632,7 @@
         "G2-08"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -607,6 +646,7 @@
         "G2-09"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -620,6 +660,7 @@
         "G3-02"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -633,6 +674,7 @@
         "G3-03"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -646,6 +688,7 @@
         "G3-04"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -659,6 +702,7 @@
         "G3-05"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -672,6 +716,7 @@
         "G3-06"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -686,6 +731,7 @@
         "G3-09"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -699,6 +745,7 @@
         "G3-08"
       ],
       "hall": "G",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -712,6 +759,7 @@
         "P1-01"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -725,6 +773,7 @@
         "P1-02"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -739,6 +788,7 @@
         "P1-06"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -752,6 +802,7 @@
         "P1-04"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -765,6 +816,7 @@
         "P1-05"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -778,6 +830,7 @@
         "P1-07"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -791,6 +844,7 @@
         "P1-08"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -804,6 +858,7 @@
         "P1-09"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -817,6 +872,7 @@
         "P1-10"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -830,6 +886,7 @@
         "P1-11"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -843,6 +900,7 @@
         "P1-12"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -856,6 +914,7 @@
         "P1-13"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -869,6 +928,7 @@
         "P1-14"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -882,6 +942,7 @@
         "P1-15"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -895,6 +956,7 @@
         "P1-16"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -908,6 +970,7 @@
         "P1-17"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -921,6 +984,7 @@
         "P1-18"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -934,6 +998,7 @@
         "P1-19"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -947,6 +1012,7 @@
         "P1-20"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -960,6 +1026,7 @@
         "P1-21"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -973,6 +1040,7 @@
         "P1-22"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -986,6 +1054,7 @@
         "P1-23"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -999,6 +1068,7 @@
         "P1-24"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1017,6 +1087,7 @@
         "P2-06"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1030,6 +1101,7 @@
         "P2-07"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1043,6 +1115,7 @@
         "P2-09"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1056,6 +1129,7 @@
         "P2-10"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1069,6 +1143,7 @@
         "P2-13"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1082,6 +1157,7 @@
         "P2-16"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1095,6 +1171,7 @@
         "P2-19"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1108,6 +1185,7 @@
         "P2-22"
       ],
       "hall": "P",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1121,6 +1199,7 @@
         "E-07"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1135,6 +1214,7 @@
         "E-09"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1148,6 +1228,7 @@
         "E-10"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1162,6 +1243,7 @@
         "E-19"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": true,
       "featured": false,
       "published": true,
@@ -1176,6 +1258,7 @@
         "E-33"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1189,6 +1272,7 @@
         "E-35"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1202,6 +1286,7 @@
         "E-38"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1216,10 +1301,12 @@
         "E-44"
       ],
       "hall": "E",
+      "logo": "",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
       "sort": 86
     }
-  ]
+  ],
+  "_logo_notu": "Katılımcı logoları henüz toplanmadı (docs/acik-sorular.md #20). Bir firmanın logosu geldiğinde: dosyayı assets/img/exhibitors/<slug>.png olarak kaydedin ve bu dosyadaki \"logo\" alanına \"assets/img/exhibitors/<slug>.png\" yazın, ardından node tools/build-exhibitors.mjs çalıştırın. Logo alanı boş olan firmalar baş harflerinden oluşan monogram kartıyla gösterilir."
 }

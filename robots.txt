@@ -1,0 +1,9 @@
+# Giresun EXPO 2026
+User-agent: *
+Allow: /
+
+# Yönetim paneli ve iç dokümanlar dizine girmez
+Disallow: /giresun-expo/admin/
+Disallow: /giresun-expo/docs/
+
+Sitemap: https://devmustafaozdemir.github.io/giresun-expo/sitemap.xml

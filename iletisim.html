@@ -1,27 +1,46 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-root="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>İletişim | Giresun Expo</title>
-  <meta name="description" content="Giresun Expo organizasyon ekibine ulaşın: adres, telefon, e-posta ve iletişim formu.">
-  <link rel="alternate" hreflang="tr" href="iletisim.html">
-  <link rel="alternate" hreflang="en" href="en/contact.html">
-  <link rel="alternate" hreflang="x-default" href="iletisim.html">
+  <script>document.documentElement.classList.add('js')</script>
+
+  <title>İletişim — Giresun EXPO 2026</title>
+  <meta name="description" content="Giresun EXPO 2026 organizasyon ekibine ulaşın. Telefon, adres ve iletişim formu.">
+
+  <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html">
+  <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html">
+  <link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="İletişim | Giresun Expo">
-  <meta property="og:description" content="Giresun Expo organizasyon ekibine ulaşın: adres, telefon, e-posta ve iletişim formu.">
+  <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="İletişim — Giresun EXPO 2026">
+  <meta property="og:description" content="Giresun EXPO 2026 organizasyon ekibine ulaşın. Telefon, adres ve iletişim formu.">
+  <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html">
+  <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/brand/favicon-180.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-var-latin-ext.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
+
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
 
-  <!-- ==== Ortak header — tüm sayfalarda birebir aynıdır ==================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+      <a class="logo" href="index.html" aria-label="Giresun EXPO 2026 — ana sayfa">
+        <img src="assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="1206" height="703">
+      </a>
 
       <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menüyü aç/kapat">
         <span class="nav-toggle__box"></span>
@@ -30,12 +49,11 @@
       <nav class="site-nav" id="site-nav" aria-label="Ana menü">
         <ul class="nav-list">
           <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
-          <li><a class="nav__link" href="hakkinda.html">Fuar Hakkında</a></li>
+          <li><a class="nav__link" href="hakkinda.html">Hakkında</a></li>
           <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
-          <li><a class="nav__link" href="ziyaretci.html">Ziyaretçi</a></li>
-          <li><a class="nav__link" href="program.html">Program</a></li>
+          <li><a class="nav__link" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
-          <li><a class="nav__link" href="haberler.html">Haberler</a></li>
+          <li><a class="nav__link" href="basin.html">Basın</a></li>
           <li><a class="nav__link is-active" href="iletisim.html" aria-current="page">İletişim</a></li>
         </ul>
 
@@ -45,7 +63,7 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link" href="en/contact.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--accent btn--sm" href="stant-basvurusu.html">Stant Başvurusu</a>
+          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
         </div>
       </nav>
 
@@ -54,104 +72,163 @@
   </header>
 
   <main id="main">
-      <section class="page-header">
-        <div class="container">
-          <h1>İletişim</h1>
-          <p class="lead">Organizasyon ekibine ulaşın; sorularınızı iletin.</p>
+    <section class="page-header">
+      <div class="container">
+        <nav aria-label="Sayfa yolu">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li aria-hidden="true">›</li>
+            <li>İletişim</li>
+          </ol>
+        </nav>
+        <h1>İletişim</h1>
+        <p class="lead">Sorularınız için organizasyon ekibine ulaşabilirsiniz.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--3 reveal">
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg></span>
+              <h2 class="card__title">Telefon</h2>
+              <p class="card__text"><a href="tel:+905416622828">0541 662 28 28</a></p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <h2 class="card__title">Adres</h2>
+              <p class="card__text">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1, Fatih / İstanbul</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></span>
+              <h2 class="card__title">Fuar tarihleri</h2>
+              <p class="card__text">8–11 Ekim 2026<br>
+                <a href="ziyaret-bilgileri.html">Ziyaret saatleri</a></p>
+            </div>
+          </article>
         </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="grid grid--2">
-            <div>
-              <h2 class="section-title">Organizasyon Ofisi</h2>
-              <p class="section-subtitle mb-6">Fuar Alanı, Giresun, Türkiye</p>
-              <div class="placeholder">
-            <span class="placeholder__label">Yer tutucu</span>
-            <p class="mb-0">Bu bölümün içeriği henüz eklenmedi.</p>
-          </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">Mesaj</p>
+          <h2 class="section-title">Bize yazın</h2>
+        </div>
+
+        <form class="form reveal" data-submit="pending" novalidate>
+            <div class="notice notice--info" data-submit-pending>
+              <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+              <p>Çevrim içi gönderim henüz etkin değil. Bu forma kaydettiğiniz bilgiler gönderilmez. Şimdilik <a href="tel:+905416622828">0541 662 28 28</a> numarasından bize ulaşabilirsiniz.</p>
             </div>
 
-            <div>
-              <h2 class="section-title">Bize Yazın</h2>
-              <p class="form__hint mb-6">Form şu anda bağlı değil; gönderim altyapısı sonraki adımda eklenecek.</p>
-              <form class="form" novalidate>
-                <div class="form__row">
-                  <div class="form__group">
-                    <label class="form__label" for="c-name">Ad Soyad <span class="req">*</span></label>
-                    <input class="form__control" id="c-name" name="name" type="text" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="c-mail">E-posta <span class="req">*</span></label>
-                    <input class="form__control" id="c-mail" name="email" type="email" required>
-                  </div>
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="c-subject">Konu</label>
-                  <input class="form__control" id="c-subject" name="subject" type="text">
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="c-msg">Mesajınız <span class="req">*</span></label>
-                  <textarea class="form__control" id="c-msg" name="message" required></textarea>
-                </div>
-                <div class="form__actions">
-                  <button class="btn btn--primary btn--lg" type="submit">Mesajı Gönder</button>
-                </div>
-              </form>
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="c-name">Ad soyad <span class="req">*</span></label>
+              <input class="form__control" id="c-name" name="name" type="text" required autocomplete="name" maxlength="120">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="c-mail">E-posta <span class="req">*</span></label>
+              <input class="form__control" id="c-mail" name="email" type="email" required autocomplete="email" maxlength="160">
             </div>
           </div>
-        </div>
-      </section>
+
+          <div class="form__group">
+            <label class="form__label" for="c-subject">Konu</label>
+            <input class="form__control" id="c-subject" name="subject" type="text" maxlength="160">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="c-msg">Mesajınız <span class="req">*</span></label>
+            <textarea class="form__control" id="c-msg" name="message" required maxlength="2000"></textarea>
+          </div>
+
+            <div class="hp-field" aria-hidden="true">
+              <label for="hp-website">Bu alanı boş bırakın</label>
+              <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+          <label class="form__check">
+            <input type="checkbox" name="consent" required>
+            <span><a href="kvkk.html">KVKK Aydınlatma Metni</a>'ni okudum, kişisel verilerimin bu talep kapsamında işlenmesini kabul ediyorum. <span class="req">*</span></span>
+          </label>
+
+          <div class="form__actions">
+            <button class="btn btn--primary btn--lg" type="submit">Mesajı Gönder</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- ==== Ortak footer — tüm sayfalarda birebir aynıdır ==================== -->
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
-        <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
-        <p class="site-footer__text">Giresun Expo; fındık, tarım ve gıda sektörlerini üretici, sanayici ve uluslararası alıcılarla buluşturan bölgesel fuar organizasyonudur.</p>
+        <span class="footer-logo">
+          <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
+        </span>
+        <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü İstanbul'da tanıtan iş dünyası buluşması.</p>
+        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
         <h2 class="site-footer__title">Keşfet</h2>
         <ul class="site-footer__list">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="hakkinda.html">Fuar Hakkında</a></li>
-            <li><a href="program.html">Program</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="haberler.html">Haberler</a></li>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hakkinda.html">Hakkında</a></li>
+          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-            <li><a href="katilimcilar.html">Katılımcılar</a></li>
-            <li><a href="ziyaretci.html">Ziyaretçi</a></li>
-            <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
+          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Fuar Alanı, Giresun, Türkiye</p>
-          <p><a href="mailto:info@giresunexpo.com">info@giresunexpo.com</a></p>
-          <p><a href="tel:+900000000000">+90 (000) 000 00 00</a></p>
+          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
         </address>
-        <ul class="social mt-4">
-          <li><a href="#" aria-label="Instagram">IG</a></li>
-          <li><a href="#" aria-label="LinkedIn">IN</a></li>
-          <li><a href="#" aria-label="X">X</a></li>
-        </ul>
       </div>
     </div>
 
+    <div class="container site-footer__partners">
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+    </div>
+
     <div class="container site-footer__bottom">
-      <p>&copy; <span id="year">2026</span> Giresun Expo. Tüm hakları saklıdır.</p>
-      <p><a href="#">Gizlilik Politikası</a></p>
+      <p>&copy; <span id="year">2026</span> Giresun EXPO. Tüm hakları saklıdır.</p>
+      <p>
+        <a href="kvkk.html">KVKK Aydınlatma Metni</a> ·
+        <a href="cerez-politikasi.html">Çerez Politikası</a> ·
+        <a href="gizlilik.html">Gizlilik</a>
+      </p>
     </div>
   </footer>
+
+  <div class="cookie-bar" id="cookie-bar" role="region" aria-label="Çerez bildirimi" hidden>
+    <div class="container cookie-bar__inner">
+      <p>Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya reklam çerezi yoktur. Ayrıntı için <a href="cerez-politikasi.html">Çerez Politikası</a>.</p>
+      <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Anladım</button>
+    </div>
+  </div>
 </body>
 </html>

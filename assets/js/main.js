@@ -254,6 +254,61 @@
   }
 
   /* =======================================================================
+     05c. Form gönderimi — C aşamasına kadar "bekliyor" durumu
+
+     Supabase C aşamasında bağlanacak. O zamana kadar formlar gönderilemez.
+     Kullanıcıyı sessizce yanıltmamak için gönderim engellenir ve durum
+     açıkça bildirilir; telefon yönlendirmesi zaten formun üstünde duruyor.
+
+     C aşamasında yapılacak: data-submit="pending" -> "supabase" ve bu blok
+     gerçek gönderime bağlanacak. Doğrulama ve bal küpü mantığı aynen kalır.
+     ======================================================================= */
+  function initForms() {
+    var forms = document.querySelectorAll("form[data-submit]");
+    if (!forms.length) return;
+
+    var tr = document.documentElement.lang !== "en";
+
+    for (var i = 0; i < forms.length; i++) {
+      forms[i].addEventListener("submit", function (e) {
+        e.preventDefault();
+        var form = this;
+
+        /* Bal küpü dolduysa bot — sessizce yut */
+        var hp = form.querySelector('[name="website_url"]');
+        if (hp && hp.value) return;
+
+        /* Tarayıcı doğrulaması */
+        if (!form.checkValidity()) {
+          var bad = form.querySelector(":invalid");
+          if (bad) {
+            var group = bad.closest(".form__group") || bad.closest(".form__check");
+            if (group) group.classList.add("has-error");
+            bad.focus();
+          }
+          return;
+        }
+
+        if (form.dataset.submit === "pending") {
+          var box = form.querySelector("[data-submit-pending]");
+          if (box) {
+            box.classList.remove("notice--info");
+            box.classList.add("notice--warning");
+            box.scrollIntoView({ block: "center", behavior: "smooth" });
+            var p = box.querySelector("p");
+            if (p) {
+              /* textContent — veri DOM'a innerHTML ile basılmaz */
+              p.textContent = tr
+                ? "Form şu anda gönderilemiyor: çevrim içi gönderim henüz etkin değil. Lütfen 0541 662 28 28 numarasından bize ulaşın."
+                : "This form cannot be submitted yet: online submission is not active. Please call +90 541 662 28 28.";
+            }
+          }
+        }
+      });
+    }
+  }
+
+  /* =======================================================================
      06. Reveal + footer yılı
      ======================================================================= */
   function initReveal() {
@@ -288,6 +343,7 @@
   initTabs();
   initCookieBar();
   initMap();
+  initForms();
   initReveal();
   initYear();
 })();

@@ -64,13 +64,21 @@ const esc = (s) =>
 
 const sectorsById = Object.fromEntries(db.sectors.map((s) => [s.id, s]));
 
-function card(ex, lang) {
+function card(ex, lang, depth) {
   const sector = sectorsById[ex.sector] || { name_tr: 'Diğer', name_en: 'Other' };
   const sectorName = lang === 'tr' ? sector.name_tr : sector.name_en;
-  const mono = monogram(ex.name);
-  /* Monogram zemini dönüşümlü: yeşil / lacivert */
-  const variant = ex.sort % 2 === 0 ? ' monogram--navy' : '';
   const stands = ex.stands.map((s) => `<span class="badge">${esc(s)}</span>`).join('');
+
+  /* Logo varsa logo, yoksa baş harflerden monogram.
+     Logolar henüz toplanmadı (docs/acik-sorular.md #20); alan dolduğunda
+     bu script yeniden çalıştırılınca kartlar otomatik logoya geçer. */
+  let gorsel;
+  if (ex.logo) {
+    gorsel = `<div class="exhibitor__logo"><img src="${depth}${esc(ex.logo)}" alt="${esc(ex.name)}" loading="lazy" decoding="async"></div>`;
+  } else {
+    const variant = ex.sort % 2 === 0 ? ' monogram--navy' : '';
+    gorsel = `<div class="monogram${variant}" aria-hidden="true">${esc(monogram(ex.name))}</div>`;
+  }
   const search = fold(`${ex.name} ${sectorName} ${ex.stands.join(' ')}`);
   const featured = ex.in_booklet_logo_page ? ' data-featured="1"' : '';
 
@@ -80,7 +88,7 @@ function card(ex, lang) {
                  data-hall="${esc(ex.hall)}"
                  data-name="${esc(fold(ex.name))}"
                  data-stand="${esc(standKey(ex.stands[0]))}"${featured}>
-          <div class="monogram${variant}" aria-hidden="true">${esc(mono)}</div>
+          ${gorsel}
           <div class="card__body">
             <h3 class="card__title">${esc(ex.name)}</h3>
             <p class="card__text">${esc(sectorName)}</p>
@@ -112,9 +120,10 @@ function replaceRegion(html, name, content) {
   return html.replace(re, `$1\n${content}\n$2`);
 }
 
+/* depth: sayfanin koke gore yolu — logo src'leri icin */
 const targets = [
-  { file: 'katilimcilar.html', lang: 'tr' },
-  { file: 'en/exhibitors.html', lang: 'en' },
+  { file: 'katilimcilar.html', lang: 'tr', depth: '' },
+  { file: 'en/exhibitors.html', lang: 'en', depth: '../' },
 ];
 
 /* Varsayilan sira: salon, sonra stant numarasi */
@@ -128,10 +137,11 @@ for (const t of targets) {
   try { html = readFileSync(path, 'utf8'); }
   catch { console.log(`atlandı (dosya yok): ${t.file}`); continue; }
 
-  html = replaceRegion(html, 'exhibitors', sorted.map((e) => card(e, t.lang)).join('\n'));
+  html = replaceRegion(html, 'exhibitors', sorted.map((e) => card(e, t.lang, t.depth)).join('\n'));
   html = replaceRegion(html, 'sectors', sectorOptions(t.lang));
   writeFileSync(path, html);
-  console.log(`${t.file.padEnd(22)} ${sorted.length} kart, ${new Set(db.exhibitors.map(e => e.sector)).size} sektör`);
+  const logolu = db.exhibitors.filter((e) => e.logo).length;
+  console.log(`${t.file.padEnd(22)} ${sorted.length} kart (${logolu} logolu, ${sorted.length - logolu} monogram), ${new Set(db.exhibitors.map(e => e.sector)).size} sektör`);
 }
 
 /* Monogram kontrolu: tekrar edenleri bildir (kart ayirt edilebilirligi icin) */

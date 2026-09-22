@@ -1,27 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stand Application | Giresun Expo</title>
-  <meta name="description" content="Fill in the stand application form to take part in Giresun Expo.">
-  <link rel="alternate" hreflang="tr" href="../stant-basvurusu.html">
-  <link rel="alternate" hreflang="en" href="stand-application.html">
-  <link rel="alternate" hreflang="x-default" href="../stant-basvurusu.html">
+  <script>document.documentElement.classList.add('js')</script>
+
+  <title>Stand Application — Giresun EXPO 2027</title>
+  <meta name="description" content="Pre-apply for a stand at Giresun EXPO 2027. Leave your company details and our team will get in touch.">
+
+  <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/en/stand-application.html">
+  <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html">
+  <link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/stand-application.html">
+  <link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Stand Application | Giresun Expo">
-  <meta property="og:description" content="Fill in the stand application form to take part in Giresun Expo.">
+  <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Stand Application — Giresun EXPO 2027">
+  <meta property="og:description" content="Pre-apply for a stand at Giresun EXPO 2027. Leave your company details and our team will get in touch.">
+  <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/en/stand-application.html">
+  <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/brand/favicon-180.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-var-latin-ext.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/form-adimlar.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ==== Ortak header — tüm sayfalarda birebir aynıdır ==================== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+      <a class="logo" href="index.html" aria-label="Giresun EXPO 2026 — home">
+        <img src="../assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="1206" height="703">
+      </a>
 
       <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle menu">
         <span class="nav-toggle__box"></span>
@@ -32,10 +51,9 @@
           <li><a class="nav__link" href="index.html">Home</a></li>
           <li><a class="nav__link" href="about.html">About</a></li>
           <li><a class="nav__link" href="exhibitors.html">Exhibitors</a></li>
-          <li><a class="nav__link" href="visitors.html">Visitors</a></li>
-          <li><a class="nav__link" href="program.html">Programme</a></li>
+          <li><a class="nav__link" href="plan-your-visit.html">Plan Your Visit</a></li>
           <li><a class="nav__link" href="gallery.html">Gallery</a></li>
-          <li><a class="nav__link" href="news.html">News</a></li>
+          <li><a class="nav__link" href="press.html">Press</a></li>
           <li><a class="nav__link" href="contact.html">Contact</a></li>
         </ul>
 
@@ -45,7 +63,7 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link is-active" href="stand-application.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--accent btn--sm" href="stand-application.html">Stand Application</a>
+          <a class="btn btn--primary btn--sm" href="visitor-registration.html">Visitor Pre-registration</a>
         </div>
       </nav>
 
@@ -54,157 +72,229 @@
   </header>
 
   <main id="main">
-      <section class="page-header">
-        <div class="container">
-          <h1>Stand Application</h1>
-          <p class="lead">Fill in the form and our sales team will get back to you with stand options and pricing.</p>
+    <section class="page-header">
+      <div class="container">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li aria-hidden="true">›</li>
+            <li>Stand Application</li>
+          </ol>
+        </nav>
+        <h1>Become an Exhibitor</h1>
+        <p class="lead">Stands for Giresun EXPO 2026 have been allocated. The form below is a pre-application for 2027.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Why exhibit?</p>
+          <h2 class="section-title">Giresun EXPO 2027</h2>
         </div>
-      </section>
-      <section class="section">
-        <div class="container container--narrow">
-          <p class="form__hint mb-6">The form is not connected yet; submission handling will be added in a later step.</p>
-          <form class="form" novalidate>
+        <div class="grid grid--3 reveal">
+          <div class="pillar">
+            <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <h3 class="pillar__title">The right audience</h3>
+            <p class="pillar__text">Public institutions, investors, producers and industrialists under one roof.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+            <h3 class="pillar__title">Four days</h3>
+            <p class="pillar__text">Four days of continuous visitor flow and one-to-one meetings.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar__icon"><svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></span>
+            <h3 class="pillar__title">Early application</h3>
+            <p class="pillar__text">86 companies exhibited in 2026. Applying early for 2027 gives you more choice of location.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <fieldset class="fieldset form">
-              <legend>Company Details</legend>
-              <div class="form__row">
-                <div class="form__group">
-                  <label class="form__label" for="s-company">Company Name <span class="req">*</span></label>
-                  <input class="form__control" id="s-company" name="company" type="text" required>
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="s-sector">Sector <span class="req">*</span></label>
-                  <input class="form__control" id="s-sector" name="sector" type="text" required>
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="form__group">
-                  <label class="form__label" for="s-web">Website</label>
-                  <input class="form__control" id="s-web" name="website" type="url" placeholder="https://">
-                  <p class="form__hint">Please include the https:// prefix.</p>
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="s-country">Country / City <span class="req">*</span></label>
-                  <input class="form__control" id="s-country" name="country" type="text" required>
-                </div>
-              </div>
-            </fieldset>
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Process</p>
+          <h2 class="section-title">Four steps</h2>
+        </div>
+        <ol class="process reveal">
+          <li class="process__step"><span class="process__num">1</span>
+            <h3 class="process__title">Application</h3>
+            <p class="process__text">Fill in the form below.</p></li>
+          <li class="process__step"><span class="process__num">2</span>
+            <h3 class="process__title">Review</h3>
+            <p class="process__text">Our team reviews your application and contacts you.</p></li>
+          <li class="process__step"><span class="process__num">3</span>
+            <h3 class="process__title">Agreement</h3>
+            <p class="process__text">Stand type and space are agreed together.</p></li>
+          <li class="process__step"><span class="process__num">4</span>
+            <h3 class="process__title">Build-up</h3>
+            <p class="process__text">The build-up schedule is shared before the fair.</p></li>
+        </ol>
+      </div>
+    </section>
 
-            <fieldset class="fieldset form">
-              <legend>Contact Person</legend>
-              <div class="form__row">
-                <div class="form__group">
-                  <label class="form__label" for="s-name">Full Name <span class="req">*</span></label>
-                  <input class="form__control" id="s-name" name="contactName" type="text" required>
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="s-title">Position</label>
-                  <input class="form__control" id="s-title" name="contactTitle" type="text">
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="form__group">
-                  <label class="form__label" for="s-mail">E-mail <span class="req">*</span></label>
-                  <input class="form__control" id="s-mail" name="email" type="email" required>
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="s-phone">Phone <span class="req">*</span></label>
-                  <input class="form__control" id="s-phone" name="phone" type="tel" required>
-                </div>
-              </div>
-            </fieldset>
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">Application</p>
+          <h2 class="section-title">Pre-application form</h2>
+        </div>
 
-            <fieldset class="fieldset form">
-              <legend>Stand Request</legend>
-              <div class="form__row">
-                <div class="form__group">
-                  <label class="form__label" for="s-area">Requested Stand Area <span class="req">*</span></label>
-                  <select class="form__control" id="s-area" name="area" required>
-                    <option value="">Select</option>
-                    <option>9 m² (3x3)</option>
-                    <option>18 m² (6x3)</option>
-                    <option>36 m² (6x6)</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="s-type">Stand Type <span class="req">*</span></label>
-                  <select class="form__control" id="s-type" name="standType" required>
-                    <option value="">Select</option>
-                    <option>Bare space</option>
-                    <option>Shell scheme</option>
-                    <option>Custom build</option>
-                  </select>
-                </div>
+        <form class="form reveal" id="stand-form" data-submit="pending" data-steps novalidate>
+            <div class="notice notice--info" data-submit-pending>
+              <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+              <p>Online submission is not active yet. Information entered here is not sent. For now, please call <a href="tel:+905416622828">+90 541 662 28 28</a>.</p>
+            </div>
+
+          <ol class="steps" data-steps-nav>
+            <li class="steps__item is-active">1. Company details</li>
+            <li class="steps__item">2. Stand preference</li>
+            <li class="steps__item">3. Confirm and send</li>
+          </ol>
+
+          <fieldset class="fieldset form" data-step="1">
+            <legend>Company details</legend>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="s-company">Company name <span class="req">*</span></label>
+                <input class="form__control" id="s-company" name="company" type="text" required maxlength="160" autocomplete="organization">
               </div>
               <div class="form__group">
-                <label class="form__label" for="s-note">Additional Notes</label>
-                <textarea class="form__control" id="s-note" name="note"></textarea>
+                <label class="form__label" for="s-sector">Sector <span class="req">*</span></label>
+                <input class="form__control" id="s-sector" name="sector" type="text" required maxlength="80">
               </div>
-            </fieldset>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="s-contact">Contact person <span class="req">*</span></label>
+                <input class="form__control" id="s-contact" name="contactName" type="text" required maxlength="120" autocomplete="name">
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="s-mail">E-mail <span class="req">*</span></label>
+                <input class="form__control" id="s-mail" name="email" type="email" required maxlength="160" autocomplete="email">
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="s-phone">Phone <span class="req">*</span></label>
+                <input class="form__control" id="s-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel">
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="s-web">Website</label>
+                <input class="form__control" id="s-web" name="website" type="url" placeholder="https://" maxlength="200">
+              </div>
+            </div>
+          </fieldset>
 
+          <fieldset class="fieldset form" data-step="2" hidden>
+            <legend>Stand preference</legend>
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="s-type">Stand type <span class="req">*</span></label>
+                <select class="form__control" id="s-type" name="standType" required>
+                  <option value="">Select</option>
+                  <option value="hazir">Shell scheme</option>
+                  <option value="bos">Bare space</option>
+                  <option value="acik">Outdoor space</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="s-area">Approximate area (m²)</label>
+                <input class="form__control" id="s-area" name="area" type="number" min="1" max="500" step="1" inputmode="numeric">
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="s-note">Anything to add</label>
+              <textarea class="form__control" id="s-note" name="note" maxlength="1500"></textarea>
+              <p class="form__hint">Our team will contact you regarding pricing.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset form" data-step="3" hidden>
+            <legend>Confirm and send</legend>
+            <dl class="summary" data-summary></dl>
+            <div class="hp-field" aria-hidden="true">
+              <label for="hp-website">Leave this field empty</label>
+              <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
+            </div>
             <label class="form__check">
               <input type="checkbox" name="consent" required>
-              <span>I consent to the processing of my personal data for this application. <span class="req">*</span></span>
+              <span>I have read the <a href="data-protection.html">Data Protection Notice</a> and consent to my company and contact details being processed for this application. <span class="req">*</span></span>
             </label>
+          </fieldset>
 
-            <div class="form__actions">
-              <button class="btn btn--primary btn--lg" type="submit">Submit Application</button>
-              <button class="btn btn--ghost" type="reset">Reset Form</button>
-            </div>
-          </form>
-        </div>
-      </section>
+          <div class="form__actions">
+            <button class="btn btn--ghost" type="button" data-step-prev hidden>Back</button>
+            <button class="btn btn--primary btn--lg" type="button" data-step-next>Continue</button>
+            <button class="btn btn--primary btn--lg" type="submit" data-step-submit hidden>Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <!-- ==== Ortak footer — tüm sayfalarda birebir aynıdır ==================== -->
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
-        <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
-        <p class="site-footer__text">Giresun Expo is a regional fair connecting the hazelnut, agriculture and food sectors with producers, industry and international buyers.</p>
+        <span class="footer-logo">
+          <img src="../assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
+        </span>
+        <p class="site-footer__text">A business gathering presenting Giresun's production, investment and trade capacity in Istanbul.</p>
+        <p class="site-footer__slogan">Cooperation for Giresun,<br>Strength for Türkiye</p>
       </div>
 
       <div>
         <h2 class="site-footer__title">Explore</h2>
         <ul class="site-footer__list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="program.html">Programme</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="news.html">News</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="exhibitors.html">Exhibitors</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">Take Part</h2>
         <ul class="site-footer__list">
-            <li><a href="exhibitors.html">Exhibitors</a></li>
-            <li><a href="visitors.html">Visitors</a></li>
-            <li><a href="stand-application.html">Stand Application</a></li>
-            <li><a href="contact.html">Contact</a></li>
+          <li><a href="plan-your-visit.html">Plan Your Visit</a></li>
+          <li><a href="visitor-registration.html">Visitor Pre-registration</a></li>
+          <li><a href="stand-application.html">Stand Application</a></li>
+          <li><a href="press.html">Press</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">Contact</h2>
         <address>
-          <p>Fairground, Giresun, Türkiye</p>
-          <p><a href="mailto:info@giresunexpo.com">info@giresunexpo.com</a></p>
-          <p><a href="tel:+900000000000">+90 (000) 000 00 00</a></p>
+          <p>Yenikapı Event Area<br>Kennedy Caddesi No: 11/1<br>Fatih / Istanbul</p>
+          <p><a href="tel:+905416622828">+90 541 662 28 28</a></p>
         </address>
-        <ul class="social mt-4">
-          <li><a href="#" aria-label="Instagram">IG</a></li>
-          <li><a href="#" aria-label="LinkedIn">IN</a></li>
-          <li><a href="#" aria-label="X">X</a></li>
-        </ul>
       </div>
     </div>
 
+    <div class="container site-footer__partners">
+      <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+    </div>
+
     <div class="container site-footer__bottom">
-      <p>&copy; <span id="year">2026</span> Giresun Expo. All rights reserved.</p>
-      <p><a href="#">Privacy Policy</a></p>
+      <p>&copy; <span id="year">2026</span> Giresun EXPO. All rights reserved.</p>
+      <p>
+        <a href="data-protection.html">Data Protection Notice</a> ·
+        <a href="cookie-policy.html">Cookie Policy</a> ·
+        <a href="privacy.html">Privacy</a>
+      </p>
     </div>
   </footer>
+
+  <div class="cookie-bar" id="cookie-bar" role="region" aria-label="Cookie notice" hidden>
+    <div class="container cookie-bar__inner">
+      <p>This site uses only the cookies required for it to work; there are no tracking or advertising cookies. See the <a href="cookie-policy.html">Cookie Policy</a>.</p>
+      <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Got it</button>
+    </div>
+  </div>
 </body>
 </html>
