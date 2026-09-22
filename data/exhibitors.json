@@ -1,0 +1,1225 @@
+{
+  "_source": "Giresun Expo 2026 A5 El Kitapçığı, s.14-19",
+  "_note": "Sektörler firma adından TAHMİN edilmiştir; admin panelden doğrulanmalı.",
+  "sectors": [
+    {
+      "id": "gida",
+      "name_tr": "Gıda & İçecek",
+      "name_en": "Food & Beverage"
+    },
+    {
+      "id": "yapi",
+      "name_tr": "Yapı & İnşaat",
+      "name_en": "Construction & Building"
+    },
+    {
+      "id": "metal",
+      "name_tr": "Metal, Makine & Sanayi",
+      "name_en": "Metal, Machinery & Industry"
+    },
+    {
+      "id": "enerji",
+      "name_tr": "Enerji & Elektrik",
+      "name_en": "Energy & Electrical"
+    },
+    {
+      "id": "mobilya",
+      "name_tr": "Mobilya & İç Mimari",
+      "name_en": "Furniture & Interior Design"
+    },
+    {
+      "id": "otomotiv",
+      "name_tr": "Otomotiv & Lojistik",
+      "name_en": "Automotive & Logistics"
+    },
+    {
+      "id": "turizm",
+      "name_tr": "Turizm & Konaklama",
+      "name_en": "Tourism & Hospitality"
+    },
+    {
+      "id": "saglik",
+      "name_tr": "Sağlık",
+      "name_en": "Healthcare"
+    },
+    {
+      "id": "kimya",
+      "name_tr": "Kimya, Boya & Plastik",
+      "name_en": "Chemicals, Paints & Plastics"
+    },
+    {
+      "id": "reklam",
+      "name_tr": "Reklam, Medya & Basım",
+      "name_en": "Advertising, Media & Print"
+    },
+    {
+      "id": "denizcilik",
+      "name_tr": "Denizcilik & Gemi İnşa",
+      "name_en": "Maritime & Shipbuilding"
+    },
+    {
+      "id": "teknoloji",
+      "name_tr": "Teknoloji & Bilişim",
+      "name_en": "Technology & IT"
+    },
+    {
+      "id": "tekstil",
+      "name_tr": "Tekstil",
+      "name_en": "Textiles"
+    },
+    {
+      "id": "su",
+      "name_tr": "Su & Çevre Teknolojileri",
+      "name_en": "Water & Environmental Tech"
+    },
+    {
+      "id": "tarim",
+      "name_tr": "Tarım",
+      "name_en": "Agriculture"
+    },
+    {
+      "id": "hizmet",
+      "name_tr": "Hizmet, Finans & Ticaret",
+      "name_en": "Services, Finance & Trade"
+    },
+    {
+      "id": "diger",
+      "name_tr": "Diğer",
+      "name_en": "Other"
+    }
+  ],
+  "exhibitors": [
+    {
+      "name": "Tok Ticaret (Hırdavat Malzemeleri)",
+      "slug": "tok-ticaret-hirdavat-malzemeleri",
+      "sector": "yapi",
+      "stands": [
+        "A1-14"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 1
+    },
+    {
+      "name": "Noma Yapı",
+      "slug": "noma-yapi",
+      "sector": "yapi",
+      "stands": [
+        "A2-02"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 2
+    },
+    {
+      "name": "Hisar Plastik",
+      "slug": "hisar-plastik",
+      "sector": "kimya",
+      "stands": [
+        "A2-12"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 3
+    },
+    {
+      "name": "Burak Sigorta",
+      "slug": "burak-sigorta",
+      "sector": "hizmet",
+      "stands": [
+        "A3-02"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 4
+    },
+    {
+      "name": "Anadolu İndiksiyon",
+      "slug": "anadolu-indiksiyon",
+      "sector": "metal",
+      "stands": [
+        "A3-03"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 5
+    },
+    {
+      "name": "Asır Taahhüt",
+      "slug": "asir-taahhut",
+      "sector": "yapi",
+      "stands": [
+        "A3-05"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 6
+    },
+    {
+      "name": "Osed Elektrik",
+      "slug": "osed-elektrik",
+      "sector": "enerji",
+      "stands": [
+        "A3-07"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 7
+    },
+    {
+      "name": "Tiryaki Matbaacılık",
+      "slug": "tiryaki-matbaacilik",
+      "sector": "reklam",
+      "stands": [
+        "A3-08"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 8
+    },
+    {
+      "name": "İzya İç Mimarlık",
+      "slug": "izya-ic-mimarlik",
+      "sector": "mobilya",
+      "stands": [
+        "A3-10",
+        "A3-12"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 9
+    },
+    {
+      "name": "Simurg Mobilya",
+      "slug": "simurg-mobilya",
+      "sector": "mobilya",
+      "stands": [
+        "A3-13"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 10
+    },
+    {
+      "name": "Ansan Primanova (Mutfak ve Banyo Aksesuarları)",
+      "slug": "ansan-primanova-mutfak-ve-banyo-aksesuarlari",
+      "sector": "yapi",
+      "stands": [
+        "A3-14"
+      ],
+      "hall": "A",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 11
+    },
+    {
+      "name": "En Boya",
+      "slug": "en-boya",
+      "sector": "kimya",
+      "stands": [
+        "T1-07"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 12
+    },
+    {
+      "name": "Eksen Kimya",
+      "slug": "eksen-kimya",
+      "sector": "kimya",
+      "stands": [
+        "T1-08"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 13
+    },
+    {
+      "name": "KBT Konveyör ve Otomasyon Sistemleri",
+      "slug": "kbt-konveyor-ve-otomasyon-sistemleri",
+      "sector": "metal",
+      "stands": [
+        "T1-09"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 14
+    },
+    {
+      "name": "Meksan Savunma Metal Sac Sanayi",
+      "slug": "meksan-savunma-metal-sac-sanayi",
+      "sector": "metal",
+      "stands": [
+        "T1-10"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 15
+    },
+    {
+      "name": "Giteks (Damat Tween)",
+      "slug": "giteks-damat-tween",
+      "sector": "tekstil",
+      "stands": [
+        "T1-11"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 16
+    },
+    {
+      "name": "Yıl-Ka (Tirebolu Çayı)",
+      "slug": "yil-ka-tirebolu-cayi",
+      "sector": "gida",
+      "stands": [
+        "T1-12"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 17
+    },
+    {
+      "name": "Endow (Kapı ve Pencere Aksesuarları)",
+      "slug": "endow-kapi-ve-pencere-aksesuarlari",
+      "sector": "yapi",
+      "stands": [
+        "T1-14"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 18
+    },
+    {
+      "name": "Chef Erdal Restaurant",
+      "slug": "chef-erdal-restaurant",
+      "sector": "gida",
+      "stands": [
+        "T2-05"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 19
+    },
+    {
+      "name": "Karancı Kauçuk",
+      "slug": "karanci-kaucuk",
+      "sector": "kimya",
+      "stands": [
+        "T2-06"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 20
+    },
+    {
+      "name": "Titanic Otel",
+      "slug": "titanic-otel",
+      "sector": "turizm",
+      "stands": [
+        "T2-07"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 21
+    },
+    {
+      "name": "Öztürk Yemek / Balo / Davet",
+      "slug": "ozturk-yemek-balo-davet",
+      "sector": "gida",
+      "stands": [
+        "T2-08"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 22
+    },
+    {
+      "name": "Eka Metal",
+      "slug": "eka-metal",
+      "sector": "metal",
+      "stands": [
+        "T2-09"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 23
+    },
+    {
+      "name": "Maslak Peugeot",
+      "slug": "maslak-peugeot",
+      "sector": "otomotiv",
+      "stands": [
+        "T2-10"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 24
+    },
+    {
+      "name": "Bayramlar Alüminyum",
+      "slug": "bayramlar-aluminyum",
+      "sector": "metal",
+      "stands": [
+        "T2-11"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 25
+    },
+    {
+      "name": "As Bakır",
+      "slug": "as-bakir",
+      "sector": "metal",
+      "stands": [
+        "T2-12"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 26
+    },
+    {
+      "name": "Bahat Sağlık Grubu",
+      "slug": "bahat-saglik-grubu",
+      "sector": "saglik",
+      "stands": [
+        "T2-13"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 27
+    },
+    {
+      "name": "Gen Yatırım",
+      "slug": "gen-yatirim",
+      "sector": "hizmet",
+      "stands": [
+        "T2-14"
+      ],
+      "hall": "T",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 28
+    },
+    {
+      "name": "Assu",
+      "slug": "assu",
+      "sector": "gida",
+      "stands": [
+        "G1-02"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 29
+    },
+    {
+      "name": "Koçel Çelik Eşya",
+      "slug": "kocel-celik-esya",
+      "sector": "metal",
+      "stands": [
+        "G1-05"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 30
+    },
+    {
+      "name": "Tuna Alüminyum",
+      "slug": "tuna-aluminyum",
+      "sector": "metal",
+      "stands": [
+        "G1-06"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 31
+    },
+    {
+      "name": "Hyundai Kaynak",
+      "slug": "hyundai-kaynak",
+      "sector": "metal",
+      "stands": [
+        "G1-07",
+        "G1-09"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 32
+    },
+    {
+      "name": "SMS Grup İnşaat",
+      "slug": "sms-grup-insaat",
+      "sector": "yapi",
+      "stands": [
+        "G1-08",
+        "G2-07"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 33
+    },
+    {
+      "name": "ToptanTR",
+      "slug": "toptantr",
+      "sector": "hizmet",
+      "stands": [
+        "G2-01"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 34
+    },
+    {
+      "name": "Micansan Tanker",
+      "slug": "micansan-tanker",
+      "sector": "otomotiv",
+      "stands": [
+        "G2-03"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 35
+    },
+    {
+      "name": "Konut Tesis Yönetim",
+      "slug": "konut-tesis-yonetim",
+      "sector": "hizmet",
+      "stands": [
+        "G2-04"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 36
+    },
+    {
+      "name": "Ateş Neon Reklamcılık",
+      "slug": "ates-neon-reklamcilik",
+      "sector": "reklam",
+      "stands": [
+        "G2-05"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 37
+    },
+    {
+      "name": "Freşa",
+      "slug": "fresa",
+      "sector": "gida",
+      "stands": [
+        "G2-06"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 38
+    },
+    {
+      "name": "Alfa Solar Enerji",
+      "slug": "alfa-solar-enerji",
+      "sector": "enerji",
+      "stands": [
+        "G2-08"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 39
+    },
+    {
+      "name": "Alpi Diş",
+      "slug": "alpi-dis",
+      "sector": "saglik",
+      "stands": [
+        "G2-09"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 40
+    },
+    {
+      "name": "By Toom Mobilya",
+      "slug": "by-toom-mobilya",
+      "sector": "mobilya",
+      "stands": [
+        "G3-02"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 41
+    },
+    {
+      "name": "Akpınar Cıvata",
+      "slug": "akpinar-civata",
+      "sector": "metal",
+      "stands": [
+        "G3-03"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 42
+    },
+    {
+      "name": "Bi Ofis Büro Mobilyaları",
+      "slug": "bi-ofis-buro-mobilyalari",
+      "sector": "mobilya",
+      "stands": [
+        "G3-04"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 43
+    },
+    {
+      "name": "Giresun Teknopark",
+      "slug": "giresun-teknopark",
+      "sector": "teknoloji",
+      "stands": [
+        "G3-05"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 44
+    },
+    {
+      "name": "Kapela Şemsiye",
+      "slug": "kapela-semsiye",
+      "sector": "diger",
+      "stands": [
+        "G3-06"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 45
+    },
+    {
+      "name": "Teknik Fuarcılık",
+      "slug": "teknik-fuarcilik",
+      "sector": "reklam",
+      "stands": [
+        "G3-07",
+        "G3-09"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 46
+    },
+    {
+      "name": "Mir Water",
+      "slug": "mir-water",
+      "sector": "su",
+      "stands": [
+        "G3-08"
+      ],
+      "hall": "G",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 47
+    },
+    {
+      "name": "Karlı Metal",
+      "slug": "karli-metal",
+      "sector": "metal",
+      "stands": [
+        "P1-01"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 48
+    },
+    {
+      "name": "Yunus Gemi İnşaat",
+      "slug": "yunus-gemi-insaat",
+      "sector": "denizcilik",
+      "stands": [
+        "P1-02"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 49
+    },
+    {
+      "name": "Resun Otel",
+      "slug": "resun-otel",
+      "sector": "turizm",
+      "stands": [
+        "P1-03",
+        "P1-06"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 50
+    },
+    {
+      "name": "Bilir Basım",
+      "slug": "bilir-basim",
+      "sector": "reklam",
+      "stands": [
+        "P1-04"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 51
+    },
+    {
+      "name": "Makro BYC İnşaat",
+      "slug": "makro-byc-insaat",
+      "sector": "yapi",
+      "stands": [
+        "P1-05"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 52
+    },
+    {
+      "name": "Alp Tekstil",
+      "slug": "alp-tekstil",
+      "sector": "tekstil",
+      "stands": [
+        "P1-07"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 53
+    },
+    {
+      "name": "CRK Otomotiv",
+      "slug": "crk-otomotiv",
+      "sector": "otomotiv",
+      "stands": [
+        "P1-08"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 54
+    },
+    {
+      "name": "Bayramlar Metal",
+      "slug": "bayramlar-metal",
+      "sector": "metal",
+      "stands": [
+        "P1-09"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 55
+    },
+    {
+      "name": "Turkuaz Gemi İnşa",
+      "slug": "turkuaz-gemi-insa",
+      "sector": "denizcilik",
+      "stands": [
+        "P1-10"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 56
+    },
+    {
+      "name": "Özgüneş Sürücü Kursu",
+      "slug": "ozgunes-surucu-kursu",
+      "sector": "hizmet",
+      "stands": [
+        "P1-11"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 57
+    },
+    {
+      "name": "Agrapar Tarım",
+      "slug": "agrapar-tarim",
+      "sector": "tarim",
+      "stands": [
+        "P1-12"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 58
+    },
+    {
+      "name": "Güneş Metal",
+      "slug": "gunes-metal",
+      "sector": "metal",
+      "stands": [
+        "P1-13"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 59
+    },
+    {
+      "name": "Abramak Bilgi Teknolojileri",
+      "slug": "abramak-bilgi-teknolojileri",
+      "sector": "teknoloji",
+      "stands": [
+        "P1-14"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 60
+    },
+    {
+      "name": "Fındıko Gıda",
+      "slug": "findiko-gida",
+      "sector": "gida",
+      "stands": [
+        "P1-15"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 61
+    },
+    {
+      "name": "Özdemir Makina",
+      "slug": "ozdemir-makina",
+      "sector": "metal",
+      "stands": [
+        "P1-16"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 62
+    },
+    {
+      "name": "Göresun Seyahat",
+      "slug": "goresun-seyahat",
+      "sector": "turizm",
+      "stands": [
+        "P1-17"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 63
+    },
+    {
+      "name": "Brosis Lazer Kesim",
+      "slug": "brosis-lazer-kesim",
+      "sector": "metal",
+      "stands": [
+        "P1-18"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 64
+    },
+    {
+      "name": "Heatemp (Bina Otomasyonu ve Endüstriyel İklimlendirme Çözümleri)",
+      "slug": "heatemp-bina-otomasyonu-ve-endustriyel-iklimlendirme-cozumleri",
+      "sector": "enerji",
+      "stands": [
+        "P1-19"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 65
+    },
+    {
+      "name": "Switch Elektronik",
+      "slug": "switch-elektronik",
+      "sector": "enerji",
+      "stands": [
+        "P1-20"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 66
+    },
+    {
+      "name": "Arstek Metal",
+      "slug": "arstek-metal",
+      "sector": "metal",
+      "stands": [
+        "P1-21"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 67
+    },
+    {
+      "name": "Enes Cıvata",
+      "slug": "enes-civata",
+      "sector": "metal",
+      "stands": [
+        "P1-22"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 68
+    },
+    {
+      "name": "İnovoltis Enerji ve Elektronik",
+      "slug": "inovoltis-enerji-ve-elektronik",
+      "sector": "enerji",
+      "stands": [
+        "P1-23"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 69
+    },
+    {
+      "name": "Tusaser Su Arıtma Sistemleri",
+      "slug": "tusaser-su-aritma-sistemleri",
+      "sector": "su",
+      "stands": [
+        "P1-24"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 70
+    },
+    {
+      "name": "Müjdat Karayılan",
+      "slug": "mujdat-karayilan",
+      "sector": "diger",
+      "stands": [
+        "P2-01",
+        "P2-02",
+        "P2-03",
+        "P2-04",
+        "P2-05",
+        "P2-06"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 71
+    },
+    {
+      "name": "NOK Grup İnşaat",
+      "slug": "nok-grup-insaat",
+      "sector": "yapi",
+      "stands": [
+        "P2-07"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 72
+    },
+    {
+      "name": "Hakan Reklam",
+      "slug": "hakan-reklam",
+      "sector": "reklam",
+      "stands": [
+        "P2-09"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 73
+    },
+    {
+      "name": "Abega Nuclear (Radyoaktif ve Nükleer Hizmetler)",
+      "slug": "abega-nuclear-radyoaktif-ve-nukleer-hizmetler",
+      "sector": "enerji",
+      "stands": [
+        "P2-10"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 74
+    },
+    {
+      "name": "Cesurlar Mühendislik",
+      "slug": "cesurlar-muhendislik",
+      "sector": "yapi",
+      "stands": [
+        "P2-13"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 75
+    },
+    {
+      "name": "Syvera Fındık İşleme ve Lezzet Atölyesi",
+      "slug": "syvera-findik-isleme-ve-lezzet-atolyesi",
+      "sector": "gida",
+      "stands": [
+        "P2-16"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 76
+    },
+    {
+      "name": "KKG Elektrik ve Aydınlatma",
+      "slug": "kkg-elektrik-ve-aydinlatma",
+      "sector": "enerji",
+      "stands": [
+        "P2-19"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 77
+    },
+    {
+      "name": "Hıdır Fındık",
+      "slug": "hidir-findik",
+      "sector": "gida",
+      "stands": [
+        "P2-22"
+      ],
+      "hall": "P",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 78
+    },
+    {
+      "name": "Aydın Grup İnşaat",
+      "slug": "aydin-grup-insaat",
+      "sector": "yapi",
+      "stands": [
+        "E-07"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 79
+    },
+    {
+      "name": "Asır Otomotiv",
+      "slug": "asir-otomotiv",
+      "sector": "otomotiv",
+      "stands": [
+        "E-08",
+        "E-09"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 80
+    },
+    {
+      "name": "Sazak Yemek",
+      "slug": "sazak-yemek",
+      "sector": "gida",
+      "stands": [
+        "E-10"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 81
+    },
+    {
+      "name": "Ocak Kalıp",
+      "slug": "ocak-kalip",
+      "sector": "metal",
+      "stands": [
+        "E-18",
+        "E-19"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": true,
+      "featured": false,
+      "published": true,
+      "sort": 82
+    },
+    {
+      "name": "Ajanssis / Mecra Medya",
+      "slug": "ajanssis-mecra-medya",
+      "sector": "reklam",
+      "stands": [
+        "E-32",
+        "E-33"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 83
+    },
+    {
+      "name": "Tıkla Gelsin",
+      "slug": "tikla-gelsin",
+      "sector": "hizmet",
+      "stands": [
+        "E-35"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 84
+    },
+    {
+      "name": "DMR Tüketim",
+      "slug": "dmr-tuketim",
+      "sector": "hizmet",
+      "stands": [
+        "E-38"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 85
+    },
+    {
+      "name": "Ford Kent Oto",
+      "slug": "ford-kent-oto",
+      "sector": "otomotiv",
+      "stands": [
+        "E-43",
+        "E-44"
+      ],
+      "hall": "E",
+      "in_booklet_logo_page": false,
+      "featured": false,
+      "published": true,
+      "sort": 86
+    }
+  ]
+}

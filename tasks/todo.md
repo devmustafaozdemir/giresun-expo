@@ -1,9 +1,20 @@
 # Giresun Expo — Yapılacaklar
 
-Kaynak: `docs/BRIEF-v2.md` · Açık sorular: `docs/acik-sorular.md`
+**Kaynak önceliği:** `docs/BRIEF-v2-EK.md` → `docs/KITAPCIK-ICERIK.md` → `docs/BRIEF-v2.md`
+(EK, BRIEF-v2 ile çeliştiği her yerde geçerlidir.) Açık sorular: `docs/acik-sorular.md`
 
-**Çalışma şekli:** Her aşama sonunda kısa özet + ekran görüntüsü/ölçüm + commit, sonra
-onay beklenir. `git push` her seferinde ayrıca sorulur. Küçük ve anlamlı commit'ler.
+---
+
+## ⚠ Öncelik: fuar 8 Ekim 2026'da başlıyor
+
+Bugün **22 Eylül 2026** → **16 gün** kaldı.
+
+1. **A + B önce.** Public site, gerçek içerik, `data/*.json` veri kaynağıyla. Fuardan önce yayında olmalı.
+2. **YAYIN kapısı** — B biter bitmez push + GitHub Pages.
+3. **C + D sonra.** Supabase ve admin paneli. Public site bunlar olmadan da eksiksiz çalışır.
+4. **E** son cila ve dokümantasyon.
+
+Bu sıralama EK §6 gereği; önceki plandaki A→B→C→D→E sırası C ve D'yi yayının önüne koyuyordu, düzeltildi.
 
 ---
 
@@ -14,16 +25,13 @@ onay beklenir. `git push` her seferinde ayrıca sorulur. Küçük ve anlamlı co
 
 - [x] Klasör yapısı (TR kökte, EN `en/` altında)
 - [x] `assets/css/style.css` — token tabanlı tasarım sistemi
-- [x] Ortak header (hamburger + TR|EN + CTA) ve footer, 18 sayfanın tamamında
-- [x] `assets/js/main.js` — mobil menü (aç/kapat, Esc, örtü, link, resize, `aria-expanded`)
+- [x] Ortak header ve footer, 18 sayfanın tamamında
+- [x] `assets/js/main.js` — mobil menü
 - [x] 9 TR + 9 EN sayfa şablonu
 - [x] `CLAUDE.md`, `README.md`, `.gitignore`, `.gitattributes`
-- [x] İç link doğrulaması — kırık link yok
-- [x] Tarayıcı doğrulaması (masaüstü + mobil, konsol temiz)
 - [x] `git init` + ilk commit (`main`, `02dda87`)
-- [x] GitHub Pages `/giresun-expo/` alt yolu denetimi — kök-göreli yol yok, 18 sayfa gezilerek doğrulandı
-- [x] `.nojekyll` + CLAUDE.md "Yayın: GitHub Pages" kuralları (`cd52e92`)
-- [ ] Repoyu GitHub'a push et, Pages'i `main` dalından yayına al
+- [x] GitHub Pages `/giresun-expo/` alt yolu denetimi (`cd52e92`)
+- [x] v2 planlama: brief, A–E plan, açık sorular (`a08bf46`)
 
 </details>
 
@@ -31,150 +39,212 @@ onay beklenir. `git push` her seferinde ayrıca sorulur. Küçük ve anlamlı co
 
 ## v2 — Kararlar
 
-Plan onayında netleşen ve tüm aşamaları bağlayan kararlar:
-
 | # | Konu | Karar |
 |---|---|---|
-| 1 | Font | **Self-hosted Poppins + Inter** (`assets/fonts/*.woff2`, `@font-face`, `font-display: swap`). CDN yok — CLAUDE.md kuralı korunur. İkisi de OFL lisanslı. |
-| 2 | Ortak markup | **Elle tekrar + `tools/check-partials.mjs` sapma denetleyicisi.** Build adımı yok, HTML statik kalır. Toplu değişiklik tek seferlik scriptle. |
-| 3 | Sayfa envanteri | **Brief §2'ye birebir uyulur.** `haberler.html` → `basin.html`, `ziyaretci.html` → `ziyaretci-kaydi.html`. Ziyaret bilgileri ana sayfadaki "Konum ve ulaşım"a taşınır. `news` tablosu yok. |
-| 4 | Lighthouse | **Node.js LTS kurulur**; `npx lighthouse` ile mobil skorlar raporlanır. `tools/*.mjs` de bu sayede çalışır. |
+| 1 | Font | Self-hosted Poppins + Inter (`assets/fonts/*.woff2`). CDN yok |
+| 2 | Ortak markup | Elle tekrar + `tools/check-partials.mjs` sapma denetleyicisi. Build adımı yok |
+| 3 | Lighthouse | Node.js LTS kurulur; `npx lighthouse` ile mobil skorlar |
+| 4 | Boşluk skalası | **Mevcut 12 adım korunur** (onaylandı) |
+| 5 | Logo | **Tasarlanmayacak.** Resmî logo var. Yalnızca favicon (halka işaretinden) + OG görseli üretilecek |
+| 6 | Öncelik | **A + B → YAYIN → C + D → E** (EK §6) |
 
-### Sayfa envanteri (son hâli — 41 HTML)
+### Marka renkleri (v1'deki yeşil/altın iptal)
 
-| TR | EN |
-|---|---|
-| `index.html` | `en/index.html` |
-| `hakkinda.html` | `en/about.html` |
-| `katilimcilar.html` | `en/exhibitors.html` |
-| `program.html` | `en/program.html` |
-| `stant-basvurusu.html` | `en/stand-application.html` |
-| `ziyaretci-kaydi.html` *(yeniden adlandırma)* | `en/visitor-registration.html` |
-| `galeri.html` | `en/gallery.html` |
-| `basin.html` *(yeniden adlandırma)* | `en/press.html` |
-| `iletisim.html` | `en/contact.html` |
-| `kvkk.html` | `en/data-protection.html` |
-| `cerez-politikasi.html` | `en/cookie-policy.html` |
-| `gizlilik.html` | `en/privacy.html` |
+```css
+--color-primary:       #005E44;  /* marka yeşili — "GİRESUN" */
+--color-primary-dark:  #00432F;
+--color-secondary:     #184181;  /* marka lacivert — "EXPO" */
+--color-accent-blue:   #085494;  /* halka */
+--color-accent-green:  #6A9F2F;  /* halka — YALNIZCA grafik, metin değil */
+--color-accent-earth:  #3D351C;  /* halka */
+```
 
-Ayrıca: `404.html` (kök, CSS gömülü) · `docs/ui-kit.html` (noindex) · `admin/` 15 sayfa.
+Kaldırılacak: `--color-accent` (altın), `--color-accent-dark/soft`, fındık tonları,
+`--color-sea` (yerine `--color-secondary`).
 
-> Yeniden adlandırmalar `git mv` ile. Site henüz push edilmediği için kırılacak canlı URL yok.
+**Ölçülen WCAG AA sonuçları (yeni palet):**
+
+| Kombinasyon | Oran | AA |
+|---|---|---|
+| beyaz / `#005E44` | 7.82 | ✅ |
+| beyaz / `#00432F` | 11.39 | ✅ |
+| beyaz / `#184181` | 9.94 | ✅ |
+| `#085494` / beyaz | 7.76 | ✅ |
+| `#3D351C` / beyaz | 12.18 | ✅ |
+| **`#6A9F2F` / beyaz** | **3.18** | ❌ metin olarak kalır · ✅ grafik öğe (3:1) olarak geçer |
+
+→ **Kural:** açık yeşil asla metin rengi değil; yalnızca halka, ikon ve grafik vurgu.
+
+> ⚠ **Karara bağlanacak:** verilen hex değerlerinin 4'ü logodaki gerçek piksellerle uyuşmuyor
+> (bkz. `docs/acik-sorular.md` #25). Yeşil birebir aynı (ΔE 0) ama lacivert ΔE **10.7**,
+> açık yeşil **11.0**, kahve **11.7** — "çok farklı" sınıfında. A4'ten önce netleşmeli.
+
+### Sayfa envanteri (43 HTML)
+
+| TR | EN | Not |
+|---|---|---|
+| `index.html` | `en/index.html` | |
+| `hakkinda.html` | `en/about.html` | |
+| `katilimcilar.html` | `en/exhibitors.html` | 86 firma, salon filtresi |
+| `ziyaret-bilgileri.html` | `en/plan-your-visit.html` | **YENİ** (EK §4) |
+| `program.html` | `en/program.html` | Koşullu — oturum yoksa menüde görünmez |
+| `stant-basvurusu.html` | `en/stand-application.html` | 2027 ön başvurusu |
+| `ziyaretci-kaydi.html` | `en/visitor-registration.html` | "Ön kayıt" — ücret iddiası yok |
+| `galeri.html` | `en/gallery.html` | |
+| `basin.html` | `en/press.html` | |
+| `iletisim.html` | `en/contact.html` | |
+| `kvkk.html` | `en/data-protection.html` | |
+| `cerez-politikasi.html` | `en/cookie-policy.html` | |
+| `gizlilik.html` | `en/privacy.html` | |
+
+Ayrıca `404.html` · `docs/ui-kit.html` (noindex) · `admin/` 15 sayfa.
+
+Yeniden adlandırma: `haberler.html`→`basin.html`, `ziyaretci.html`→`ziyaret-bilgileri.html`
+(`git mv`). Site henüz push edilmediği için kırılacak canlı URL yok.
+
+### Resmî olgular (kitapçıktan — uydurma yok)
+
+- **8–11 Ekim 2026**, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı Etkinlik Alanı
+- Adres: Aksaray Mah., Kennedy Cad. No: 11/1, Fatih/İstanbul · Tel: `tel:+905416622828`
+- Saatler: Per 10–19 · Cum 10–19 · Cmt 10–20 · Paz 10–18
+- Slogan: *Giresun İçin İş Birliği / Türkiye İçin Güç Birliği* · Manşet: *Giresun İş Dünyası İstanbul'da Buluşuyor*
+- Dört sütun: Üretim · Yatırım · Ticaret · İş Birliği
+- Paydaşlar: Giresun Vakfı, Giresun Federasyonu, ŞEBİNSİAD
+- **İstatistikler (yalnızca bunlar):** 86 katılımcı firma · 4 gün · 3 paydaş kuruluş · 5 salon (A/T/G/P/E)
+- E-posta ve sosyal medya **yok** → alanlar boş kalır, boşsa sitede hiç görünmez
 
 ---
 
 ## A) Tasarım sistemi ve UI kit
 
-- [ ] **A1** `docs/BRIEF-v2.md` olarak brief'i repoya kaydet
-- [ ] **A2** `docs/acik-sorular.md` oluştur; aşamalar boyunca güncel tut
-- [ ] **A3** Node.js LTS kur (onay alarak) ve `tools/` altyapısını hazırla
-- [ ] **A4** Renk token'ları: `--color-sea`, `--color-warning`, `--color-info` ekle
-- [ ] **A5** WCAG AA hatalarını düzelt — ölçülen 3 hata:
-  - `--color-muted` #6B776F / `--color-surface` #F5F7F4 = **4.34**
-  - `.btn--accent:hover` beyaz / #B2860F = **3.33**
-  - `.hero .lead` beyaz %82 / gradyan açık ucu #2E7C55 = **3.98**
-- [ ] **A6** Kontrast tablosunu yeniden hesapla — tüm kombinasyonlar ≥ 4.5, sonucu raporla
-- [ ] **A7** Poppins + Inter woff2 dosyaları `assets/fonts/` altına; `@font-face`, `--font-display` / `--font-sans`
-- [ ] **A8** Tipografi ölçeği: h1 40→64, h2 30→44, h3 20→24, gövde 16→18px; ağırlık 400/500/600/700
-- [ ] **A9** `max-width: 65ch` metin bloklarına sistematik uygulanır
-- [ ] **A10** Boşluk: 8px ızgara doğrulaması + bölüm dikey boşluğu masaüstü 96–128px / mobil 64px
+- [ ] **A1** PDF ikilemesini çöz: `docs/` içinde aynı adlı iki PDF var (NFC/NFD Unicode farkı, 2 × 8.4 MB). Birini sil, kalanı `docs/giresun-expo-2026-el-kitapcigi.pdf` olarak ASCII adla yeniden adlandır, atıfları güncelle
+- [ ] **A2** `docs/acik-sorular.md`'yi güncel tut (kitapçıktan doğan yeni sorular eklendi)
+- [ ] **A3** Node.js LTS kur (onay alarak), `tools/` altyapısı
+- [ ] **A4** Renk token'larını yenile: marka yeşili + lacivert ana, 3 halka rengi vurgu. Altın/fındık/`--color-sea` kaldır. **Önce #25 kararı**
+- [ ] **A5** Durum renkleri: `--color-success`, `--color-warning`, `--color-danger`, `--color-info`
+- [ ] **A6** Kontrast tablosunu tüm yeni kombinasyonlar için hesapla, ≥4.5 (grafik öğeler ≥3.0) — raporla
+- [ ] **A7** Poppins + Inter woff2 → `assets/fonts/`, `@font-face`, `font-display: swap`
+- [ ] **A8** Tipografi: h1 40→64, h2 30→44, h3 20→24, gövde 16→18px; ağırlık 400/500/600/700
+- [ ] **A9** Kitapçık görsel dili: yeşil büyük harfli başlık + altında kısa lacivert çizgi (`.section-title` varyantı), açık zemin, bol beyaz alan
+- [ ] **A10** `max-width: 65ch`; bölüm dikey boşluğu masaüstü 96–128px / mobil 64px
 - [ ] **A11** Yarıçap ve gölge setini tek tipe indir
-- [ ] **A12** Logo SVG (açık + koyu zemin), favicon (SVG + 32px PNG), OG görseli 1200×630
-- [ ] **A13** SVG illüstrasyonlar: fındık yaprağı, Karadeniz dalgası, Giresun Adası silueti, topografik doku
-- [ ] **A14** Lucide ikonları → `assets/icons/*.svg`, stroke 1.75, tek boyut sistemi
-- [ ] **A15** Butonlar: `primary` / `secondary` / `ghost` × boyut × (ikonlu, loading, disabled)
-- [ ] **A16** Kart tipleri: bilgi, katılımcı, konuşmacı, istatistik
-- [ ] **A17** Yeni bileşenler: rozet, sekme, akordeon, modal, lightbox, toast, empty state, skeleton
-- [ ] **A18** Form alanları: hata / yardım metni / başarılı durumları
-- [ ] **A19** Şık foto yer tutucu (`aspect-ratio` + ikon + "Fotoğraf eklenecek")
-- [ ] **A20** Hareket: IntersectionObserver reveal, 150–300ms, `prefers-reduced-motion` altında kapalı
-- [ ] **A21** `tools/check-partials.mjs` — header/footer sapma denetleyicisi
-- [ ] **A22** `docs/ui-kit.html` (noindex) — tüm bileşenler tek sayfada
-- [ ] **A23** QC: ui-kit masaüstü + mobil ekran görüntüsü, konsol temiz, kontrast raporu
+- [ ] **A12** Favicon: logodaki **halka işaretinden** SVG + 32px PNG. OG görseli 1200×630 (logo + açık zemin)
+- [ ] **A13** Logo kullanım kuralları: yalnızca açık zemin; koyu bantta beyaz kart içinde; yeniden çizme/renk değiştirme yok. Header'da kullanılacak boyut kararı (**#27**)
+- [ ] **A14** Grafik öğeler: halka motifinden türetilen sade desen + lacivert çizgi sistemi. *(Brief §1.5'teki fındık yaprağı / Giresun Adası illüstrasyonları **iptal** — konsept "İstanbul'da iş dünyası buluşması"na döndü ve gerçek fotoğraflar geldi)*
+- [ ] **A15** Lucide ikonları → `assets/icons/*.svg`, stroke 1.75. Gerekenler: dört sütun (4), sektörler (17), ulaşım (metro/otobüs/araba/otopark), saat, konum, telefon, takvim
+- [ ] **A16** Fotoğraf sistemi: `<picture>` + webp/jpg, `aspect-ratio`, marka renginde overlay, `loading="lazy"`, boyut sınırı (orijinaller ~1050px — büyütme yok)
+- [ ] **A17** Butonlar: `primary` / `secondary` / `ghost` × boyut × (ikonlu, loading, disabled)
+- [ ] **A18** Kartlar: bilgi, katılımcı (+**monogram varyantı** logosuz firmalar için), paydaş, istatistik
+- [ ] **A19** Yeni bileşenler: rozet (salon/sektör), sekme, akordeon, modal, lightbox, toast, empty state, skeleton, geri sayım şeridi
+- [ ] **A20** Form alanları: hata / yardım metni / başarılı durumları
+- [ ] **A21** Hareket: IntersectionObserver reveal, 150–300ms, `prefers-reduced-motion` altında kapalı
+- [ ] **A22** `tools/check-partials.mjs` — header/footer sapma denetleyicisi
+- [ ] **A23** `docs/ui-kit.html` (noindex)
+- [ ] **A24** QC: ui-kit masaüstü + mobil ekran görüntüsü, kontrast raporu, konsol temiz
 
-## B) Public sayfaların yeniden tasarımı ve metinler
+## B) Public site — gerçek içerik (YAYIN hedefi)
 
-- [ ] **B1** TR + EN tüm metinleri yaz → `docs/icerik-metinleri.md` (organizatör onay kaynağı)
-- [ ] **B2** `data/*.json` üret: `site-ayarlari`, `sektorler`, `katilimcilar`, `program`, `konusmacilar`, `sponsorlar`, `sss`, `galeri`, `basin`
-- [ ] **B3** `git mv` yeniden adlandırmalar + tüm dosyalarda nav / `hreflang` güncellemesi
-- [ ] **B4** Ana sayfa: duyuru çubuğu, hero + geri sayım şeridi, istatistikler, hakkında özeti
-- [ ] **B5** Ana sayfa: sektör kartları, "neden katılmalısınız" sekmeleri, öne çıkan katılımcılar
-- [ ] **B6** Ana sayfa: program önizlemesi, sponsorlar, SSS akordeonu, konum/ulaşım + harita, bülten bandı
-- [ ] **B7** Hakkında
-- [ ] **B8** Katılımcılar: arama + sektör filtresi + A–Z + ızgara + detay modalı + empty state
-- [ ] **B9** Program: gün sekmeleri, zaman çizelgesi, tür rozetleri, salon filtresi, konuşmacı kartları, `.ics`
-- [ ] **B10** Stant başvurusu: ikna bölümü + stant tipleri tablosu + süreç adımları
-- [ ] **B11** Stant başvurusu: 3 adımlı form, ilerleme göstergesi, adım doğrulaması, başarı ekranı + başvuru no
-- [ ] **B12** Ziyaretçi kaydı: form + KVKK onayı + başarı ekranı + takvime ekle
-- [ ] **B13** Galeri: albümler, ızgara, erişilebilir lightbox, empty state
-- [ ] **B14** Basın: bültenler, basın kiti, iletişim kişisi
-- [ ] **B15** İletişim: iletişim kartları, form, tıklayınca yüklenen gizlilik dostu harita, sosyal
-- [ ] **B16** Yasal 3 sayfa (KVKK / Çerez / Gizlilik) + "hukuki danışman gözden geçirmeli" uyarısı
-- [ ] **B17** Çerez bildirimi bandı (yalnızca gerekli çerezler)
-- [ ] **B18** `404.html` — CSS gömülü (CLAUDE.md kuralı)
-- [ ] **B19** `robots.txt` (+`/admin/` engeli), `sitemap.xml`, canonical, JSON-LD (`Event`, `Organization`)
-- [ ] **B20** EN paritesi: doğal İngilizce + `hreflang` doğrulaması
-- [ ] **B21** QC: 360/768/1024/1440 yatay kaydırma yok; `tools/crawl.mjs` 0 kırık link; konsol temiz
+### B-1 Altyapı ve veri
+- [ ] **B1** `git mv` yeniden adlandırmalar + yeni sayfalar + nav/`hreflang` güncellemesi (43 dosya)
+- [ ] **B2** `data/site-ayarlari.json`: tarih, saatler, adres, telefon, slogan/manşet TR-EN, istatistikler, etkinlik durumu metinleri (öncesi/sırası/sonrası), boş e-posta ve sosyal alanlar
+- [ ] **B3** `data/` tamamla: `sektorler.json` (17), `paydaslar.json` (3), `sss.json`, `ulasim.json`. `exhibitors.json` hazır (86 firma)
+- [ ] **B4** `assets/js/data.js` — JSON okuma katmanı (C'de Supabase birincil olunca yedeğe düşecek)
+- [ ] **B5** Etkinlik durumu mantığı: geri sayım → "Fuar devam ediyor" (8–11 Ekim) → "2027'de görüşmek üzere". `Europe/Istanbul`, 8 Ekim 2026 10:00
 
-## C) Supabase şeması, RLS ve veri katmanı
+### B-2 İçerik yazımı
+- [ ] **B6** TR metinleri: kitapçık metinleri web için akıcılaştırılır, olgular değişmez
+- [ ] **B7** EN metinleri: doğal, profesyonel İngilizce (birebir çeviri değil)
+- [ ] **B8** `docs/icerik-metinleri.md` — TR + EN tek onay kaynağı
 
-- [ ] **C1** `supabase/migrations/001_init.sql` — 15 tablo, `_tr`/`_en` sütunlar, `updated_at` trigger'ı
-- [ ] **C2** Kısıtlar: e-posta formatı, uzunluk sınırları, zorunlu alanlar, durum `check` kısıtları
-- [ ] **C3** Başvuru/kayıt numarası DB tarafında üretilsin (`GE-<yıl>-0001`, sequence + trigger)
-- [ ] **C4** `is_admin()` fonksiyonu + tüm tablolarda RLS açık
-- [ ] **C5** Anon: yalnızca `published = true` içerik + `site_settings` SELECT
-- [ ] **C6** Anon: başvuru / kayıt / mesaj / bülten tablolarına **yalnızca INSERT**
-- [ ] **C7** Admin politikaları + `editor` kısıtları (başvuru silemez, admin ekleyemez)
-- [ ] **C8** Storage `public-media`: herkes okur, admin yazar, dosya tipi + 5 MB limiti
-- [ ] **C9** `supabase/seed.sql` — `data/*.json` içeriğini aktarır
-- [ ] **C10** `assets/js/config.js` (yer tutucu) — `service_role` asla repoda değil
-- [ ] **C11** `assets/js/supabase-client.js` — jsDelivr'dan **sabit sürüm** ESM import
-- [ ] **C12** `assets/js/data.js` — Supabase → JSON yedekli okuma katmanı
-- [ ] **C13** Formları Supabase'e bağla + honeypot + istemci doğrulaması
-- [ ] **C14** "Başvurular kapalı" anahtarını public forma bağla (zarif kapalı mesajı)
-- [ ] **C15** `supabase/tests/rls-checklist.md` — senaryolar + beklenen sonuçlar
-- [ ] **C16** Anon anahtarla **fiili** RLS testi, sonuçları raporla
-- [ ] **C17** `docs/SUPABASE-KURULUM.md` — Türkçe, adım adım, sign-up kapatma + davetle admin ekleme
-- [ ] **C18** QC: `config.js` boşken site JSON'dan eksiksiz çalışıyor
+### B-3 Sayfalar (öncelik sırasıyla)
+- [ ] **B9** **Ana sayfa** — hero (logo, manşet, slogan, tarih + mekân, CTA: "Ziyaret Planla" / "Katılımcıları Keşfet")
+- [ ] **B10** Ana sayfa — geri sayım şeridi → dört sütun → "Giresun EXPO nedir?" → rakamlar (4 istatistik)
+- [ ] **B11** Ana sayfa — paydaşlar (3 logo) → öne çıkan katılımcılar (logo sayfasındaki 43'ten seçim)
+- [ ] **B12** Ana sayfa — ziyaret saatleri → ulaşım özeti + harita → SSS akordeonu
+- [ ] **B13** **Katılımcılar** — 86 firma, arama + sektör filtresi + **salon filtresi (A/T/G/P/E)** + stant no sıralama + detay modalı + monogram kartları + empty state
+- [ ] **B14** **Ziyaret Bilgileri** (YENİ) — tarih/saatler, adres, ulaşım (hat rozetleri: M1A, M1B, M2, M4, Marmaray; İETT 30D/31/31Y/50Y/70FY/70KY; otopark), harita, "Takvime ekle" (.ics)
+- [ ] **B15** **Hakkında** — kitapçık metinleri (nedir, neden, ne zaman/nerede, salon, kimleri buluşturacak, vizyon, hedef) + paydaşlar
+- [ ] **B16** **İletişim** — telefon, adres, harita, form. E-posta/sosyal boş → görünmez
+- [ ] **B17** **Program** — "Etkinlik programı yakında açıklanacak"; oturum yoksa menüde gizli, yerine Ziyaret Bilgileri
+- [ ] **B18** **Stant başvurusu** — "Katılımcı Olun: Giresun EXPO 2027 ön başvurusu", stant tipleri, süreç, çok adımlı form, başarı ekranı
+- [ ] **B19** **Ziyaretçi ön kaydı** — kısa form, KVKK onayı, başarı ekranı + takvime ekle. **"Ücretsiz" yazılmayacak** (#28)
+- [ ] **B20** **Galeri** — mevcut 6 fotoğraf, lightbox, empty state
+- [ ] **B21** **Basın** — basın kiti (logo + kitapçık PDF), iletişim kişisi (#8 bekliyor), bülten listesi boş durumu
+- [ ] **B22** **Yasal** 3 sayfa + "hukuki danışman gözden geçirmeli" uyarısı + çerez bandı
+- [ ] **B23** **404** — CSS gömülü
 
-## D) Admin paneli
+### B-4 Yayın hazırlığı
+- [ ] **B24** `robots.txt` (+`/admin/` engeli), `sitemap.xml`, canonical, JSON-LD (`Event` + `Organization`)
+- [ ] **B25** EN paritesi + `hreflang` doğrulaması
+- [ ] **B26** `tools/crawl.mjs` — kırık link + konsol hatası, `/giresun-expo/` alt yolunda
+- [ ] **B27** QC: 360/768/1024/1440 yatay kaydırma yok; klavye turu; `npx lighthouse` mobil skorları
+- [ ] **B28** Ekran görüntüsü öz-eleştiri turu ve düzeltmeler
 
-- [ ] **D1** `assets/css/admin.css` — public token'lar üzerine yoğun, veri odaklı düzen
-- [ ] **D2** `admin/index.html` giriş + "şifremi unuttum"
-- [ ] **D3** `assets/js/admin/auth.js` — oturum, yönlendirme, rol, "Yetkiniz yok"
-- [ ] **D4** `assets/js/admin/ui.js` — toast, onay modalı, tablo, form, CSV (UTF-8 BOM), upload, sürükle-bırak, kaydedilmemiş değişiklik uyarısı
-- [ ] **D5** Pano: özet kartları, 7/30 gün grafiği, son 5 başvuru/mesaj, hızlı eylemler
-- [ ] **D6** Stant Başvuruları: tablo, arama, filtre, sıralama, sayfalama, detay paneli, durum, admin notu, CSV
+## 🚀 YAYIN
+
+- [ ] **Y1** GitHub repo adı + hesap onayı (#16), remote ekle
+- [ ] **Y2** `git push`, GitHub Pages'i `main` dalından aç
+- [ ] **Y3** Canlı adreste crawl + Lighthouse tekrarı, konsol kontrolü
+- [ ] **Y4** Canlı URL'lerle canonical/OG doğrulaması
+
+## C) Supabase şeması, RLS ve veri katmanı *(yayından sonra)*
+
+- [ ] **C1** `supabase/migrations/001_init.sql` — 15 tablo, `_tr`/`_en`, `updated_at` trigger
+- [ ] **C2** `site_settings` ek alanları (EK §5): günlük ziyaret saatleri (JSON), slogan TR/EN, manşet TR/EN, etkinlik durumu metinleri (öncesi/sırası/sonrası), stant başvuru başlığı
+- [ ] **C3** `exhibitors` tablosunda `stands text[]` ve `hall` alanları (EK §5)
+- [ ] **C4** Kısıtlar: e-posta formatı, uzunluk, zorunlu alanlar, durum `check`
+- [ ] **C5** Başvuru/kayıt numarası DB tarafında (`GE-2027-0001` — 2027 ön başvurusu)
+- [ ] **C6** `is_admin()` + tüm tablolarda RLS açık
+- [ ] **C7** Anon: yalnızca `published = true` + `site_settings` SELECT
+- [ ] **C8** Anon: başvuru/kayıt/mesaj/bülten tablolarına **yalnızca INSERT**
+- [ ] **C9** Admin politikaları + `editor` kısıtları
+- [ ] **C10** Storage `public-media`: herkes okur, admin yazar, tip + 5 MB limiti
+- [ ] **C11** `supabase/seed.sql` — 86 katılımcı, 17 sektör, 3 paydaş (`sponsors`, seviye `partner`), site ayarları, kitapçıktan cevaplanabilen SSS'ler
+- [ ] **C12** `assets/js/config.js` (yer tutucu) — `service_role` asla repoda değil
+- [ ] **C13** `assets/js/supabase-client.js` — jsDelivr sabit sürüm ESM
+- [ ] **C14** `data.js`'i Supabase birincil / JSON yedekli hale getir
+- [ ] **C15** Formları Supabase'e bağla + honeypot + istemci doğrulaması
+- [ ] **C16** "Başvurular açık/kapalı" anahtarını public forma bağla
+- [ ] **C17** `supabase/tests/rls-checklist.md` + anon anahtarla **fiili** test
+- [ ] **C18** `docs/SUPABASE-KURULUM.md`
+- [ ] **C19** QC: `config.js` boşken site JSON'dan eksiksiz çalışıyor
+
+## D) Admin paneli *(yayından sonra)*
+
+- [ ] **D1** `assets/css/admin.css`
+- [ ] **D2** `admin/index.html` giriş + şifremi unuttum
+- [ ] **D3** `auth.js` — oturum, yönlendirme, rol, "Yetkiniz yok"
+- [ ] **D4** `ui.js` — toast, onay modalı, tablo, form, CSV (UTF-8 BOM), upload, sürükle-bırak, kaydedilmemiş değişiklik uyarısı
+- [ ] **D5** Pano: özet kartları, 7/30 gün grafiği, son 5 başvuru/mesaj
+- [ ] **D6** Stant Başvuruları: tablo, arama, filtre, detay paneli, durum, admin notu, CSV
 - [ ] **D7** Ziyaretçi Kayıtları: liste, arama, gün sayıları, check-in, CSV
-- [ ] **D8** Mesajlar: gelen kutusu, okundu/arşiv, `mailto:` yanıt
-- [ ] **D9** Katılımcılar: CRUD, logo yükleme + önizleme, sürükle-bırak sıra, öne çıkar/yayından kaldır
-- [ ] **D10** "Onaylanan başvurudan katılımcıya dönüştür" tek tık akışı
-- [ ] **D11** Program + Konuşmacılar: gün bazlı liste, oturum CRUD, konuşmacı atama
-- [ ] **D12** Sponsorlar, SSS, Sektörler, Basın: CRUD
-- [ ] **D13** Galeri: albüm CRUD + çoklu görsel yükleme + sıralama
-- [ ] **D14** Bülten aboneleri: liste + CSV
-- [ ] **D15** Site Ayarları: tarih, yer, iletişim, istatistikler, duyuru çubuğu, stant fiyatları, başvuru anahtarı
-- [ ] **D16** Kullanıcılar (yalnızca `owner`) + rol değiştirme + yeni admin ekleme talimatı
+- [ ] **D8** Mesajlar: gelen kutusu, okundu/arşiv, `mailto:`
+- [ ] **D9** Katılımcılar: CRUD, logo yükleme, sürükle-bırak sıra, öne çıkar/yayından kaldır, **sektör doğrulama akışı** (17 sektör tahminî — #24)
+- [ ] **D10** "Onaylanan başvurudan katılımcıya dönüştür"
+- [ ] **D11** Program + Konuşmacılar CRUD (eklenince public program otomatik görünür)
+- [ ] **D12** Sponsorlar/Paydaşlar, SSS, Sektörler, Basın: CRUD
+- [ ] **D13** Galeri: albüm + çoklu yükleme + sıralama
+- [ ] **D14** Bülten aboneleri + CSV
+- [ ] **D15** Site Ayarları: tarih, saatler, adres, telefon, e-posta, sosyal, istatistikler, duyuru çubuğu, etkinlik durumu metinleri, stant başvuru başlığı, başvuru anahtarı
+- [ ] **D16** Kullanıcılar (`owner`) + rol değiştirme
 - [ ] **D17** Etkinlik Günlüğü
-- [ ] **D18** Tüm admin sayfalarına `noindex, nofollow`
-- [ ] **D19** TR/EN alanları yan yana sekmeli düzen (tüm CRUD formlarında)
-- [ ] **D20** Yükleniyor / boş / hata durumlarının her biri tasarlanmış
-- [ ] **D21** QC: `innerHTML` taraması **0 olmalı**; oturumsuz ve `editor` erişim testleri
+- [ ] **D18** `noindex, nofollow` tüm admin sayfalarında
+- [ ] **D19** TR/EN alanları yan yana sekmeli
+- [ ] **D20** Yükleniyor / boş / hata durumları
+- [ ] **D21** QC: `innerHTML` taraması 0; oturumsuz ve `editor` erişim testleri
 
-## E) Kalite kontrol ve dokümantasyon
+## E) Son kalite kontrol ve dokümantasyon
 
-- [ ] **E1** 360 / 768 / 1024 / 1440px — yatay kaydırma yok, düzen bozulmuyor
-- [ ] **E2** Klavye: menü, form, modal, lightbox, sekme, akordeon; focus görünür, modallarda focus kapanı
-- [ ] **E3** TR ↔ EN parite + `hreflang` otomatik doğrulaması
-- [ ] **E4** `tools/crawl.mjs` — kırık link + konsol hatası, `/giresun-expo/` alt yolunda
-- [ ] **E5** `npx lighthouse` mobil: Performance ≥ 90, A11y ≥ 95, BP ≥ 95, SEO ≥ 95 — skorları raporla
-- [ ] **E6** Supabase yapılandırılmamışken JSON yedek testi
-- [ ] **E7** RLS kontrol listesinin fiili koşumu
-- [ ] **E8** Her ana sayfanın mobil + masaüstü ekran görüntüsü, öz-eleştiri ve düzeltme turu
-- [ ] **E9** `CLAUDE.md`: Supabase, admin, XSS kuralı, tasarım token'ları, yeni sayfa envanteri, `.placeholder` kuralının güncellenmesi — **GitHub Pages bölümü korunarak**
-- [ ] **E10** `docs/ADMIN-KULLANIM.md` — organizatör kılavuzu
-- [ ] **E11** `docs/acik-sorular.md` güncel; kapatılan maddeler işaretli
-- [ ] **E12** Final commit; `git push` için ayrıca onay iste
+- [ ] **E1** 360/768/1024/1440 tam tur
+- [ ] **E2** Klavye: menü, form, modal, lightbox, sekme, akordeon; focus kapanı
+- [ ] **E3** TR ↔ EN parite + `hreflang`
+- [ ] **E4** Lighthouse mobil: Perf ≥90, A11y ≥95, BP ≥95, SEO ≥95 — raporla
+- [ ] **E5** RLS kontrol listesinin fiili koşumu
+- [ ] **E6** Supabase kapalıyken JSON yedek testi
+- [ ] **E7** `CLAUDE.md`: marka renkleri, Supabase, admin, XSS kuralı, yeni sayfa envanteri, logo kullanım kuralı — **GitHub Pages bölümü korunarak**
+- [ ] **E8** `docs/ADMIN-KULLANIM.md`
+- [ ] **E9** `docs/acik-sorular.md` kapanış
+- [ ] **E10** Final commit + push onayı
 
 ---
 
@@ -182,52 +252,40 @@ Ayrıca: `404.html` (kök, CSS gömülü) · `docs/ui-kit.html` (noindex) · `ad
 
 | Aşama | Kanıt |
 |---|---|
-| A | Kontrast tablosu (hepsi ≥ 4.5) · `ui-kit.html` ekran görüntüsü · `check-partials.mjs` temiz · konsol temiz |
-| B | 4 genişlikte ekran görüntüsü · `crawl.mjs` 0 kırık link · TR/EN parite çıktısı |
-| C | `config.js` boşken site çalışıyor · anon anahtarla RLS senaryoları beklenen sonucu veriyor |
-| D | `innerHTML` sayacı 0 · oturumsuz/`editor` erişim denemeleri reddediliyor |
-| E | Lighthouse skorları · klavye turu · ekran görüntüsü öz-eleştirisi |
-
-Yerel önizleme `/giresun-expo/` alt yolu altında yapılır (junction + TcpListener tabanlı
-`serve.ps1`; yönetici yetkisi gerektirmez).
+| A | Kontrast tablosu · `ui-kit.html` ekran görüntüsü · `check-partials.mjs` temiz |
+| B | 4 genişlikte ekran görüntüsü · `crawl.mjs` 0 kırık link · TR/EN parite · Lighthouse |
+| YAYIN | Canlı URL'de crawl + Lighthouse + konsol temiz |
+| C | `config.js` boşken site çalışıyor · anon RLS senaryoları beklenen sonucu veriyor |
+| D | `innerHTML` sayacı 0 · yetkisiz erişim reddediliyor |
+| E | Tam tur skorlar + öz-eleştiri |
 
 ---
 
 ## Review
 
 ### v1 — 22.09.2026
+Boş klasörden 18 sayfalık çalışır iskelete. Tek seferlik üretici scriptle ortak markup'ın
+birebir aynılığı garantilendi. Tüm yollar göreli; `/giresun-expo/` alt yolunda 18 sayfa
+gezilerek doğrulandı. Git kuruldu, `.nojekyll` ve Pages kuralları eklendi.
 
-Boş klasörden çalışır iskelete geçildi: 18 HTML sayfası, tek dosyalık tasarım sistemi,
-bağımlılıksız mobil menü.
+### v2 planlama — 22.09.2026
+Brief mevcut kodla karşılaştırıldı; brief'in "mevcut" saydığı 8 öğenin hiçbiri yoktu.
+Mevcut palette WCAG AA denetimi yapıldı, 3 hata bulundu. 4 çelişki karara bağlandı.
 
-**Yaklaşım:** Build step olmadığı için header/footer her dosyada tekrarlanmak zorunda.
-Elle 18 kez yazmak yerine sayfalar tek seferlik bir üretici scriptle üretildi (scratchpad'de,
-repoya girmedi) — ortak markup'ın 18 dosyada birebir aynı olması böyle garanti altına alındı.
+### v2 planlama revizyonu — resmî kitapçık sonrası
+Kitapçık, EK ve 86 firmalık veri geldi; planın varsayımlarının çoğu geçersizleşti:
 
-**Doğrulama:** Tüm `href`/`src` dosya sistemine karşı kontrol edildi; tarayıcıda masaüstü ve
-mobil genişlikte açıldı; mobil menünün açılıp kapanması ve `aria-expanded` senkronu doğrulandı;
-konsol temiz.
+**Değişenler:** fuar Giresun değil **İstanbul**, Mayıs 2027 değil **8–11 Ekim 2026**;
+logo tasarımı iptal (resmî logo var); marka renkleri yeşil/altın değil **yeşil/lacivert**;
+tarih ve istatistikler artık `TODO` değil; öncelik **A+B → yayın → C+D** olarak yeniden
+sıralandı; fındık/Giresun Adası illüstrasyonları iptal (konsept değişti, gerçek fotoğraflar geldi);
+yeni "Ziyaret Bilgileri" sayfası eklendi; program sayfası koşullu hale geldi.
 
-**Git:** Makinede Git kurulu değildi; onayla `winget install Git.Git` (2.55.0) ile kuruldu,
-kimlik global ayarlandı, `main` dalında commit atıldı. `.gitattributes` ile satır sonu
-normalize edildi.
-
-### v1 — GitHub Pages alt yolu
-
-Site dosyalarında değişiklik gerekmedi: tüm yollar zaten göreliydi, kök-göreli yol yoktu,
-CSS'te yalnızca data-URI vardı, `fetch`/JSON kullanımı yoktu. Site `/giresun-expo/` alt
-yolunda sunulup 18 sayfanın tamamı gezilerek, her `href`/`src` ayrıca `fetch` ile 200
-kontrolünden geçirilerek doğrulandı. `.nojekyll` eklendi, kurallar CLAUDE.md'ye yazıldı.
-
-### v2 — Planlama, 22.09.2026
-
-Brief mevcut kodla satır satır karşılaştırıldı. Brief'in "mevcut" saydığı **8 öğenin
-hiçbiri gerçekte yoktu** (Poppins/Inter, `--color-sea`, Formspree, honeypot, JSON veri
-dosyaları, kayıtlı crawl testi…); bunlar varsayım yerine ayrı iş kalemi olarak plana girdi.
-En önemli sonucu: JSON yedek katmanı B'de içerik yazımının çıktısı olarak üretilecek, C'de
-Supabase birincil kaynağa geçip JSON yedeğe düşecek ve aynı dosyalar `seed.sql`'i besleyecek.
-
-Brief'in istediği WCAG AA denetimi yapıldı; **3 gerçek hata** ölçüldü (A5'te listeli).
-
-Brief ile `CLAUDE.md` arasında 4 çelişki bulundu ve brief'in "dur ve sor" talimatı gereği
-karara bağlandı (yukarıdaki "v2 — Kararlar" tablosu).
+**Yeni ölçümler:**
+- Yeni paletin AA denetimi: açık yeşil `#6A9F2F` metin olarak **3.18 → kalır**, grafik öğe
+  olarak geçer. Kural: asla metin rengi değil.
+- **Verilen marka hex'lerinin 4'ü logodaki gerçek piksellerle uyuşmuyor** — yeşil ΔE 0 ama
+  lacivert 10.7, açık yeşil 11.0, kahve 11.7. PNG'de renk profili yok, yani ölçülen değerler
+  dosyanın gerçek sRGB değerleri. A4'ten önce karar gerekiyor (#25).
+- `docs/` içinde aynı adlı **iki PDF** var (NFC/NFD Unicode farkı), 2 × 8.4 MB (A1).
+- Logoda **tarih gömülü** ("8 - 11 Ekim 2026"); header'da küçük boyutta okunmaz hale gelecek (#27).

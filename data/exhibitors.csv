@@ -1,0 +1,87 @@
+﻿Firma;Stant;Salon;Sektör (tahmini);Kitapçık logo sayfasında
+Tok Ticaret (Hırdavat Malzemeleri);A1-14;A;Yapı & İnşaat;
+Noma Yapı;A2-02;A;Yapı & İnşaat;
+Hisar Plastik;A2-12;A;Kimya, Boya & Plastik;
+Burak Sigorta;A3-02;A;Hizmet, Finans & Ticaret;
+Anadolu İndiksiyon;A3-03;A;Metal, Makine & Sanayi;
+Asır Taahhüt;A3-05;A;Yapı & İnşaat;
+Osed Elektrik;A3-07;A;Enerji & Elektrik;
+Tiryaki Matbaacılık;A3-08;A;Reklam, Medya & Basım;
+İzya İç Mimarlık;A3-10, A3-12;A;Mobilya & İç Mimari;Evet
+Simurg Mobilya;A3-13;A;Mobilya & İç Mimari;
+Ansan Primanova (Mutfak ve Banyo Aksesuarları);A3-14;A;Yapı & İnşaat;
+En Boya;T1-07;T;Kimya, Boya & Plastik;Evet
+Eksen Kimya;T1-08;T;Kimya, Boya & Plastik;Evet
+KBT Konveyör ve Otomasyon Sistemleri;T1-09;T;Metal, Makine & Sanayi;
+Meksan Savunma Metal Sac Sanayi;T1-10;T;Metal, Makine & Sanayi;Evet
+Giteks (Damat Tween);T1-11;T;Tekstil;Evet
+Yıl-Ka (Tirebolu Çayı);T1-12;T;Gıda & İçecek;
+Endow (Kapı ve Pencere Aksesuarları);T1-14;T;Yapı & İnşaat;Evet
+Chef Erdal Restaurant;T2-05;T;Gıda & İçecek;
+Karancı Kauçuk;T2-06;T;Kimya, Boya & Plastik;Evet
+Titanic Otel;T2-07;T;Turizm & Konaklama;Evet
+Öztürk Yemek / Balo / Davet;T2-08;T;Gıda & İçecek;
+Eka Metal;T2-09;T;Metal, Makine & Sanayi;
+Maslak Peugeot;T2-10;T;Otomotiv & Lojistik;
+Bayramlar Alüminyum;T2-11;T;Metal, Makine & Sanayi;
+As Bakır;T2-12;T;Metal, Makine & Sanayi;
+Bahat Sağlık Grubu;T2-13;T;Sağlık;Evet
+Gen Yatırım;T2-14;T;Hizmet, Finans & Ticaret;Evet
+Assu;G1-02;G;Gıda & İçecek;Evet
+Koçel Çelik Eşya;G1-05;G;Metal, Makine & Sanayi;Evet
+Tuna Alüminyum;G1-06;G;Metal, Makine & Sanayi;Evet
+Hyundai Kaynak;G1-07, G1-09;G;Metal, Makine & Sanayi;Evet
+SMS Grup İnşaat;G1-08, G2-07;G;Yapı & İnşaat;Evet
+ToptanTR;G2-01;G;Hizmet, Finans & Ticaret;Evet
+Micansan Tanker;G2-03;G;Otomotiv & Lojistik;
+Konut Tesis Yönetim;G2-04;G;Hizmet, Finans & Ticaret;
+Ateş Neon Reklamcılık;G2-05;G;Reklam, Medya & Basım;Evet
+Freşa;G2-06;G;Gıda & İçecek;Evet
+Alfa Solar Enerji;G2-08;G;Enerji & Elektrik;Evet
+Alpi Diş;G2-09;G;Sağlık;Evet
+By Toom Mobilya;G3-02;G;Mobilya & İç Mimari;
+Akpınar Cıvata;G3-03;G;Metal, Makine & Sanayi;
+Bi Ofis Büro Mobilyaları;G3-04;G;Mobilya & İç Mimari;Evet
+Giresun Teknopark;G3-05;G;Teknoloji & Bilişim;Evet
+Kapela Şemsiye;G3-06;G;Diğer;
+Teknik Fuarcılık;G3-07, G3-09;G;Reklam, Medya & Basım;Evet
+Mir Water;G3-08;G;Su & Çevre Teknolojileri;Evet
+Karlı Metal;P1-01;P;Metal, Makine & Sanayi;
+Yunus Gemi İnşaat;P1-02;P;Denizcilik & Gemi İnşa;Evet
+Resun Otel;P1-03, P1-06;P;Turizm & Konaklama;Evet
+Bilir Basım;P1-04;P;Reklam, Medya & Basım;
+Makro BYC İnşaat;P1-05;P;Yapı & İnşaat;
+Alp Tekstil;P1-07;P;Tekstil;
+CRK Otomotiv;P1-08;P;Otomotiv & Lojistik;Evet
+Bayramlar Metal;P1-09;P;Metal, Makine & Sanayi;
+Turkuaz Gemi İnşa;P1-10;P;Denizcilik & Gemi İnşa;Evet
+Özgüneş Sürücü Kursu;P1-11;P;Hizmet, Finans & Ticaret;
+Agrapar Tarım;P1-12;P;Tarım;
+Güneş Metal;P1-13;P;Metal, Makine & Sanayi;Evet
+Abramak Bilgi Teknolojileri;P1-14;P;Teknoloji & Bilişim;Evet
+Fındıko Gıda;P1-15;P;Gıda & İçecek;
+Özdemir Makina;P1-16;P;Metal, Makine & Sanayi;Evet
+Göresun Seyahat;P1-17;P;Turizm & Konaklama;
+Brosis Lazer Kesim;P1-18;P;Metal, Makine & Sanayi;Evet
+Heatemp (Bina Otomasyonu ve Endüstriyel İklimlendirme Çözümleri);P1-19;P;Enerji & Elektrik;
+Switch Elektronik;P1-20;P;Enerji & Elektrik;
+Arstek Metal;P1-21;P;Metal, Makine & Sanayi;Evet
+Enes Cıvata;P1-22;P;Metal, Makine & Sanayi;Evet
+İnovoltis Enerji ve Elektronik;P1-23;P;Enerji & Elektrik;Evet
+Tusaser Su Arıtma Sistemleri;P1-24;P;Su & Çevre Teknolojileri;Evet
+Müjdat Karayılan;P2-01, P2-02, P2-03, P2-04, P2-05, P2-06;P;Diğer;
+NOK Grup İnşaat;P2-07;P;Yapı & İnşaat;Evet
+Hakan Reklam;P2-09;P;Reklam, Medya & Basım;
+Abega Nuclear (Radyoaktif ve Nükleer Hizmetler);P2-10;P;Enerji & Elektrik;Evet
+Cesurlar Mühendislik;P2-13;P;Yapı & İnşaat;
+Syvera Fındık İşleme ve Lezzet Atölyesi;P2-16;P;Gıda & İçecek;Evet
+KKG Elektrik ve Aydınlatma;P2-19;P;Enerji & Elektrik;Evet
+Hıdır Fındık;P2-22;P;Gıda & İçecek;
+Aydın Grup İnşaat;E-07;E;Yapı & İnşaat;Evet
+Asır Otomotiv;E-08, E-09;E;Otomotiv & Lojistik;Evet
+Sazak Yemek;E-10;E;Gıda & İçecek;
+Ocak Kalıp;E-18, E-19;E;Metal, Makine & Sanayi;Evet
+Ajanssis / Mecra Medya;E-32, E-33;E;Reklam, Medya & Basım;
+Tıkla Gelsin;E-35;E;Hizmet, Finans & Ticaret;
+DMR Tüketim;E-38;E;Hizmet, Finans & Ticaret;
+Ford Kent Oto;E-43, E-44;E;Otomotiv & Lojistik;
