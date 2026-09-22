@@ -291,7 +291,8 @@ function formKur(v) {
     bolum('Mekân ve adres', null,
       ikili('mekan_ad', 'Mekân adı', v),
       ikili('mekan_alan', 'Salon / alan', v),
-      metin('mekan_sehir', 'Şehir', v.mekan_sehir),
+      metin('mekan_sehir', 'Şehir', v.mekan_sehir,
+            { ipucu: 'Basın sayfasındaki künyede "Yer" satırında görünür.' }),
       ikili('adres', 'Açık adres', v, { cokSatir: true }),
       metin('harita_sorgusu', 'Harita arama metni', v.harita_sorgusu,
             { ipucu: 'Haritada aranacak metin. Örn: Yenikapı Etkinlik Alanı, İstanbul' }),
@@ -303,7 +304,7 @@ function formKur(v) {
       'Boş bırakılan alanlar sitede HİÇ görünmez — boş bir telefon satırı basılmaz.',
       metin('telefon', 'Telefon', v.telefon),
       metin('eposta', 'E-posta', v.eposta, { tip: 'email' }),
-      metin('web', 'Web sitesi', v.web, { tip: 'url' })
+      metin('web', 'Web sitesi', v.web, { tip: 'url', ipucu: 'Footer\'da ve İletişim sayfasında görünür.' })
     ),
 
     bolum('Sosyal medya',
@@ -351,7 +352,7 @@ function formKur(v) {
       anahtar('ziyaretci_kaydi_acik', 'Ziyaretçi kaydı açık', !!v.ziyaretci_kaydi_acik,
               'Kapatılırsa ziyaretçi kayıt formu kapanır.'),
       anahtar('program_yayinda', 'Program yayında', !!v.program_yayinda,
-              'Fuar Bilgileri sayfasındaki Etkinlik programı sayfası için; program eklendiğinde açın.'),
+              'Açıkken Program sayfasında, Diğer İçerik → Program sekmesine eklenen oturumlar listelenir. Kapalıyken "Program yakında açıklanacak" yazar.'),
       ikili('stant_baslik', 'Firma Kayıt sayfası başlığı', v),
       ikili('stant_kapali', 'Başvuru kapalı mesajı', v, { cokSatir: true })
     ),

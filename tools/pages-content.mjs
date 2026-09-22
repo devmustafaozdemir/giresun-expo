@@ -280,7 +280,7 @@ MAIN['index:en'] = `    <section class="hero">
           <p class="eyebrow">Organisation</p>
           <h2 class="section-title">Our partners</h2>
         </div>
-        <div class="grid grid--3 reveal">
+        <div class="grid grid--3 reveal" data-paydas="logo">
           <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="../assets/img/partners/sebinsiad.png" alt="Şebinkarahisar Association of Industrialists and Businesspeople" width="320" height="120" loading="lazy"></div>
           <div class="partner"><img src="../assets/img/partners/giresun-vakfi.png" alt="Giresun Foundation" width="320" height="120" loading="lazy"></div>
@@ -564,7 +564,7 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO, Giresun\
           <h2 class="section-title">Paydaşlarımız</h2>
         </div>
 
-        <div class="grid grid--3 reveal">
+        <div class="grid grid--3 reveal" data-paydas="kart">
           <div class="partner-card">
             <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">Giresun Federasyonu</h3>
@@ -584,7 +584,7 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO, Giresun\
     <section class="section section--brand on-dark">
       <div class="container text-center">
         <h2 class="section-title section-title--plain">Giresun EXPO'da buluşalım</h2>
-        <p class="lead" style="margin-inline:auto">8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, İstanbul.</p>
+        <p class="lead" style="margin-inline:auto"><span data-ayar="tarih">8–11 Ekim 2026</span>, <span data-ayar="mekan_ad">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi</span>, İstanbul.</p>
         <div class="cluster mt-6" style="justify-content:center">
           <a class="btn btn--light btn--lg" href="ziyaret-bilgileri.html">Fuar Bilgileri</a>
           <a class="btn btn--outline-light btn--lg" href="katilimcilar.html">Katılımcı Firmalar</a>
@@ -661,7 +661,7 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO is a busi
           <h2 class="section-title">Our partners</h2>
         </div>
 
-        <div class="grid grid--3 reveal">
+        <div class="grid grid--3 reveal" data-paydas="kart">
           <div class="partner-card">
             <div class="partner"><img src="../assets/img/partners/giresun-federasyonu.png" alt="Giresun Federation" width="320" height="120" loading="lazy"></div>
             <h3 class="partner-card__name">Giresun Federation</h3>
@@ -681,7 +681,7 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO is a busi
     <section class="section section--brand on-dark">
       <div class="container text-center">
         <h2 class="section-title section-title--plain">Join us at Giresun EXPO</h2>
-        <p class="lead" style="margin-inline:auto">8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul.</p>
+        <p class="lead" style="margin-inline:auto"><span data-ayar="tarih">8–11 October 2026</span>, <span data-ayar="mekan_ad">Dr. Mimar Kadir Topbaş Arts and Performance Centre</span>, Istanbul.</p>
         <div class="cluster mt-6" style="justify-content:center">
           <a class="btn btn--light btn--lg" href="plan-your-visit.html">Fair Information</a>
           <a class="btn btn--outline-light btn--lg" href="exhibitors.html">Exhibitors</a>
@@ -694,7 +694,9 @@ MAIN['program:tr'] = `${pageHeader('tr', 'Etkinlik Programı', 'Panel, sunum ve 
 
     <section class="section">
       <div class="container container--narrow">
-        <div class="empty reveal">
+        <div class="program" data-program-liste hidden></div>
+
+        <div class="empty reveal" data-program-bos>
           ${I.calendar.replace('class="icon"', 'class="empty__icon"')}
           <p class="empty__title">Program yakında açıklanacak</p>
           <p class="empty__text">Giresun EXPO'nun panel, sunum ve oturum programı
@@ -705,9 +707,9 @@ MAIN['program:tr'] = `${pageHeader('tr', 'Etkinlik Programı', 'Panel, sunum ve 
           </div>
         </div>
 
-        <div class="mt-8 reveal">
+        <div class="mt-8 reveal" data-program-bos>
           <h2 class="section-title">Şimdilik bilinenler</h2>
-          <p>Fuar 8–11 Ekim 2026 tarihleri arasında dört gün boyunca ziyarete açık olacak.
+          <p>Fuar <span data-ayar="tarih">8–11 Ekim 2026</span> tarihleri arasında dört gün boyunca ziyarete açık olacak.
             Günlük ziyaret saatlerini ve ulaşım bilgilerini
             <a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a> sayfasından görebilirsiniz.</p>
         </div>
@@ -718,7 +720,9 @@ MAIN['program:en'] = `${pageHeader('en', 'Programme', 'The programme of panels, 
 
     <section class="section">
       <div class="container container--narrow">
-        <div class="empty reveal">
+        <div class="program" data-program-liste hidden></div>
+
+        <div class="empty reveal" data-program-bos>
           ${I.calendar.replace('class="icon"', 'class="empty__icon"')}
           <p class="empty__title">The programme will be announced soon</p>
           <p class="empty__text">The programme of panels, presentations and sessions for
@@ -730,9 +734,9 @@ MAIN['program:en'] = `${pageHeader('en', 'Programme', 'The programme of panels, 
           </div>
         </div>
 
-        <div class="mt-8 reveal">
+        <div class="mt-8 reveal" data-program-bos>
           <h2 class="section-title">What we know so far</h2>
-          <p>The fair will be open to visitors for four days, from 8 to 11 October 2026. Daily
+          <p>The fair will be open to visitors for four days, on <span data-ayar="tarih">8–11 October 2026</span>. Daily
             opening hours and travel information are on the
             <a href="plan-your-visit.html">Plan Your Visit</a> page.</p>
         </div>
@@ -822,10 +826,10 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO hakkında basın 
             <tbody>
               <tr><th scope="row">Etkinlik</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO</td></tr>
               <tr><th scope="row">Tarih</th><td colspan="2" data-ayar="tarih">8–11 Ekim 2026</td></tr>
-              <tr><th scope="row">Yer</th><td colspan="2">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı Etkinlik Alanı, İstanbul</td></tr>
+              <tr><th scope="row">Yer</th><td colspan="2" data-ayar="yer">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı Etkinlik Alanı, İstanbul</td></tr>
               <tr><th scope="row">Katılımcı</th><td colspan="2"><span data-sayi="firma">86</span> firma, <span data-sayi="stand">100</span> stand</td></tr>
-              <tr><th scope="row">Organizasyon</th><td colspan="2">Giresun Vakfı, Giresun Federasyonu, ŞEBİNSİAD</td></tr>
-              <tr><th scope="row">Slogan</th><td colspan="2">Giresun İçin İş Birliği, Türkiye İçin Güç Birliği</td></tr>
+              <tr><th scope="row">Organizasyon</th><td colspan="2" data-paydas="ad">Giresun Vakfı, Giresun Federasyonu, ŞEBİNSİAD</td></tr>
+              <tr><th scope="row">Slogan</th><td colspan="2" data-ayar="slogan">Giresun İçin İş Birliği, Türkiye İçin Güç Birliği</td></tr>
             </tbody>
           </table>
         </div>
@@ -843,7 +847,7 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO hakkında basın 
         <p class="reveal">
           <a class="btn btn--primary" href="tel:+905416622828">
             ${I.phone.replace('class="icon"', 'class="icon btn__icon"')}
-            0541 662 28 28
+            <span data-ayar-telefon>0541 662 28 28</span>
           </a>
         </p>
       </div>
@@ -903,11 +907,11 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for members of the pr
             <caption class="visually-hidden">Giresun EXPO key details</caption>
             <tbody>
               <tr><th scope="row">Event</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO</td></tr>
-              <tr><th scope="row">Dates</th><td colspan="2">8–11 October 2026</td></tr>
-              <tr><th scope="row">Venue</th><td colspan="2">Dr. Mimar Kadir Topbaş Arts and Performance Centre, Yenikapı Event Area, Istanbul</td></tr>
+              <tr><th scope="row">Dates</th><td colspan="2" data-ayar="tarih">8–11 October 2026</td></tr>
+              <tr><th scope="row">Venue</th><td colspan="2" data-ayar="yer">Dr. Mimar Kadir Topbaş Arts and Performance Centre, Yenikapı Event Area, Istanbul</td></tr>
               <tr><th scope="row">Exhibitors</th><td colspan="2"><span data-sayi="firma">86</span> companies, <span data-sayi="stand">100</span> stands</td></tr>
-              <tr><th scope="row">Organisers</th><td colspan="2">Giresun Foundation, Giresun Federation, ŞEBİNSİAD</td></tr>
-              <tr><th scope="row">Tagline</th><td colspan="2">Cooperation for Giresun, Strength for Türkiye</td></tr>
+              <tr><th scope="row">Organisers</th><td colspan="2" data-paydas="ad">Giresun Foundation, Giresun Federation, ŞEBİNSİAD</td></tr>
+              <tr><th scope="row">Tagline</th><td colspan="2" data-ayar="slogan">Cooperation for Giresun, Strength for Türkiye</td></tr>
             </tbody>
           </table>
         </div>
@@ -925,7 +929,7 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for members of the pr
         <p class="reveal">
           <a class="btn btn--primary" href="tel:+905416622828">
             ${I.phone.replace('class="icon"', 'class="icon btn__icon"')}
-            +90 541 662 28 28
+            <span data-ayar-telefon>+90 541 662 28 28</span>
           </a>
         </p>
       </div>
@@ -964,7 +968,9 @@ const contactBody = (lang, r) => {
             <div class="card__body">
               <span class="pillar__icon">${I.phone}</span>
               <h2 class="card__title">${tr ? 'Telefon' : 'Phone'}</h2>
-              <p class="card__text"><a href="tel:+905416622828">${tr ? '0541 662 28 28' : '+90 541 662 28 28'}</a></p>
+              <p class="card__text"><a href="tel:+905416622828" data-ayar-telefon>${tr ? '0541 662 28 28' : '+90 541 662 28 28'}</a></p>
+              <p class="card__text" data-ayar-eposta hidden></p>
+              <p class="card__text" data-ayar-web hidden></p>
             </div>
           </article>
 
@@ -972,7 +978,7 @@ const contactBody = (lang, r) => {
             <div class="card__body">
               <span class="pillar__icon">${I.pin}</span>
               <h2 class="card__title">${tr ? 'Adres' : 'Address'}</h2>
-              <p class="card__text">${tr
+              <p class="card__text" data-ayar-adres="tam">${tr
       ? 'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1, Fatih / İstanbul'
       : 'Dr. Mimar Kadir Topbaş Arts and Performance Centre<br>Yenikapı Event Area<br>Kennedy Caddesi No: 11/1, Fatih / Istanbul'}</p>
             </div>
@@ -982,7 +988,7 @@ const contactBody = (lang, r) => {
             <div class="card__body">
               <span class="pillar__icon">${I.clock}</span>
               <h2 class="card__title">${tr ? 'Fuar tarihleri' : 'Fair dates'}</h2>
-              <p class="card__text">${tr ? '8–11 Ekim 2026' : '8–11 October 2026'}<br>
+              <p class="card__text"><span data-ayar="tarih">${tr ? '8–11 Ekim 2026' : '8–11 October 2026'}</span><br>
                 <a href="${tr ? 'ziyaret-bilgileri.html' : 'plan-your-visit.html'}">${tr ? 'Ziyaret saatleri' : 'Opening hours'}</a></p>
             </div>
           </article>
@@ -1051,8 +1057,8 @@ const registerBody = (lang) => {
       <div class="container container--narrow">
         <div class="reveal">
           <p>${tr
-    ? 'Giresun EXPO, 8–11 Ekim 2026 tarihlerinde İstanbul\'da, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Giriş ücretsizdir.'
-    : 'Giresun EXPO takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Admission is free.'}</p>
+    ? 'Giresun EXPO, <span data-ayar="tarih">8–11 Ekim 2026</span> tarihlerinde İstanbul\'da, <span data-ayar="mekan_ad">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi</span>\'nde düzenleniyor. Giriş ücretsizdir.'
+    : 'Giresun EXPO takes place on <span data-ayar="tarih">8–11 October 2026</span> at the <span data-ayar="mekan_ad">Dr. Mimar Kadir Topbaş Arts and Performance Centre</span>, Istanbul. Admission is free.'}</p>
         </div>
 
         <form class="form mt-8 reveal" data-form="visitor" novalidate>
@@ -1261,7 +1267,7 @@ MAIN['kvkk:tr'] = legalPage('tr', 'KVKK Aydınlatma Metni', 'KVKK Aydınlatma Me
           <p>Kanun'un 11. maddesi uyarınca; kişisel verilerinizin işlenip işlenmediğini öğrenme,
             işlenmişse bilgi talep etme, düzeltilmesini veya silinmesini isteme ve işlemeye
             itiraz etme haklarına sahipsiniz. Taleplerinizi
-            <a href="tel:+905416622828">0541 662 28 28</a> numarası üzerinden iletebilirsiniz.</p>`);
+            <a href="tel:+905416622828" data-ayar-telefon>0541 662 28 28</a> numarası üzerinden iletebilirsiniz.</p>`);
 
 MAIN['kvkk:en'] = legalPage('en', 'Data Protection Notice', 'Data Protection Notice',
   'Prepared under Turkish Law No. 6698 on the Protection of Personal Data.', `
@@ -1294,7 +1300,7 @@ MAIN['kvkk:en'] = legalPage('en', 'Data Protection Notice', 'Data Protection Not
           <p>Under Article 11 of the Law you have the right to learn whether your personal data
             is processed, to request information, to ask for correction or deletion, and to
             object to processing. You may submit requests by calling
-            <a href="tel:+905416622828">+90 541 662 28 28</a>.</p>`);
+            <a href="tel:+905416622828" data-ayar-telefon>+90 541 662 28 28</a>.</p>`);
 
 MAIN['cookies:tr'] = legalPage('tr', 'Çerez Politikası', 'Çerez Politikası',
   'Bu sitede takip veya reklam çerezi kullanılmaz.', `
@@ -1367,7 +1373,7 @@ MAIN['privacy:tr'] = legalPage('tr', 'Gizlilik', 'Gizlilik',
 
           <h2>İletişim</h2>
           <p>Gizlilikle ilgili sorularınız için
-            <a href="tel:+905416622828">0541 662 28 28</a> numarasını arayabilirsiniz.
+            <a href="tel:+905416622828" data-ayar-telefon>0541 662 28 28</a> numarasını arayabilirsiniz.
             Ayrıntılı bilgi için <a href="kvkk.html">KVKK Aydınlatma Metni</a>'ne bakınız.</p>`);
 
 MAIN['privacy:en'] = legalPage('en', 'Privacy', 'Privacy',
@@ -1386,5 +1392,5 @@ MAIN['privacy:en'] = legalPage('en', 'Privacy', 'Privacy',
 
           <h2>Contact</h2>
           <p>For privacy questions you may call
-            <a href="tel:+905416622828">+90 541 662 28 28</a>. For more detail see the
+            <a href="tel:+905416622828" data-ayar-telefon>+90 541 662 28 28</a>. For more detail see the
             <a href="data-protection.html">Data Protection Notice</a>.</p>`);

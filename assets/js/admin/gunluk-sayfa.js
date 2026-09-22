@@ -27,14 +27,14 @@ const TABLO_ADI = {
   stand_applications: 'Firma kayıtları',
   visitor_registrations: 'Ziyaretçi kayıtları',
   contact_messages: 'Mesajlar',
-  newsletter_subscribers: 'Bülten aboneleri',
   exhibitors: 'Katılımcılar',
   site_settings: 'Site ayarları',
   admins: 'Kullanıcılar',
   sectors: 'Sektörler',
   faqs: 'SSS',
   sponsors: 'Paydaşlar',
-  transport_options: 'Ulaşım'
+  transport_options: 'Ulaşım',
+  program_sessions: 'Program'
 };
 
 await listeSayfasi(icerik, {

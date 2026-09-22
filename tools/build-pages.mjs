@@ -160,15 +160,16 @@ ${li('press')}
       <div>
         <h2 class="site-footer__title">${t.colC}</h2>
         <address>
-          <p>${t.addr}</p>
+          <p data-ayar-adres>${t.addr}</p>
           <p><a href="tel:+905416622828" data-ayar-telefon>${t.phone}</a></p>
           <p data-ayar-eposta hidden></p>
+          <p data-ayar-web hidden></p>
           <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
-    <div class="container site-footer__partners">
+    <div class="container site-footer__partners" data-paydas="logo">
 ${partner('giresun-federasyonu.png', t.partners[1])}
 ${partner('sebinsiad.png', t.partners[2])}
 ${partner('giresun-vakfi.png', t.partners[0])}

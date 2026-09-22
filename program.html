@@ -98,7 +98,9 @@
 
     <section class="section">
       <div class="container container--narrow">
-        <div class="empty reveal">
+        <div class="program" data-program-liste hidden></div>
+
+        <div class="empty reveal" data-program-bos>
           <svg class="empty__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
           <p class="empty__title">Program yakında açıklanacak</p>
           <p class="empty__text">Giresun EXPO'nun panel, sunum ve oturum programı
@@ -109,9 +111,9 @@
           </div>
         </div>
 
-        <div class="mt-8 reveal">
+        <div class="mt-8 reveal" data-program-bos>
           <h2 class="section-title">Şimdilik bilinenler</h2>
-          <p>Fuar 8–11 Ekim 2026 tarihleri arasında dört gün boyunca ziyarete açık olacak.
+          <p>Fuar <span data-ayar="tarih">8–11 Ekim 2026</span> tarihleri arasında dört gün boyunca ziyarete açık olacak.
             Günlük ziyaret saatlerini ve ulaşım bilgilerini
             <a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a> sayfasından görebilirsiniz.</p>
         </div>
@@ -152,15 +154,16 @@
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p data-ayar-adres>Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
           <p><a href="tel:+905416622828" data-ayar-telefon>0541 662 28 28</a></p>
           <p data-ayar-eposta hidden></p>
+          <p data-ayar-web hidden></p>
           <ul class="sosyal" data-ayar-sosyal hidden></ul>
         </address>
       </div>
     </div>
 
-    <div class="container site-footer__partners">
+    <div class="container site-footer__partners" data-paydas="logo">
       <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
       <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>

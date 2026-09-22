@@ -12,10 +12,13 @@
                       stant alanı seçenekleri
      Katılımcılar   → firma / stand sayıları, ana sayfadaki öne çıkanlar
      SSS            → ana sayfadaki "Merak edilenler"
+     Paydaşlar      → footer, ana sayfa ve Hakkında logoları, basın künyesi
+     Ulaşım         → Ziyaret Bilgileri'ndeki ulaşım kartları
+     Program        → Program sayfası ("Program yayında" açıksa)
 
    XSS: veritabanından gelen hiçbir değer innerHTML ile basılmaz.
    ========================================================================== */
-import { siteAyarlari, katilimcilar, sss, sektorler } from './data.js';
+import { siteAyarlari, katilimcilar, sss, sektorler, paydaslar, ulasimSecenekleri, programOturumlari } from './data.js';
 
 const DIL = document.documentElement.lang === 'en' ? 'en' : 'tr';
 const KOK = document.documentElement.dataset.root || '';
@@ -60,8 +63,12 @@ function metinYaz(sec, deger) {
 /* ---------------------------------------------------------------------- */
 
 async function baslat() {
-  const [ayar, kat] = await Promise.all([siteAyarlari(), katilimcilar()]);
+  const [ayar, kat, pay] = await Promise.all([siteAyarlari(), katilimcilar(), paydaslar()]);
   const sayilar = sayilariHesapla(kat);
+  if (pay && pay.kaynak === 'supabase') {
+    sayilar.paydas = pay.veri.length;
+    paydaslariYaz(pay.veri);
+  }
   const a = ayar && ayar.kaynak === 'supabase' ? ayar.veri : null;
 
   sayilariYaz(sayilar, a);
@@ -75,9 +82,11 @@ async function baslat() {
     duyuru(a);
     geriSayim(a);
     basvurular(a);
+    programYaz(a);
   }
 
   sssYukle();
+  ulasimYaz();
 }
 
 /* --- Firma / stand sayıları --------------------------------------------- */
@@ -95,6 +104,7 @@ function istatistikDegeri(ist, sayilar) {
   const e = `${ist.etiket_tr || ''} ${ist.etiket_en || ''}`.toLowerCase();
   if (/firma|compan|exhibit|katılımcı/.test(e)) return String(sayilar.firma);
   if (/stand|stant/.test(e)) return String(sayilar.stand);
+  if (/paydaş|paydas|partner/.test(e) && sayilar.paydas) return String(sayilar.paydas);
   return '';
 }
 
@@ -120,6 +130,15 @@ function kunye(a) {
   metinYaz('.venue__name', dil(a, 'mekan_ad'));
   metinYaz('.venue__area', dil(a, 'mekan_alan'));
   metinYaz('.venue__addr', dil(a, 'adres'));
+  metinYaz('[data-ayar="yer"]', [dil(a, 'mekan_ad'), dil(a, 'mekan_alan'), a.mekan_sehir]
+    .filter(Boolean).filter((x, i, d) => d.indexOf(x) === i).join(', '));
+  metinYaz('[data-ayar="mekan_sehir"]', a.mekan_sehir);
+  if (dil(a, 'mekan_ad') || dil(a, 'adres')) {
+    for (const p of $$('[data-ayar-adres]')) {
+      const satirlar = [dil(a, 'mekan_ad'), dil(a, 'adres')].filter(Boolean);
+      p.replaceChildren(...satirlar.flatMap((x, i) => (i ? [h('br'), x] : [x])));
+    }
+  }
 
   const q = (a.harita_lat && a.harita_lng) ? `${a.harita_lat},${a.harita_lng}` : a.harita_sorgusu;
   if (q) {
@@ -132,11 +151,22 @@ function kunye(a) {
 function iletisim(a) {
   if (a.telefon) {
     const tel = 'tel:' + a.telefon.replace(/[^\d+]/g, '').replace(/^0/, '+90');
-    for (const l of $$('[data-ayar-telefon]')) { l.textContent = a.telefon; l.href = tel; }
+    for (const l of $$('[data-ayar-telefon]')) {
+      l.textContent = a.telefon;
+      const baglanti = l.closest('a');
+      if (baglanti) baglanti.href = tel;
+    }
   }
   for (const p of $$('[data-ayar-eposta]')) {
     if (a.eposta) {
       p.replaceChildren(h('a', { href: 'mailto:' + a.eposta }, a.eposta));
+      p.hidden = false;
+    } else p.hidden = true;
+  }
+  for (const p of $$('[data-ayar-web]')) {
+    if (/^https?:\/\//i.test(a.web || '')) {
+      const gorunen = a.web.replace(/^https?:\/\/(www\.)?/i, '').replace(/\/$/, '');
+      p.replaceChildren(h('a', { href: a.web, target: '_blank', rel: 'noopener' }, gorunen));
       p.hidden = false;
     } else p.hidden = true;
   }
@@ -298,6 +328,137 @@ async function sssYukle() {
         dil(q, 'soru'), ikon())),
       panel);
   }));
+}
+
+/* --- Görsel yolu: assets/… (sitede), https://… veya Storage yolu ------- */
+function gorselAdresi(yol) {
+  if (!yol) return '';
+  if (/^https?:\/\//i.test(yol)) return yol;
+  if (yol.startsWith('assets/')) return KOK + yol;
+  const c = window.GE_CONFIG || {};
+  return c.SUPABASE_URL ? `${c.SUPABASE_URL.replace(/\/$/, '')}/storage/v1/object/public/public-media/${yol}` : '';
+}
+
+/* --- Paydaşlar ------------------------------------------------------------ */
+const SEVIYE_SIRA = { partner: 0, ana: 1, altin: 2, gumus: 3, destekci: 4 };
+function paydaslariYaz(liste) {
+  const sirali = liste.slice().sort((x, y) =>
+    ((SEVIYE_SIRA[x.seviye] ?? 9) - (SEVIYE_SIRA[y.seviye] ?? 9)) || ((x.sira || 0) - (y.sira || 0)));
+
+  const logo = (p) => {
+    const ad = dil(p, 'ad');
+    const url = gorselAdresi(p.logo_url);
+    const ic = url
+      ? h('img', { src: url, alt: ad, width: '320', height: '120', loading: 'lazy' })
+      : h('span', { class: 'partner__ad' }, ad);
+    const sar = /^https?:\/\//i.test(p.web || '')
+      ? h('a', { href: p.web, target: '_blank', rel: 'noopener', 'aria-label': ad }, ic) : ic;
+    return h('div', { class: 'partner' }, sar);
+  };
+
+  for (const kutu of $$('[data-paydas="logo"]')) kutu.replaceChildren(...sirali.map(logo));
+  for (const kutu of $$('[data-paydas="kart"]')) {
+    kutu.replaceChildren(...sirali.map((p) => h('div', { class: 'partner-card' },
+      logo(p),
+      /* Logosu olmayan paydaşın adı zaten kutunun içinde yazıyor */
+      gorselAdresi(p.logo_url) ? h('h3', { class: 'partner-card__name' }, dil(p, 'ad')) : null,
+      dil(p, 'aciklama') ? h('p', { class: 'partner-card__desc' }, dil(p, 'aciklama')) : null)));
+  }
+  for (const e of $$('[data-paydas="ad"]')) e.textContent = sirali.map((p) => dil(p, 'ad')).join(', ');
+}
+
+/* --- Ulaşım kartları ------------------------------------------------------ */
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const IKONLAR = {
+  metro: [['rect', { width: 16, height: 16, x: 4, y: 3, rx: 2 }], ['path', { d: 'M4 11h16' }], ['path', { d: 'M12 3v8' }],
+    ['path', { d: 'm8 19-2 3' }], ['path', { d: 'm18 22-2-3' }], ['path', { d: 'M8 15h.01' }], ['path', { d: 'M16 15h.01' }]],
+  otobus: [['path', { d: 'M8 6v6' }], ['path', { d: 'M15 6v6' }], ['path', { d: 'M2 12h19.6' }],
+    ['path', { d: 'M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3' }],
+    ['circle', { cx: 7, cy: 18, r: 2 }], ['path', { d: 'M9 18h5' }], ['circle', { cx: 16, cy: 18, r: 2 }]],
+  arac: [['path', { d: 'M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2' }],
+    ['circle', { cx: 7, cy: 17, r: 2 }], ['path', { d: 'M9 17h6' }], ['circle', { cx: 17, cy: 17, r: 2 }]],
+  vapur: [['path', { d: 'M12 10.189V14' }], ['path', { d: 'M12 2v3' }], ['path', { d: 'M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6' }],
+    ['path', { d: 'M19.38 20A11.6 11.6 0 0 0 21 14l-8.188-3.639a2 2 0 0 0-1.624 0L3 14a11.6 11.6 0 0 0 2.81 7.76' }],
+    ['path', { d: 'M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1' }]],
+  konum: [['path', { d: 'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0' }],
+    ['circle', { cx: 12, cy: 10, r: 3 }]]
+};
+function ulasimIkonu(ad) {
+  const k = String(ad || '').toLowerCase();
+  const tur = /metro|tren|marmaray|rail/.test(k) ? 'metro'
+    : /otob|bus/.test(k) ? 'otobus'
+    : /arac|araç|otopark|car|taksi/.test(k) ? 'arac'
+    : /vapur|deniz|feribot|ship|ferry/.test(k) ? 'vapur' : 'konum';
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  for (const [a, v] of Object.entries({ class: 'icon', 'aria-hidden': 'true', focusable: 'false', viewBox: '0 0 24 24',
+    fill: 'none', stroke: 'currentColor', 'stroke-width': '1.75', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })) {
+    svg.setAttribute(a, v);
+  }
+  for (const [etiket, nit] of IKONLAR[tur]) {
+    const e = document.createElementNS(SVG_NS, etiket);
+    for (const [a, v] of Object.entries(nit)) e.setAttribute(a, String(v));
+    svg.appendChild(e);
+  }
+  return svg;
+}
+function hatRozeti(hat) {
+  const sinif = /marmaray/i.test(hat) ? ' line-badge--marmaray' : /^\d/.test(hat) ? ' line-badge--bus' : '';
+  return h('span', { class: 'line-badge' + sinif }, hat);
+}
+async function ulasimYaz() {
+  const kutu = $('[data-ulasim]');
+  if (!kutu) return;
+  const r = await ulasimSecenekleri();
+  if (r.kaynak !== 'supabase') return;
+  kutu.replaceChildren(...r.veri.map((u) => {
+    const hatlar = Array.isArray(u.hatlar) ? u.hatlar.filter(Boolean) : [];
+    return h('article', { class: 'card' }, h('div', { class: 'card__body' },
+      h('span', { class: 'pillar__icon' }, ulasimIkonu(u.ikon || u.slug)),
+      h('h3', { class: 'card__title' }, dil(u, 'baslik')),
+      hatlar.length ? h('p', { class: 'cluster' }, hatlar.map(hatRozeti)) : null,
+      dil(u, 'metin') ? h('p', { class: 'card__text' }, dil(u, 'metin')) : null));
+  }));
+  kutu.hidden = !r.veri.length;
+}
+
+/* --- Program -------------------------------------------------------------- */
+const TUR_AD = {
+  tr: { acilis: 'Açılış', panel: 'Panel', atolye: 'Atölye', b2b: 'B2B görüşmeler', kulturel: 'Kültürel etkinlik', kapanis: 'Kapanış' },
+  en: { acilis: 'Opening', panel: 'Panel', atolye: 'Workshop', b2b: 'B2B meetings', kulturel: 'Cultural event', kapanis: 'Closing' }
+};
+const GUN_AD = {
+  tr: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+  en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+};
+async function programYaz(a) {
+  const liste = $('[data-program-liste]');
+  if (!liste) return;
+  const bos = $$('[data-program-bos]');
+  if (!a.program_yayinda) return;              // kapalıysa "yakında açıklanacak" kalır
+  const r = await programOturumlari();
+  if (r.kaynak !== 'supabase' || !r.veri.length) return;
+
+  const gunler = new Map();
+  for (const o of r.veri) {
+    if (!gunler.has(o.gun)) gunler.set(o.gun, []);
+    gunler.get(o.gun).push(o);
+  }
+  liste.replaceChildren(...[...gunler.entries()].map(([gun, oturumlar]) => {
+    const d = new Date(gun + 'T12:00:00');
+    return h('section', { class: 'program__gun' },
+      h('h2', { class: 'program__tarih' }, `${tekTarih(gun)}${isNaN(d) ? '' : ' · ' + GUN_AD[DIL][d.getDay()]}`),
+      h('ol', { class: 'program__liste' }, oturumlar.map((o) => h('li', { class: 'program__oturum' },
+        h('p', { class: 'program__saat' }, saat(o.baslangic) + (o.bitis ? ` – ${saat(o.bitis)}` : '')),
+        h('div', { class: 'program__govde' },
+          h('p', { class: 'program__tur' }, [TUR_AD[DIL][o.tur] || o.tur, o.salon].filter(Boolean).join(' · ')),
+          h('h3', { class: 'program__baslik' }, dil(o, 'baslik')),
+          dil(o, 'aciklama') ? h('p', { class: 'program__aciklama' }, dil(o, 'aciklama')) : null)))));
+  }));
+  liste.hidden = false;
+  for (const e of bos) e.hidden = true;
+  metinYaz('.page-header .lead', DIL === 'en'
+    ? 'Panels, presentations and sessions at Giresun EXPO.'
+    : 'Giresun EXPO panel, sunum ve oturum programı.');
 }
 
 baslat().catch((e) => console.warn('[GE] Site verisi uygulanamadı:', e && e.message));

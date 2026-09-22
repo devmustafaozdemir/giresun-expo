@@ -102,13 +102,21 @@ export async function sss() {
 
 export async function paydaslar() {
   const sb = await supabaseDene((c) =>
-    c.from('sponsors').select('*').eq('seviye', 'partner').eq('published', true)
+    c.from('sponsors').select('*').eq('published', true)
       .order('sira', { ascending: true })
   );
   if (sb) return { kaynak: 'supabase', veri: sb };
 
   const j = await jsonOku('paydaslar');
   return { kaynak: 'json', veri: j ? j.paydaslar : [] };
+}
+
+export async function ulasimSecenekleri() {
+  const sb = await supabaseDene((c) =>
+    c.from('transport_options').select('*').eq('published', true)
+      .order('sira', { ascending: true })
+  );
+  return { kaynak: sb ? 'supabase' : 'yok', veri: sb || [] };
 }
 
 export async function programOturumlari() {
