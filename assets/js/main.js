@@ -78,6 +78,32 @@
     if (el) el.textContent = String(new Date().getFullYear());
   }
 
+  /* ---- Bölümlere girişte hafif fade/slide ------------------------------
+     .reveal sınıfı olan öğeler görünür alana girince .is-visible alır.
+     prefers-reduced-motion altında hiç gözlem açılmaz, hepsi anında görünür
+     (CSS zaten .reveal'ı nötrler, burada sınıfı da ekleyip garantiye alıyoruz). */
+  function initReveal() {
+    var items = document.querySelectorAll(".reveal");
+    if (!items.length) return;
+
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || !("IntersectionObserver" in window)) {
+      for (var i = 0; i < items.length; i++) items[i].classList.add("is-visible");
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        entries[i].target.classList.add("is-visible");
+        observer.unobserve(entries[i].target);   /* bir kez oynar */
+      }
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+
+    for (var j = 0; j < items.length; j++) observer.observe(items[j]);
+  }
+
   initNav();
   initYear();
+  initReveal();
 })();

@@ -1203,11 +1203,19 @@ select.form__control {
   align-items: center;
   justify-content: center;
   aspect-ratio: 16 / 9;
+  min-height: 0;          /* aspect-ratio'yu içerik ezmesin */
+  overflow: hidden;
   padding: var(--space-5);
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
-.exhibitor__logo img { max-height: 100%; width: auto; object-fit: contain; }
+.exhibitor__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 
 .monogram {
   display: flex;
@@ -1387,15 +1395,36 @@ select.form__control {
 /* Geniş içerik yatay kaydırma kabı */
 .scroll-x { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
+/* İkonlar — Lucide, sayfaya gömülü SVG. Renk currentColor'dan gelir.
+   Varsayılan 1.25rem; bağlam sınıflarıyla değiştirilir. */
+.icon {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.icon--sm { width: 1rem; height: 1rem; }
+.icon--lg { width: 1.75rem; height: 1.75rem; }
+.icon--xl { width: 2.5rem; height: 2.5rem; }
+
 
 /* 20. Hareket
    ========================================================================== */
-.reveal {
+/* JS YOKSA İÇERİK GÖRÜNÜR KALIR.
+   Gizleme yalnızca .js sınıfı varken devreye girer; bu sınıfı her sayfanın
+   <head>'indeki tek satırlık inline script ekler:
+     <script>document.documentElement.classList.add('js')</script>
+   Böylece script yüklenemezse, hata verirse veya IntersectionObserver hiç
+   tetiklenmezse sayfa boş görünmez. */
+.reveal { opacity: 1; transform: none; }
+
+.js .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1404,7 +1433,7 @@ select.form__control {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .js .reveal { opacity: 1; transform: none; }
 }
 
 

@@ -84,6 +84,70 @@ bilinmeyen adres için sunar (`/giresun-expo/en/olmayan-sayfa` dahil). Göreli a
 yolu olan bir `404.html` bu durumda stilsiz görünür. Böyle bir sayfa eklenecekse
 CSS'i `<style>` olarak sayfa içine gömülmelidir.
 
+## Marka ve Tasarım Sistemi (v2)
+
+Kaynak önceliği: `docs/BRIEF-v2-EK.md` → `docs/KITAPCIK-ICERIK.md` → `docs/BRIEF-v2.md`.
+Tüm bileşenlerin canlı vitrini: `docs/ui-kit.html` (noindex).
+
+### Renkler
+
+Logodan birebir ölçüldü. `:root` token'ları dışında renk yazma.
+
+| Token | Değer | Kullanım |
+|---|---|---|
+| `--color-primary` | `#005E44` | Ana marka yeşili — butonlar, linkler, başlıklar |
+| `--color-secondary` | `#184181` | Marka lacivert — eyebrow, başlık altı çizgi, duyuru çubuğu |
+| `--color-accent-blue` / `-earth` | `#085494` / `#3D351C` | Küçük vurgular |
+| `--color-accent-green` | `#6A9F2F` | **YALNIZCA grafik** — asla metin rengi değil |
+
+> `--color-accent-green` beyaz üzerinde **3.18** kontrastla AA'dan kalır. Halka motifi,
+> ikon ve grafik vurgu dışında kullanılmaz.
+
+**Kenarlık token'ları üç kademelidir ve karıştırılmamalıdır:**
+`--color-border` dekoratif (kart çerçevesi) · `--color-border-mid` görünür dekoratif
+(kesikli yer tutucu, ayraç) · `--color-border-strong` **etkileşimli bileşen sınırı**
+(form alanları, hamburger) — WCAG 1.4.11 gereği zemine karşı ≥3:1.
+
+Her renk değişikliğinden sonra: `node tools/contrast.mjs` (kalırsa çıkış kodu 1).
+
+### Logo — yeniden çizilmez, renkleri değiştirilmez
+
+| Dosya | Nerede |
+|---|---|
+| `giresun-expo-logo-tarihsiz.png` | **Header** ve favicon türetimi |
+| `giresun-expo-logo.png` (tarihli) | Hero, footer, OG görseli |
+| `favicon-32/180/192/512.png` | Logodaki halka işaretinden kırpıldı |
+| `og-image.png` | 1200×630 |
+
+Logo **yalnızca açık zeminde** kullanılır. Koyu bantta (footer gibi) `.footer-logo`
+sarmalayıcısıyla beyaz kartın içine alınır. CSS ile kırpma yapılmaz.
+
+`desen-halka.svg` logodan esinlenen **dekoratif** bir grafiktir; logo yerine geçmez.
+
+### Tipografi ve ikonlar
+
+- Başlık **Poppins** (600/700), gövde **Inter** (değişken 100–900). Self-hosted,
+  `assets/fonts/`. **CDN yok.** `latin-ext` alt kümesi Türkçe için zorunludur
+  (ğ Ğ ş Ş İ yalnızca orada).
+- İkonlar: Lucide v1.47.0 (ISC), `assets/icons/*.svg`, stroke **1.75**. Sayfaya
+  **inline SVG** olarak gömülür. Yeni ikon için `tools/icons.mjs`.
+
+### Her sayfanın `<head>`'inde bulunması ZORUNLU
+
+```html
+<script>document.documentElement.classList.add('js')</script>
+```
+
+`.reveal` gizlemesi yalnızca `.js` sınıfı varken devreye girer. Bu satır olmazsa ve
+JS yüklenemezse `.reveal` öğeleri `opacity: 0`'da kalır ve **sayfa boş görünür**.
+Stylesheet'ten önce, `<head>` içinde olmalı.
+
+### Veriyi DOM'a basarken — XSS
+
+Kullanıcıdan veya veritabanından gelen veri **asla `innerHTML` ile** basılmaz.
+`textContent` veya güvenli bir `h()` yardımcısı kullanılır. Bu, `data/*.json`'dan
+gelen katılımcı adları için de geçerlidir.
+
 ## Dosya Adlandırma
 
 - TR sayfa adları Türkçe ama **ASCII**: `stant-basvurusu.html` (ş/ı/ğ kullanma), kebab-case.

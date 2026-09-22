@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="presentation" aria-hidden="true">
+  <!--
+    Giresun EXPO — dekoratif arka plan grafiği.
+    Logodaki "iş birliği halkası" motifinden esinlenen soyut bir yorum:
+    dört kesik yay + dört düğüm noktası. Logonun kendisi DEĞİLDİR ve logo
+    yerine kullanılamaz. Hero ve bant arka planlarında düşük opaklıkla
+    (bkz. .hero__pattern, opacity .06) kullanılır.
+  -->
+  <g fill="none" stroke="#005E44" stroke-width="10" stroke-linecap="round">
+    <!-- Dış halka: dasharray ile dört eşit yay (70°) ve dört boşluk (20°) -->
+    <circle cx="300" cy="300" r="220"
+            stroke-dasharray="268.8 76.8"
+            transform="rotate(-35 300 300)"/>
+    <!-- İç halka, ters yönde kaydırılmış -->
+    <circle cx="300" cy="300" r="150" stroke-width="6" opacity="0.55"
+            stroke-dasharray="183.3 52.4"
+            transform="rotate(10 300 300)"/>
+  </g>
+  <!-- Boşluklara oturan dört düğüm -->
+  <g fill="#005E44">
+    <circle cx="455.6" cy="455.6" r="26"/>
+    <circle cx="144.4" cy="455.6" r="26"/>
+    <circle cx="144.4" cy="144.4" r="26"/>
+    <circle cx="455.6" cy="144.4" r="26"/>
+  </g>
+</svg>

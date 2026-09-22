@@ -75,9 +75,10 @@ Kaldırılacak: `--color-accent` (altın), `--color-accent-dark/soft`, fındık 
 
 → **Kural:** açık yeşil asla metin rengi değil; yalnızca halka, ikon ve grafik vurgu.
 
-> ⚠ **Karara bağlanacak:** verilen hex değerlerinin 4'ü logodaki gerçek piksellerle uyuşmuyor
-> (bkz. `docs/acik-sorular.md` #25). Yeşil birebir aynı (ΔE 0) ama lacivert ΔE **10.7**,
-> açık yeşil **11.0**, kahve **11.7** — "çok farklı" sınıfında. A4'ten önce netleşmeli.
+> ✅ **Doğrulandı (22.09):** Önceki ölçümde 4 renk sapıyordu; sebebi logo PNG'sinin
+> yarı saydam düz alanlarıydı. Logo düzeltilip yeniden yazıldıktan sonra yapılan
+> ölçümde **beş rengin beşi de birebir tuttu** (ΔE 0). Token'lar bu değerlerle yazıldı.
+> Vektörel orijinal (`docs/acik-sorular.md` #15) gelirse yeniden doğrulanacak.
 
 ### Sayfa envanteri (43 HTML)
 
@@ -117,30 +118,30 @@ Yeniden adlandırma: `haberler.html`→`basin.html`, `ziyaretci.html`→`ziyaret
 
 ## A) Tasarım sistemi ve UI kit
 
-- [ ] **A1** PDF ikilemesini çöz: `docs/` içinde aynı adlı iki PDF var (NFC/NFD Unicode farkı, 2 × 8.4 MB). Birini sil, kalanı `docs/giresun-expo-2026-el-kitapcigi.pdf` olarak ASCII adla yeniden adlandır, atıfları güncelle
-- [ ] **A2** `docs/acik-sorular.md`'yi güncel tut (kitapçıktan doğan yeni sorular eklendi)
-- [ ] **A3** Node.js LTS kur (onay alarak), `tools/` altyapısı
-- [ ] **A4** Renk token'larını yenile: marka yeşili + lacivert ana, 3 halka rengi vurgu. Altın/fındık/`--color-sea` kaldır. **Önce #25 kararı**
-- [ ] **A5** Durum renkleri: `--color-success`, `--color-warning`, `--color-danger`, `--color-info`
-- [ ] **A6** Kontrast tablosunu tüm yeni kombinasyonlar için hesapla, ≥4.5 (grafik öğeler ≥3.0) — raporla
-- [ ] **A7** Poppins + Inter woff2 → `assets/fonts/`, `@font-face`, `font-display: swap`
-- [ ] **A8** Tipografi: h1 40→64, h2 30→44, h3 20→24, gövde 16→18px; ağırlık 400/500/600/700
-- [ ] **A9** Kitapçık görsel dili: yeşil büyük harfli başlık + altında kısa lacivert çizgi (`.section-title` varyantı), açık zemin, bol beyaz alan
-- [ ] **A10** `max-width: 65ch`; bölüm dikey boşluğu masaüstü 96–128px / mobil 64px
-- [ ] **A11** Yarıçap ve gölge setini tek tipe indir
-- [ ] **A12** Favicon: logodaki **halka işaretinden** SVG + 32px PNG. OG görseli 1200×630 (logo + açık zemin)
-- [ ] **A13** Logo kullanım kuralları: yalnızca açık zemin; koyu bantta beyaz kart içinde; yeniden çizme/renk değiştirme yok. Header'da kullanılacak boyut kararı (**#27**)
-- [ ] **A14** Grafik öğeler: halka motifinden türetilen sade desen + lacivert çizgi sistemi. *(Brief §1.5'teki fındık yaprağı / Giresun Adası illüstrasyonları **iptal** — konsept "İstanbul'da iş dünyası buluşması"na döndü ve gerçek fotoğraflar geldi)*
-- [ ] **A15** Lucide ikonları → `assets/icons/*.svg`, stroke 1.75. Gerekenler: dört sütun (4), sektörler (17), ulaşım (metro/otobüs/araba/otopark), saat, konum, telefon, takvim
-- [ ] **A16** Fotoğraf sistemi: `<picture>` + webp/jpg, `aspect-ratio`, marka renginde overlay, `loading="lazy"`, boyut sınırı (orijinaller ~1050px — büyütme yok)
-- [ ] **A17** Butonlar: `primary` / `secondary` / `ghost` × boyut × (ikonlu, loading, disabled)
-- [ ] **A18** Kartlar: bilgi, katılımcı (+**monogram varyantı** logosuz firmalar için), paydaş, istatistik
-- [ ] **A19** Yeni bileşenler: rozet (salon/sektör), sekme, akordeon, modal, lightbox, toast, empty state, skeleton, geri sayım şeridi
-- [ ] **A20** Form alanları: hata / yardım metni / başarılı durumları
-- [ ] **A21** Hareket: IntersectionObserver reveal, 150–300ms, `prefers-reduced-motion` altında kapalı
-- [ ] **A22** `tools/check-partials.mjs` — header/footer sapma denetleyicisi
-- [ ] **A23** `docs/ui-kit.html` (noindex)
-- [ ] **A24** QC: ui-kit masaüstü + mobil ekran görüntüsü, kontrast raporu, konsol temiz
+- [x] **A1** PDF ikilemesini çöz: `docs/` içinde aynı adlı iki PDF var (NFC/NFD Unicode farkı, 2 × 8.4 MB). Birini sil, kalanı `docs/giresun-expo-2026-el-kitapcigi.pdf` olarak ASCII adla yeniden adlandır, atıfları güncelle
+- [x] **A2** `docs/acik-sorular.md`'yi güncel tut (kitapçıktan doğan yeni sorular eklendi)
+- [x] **A3** Node.js LTS kur (onay alarak), `tools/` altyapısı
+- [x] **A4** Renk token'larını yenile: marka yeşili + lacivert ana, 3 halka rengi vurgu. Altın/fındık/`--color-sea` kaldır. **Önce #25 kararı**
+- [x] **A5** Durum renkleri: `--color-success`, `--color-warning`, `--color-danger`, `--color-info`
+- [x] **A6** Kontrast tablosunu tüm yeni kombinasyonlar için hesapla, ≥4.5 (grafik öğeler ≥3.0) — raporla
+- [x] **A7** Poppins + Inter woff2 → `assets/fonts/`, `@font-face`, `font-display: swap`
+- [x] **A8** Tipografi: h1 40→64, h2 30→44, h3 20→24, gövde 16→18px; ağırlık 400/500/600/700
+- [x] **A9** Kitapçık görsel dili: yeşil büyük harfli başlık + altında kısa lacivert çizgi (`.section-title` varyantı), açık zemin, bol beyaz alan
+- [x] **A10** `max-width: 65ch`; bölüm dikey boşluğu masaüstü 96–128px / mobil 64px
+- [x] **A11** Yarıçap ve gölge setini tek tipe indir
+- [x] **A12** Favicon: logodaki **halka işaretinden** SVG + 32px PNG. OG görseli 1200×630 (logo + açık zemin)
+- [x] **A13** Logo kullanım kuralları: yalnızca açık zemin; koyu bantta beyaz kart içinde; yeniden çizme/renk değiştirme yok. Header'da kullanılacak boyut kararı (**#27**)
+- [x] **A14** Grafik öğeler: halka motifinden türetilen sade desen + lacivert çizgi sistemi. *(Brief §1.5'teki fındık yaprağı / Giresun Adası illüstrasyonları **iptal** — konsept "İstanbul'da iş dünyası buluşması"na döndü ve gerçek fotoğraflar geldi)*
+- [x] **A15** Lucide ikonları → `assets/icons/*.svg`, stroke 1.75. Gerekenler: dört sütun (4), sektörler (17), ulaşım (metro/otobüs/araba/otopark), saat, konum, telefon, takvim
+- [x] **A16** Fotoğraf sistemi: `<picture>` + webp/jpg, `aspect-ratio`, marka renginde overlay, `loading="lazy"`, boyut sınırı (orijinaller ~1050px — büyütme yok)
+- [x] **A17** Butonlar: `primary` / `secondary` / `ghost` × boyut × (ikonlu, loading, disabled)
+- [x] **A18** Kartlar: bilgi, katılımcı (+**monogram varyantı** logosuz firmalar için), paydaş, istatistik
+- [x] **A19** Yeni bileşenler: rozet (salon/sektör), sekme, akordeon, modal, lightbox, toast, empty state, skeleton, geri sayım şeridi
+- [x] **A20** Form alanları: hata / yardım metni / başarılı durumları
+- [x] **A21** Hareket: IntersectionObserver reveal, 150–300ms, `prefers-reduced-motion` altında kapalı
+- [x] **A22** `tools/check-partials.mjs` — header/footer sapma denetleyicisi
+- [x] **A23** `docs/ui-kit.html` (noindex)
+- [x] **A24** QC: ui-kit masaüstü + mobil ekran görüntüsü, kontrast raporu, konsol temiz
 
 ## B) Public site — gerçek içerik (YAYIN hedefi)
 

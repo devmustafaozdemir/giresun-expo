@@ -28,6 +28,11 @@ işaretlenir ve burada "varsayımla ilerlendi" notu düşülür.
 | 12 | Sektör listesi | Kitapçıkta yok; firma adlarından türetilen **17 sektör** `data/exhibitors.json` içinde | 22.09 |
 | 13 | Stant fiyatları | Konu değişti: stantlar dağıtılmış. Form "Giresun EXPO **2027** ön başvurusu" olarak çalışacak | 22.09 |
 | 14 | Öncelik sırası | **A + B → YAYIN → C + D → E** (EK §6) | 22.09 |
+| 25 | Marka hex'leri logoyla uyuşmuyordu | **Çözüldü.** Sapma, PNG'nin yarı saydam düz alanlarındandı (alfa ≈ .9). Logo düzeltilip yeniden yazıldı; 5 rengin beşi de yeniden ölçümde birebir tuttu. Token'lar kitapçık değerleriyle yazıldı | 22.09 |
+| 26 | Açık yeşil metin olarak AA'dan kalıyor | **Çözüldü.** `#6A9F2F` asla metin rengi değil; yalnızca grafik/ikon vurgusu. Kural CSS başlığına ve `tools/contrast.mjs`'in dekoratif bölümüne yazıldı | 22.09 |
+| 27 | Logoda tarih gömülü, header'da okunmuyor | **Çözüldü.** CSS ile kırpma yapılmadı; `giresun-expo-logo-tarihsiz.png` eklendi. Header ve favicon türetimi tarihsiz, hero/footer/OG tarihli logoyu kullanır | 22.09 |
+| 28 | `docs/` içinde ikiz PDF | **Çözüldü.** İçerikleri birebir aynıydı (SHA256 eşleşti). NFD kopya silindi, kalan ASCII adla yeniden adlandırıldı, `.gitignore`'a `docs/*.pdf` eklendi | 22.09 |
+| 29a | GitHub repo | **Çözüldü.** `github.com/devmustafaozdemir/giresun-expo`, `origin` ayarlı, Pages `main`/root'tan açık | 22.09 |
 
 ---
 
@@ -48,76 +53,38 @@ işaretlenir ve burada "varsayımla ilerlendi" notu düşülür.
 
 ---
 
-## 🔴 Benim tespit ettiğim yeni sorunlar
+## Benim tespit ettiğim sorunlar
 
-### 25. Verilen marka hex değerleri logodaki gerçek piksellerle uyuşmuyor — **A4'ten önce karar gerek**
+### ✅ 25–28 — A aşamasında kapandı
 
-Logo PNG'sinde renk profili yok (`iCCP`/`sRGB`/`gAMA`/`cHRM` chunk'ı yok), yani ölçülen
-piksel değerleri dosyanın gerçek sRGB değerleri.
+Ayrıntıları yukarıdaki kapananlar tablosunda. Kısaca:
 
-| Öğe | Belirtilen | Logoda ölçülen | ΔE76 | Değerlendirme |
-|---|---|---|---|---|
-| Yeşil (GİRESUN) | `#005E44` | `#005E44` | **0** | aynı ✅ |
-| **Lacivert (EXPO)** | `#184181` | `#002D73` | **10.7** | çok farklı |
-| Mavi (halka) | `#085494` | `#004E90` | 3.1 | dikkatle bakınca fark edilir |
-| **Açık yeşil (halka)** | `#6A9F2F` | `#488900` | **11.0** | çok farklı |
-| **Toprak kahve (halka)** | `#3D351C` | `#251C00` | **11.7** | çok farklı |
+- **25** Marka hex sapması: PNG'nin yarı saydam düz alanlarından kaynaklanıyordu. Logo
+  düzeltildi, yeniden ölçüldü, beş renk de birebir tuttu (ΔE 0).
+- **26** `#6A9F2F` metin olarak 3.18 ile AA'dan kalıyor → yalnızca grafik/ikon vurgusu.
+  Kural `style.css` başlığında ve `tools/contrast.mjs`'in dekoratif bölümünde yazılı.
+- **27** Logodaki gömülü tarih: CSS kırpma yerine `giresun-expo-logo-tarihsiz.png` geldi.
+- **28** İkiz PDF: içerik aynıydı (SHA256 eşleşti), NFD kopya silindi, ASCII ada geçildi.
 
-**Neden önemli:** lacivert ana marka rengi ve logonun hemen yanında kullanılacak. Site
-lacivertı `#184181`, logodaki "EXPO" `#002D73` olursa yan yana durduklarında fark görünür —
-tam olarak brief'in "özür dilenmemeli" ölçütüne takılan cinsten bir kusur.
+### 🔴 30. Basın sayfasından kitapçık indirmesi
 
-**Öneri:** logodan ölçülen değerler kullanılsın (`#002D73`, `#004E90`, `#488900`, `#251C00`).
-İkisi de WCAG AA geçiyor, ölçülen değerler biraz daha koyu ve kontrastı daha yüksek.
-**Alternatif:** vektörel orijinal (#15) gelince ondan yeniden ölçülür — en doğrusu bu.
+`.gitignore`'a `docs/*.pdf` eklendi, yani kitapçık PDF'i **repoda ve yayında yok**.
+Basın sayfasında "basın kiti / kitapçık indir" bağlantısı istenirse PDF'in bir kopyası
+`assets/files/` altına konup ayrıca izin verilmesi gerekir (8.4 MB).
 
-### 26. Açık yeşil metin rengi olarak WCAG AA'dan kalıyor
+Öneri: kitapçık indirmesi gerekiyorsa PDF sıkıştırılıp (hedef < 2 MB) `assets/files/`
+altına alınsın; gerekmiyorsa basın kiti yalnızca logo paketinden oluşsun.
 
-`#6A9F2F` / beyaz = **3.18** (normal metin için 4.5 gerekiyor). Ölçülen `#488900` de 4.33 ile kalıyor.
+### 29. Özel alan adı — 🟡 alt yol varsayımıyla ilerleniyor
 
-**Karar (varsayımla ilerlenecek):** 🟡 Açık yeşil **asla metin rengi olarak kullanılmayacak** —
-yalnızca halka motifi, ikon ve grafik vurgu (grafik öğe eşiği 3:1'i geçiyor). EK'in
-"yalnızca küçük vurgularda, logodaki halka gibi" ifadesiyle zaten uyumlu.
+Repo ve Pages hazır: `https://devmustafaozdemir.github.io/giresun-expo/`
 
-### 27. Logoda tarih gömülü — header boyutu sorunu
+Kitapçık **giresunexpo.com** yazıyor ama alan adı şimdilik bağlanmayacak.
+Bağlandığında site **kök dizine** taşınır ve `/giresun-expo/` alt yolu düşer.
 
-Logo 1207×703 (1.72:1) ve içinde **"8 - 11 Ekim 2026"** yazısı var. Header'da ~180px
-genişlikte kullanılırsa tarih satırı okunamaz hale gelir (yaklaşık 5px yükseklik).
-
-EK §2: *"Logoyu yeniden çizme veya renklerini değiştirme."*
-
-Seçenekler:
-- **(a)** Header'da logo büyük kullanılır (yüksek header) — sayfa üstünde çok yer kaplar
-- **(b)** Header'da logonun üst kısmı (GİRESUN EXPO + halka, tarihsiz) kırpılarak kullanılır;
-  tam tarihli logo hero'da ve footer'da görünür — **önerim bu**
-- **(c)** Header'da logo yerine metin logotipi; tam logo yalnızca hero'da
-
-🔴 Kırpmanın "yeniden çizme" sayılıp sayılmadığı organizatöre sorulmalı. Cevap gelmezse
-**(b)** ile ilerlenir ve orijinal dosya değiştirilmez (CSS ile kırpma).
-
-### 28. `docs/` içinde aynı adlı iki PDF var
-
-İki dosya görsel olarak aynı ada sahip ama **farklı Unicode normalizasyonunda** (NFC ve NFD):
-biri 34, diğeri 32 karakter. İkisi de 8.4 MB → repoda **16.9 MB gereksiz yük**.
-
-**Karar (A1'de uygulanacak):** 🟡 biri silinecek, kalan `docs/giresun-expo-2026-el-kitapcigi.pdf`
-olarak ASCII adla yeniden adlandırılacak (CLAUDE.md'nin ASCII dosya adı kuralı + URL'de
-yüzde-kodlama ve normalizasyon sorunlarını önlemek için). Basın sayfasından indirme linki
-verileceği için adın stabil olması gerekiyor.
-
-### 29. GitHub repo ve yayın adresi — **yayın için gerekli**
-
-| Soru | Durum |
-|---|---|
-| GitHub hesabı ve repo adı | 🔴 push yapılamıyor |
-| Yayın `giresunexpo.com` özel alan adına mı bağlanacak, yoksa `github.io/giresun-expo/` mi kalacak? | 🔴 |
-
-Kitapçık **giresunexpo.com** yazıyor. Özel alan adı kullanılacaksa:
-- CNAME dosyası gerekir ve site **kök dizinde** yayınlanır → `/giresun-expo/` alt yol varsayımı düşer
-- Canonical ve `og:image` mutlak URL'leri buna göre yazılır
-
-🟡 Cevap gelene kadar `/giresun-expo/` alt yolu varsayımıyla ilerlenir (tüm yollar göreli
-olduğu için alan adı değişse de site çalışır; yalnızca canonical/OG mutlak URL'leri güncellenir).
+**Alınan önlem:** canonical, `og:image` ve `sitemap.xml` URL'leri tek bir `SITE_URL`
+sabitinden üretilecek (B19), böylece alan adı değiştiğinde tek yerden güncellenir.
+Sayfa içi yolların tamamı göreli olduğu için taşınma sitenin çalışmasını etkilemez.
 
 ---
 
