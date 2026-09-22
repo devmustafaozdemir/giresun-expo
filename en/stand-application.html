@@ -31,7 +31,9 @@
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/config.js" defer></script>
   <script src="../assets/js/form-adimlar.js" defer></script>
+  <script type="module" src="../assets/js/form-gonder.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -142,12 +144,7 @@
           <h2 class="section-title">Pre-application form</h2>
         </div>
 
-        <form class="form reveal" id="stand-form" data-submit="pending" data-steps novalidate>
-            <div class="notice notice--info" data-submit-pending>
-              <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
-              <p>Online submission is not active yet. Information entered here is not sent. For now, please call <a href="tel:+905416622828">+90 541 662 28 28</a>.</p>
-            </div>
-
+        <form class="form reveal" id="stand-form" data-form="stand" data-steps novalidate>
           <ol class="steps" data-steps-nav>
             <li class="steps__item is-active">1. Company details</li>
             <li class="steps__item">2. Stand preference</li>

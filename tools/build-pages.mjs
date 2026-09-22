@@ -192,7 +192,11 @@ function head(key, lang) {
   const trUrl = `${SITE}/${PAGES[key].tr.file === 'index.html' ? '' : PAGES[key].tr.file}`;
   const enUrl = `${SITE}/en/${PAGES[key].en.file === 'index.html' ? '' : PAGES[key].en.file}`;
   const selfUrl = lang === 'tr' ? trUrl : enUrl;
-  const extra = (p.scripts || []).map((s) => `  <script src="${r}assets/js/${s}" defer></script>`).join('\n');
+  /* Klasik script'ler + ES modülleri.
+     config.js klasik ve modülden ÖNCE gelmeli: modül window.GE_CONFIG'i okur. */
+  const klasik = (p.scripts || []).map((s) => `  <script src="${r}assets/js/${s}" defer></script>`);
+  const moduller = (p.modules || []).map((s) => `  <script type="module" src="${r}assets/js/${s}"></script>`);
+  const extra = [...klasik, ...moduller].join('\n');
   const noindex = p.noindex ? '\n  <meta name="robots" content="noindex, nofollow">' : '';
 
   return `<!doctype html>

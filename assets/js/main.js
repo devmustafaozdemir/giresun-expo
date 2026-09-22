@@ -254,27 +254,48 @@
   }
 
   /* =======================================================================
-     05c. Form gönderimi — C aşamasına kadar "bekliyor" durumu
+     05c. Form gönderimi — ortak kapı
 
-     Supabase C aşamasında bağlanacak. O zamana kadar formlar gönderilemez.
-     Kullanıcıyı sessizce yanıltmamak için gönderim engellenir ve durum
-     açıkça bildirilir; telefon yönlendirmesi zaten formun üstünde duruyor.
+     Bu blok HER ZAMAN çalışır ve üç şeyi garanti eder:
+       1. Native gönderim engellenir (action yok, sayfa yenilenmez)
+       2. Bal küpü kontrolü
+       3. Tarayıcı doğrulaması + ilk hatalı alana odak
 
-     C aşamasında yapılacak: data-submit="pending" -> "supabase" ve bu blok
-     gerçek gönderime bağlanacak. Doğrulama ve bal küpü mantığı aynen kalır.
+     Gerçek gönderimi assets/js/form-gonder.js modülü üstlenir ve
+     window.GE_SUBMIT olarak kendini tanıtır. Modül yüklenemezse (eski
+     tarayıcı, ağ hatası, yapılandırma eksik) kullanıcıya DÜRÜST bir mesaj
+     gösterilir ve telefona yönlendirilir — form sessizce kaybolmaz.
      ======================================================================= */
   function initForms() {
-    var forms = document.querySelectorAll("form[data-submit]");
+    var forms = document.querySelectorAll("form[data-form]");
     if (!forms.length) return;
 
     var tr = document.documentElement.lang !== "en";
+
+    function yedekUyari(form) {
+      var box = form.querySelector("[data-submit-fallback]");
+      if (!box) {
+        box = document.createElement("div");
+        box.className = "notice notice--warning";
+        box.setAttribute("data-submit-fallback", "");
+        box.setAttribute("role", "alert");
+        box.appendChild(document.createElement("p"));
+        form.prepend(box);
+      }
+      box.hidden = false;
+      /* textContent — veri DOM'a innerHTML ile basılmaz */
+      box.querySelector("p").textContent = tr
+        ? "Form şu anda gönderilemiyor. Lütfen 0541 662 28 28 numarasından bize ulaşın."
+        : "This form cannot be submitted right now. Please call +90 541 662 28 28.";
+      box.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
 
     for (var i = 0; i < forms.length; i++) {
       forms[i].addEventListener("submit", function (e) {
         e.preventDefault();
         var form = this;
 
-        /* Bal küpü dolduysa bot — sessizce yut */
+        /* Bal küpü dolduysa bot — sessizce yut, hiçbir şey gönderme */
         var hp = form.querySelector('[name="website_url"]');
         if (hp && hp.value) return;
 
@@ -285,24 +306,15 @@
             var group = bad.closest(".form__group") || bad.closest(".form__check");
             if (group) group.classList.add("has-error");
             bad.focus();
+            if (bad.reportValidity) bad.reportValidity();
           }
           return;
         }
 
-        if (form.dataset.submit === "pending") {
-          var box = form.querySelector("[data-submit-pending]");
-          if (box) {
-            box.classList.remove("notice--info");
-            box.classList.add("notice--warning");
-            box.scrollIntoView({ block: "center", behavior: "smooth" });
-            var p = box.querySelector("p");
-            if (p) {
-              /* textContent — veri DOM'a innerHTML ile basılmaz */
-              p.textContent = tr
-                ? "Form şu anda gönderilemiyor: çevrim içi gönderim henüz etkin değil. Lütfen 0541 662 28 28 numarasından bize ulaşın."
-                : "This form cannot be submitted yet: online submission is not active. Please call +90 541 662 28 28.";
-            }
-          }
+        if (typeof window.GE_SUBMIT === "function") {
+          window.GE_SUBMIT(form);
+        } else {
+          yedekUyari(form);
         }
       });
     }

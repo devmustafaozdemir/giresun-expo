@@ -31,7 +31,8 @@
   <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
-
+  <script src="../assets/js/config.js" defer></script>
+  <script type="module" src="../assets/js/form-gonder.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -393,6 +394,32 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container container--narrow text-center">
+        <p class="eyebrow">Newsletter</p>
+        <h2 class="section-title section-title--plain">Keep up with fair news</h2>
+        <p class="section-subtitle" style="margin-inline:auto">Leave your e-mail and we will
+          let you know about programme announcements and visitor information.</p>
+
+        <form class="form newsletter mt-6" data-form="newsletter" novalidate>
+          <div class="newsletter__row">
+            <div class="form__group">
+              <label class="form__label visually-hidden" for="nl-mail">E-mail</label>
+              <input class="form__control" id="nl-mail" name="email" type="email" required
+                     placeholder="you@example.com" autocomplete="email" maxlength="160">
+            </div>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp-website">Leave this field empty</label>
+            <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="form__hint">We only use your address for fair announcements. See the
+            <a href="data-protection.html">Data Protection Notice</a>.</p>
+        </form>
       </div>
     </section>
 

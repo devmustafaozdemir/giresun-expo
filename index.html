@@ -31,7 +31,8 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
-
+  <script src="assets/js/config.js" defer></script>
+  <script type="module" src="assets/js/form-gonder.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -461,6 +462,33 @@
       </div>
     </section>
 
+    <!-- ==== Bülten ======================================================= -->
+    <section class="section section--alt">
+      <div class="container container--narrow text-center">
+        <p class="eyebrow">Bülten</p>
+        <h2 class="section-title section-title--plain">Fuar haberlerinden haberdar olun</h2>
+        <p class="section-subtitle" style="margin-inline:auto">E-posta adresinizi bırakın;
+          program duyuruları ve ziyaret bilgilerini sizinle paylaşalım.</p>
+
+        <form class="form newsletter mt-6" data-form="newsletter" novalidate>
+          <div class="newsletter__row">
+            <div class="form__group">
+              <label class="form__label visually-hidden" for="nl-mail">E-posta</label>
+              <input class="form__control" id="nl-mail" name="email" type="email" required
+                     placeholder="ornek@eposta.com" autocomplete="email" maxlength="160">
+            </div>
+            <button class="btn btn--primary" type="submit">Abone Ol</button>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp-website">Bu alanı boş bırakın</label>
+            <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="form__hint">Adresinizi yalnızca fuar duyuruları için kullanırız. Ayrıntı için
+            <a href="kvkk.html">KVKK Aydınlatma Metni</a>.</p>
+        </form>
+      </div>
+    </section>
+
     <!-- ==== Kapanış CTA =================================================== -->
     <section class="section section--brand on-dark">
       <div class="container text-center">
@@ -538,6 +566,7 @@
       <p>Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya reklam çerezi yoktur. Ayrıntı için <a href="cerez-politikasi.html">Çerez Politikası</a>.</p>
       <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Anladım</button>
     </div>
+  </div>
   </div>
   </div>
   </div>

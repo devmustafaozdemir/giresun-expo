@@ -1560,6 +1560,62 @@ select.form__control {
 .notice--success { border-left-color: var(--color-success); background-color: var(--color-success-soft); }
 .notice--success .icon { color: var(--color-success); }
 
+/* Form başarı ekranı — form bu kutuyla değiştirilir */
+.basari {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: clamp(var(--space-7), 5vw, var(--space-9)) var(--space-6);
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.basari:focus-visible { outline-offset: 4px; }
+.basari__icon { color: var(--color-primary); }
+.basari__title {
+  color: var(--color-primary-dark);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  font-weight: 700;
+}
+.basari__no {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.basari__no-label {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.basari__no-value {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.basari__text { color: var(--color-body); max-width: 48ch; }
+
+/* Bülten formu — tek satır, dar ekranda alt alta */
+.newsletter { max-width: 34rem; margin-inline: auto; }
+.newsletter__row { display: flex; gap: var(--space-3); align-items: flex-end; }
+.newsletter__row .form__group { flex: 1; }
+.newsletter .form__hint { text-align: left; }
+@media (max-width: 479.98px) {
+  .newsletter__row { flex-direction: column; align-items: stretch; }
+  .newsletter__row .btn { width: 100%; }
+}
+
 /* Uzun metin (yasal sayfalar) */
 .prose { max-width: var(--measure); }
 .prose h2 {

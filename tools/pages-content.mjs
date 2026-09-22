@@ -14,10 +14,12 @@ export const PAGES = {
   index: {
     tr: { file: 'index.html', nav: 'Ana Sayfa', title: 'Giresun EXPO 2026 — Giresun İş Dünyası İstanbul\'da Buluşuyor',
           desc: 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul Yenikapı\'da düzenleniyor. 86 katılımcı firma, üretim, yatırım, ticaret ve iş birliği tek çatı altında.',
-          ogDesc: '8–11 Ekim 2026, İstanbul Yenikapı. 86 katılımcı firma, 5 salon, 4 gün.' },
+          ogDesc: '8–11 Ekim 2026, İstanbul Yenikapı. 86 katılımcı firma, 5 salon, 4 gün.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
     en: { file: 'index.html', nav: 'Home', title: 'Giresun EXPO 2026 — Giresun\'s Business Community Meets in Istanbul',
           desc: 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at Yenikapı, Istanbul. 86 exhibiting companies across production, investment, trade and cooperation.',
-          ogDesc: '8–11 October 2026, Yenikapı, Istanbul. 86 companies, 5 halls, 4 days.' },
+          ogDesc: '8–11 October 2026, Yenikapı, Istanbul. 86 companies, 5 halls, 4 days.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   about: {
     tr: { file: 'hakkinda.html', nav: 'Hakkında', title: 'Fuar Hakkında — Giresun EXPO 2026',
@@ -53,21 +55,27 @@ export const PAGES = {
   },
   contact: {
     tr: { file: 'iletisim.html', nav: 'İletişim', title: 'İletişim — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 organizasyon ekibine ulaşın. Telefon, adres ve iletişim formu.' },
+          desc: 'Giresun EXPO 2026 organizasyon ekibine ulaşın. Telefon, adres ve iletişim formu.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
     en: { file: 'contact.html', nav: 'Contact', title: 'Contact — Giresun EXPO 2026',
-          desc: 'Get in touch with the Giresun EXPO 2026 team. Phone, address and contact form.' },
+          desc: 'Get in touch with the Giresun EXPO 2026 team. Phone, address and contact form.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   register: {
     tr: { file: 'ziyaretci-kaydi.html', nav: 'Ziyaretçi Ön Kaydı', title: 'Ziyaretçi Ön Kaydı — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 için ziyaretçi ön kaydı. Kaydınızı yapın, fuar günü doğrudan stantlara gidin.' },
+          desc: 'Giresun EXPO 2026 için ziyaretçi ön kaydı. Kaydınızı yapın, fuar günü doğrudan stantlara gidin.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
     en: { file: 'visitor-registration.html', nav: 'Visitor Pre-registration', title: 'Visitor Pre-registration — Giresun EXPO 2026',
-          desc: 'Pre-register as a visitor for Giresun EXPO 2026 and head straight to the stands on the day.' },
+          desc: 'Pre-register as a visitor for Giresun EXPO 2026 and head straight to the stands on the day.',
+          scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   stand: {
     tr: { file: 'stant-basvurusu.html', nav: 'Stant Başvurusu', title: 'Stant Başvurusu — Giresun EXPO 2027',
-          desc: 'Giresun EXPO 2027 için stant ön başvurusu. Firma bilgilerinizi bırakın, satış ekibimiz sizinle iletişime geçsin.', scripts: ['form-adimlar.js'] },
+          desc: 'Giresun EXPO 2027 için stant ön başvurusu. Firma bilgilerinizi bırakın, satış ekibimiz sizinle iletişime geçsin.',
+          scripts: ['config.js', 'form-adimlar.js'], modules: ['form-gonder.js'] },
     en: { file: 'stand-application.html', nav: 'Stand Application', title: 'Stand Application — Giresun EXPO 2027',
-          desc: 'Pre-apply for a stand at Giresun EXPO 2027. Leave your company details and our team will get in touch.', scripts: ['form-adimlar.js'] },
+          desc: 'Pre-apply for a stand at Giresun EXPO 2027. Leave your company details and our team will get in touch.',
+          scripts: ['config.js', 'form-adimlar.js'], modules: ['form-gonder.js'] },
   },
   program: {
     tr: { file: 'program.html', nav: 'Program', title: 'Etkinlik Programı — Giresun EXPO 2026',
@@ -482,6 +490,32 @@ MAIN['index:en'] = `    <section class="hero">
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container container--narrow text-center">
+        <p class="eyebrow">Newsletter</p>
+        <h2 class="section-title section-title--plain">Keep up with fair news</h2>
+        <p class="section-subtitle" style="margin-inline:auto">Leave your e-mail and we will
+          let you know about programme announcements and visitor information.</p>
+
+        <form class="form newsletter mt-6" data-form="newsletter" novalidate>
+          <div class="newsletter__row">
+            <div class="form__group">
+              <label class="form__label visually-hidden" for="nl-mail">E-mail</label>
+              <input class="form__control" id="nl-mail" name="email" type="email" required
+                     placeholder="you@example.com" autocomplete="email" maxlength="160">
+            </div>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </div>
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp-website">Leave this field empty</label>
+            <input id="hp-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="form__hint">We only use your address for fair announcements. See the
+            <a href="data-protection.html">Data Protection Notice</a>.</p>
+        </form>
       </div>
     </section>
 
@@ -963,18 +997,15 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for journalists cover
 /* ======================================================================== */
 /* Formlar                                                                  */
 /*                                                                          */
-/* Formlar eksiksiz kurulur: etiketler, dogrulama oznitelikleri, bal kupu,  */
-/* basari ekrani. Gonderim hedefi C asamasinda Supabase olacak.             */
-/* O zamana kadar <form data-submit="pending"> ve form-gonder.js kullaniciya*/
-/* durumu DURUSTCE bildirip telefona yonlendirir — sessizce yutmaz.         */
+/* Formlar Supabase'e baglidir. Akis:                                        */
+/*   main.js       native gonderimi engeller, bal kupu + dogrulama yapar     */
+/*   form-gonder.js window.GE_SUBMIT'i tanimlar, RPC'yi cagirir, basari      */
+/*                 ekranini basar                                            */
+/*   data.js       RPC sarmalayicilari ve hata cevirisi                      */
+/*                                                                          */
+/* data-form ozniteligi form turunu belirler: stand | visitor | contact |    */
+/* newsletter. Modul yuklenemezse main.js durust bir uyari gosterir.        */
 /* ======================================================================== */
-
-const pendingNotice = (lang) => `            <div class="notice notice--info" data-submit-pending>
-              ${I.clock}
-              <p>${lang === 'tr'
-    ? 'Çevrim içi gönderim henüz etkin değil. Bu forma kaydettiğiniz bilgiler gönderilmez. Şimdilik <a href="tel:+905416622828">0541 662 28 28</a> numarasından bize ulaşabilirsiniz.'
-    : 'Online submission is not active yet. Information entered here is not sent. For now, please call <a href="tel:+905416622828">+90 541 662 28 28</a>.'}</p>
-            </div>`;
 
 const honeypot = (lang) => `            <div class="hp-field" aria-hidden="true">
               <label for="hp-website">${lang === 'tr' ? 'Bu alanı boş bırakın' : 'Leave this field empty'}</label>
@@ -1029,9 +1060,7 @@ const contactBody = (lang, r) => {
           <h2 class="section-title">${tr ? 'Bize yazın' : 'Write to us'}</h2>
         </div>
 
-        <form class="form reveal" data-submit="pending" novalidate>
-${pendingNotice(lang)}
-
+        <form class="form reveal" data-form="contact" novalidate>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label" for="c-name">${tr ? 'Ad soyad' : 'Full name'} <span class="req">*</span></label>
@@ -1089,9 +1118,7 @@ const registerBody = (lang) => {
     : 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at Yenikapı, Istanbul. Entry conditions will be announced separately by the organisers.'}</p>
         </div>
 
-        <form class="form mt-8 reveal" data-submit="pending" novalidate>
-${pendingNotice(lang)}
-
+        <form class="form mt-8 reveal" data-form="visitor" novalidate>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label" for="v-name">${tr ? 'Ad soyad' : 'Full name'} <span class="req">*</span></label>
@@ -1216,9 +1243,7 @@ const standBody = (lang) => {
           <h2 class="section-title">${tr ? 'Ön başvuru formu' : 'Pre-application form'}</h2>
         </div>
 
-        <form class="form reveal" id="stand-form" data-submit="pending" data-steps novalidate>
-${pendingNotice(lang)}
-
+        <form class="form reveal" id="stand-form" data-form="stand" data-steps novalidate>
           <ol class="steps" data-steps-nav>
             <li class="steps__item is-active">1. ${tr ? 'Firma bilgileri' : 'Company details'}</li>
             <li class="steps__item">2. ${tr ? 'Stant tercihi' : 'Stand preference'}</li>

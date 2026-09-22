@@ -31,7 +31,8 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
-
+  <script src="assets/js/config.js" defer></script>
+  <script type="module" src="assets/js/form-gonder.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -92,12 +93,7 @@
           <p>Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul Yenikapı'da düzenleniyor. Giriş koşulları organizasyon tarafından ayrıca duyurulacaktır.</p>
         </div>
 
-        <form class="form mt-8 reveal" data-submit="pending" novalidate>
-            <div class="notice notice--info" data-submit-pending>
-              <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
-              <p>Çevrim içi gönderim henüz etkin değil. Bu forma kaydettiğiniz bilgiler gönderilmez. Şimdilik <a href="tel:+905416622828">0541 662 28 28</a> numarasından bize ulaşabilirsiniz.</p>
-            </div>
-
+        <form class="form mt-8 reveal" data-form="visitor" novalidate>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label" for="v-name">Ad soyad <span class="req">*</span></label>
