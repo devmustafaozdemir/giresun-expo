@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="tr" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yönetim Paneli — Giresun EXPO 2026</title>
+<meta name="robots" content="noindex, nofollow">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="icon" href="../assets/img/brand/favicon-32.png" sizes="32x32">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="giris">
+
+<main class="giris__kart" id="main">
+
+  <img class="giris__logo" src="../assets/img/brand/giresun-expo-logo-tarihsiz.png"
+       alt="Giresun EXPO" width="168" height="56">
+
+  <h1 class="giris__baslik">Yönetim Paneli</h1>
+  <p class="giris__alt">Devam etmek için giriş yapın.</p>
+
+  <form id="giris-formu" novalidate>
+
+    <div class="giris__alan form__group">
+      <label class="form__label" for="eposta">E-posta</label>
+      <input class="form__control" id="eposta" name="email" type="email"
+             required autocomplete="username" autocapitalize="off"
+             spellcheck="false" maxlength="160" autofocus>
+    </div>
+
+    <div class="giris__alan form__group">
+      <label class="form__label" for="sifre">Parola</label>
+      <div class="sifre-sarmal">
+        <input class="form__control" id="sifre" name="password" type="password"
+               required autocomplete="current-password" maxlength="200">
+        <button class="sifre-goster" type="button" id="sifre-goster"
+                aria-label="Parolayı göster" aria-pressed="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Hata ve bilgi mesajları. aria-live ile ekran okuyucuya duyurulur. -->
+    <div id="mesaj" role="alert" aria-live="assertive" hidden></div>
+
+    <div class="giris__eylem">
+      <button class="btn btn--primary" type="submit" id="giris-btn">Giriş Yap</button>
+    </div>
+
+  </form>
+
+  <p class="giris__yardim">
+    <button type="button" class="baglanti-btn" id="sifre-unuttum">Parolamı unuttum</button>
+  </p>
+
+  <noscript>
+    <p class="giris__hata" style="margin-top:var(--space-4)">
+      Yönetim paneli JavaScript olmadan çalışamaz. Lütfen tarayıcınızda etkinleştirin.
+    </p>
+  </noscript>
+
+  <a class="giris__geri" href="../index.html">← Siteye dön</a>
+
+</main>
+
+<script src="../assets/js/config.js"></script>
+<script type="module">
+  import { girisYap, mevcutAdmin, sifreSifirla } from '../assets/js/admin/auth.js';
+
+  const form   = document.getElementById('giris-formu');
+  const btn    = document.getElementById('giris-btn');
+  const kutu   = document.getElementById('mesaj');
+  const eposta = document.getElementById('eposta');
+  const sifre  = document.getElementById('sifre');
+
+  /* Mesaj gösterimi — textContent, innerHTML değil (CLAUDE.md) */
+  function mesaj(metin, tur) {
+    kutu.textContent = metin;
+    kutu.className = tur === 'bilgi' ? 'form__hint' : 'giris__hata';
+    kutu.hidden = false;
+  }
+  function mesajTemizle() { kutu.hidden = true; kutu.textContent = ''; }
+
+  function yukleniyor(acik) {
+    btn.disabled = acik;
+    btn.classList.toggle('is-loading', acik);
+    btn.textContent = acik ? 'Giriş yapılıyor…' : 'Giriş Yap';
+  }
+
+  /* Giriş yapılacak hedef: ?devam= parametresi, yoksa pano.
+     Açık yönlendirme (open redirect) olmaması için yalnızca bu panelin
+     altındaki adreslere izin verilir. */
+  function hedefUrl() {
+    const devam = new URLSearchParams(location.search).get('devam');
+    const panel = new URL('pano.html', document.baseURI).href;
+    if (!devam) return panel;
+    try {
+      const u = new URL(devam, document.baseURI);
+      const kok = new URL('./', document.baseURI).href;
+      return (u.origin === location.origin && u.href.startsWith(kok)) ? u.href : panel;
+    } catch { return panel; }
+  }
+
+  /* Zaten girişliyse doğrudan panoya */
+  mevcutAdmin().then((o) => { if (o) location.replace(hedefUrl()); });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    mesajTemizle();
+
+    if (!eposta.value.trim() || !sifre.value) {
+      mesaj('E-posta ve parola alanlarını doldurun.');
+      (eposta.value.trim() ? sifre : eposta).focus();
+      return;
+    }
+
+    yukleniyor(true);
+    const sonuc = await girisYap(eposta.value, sifre.value);
+    yukleniyor(false);
+
+    if (!sonuc.tamam) {
+      mesaj(sonuc.mesaj);
+      sifre.value = '';
+      sifre.focus();
+      return;
+    }
+    location.replace(hedefUrl());
+  });
+
+  /* Parola göster/gizle */
+  document.getElementById('sifre-goster').addEventListener('click', function () {
+    const gosteriliyor = sifre.type === 'text';
+    sifre.type = gosteriliyor ? 'password' : 'text';
+    this.setAttribute('aria-pressed', String(!gosteriliyor));
+    this.setAttribute('aria-label', gosteriliyor ? 'Parolayı göster' : 'Parolayı gizle');
+    sifre.focus();
+  });
+
+  /* Parolamı unuttum */
+  document.getElementById('sifre-unuttum').addEventListener('click', async (e) => {
+    e.preventDefault();
+    mesajTemizle();
+    const adres = eposta.value.trim();
+    if (!adres) {
+      mesaj('Önce e-posta adresinizi yazın, sonra bu bağlantıya tıklayın.');
+      eposta.focus();
+      return;
+    }
+    const sonuc = await sifreSifirla(adres);
+    mesaj(sonuc.mesaj, sonuc.tamam ? 'bilgi' : 'hata');
+  });
+</script>
+
+</body>
+</html>
