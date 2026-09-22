@@ -20,7 +20,7 @@ import { dirname, join } from 'node:path';
 import { PAGES, MAIN } from './pages-content.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://devmustafaozdemir.github.io/giresun-expo';
+const SITE = 'https://giresunexpo.com';
 
 /* --- Menu: sirasi ve etiketleri ----------------------------------------- */
 const NAV = ['index', 'about', 'exhibitors', 'visit', 'gallery', 'press', 'contact'];
@@ -362,9 +362,9 @@ User-agent: *
 Allow: /
 
 # Yönetim paneli ve iç dokümanlar dizine girmez
-Disallow: /giresun-expo/admin/
-Disallow: /giresun-expo/docs/
-Disallow: /giresun-expo/davetiye.html
+Disallow: /admin/
+Disallow: /docs/
+Disallow: /davetiye.html
 
 Sitemap: ${SITE}/sitemap.xml
 `);

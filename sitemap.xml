@@ -2,210 +2,210 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/"/>
+    <loc>https://giresunexpo.com/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/"/>
+    <loc>https://giresunexpo.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/hakkinda.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/hakkinda.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/hakkinda.html"/>
+    <loc>https://giresunexpo.com/hakkinda.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/hakkinda.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/hakkinda.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/hakkinda.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/about.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/hakkinda.html"/>
+    <loc>https://giresunexpo.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/hakkinda.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/hakkinda.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/exhibitors.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html"/>
+    <loc>https://giresunexpo.com/katilimcilar.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/katilimcilar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/exhibitors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/katilimcilar.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/exhibitors.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/exhibitors.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html"/>
+    <loc>https://giresunexpo.com/en/exhibitors.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/katilimcilar.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/exhibitors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/katilimcilar.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/plan-your-visit.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html"/>
+    <loc>https://giresunexpo.com/ziyaret-bilgileri.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/ziyaret-bilgileri.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/plan-your-visit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/ziyaret-bilgileri.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/plan-your-visit.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/plan-your-visit.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html"/>
+    <loc>https://giresunexpo.com/en/plan-your-visit.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/ziyaret-bilgileri.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/plan-your-visit.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/ziyaret-bilgileri.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/galeri.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/galeri.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/galeri.html"/>
+    <loc>https://giresunexpo.com/galeri.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/galeri.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/galeri.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/gallery.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/galeri.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/gallery.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/galeri.html"/>
+    <loc>https://giresunexpo.com/en/gallery.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/galeri.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/gallery.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/galeri.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/basin.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/press.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html"/>
+    <loc>https://giresunexpo.com/basin.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/basin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/press.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/basin.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/press.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/press.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/basin.html"/>
+    <loc>https://giresunexpo.com/en/press.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/basin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/press.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/basin.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/iletisim.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html"/>
+    <loc>https://giresunexpo.com/iletisim.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/iletisim.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/contact.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/contact.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/iletisim.html"/>
+    <loc>https://giresunexpo.com/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/iletisim.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/iletisim.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/ziyaretci-kaydi.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaretci-kaydi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/visitor-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaretci-kaydi.html"/>
+    <loc>https://giresunexpo.com/ziyaretci-kaydi.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/ziyaretci-kaydi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/visitor-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/ziyaretci-kaydi.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/visitor-registration.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaretci-kaydi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/visitor-registration.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaretci-kaydi.html"/>
+    <loc>https://giresunexpo.com/en/visitor-registration.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/ziyaretci-kaydi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/visitor-registration.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/ziyaretci-kaydi.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/stand-application.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html"/>
+    <loc>https://giresunexpo.com/stant-basvurusu.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/stant-basvurusu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/stand-application.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/stant-basvurusu.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/stand-application.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/stand-application.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/stant-basvurusu.html"/>
+    <loc>https://giresunexpo.com/en/stand-application.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/stant-basvurusu.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/stand-application.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/stant-basvurusu.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/program.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/program.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/program.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/program.html"/>
+    <loc>https://giresunexpo.com/program.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/program.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/program.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/program.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/program.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/program.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/program.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/program.html"/>
+    <loc>https://giresunexpo.com/en/program.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/program.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/program.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/program.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/kvkk.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/kvkk.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/data-protection.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/kvkk.html"/>
+    <loc>https://giresunexpo.com/kvkk.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/kvkk.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/data-protection.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/kvkk.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/data-protection.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/kvkk.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/data-protection.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/kvkk.html"/>
+    <loc>https://giresunexpo.com/en/data-protection.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/kvkk.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/data-protection.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/kvkk.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/cerez-politikasi.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/cerez-politikasi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/cookie-policy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/cerez-politikasi.html"/>
+    <loc>https://giresunexpo.com/cerez-politikasi.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/cerez-politikasi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/cookie-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/cerez-politikasi.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/cookie-policy.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/cerez-politikasi.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/cookie-policy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/cerez-politikasi.html"/>
+    <loc>https://giresunexpo.com/en/cookie-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/cerez-politikasi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/cookie-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/cerez-politikasi.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/gizlilik.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/gizlilik.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/gizlilik.html"/>
+    <loc>https://giresunexpo.com/gizlilik.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/gizlilik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/gizlilik.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://devmustafaozdemir.github.io/giresun-expo/en/privacy.html</loc>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/gizlilik.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/gizlilik.html"/>
+    <loc>https://giresunexpo.com/en/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://giresunexpo.com/gizlilik.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giresunexpo.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giresunexpo.com/gizlilik.html"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

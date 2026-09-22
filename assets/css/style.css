@@ -1942,3 +1942,21 @@ fieldset.form__group > legend { padding: 0; margin-bottom: var(--space-2); }
 @media (max-width: 640px) {
   .program__oturum { grid-template-columns: 1fr; gap: var(--space-1); }
 }
+
+/* --- Mobilde dört başlık ortalanır (Eylül 2026) -------------------------- */
+@media (max-width: 640px) {
+  .pillar { align-items: center; text-align: center; }
+}
+
+/* --- Koyu CTA bandındaki iki buton mobilde de yan yana kalır ------------- */
+@media (max-width: 640px) {
+  .on-dark .cluster { flex-wrap: nowrap; justify-content: center; }
+  .on-dark .cluster .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: var(--space-3);
+    font-size: 0.875rem;
+  }
+  /* Tek buton varsa esnemez, içeriği kadar durur */
+  .on-dark .cluster .btn:only-child { flex: 0 0 auto; }
+}

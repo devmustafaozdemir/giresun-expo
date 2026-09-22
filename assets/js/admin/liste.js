@@ -136,6 +136,18 @@ export async function listeSayfasi(kok, ayar) {
   window.addEventListener('popstate', () => { urlOku(); yukle(); });
 
   /* --- Sorgu --- */
+  /* Sayfa isterse aramayı genişletir (ör. sektör adı, parçalı stand no).
+     Sonuç bir dizi PostgREST "or" koşuludur; sorgu() bunları ekler. */
+  let ekKosul = [];
+  async function aramaGenislet() {
+    ekKosul = [];
+    const q = (durum.q || '').replace(/[%,()]/g, ' ').trim();
+    if (q && ayar.aramaGenislet) {
+      try { ekKosul = (await ayar.aramaGenislet(sb, q)) || []; }
+      catch (e) { console.warn('[GE] Arama genişletilemedi:', e && e.message); }
+    }
+  }
+
   function sorgu() {
     let s = sb.from(ayar.tablo).select(ayar.secim, { count: 'exact' });
 
@@ -154,6 +166,7 @@ export async function listeSayfasi(kok, ayar) {
           const t = q.replace(/[{}"\s]/g, '').toUpperCase();
           if (t) kosul.push(`${d}.cs.{${t}}`);
         }
+        kosul.push(...ekKosul);
         s = s.or(kosul.join(','));
       }
     }
@@ -173,6 +186,7 @@ export async function listeSayfasi(kok, ayar) {
     }
 
     const bas = durum.sayfa * SAYFA_BOYU;
+    await aramaGenislet();
     const { data, error, count } = await sorgu()
       .order(durum.sirala, { ascending: durum.artan })
       .range(bas, bas + SAYFA_BOYU - 1);

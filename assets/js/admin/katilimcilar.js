@@ -87,7 +87,40 @@ const liste = await listeSayfasi(icerik, {
          ' web, featured, published, sira, created_at',
   aramaAlanlari: ['name', 'slug', 'hall'],
   aramaDiziAlanlari: ['stands'],
-  aramaIpucu: 'Firma adı veya stand no (ör. P1-10)…',
+  aramaIpucu: 'Firma adı, sektör ya da stand no (ör. P1-10)…',
+  /* Sektör adı ve parçalı stand numarası ile de aranabilsin: ikisi de
+     exhibitors tablosunda metin olarak durmadığı için önce eşleşen
+     sektör kimliklerini ve tam stand numaralarını buluyoruz. */
+  aramaGenislet: async (sb, q) => {
+    const kucuk = (x) => String(x || '').toLocaleLowerCase('tr')
+      .replace(/ı/g, 'i').replace(/İ/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u')
+      .replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c');
+    const aranan = kucuk(q);
+    const kosul = [];
+
+    const [sektorler, standlar] = await Promise.all([
+      sb.from('sectors').select('id, name_tr, name_en'),
+      sb.from('exhibitors').select('stands')
+    ]);
+
+    const idler = (sektorler.data || [])
+      .filter((s) => kucuk(s.name_tr).includes(aranan) || kucuk(s.name_en).includes(aranan))
+      .map((s) => s.id);
+    if (idler.length && idler.length < 40) kosul.push(`sector_id.in.(${idler.join(',')})`);
+
+    const buyuk = q.replace(/[{}"\s]/g, '').toUpperCase();
+    if (buyuk) {
+      const eslesen = new Set();
+      for (const r of (standlar.data || [])) {
+        for (const st of (r.stands || [])) {
+          const t = String(st).toUpperCase();
+          if (t !== buyuk && t.includes(buyuk)) eslesen.add(t);
+        }
+      }
+      for (const t of [...eslesen].slice(0, 30)) kosul.push(`stands.cs.{${t}}`);
+    }
+    return kosul;
+  },
   sayfaEylemi: el('button', {
     class: 'btn btn--primary btn--sm', type: 'button',
     onclick: () => liste.cekmeceAc({
