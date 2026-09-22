@@ -33,6 +33,10 @@
 
   var img = document.createElement("img");
   img.className = "lightbox__img";
+  /* alt niteliği daha sonra, lightbox açılınca doldurulur. Ama öğe sayfa
+     yüklenirken DOM'a giriyor; nitelik hiç yoksa o aralıkta alt'sız bir görsel
+     olarak denetimlere takılır. Boş dize "dekoratif" demektir, doğru başlangıç. */
+  img.alt = "";
 
   var caption = document.createElement("p");
   caption.className = "lightbox__caption";

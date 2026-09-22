@@ -467,7 +467,19 @@ p + p { margin-top: var(--space-4); }
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color var(--transition);
+  /* "TR" / "EN" iki harf; kutu 21x25px kalıyordu ve WCAG 2.5.8'in 24x24
+     asgarisinin altındaydı — parmakla isabet ettirmek de zordu. Dolgu ve
+     min-* ile hedefi büyütüyoruz; görünüm neredeyse aynı kalıyor. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--space-2);
+  margin: 0 calc(-1 * var(--space-1));   /* büyüyen kutu hizayı kaydırmasın */
+  border-radius: var(--radius-sm);
 }
+.lang-switch__link:focus-visible { outline-offset: -2px; }
 .lang-switch__link:hover { color: var(--color-primary); }
 .lang-switch__link.is-active { color: var(--color-ink); cursor: default; }
 .lang-switch__sep { color: var(--color-border-mid); }

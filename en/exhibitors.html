@@ -159,6 +159,10 @@
              Kartlar tools/build-exhibitors.mjs tarafından data/exhibitors.json'dan
              üretilir. Statiktir: JS olmadan da 86 firma görünür ve indekslenir.
              ============================================================ -->
+        <!-- Card titles are h3. Without an h2 the page jumps h1 -> h3 and the
+             section structure breaks for screen readers (Lighthouse heading-order). -->
+        <h2 class="visually-hidden">Exhibitor list</h2>
+
         <div class="grid grid--4 mt-8" id="ex-grid">
 <!-- exhibitors:start -->
         <article class="card exhibitor" data-ex
