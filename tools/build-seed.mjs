@@ -85,7 +85,13 @@ for (const p of paydas.paydaslar) {
     `insert into public.sponsors (ad_tr, ad_en, aciklama_tr, aciklama_en, seviye, logo_url, web, sira) values`,
     `  (${s(p.ad_tr)}, ${s(p.ad_en)}, ${s(p.aciklama_tr)}, ${s(p.aciklama_en)},`,
     `   'partner', ${s(p.logo)}, ${s(p.web)}, ${p.sira})`,
-    `on conflict do nothing;`
+    // Hedefsiz "on conflict do nothing" HİÇBİR ZAMAN tetiklenmez (unique kısıt
+    // yoksa çakışma da olmaz) — seed her koşumda mükerrer satır üretirdi.
+    // ad_tr üzerindeki benzersizlik kısıtı 004_sponsors_unique.sql ile eklendi.
+    `on conflict (ad_tr) do update set`,
+    `  ad_en=excluded.ad_en, aciklama_tr=excluded.aciklama_tr,`,
+    `  aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,`,
+    `  logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;`
   );
 }
 yaz('');

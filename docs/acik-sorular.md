@@ -110,7 +110,7 @@ Sayfa içi yolların tamamı göreli olduğu için taşınma sitenin çalışmas
 | 35 | Veri sorumlusu hangi tüzel kişi? | 🔴 | Üç paydaştan hangisi? Aydınlatma metninin zorunlu alanı |
 | 36 | Başvuru/kayıt verileri ne kadar saklanacak? | 🔴 | KVKK metninde belirtilmesi gerekiyor; varsayım yapılmayacak |
 | 37 | Admin oturumu için özel süre/2FA beklentisi? | 🟡 | Varsayım: Supabase varsayılanları |
-| 38 | **Başvuru numarasındaki yıl: gönderim yılı mı, fuar yılı mı?** | 🟡 | Stant formu **2027 ön başvurusu** (2026 stantları dağıtıldı), ama numara üreteci **gönderim yılını** alıyor. Yani 2026'da gelen bir 2027 başvurusu `GE-2026-0001` oluyor. **Mevcut varsayım: gönderim yılı** (numara bir referans/bilet numarası; zaman içinde tekilliği korur, sabit bir yıl gömmek gerekmez). Fuar yılı istenirse `001_init.sql` içindeki `set_application_no()` fonksiyonunda tek satır: `to_char(now() ...,'YYYY')` yerine `'2027'`. Ziyaretçi kaydı için soru yok — o 2026 fuarı için |
+| 38 | **Başvuru numarasındaki yıl: gönderim yılı mı, fuar yılı mı?** | ✅ **Karar: gönderim yılı** (`GE-2026-0001`). Değişiklik yok | Stant formu **2027 ön başvurusu** (2026 stantları dağıtıldı), ama numara üreteci **gönderim yılını** alıyor. Yani 2026'da gelen bir 2027 başvurusu `GE-2026-0001` oluyor. **Mevcut varsayım: gönderim yılı** (numara bir referans/bilet numarası; zaman içinde tekilliği korur, sabit bir yıl gömmek gerekmez). Fuar yılı istenirse `001_init.sql` içindeki `set_application_no()` fonksiyonunda tek satır: `to_char(now() ...,'YYYY')` yerine `'2027'`. Ziyaretçi kaydı için soru yok — o 2026 fuarı için |
 
 ---
 

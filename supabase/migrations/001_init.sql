@@ -258,7 +258,10 @@ create table if not exists public.sponsors (
   published   boolean not null default true,
   sira        integer not null default 0,
   created_at  timestamptz not null default now(),
-  updated_at  timestamptz not null default now()
+  updated_at  timestamptz not null default now(),
+  -- seed.sql'in "on conflict (ad_tr)" cümlesi buna dayanır. Kısıt olmazsa
+  -- hedefsiz on conflict hiç tetiklenmez ve seed her koşumda satır kopyalar.
+  constraint sponsors_ad_tr_benzersiz unique (ad_tr)
 );
 create or replace trigger sponsors_updated_at before update on public.sponsors
   for each row execute function public.set_updated_at();

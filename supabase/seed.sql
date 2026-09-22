@@ -689,15 +689,24 @@ on conflict (slug) do update set name=excluded.name, sector_id=excluded.sector_i
 insert into public.sponsors (ad_tr, ad_en, aciklama_tr, aciklama_en, seviye, logo_url, web, sira) values
   ('Giresun Vakfı', 'Giresun Foundation', 'Kalkınma, Eğitim, Kültür, Spor ve Tanıtım', 'Development, Education, Culture, Sport and Promotion',
    'partner', 'assets/img/partners/giresun-vakfi.png', '', 1)
-on conflict do nothing;
+on conflict (ad_tr) do update set
+  ad_en=excluded.ad_en, aciklama_tr=excluded.aciklama_tr,
+  aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,
+  logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;
 insert into public.sponsors (ad_tr, ad_en, aciklama_tr, aciklama_en, seviye, logo_url, web, sira) values
   ('Giresun Federasyonu', 'Giresun Federation', '', '',
    'partner', 'assets/img/partners/giresun-federasyonu.png', '', 2)
-on conflict do nothing;
+on conflict (ad_tr) do update set
+  ad_en=excluded.ad_en, aciklama_tr=excluded.aciklama_tr,
+  aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,
+  logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;
 insert into public.sponsors (ad_tr, ad_en, aciklama_tr, aciklama_en, seviye, logo_url, web, sira) values
   ('ŞEBİNSİAD', 'ŞEBİNSİAD', 'Şebinkarahisar Sanayici ve İş İnsanları Derneği', 'Şebinkarahisar Association of Industrialists and Businesspeople',
    'partner', 'assets/img/partners/sebinsiad.png', '', 3)
-on conflict do nothing;
+on conflict (ad_tr) do update set
+  ad_en=excluded.ad_en, aciklama_tr=excluded.aciklama_tr,
+  aciklama_en=excluded.aciklama_en, seviye=excluded.seviye,
+  logo_url=excluded.logo_url, web=excluded.web, sira=excluded.sira;
 
 -- SSS (8 soru — hepsi kitapçıktan doğrulanabilir) ---------------------
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values

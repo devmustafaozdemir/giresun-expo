@@ -182,7 +182,8 @@ async function main() {
     () => rpc('submit_stand_application', {
       p_company: `${TEST_ETIKET} Şirketi`, p_sector: 'Fındık', p_website: '',
       p_contact_name: `${TEST_ETIKET} Kişi`, p_email: TEST_EPOSTA, p_phone: '+90 555 000 00 00',
-      p_stand_type: 'standart', p_area_m2: 12, p_note: TEST_ETIKET
+      // stand_type kısıtı: 'hazir' | 'bos' | 'acik' (formdaki option value'larıyla aynı)
+      p_stand_type: 'hazir', p_area_m2: 12, p_note: TEST_ETIKET
     }),
     (c) => ({
       tamam: c.durum === 200 && typeof c.govde === 'string' && /^GE-\d{4}-\d+$/.test(c.govde),
@@ -233,6 +234,19 @@ async function main() {
     }),
     (c) => ({ tamam: c.durum === 401 || c.durum === 403, gercek: okunabilir(c) }));
 
+  /* --- C8. Geçersiz stant tipi DB kısıtına takılmalı -------------------
+     Formdaki select üç değerle sınırlı, ama istemciye güvenilmez. */
+  await dene('C8', 'anon RPC geçersiz stand_type ile', 'check kısıtı reddetmeli (23514)',
+    () => rpc('submit_stand_application', {
+      p_company: `${TEST_ETIKET} Gecersiz`, p_sector: '', p_website: '',
+      p_contact_name: `${TEST_ETIKET} Kişi`, p_email: TEST_EPOSTA, p_phone: '+90 555 000 00 00',
+      p_stand_type: 'listede-olmayan-tip', p_area_m2: 12, p_note: TEST_ETIKET
+    }),
+    (c) => ({
+      tamam: c.durum === 400 && c.govde && c.govde.code === '23514',
+      gercek: okunabilir(c)
+    }));
+
   /* --- C7. Bültene doğrudan INSERT de kapalı (abone sızıntısı) --------- */
   await dene('C7', 'anon doğrudan INSERT newsletter_subscribers', 'reddedilmeli (401/403)',
     () => ekle('newsletter_subscribers', { email: TEST_EPOSTA, lang: 'tr' }),
@@ -254,10 +268,26 @@ async function main() {
       gercek: okunabilir(c)
     }));
 
-  await dene('D3', 'anon DELETE exhibitors', 'reddedilmeli / 0 satır',
-    () => istek('/rest/v1/exhibitors?slug=eq.rls-test-firma', { method: 'DELETE' }),
-    (c) => ({ tamam: c.durum === 401 || c.durum === 403 || c.durum === 204 || c.durum === 200,
-              gercek: okunabilir(c) }));
+  /* D3: var olmayan satırı silmeye çalışmak bedava 204 verir, hiçbir şey kanıtlamaz.
+     GERÇEK bir yayındaki katılımcıyı silmeyi deneyip hâlâ orada olduğunu doğruluyoruz. */
+  const kurban = await sec('exhibitors', 'select=id,slug,name&published=eq.true&limit=1');
+  const hedef = Array.isArray(kurban.govde) && kurban.govde[0];
+  if (hedef) {
+    await dene('D3', `anon DELETE exhibitors (gerçek kayıt: ${hedef.slug})`,
+      'satır silinmemiş olmalı',
+      async () => {
+        await istek(`/rest/v1/exhibitors?id=eq.${hedef.id}`, { method: 'DELETE' });
+        return sec('exhibitors', `select=id&id=eq.${hedef.id}`);   // hâlâ duruyor mu?
+      },
+      (c) => ({
+        tamam: c.durum === 200 && Array.isArray(c.govde) && c.govde.length === 1,
+        gercek: c.govde && c.govde.length === 1
+          ? 'kayıt yerinde duruyor' : 'DİKKAT: kayıt kayboldu — ' + okunabilir(c)
+      }));
+  } else {
+    kayit('D3', 'anon DELETE exhibitors', 'satır silinmemeli',
+      'atlandı — yayında katılımcı yok', false);
+  }
 
   await dene('D4', 'anon INSERT admins (yetki yükseltme denemesi)', 'reddedilmeli',
     () => ekle('admins', { email: TEST_EPOSTA, role: 'owner' }),
