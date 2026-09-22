@@ -11,3 +11,6 @@
 *.woff  binary
 *.woff2 binary
 *.pdf   binary
+
+# ICS, RFC 5545 gereği CRLF satır sonu ister — git dönüştürmesin
+*.ics   -text

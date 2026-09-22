@@ -1,27 +1,46 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-root="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ziyaretçi Bilgileri | Giresun Expo</title>
-  <meta name="description" content="Giresun Expo ziyaret saatleri, giriş koşulları, ulaşım ve konaklama bilgileri.">
-  <link rel="alternate" hreflang="tr" href="ziyaretci.html">
-  <link rel="alternate" hreflang="en" href="en/visitors.html">
-  <link rel="alternate" hreflang="x-default" href="ziyaretci.html">
+  <script>document.documentElement.classList.add('js')</script>
+
+  <title>Ziyaret Bilgileri — Giresun EXPO 2026</title>
+  <meta name="description" content="Giresun EXPO 2026 ziyaret saatleri, adres ve ulaşım. Yenikapı'ya Marmaray, M1A, M1B, M2 metro hatları ve İETT otobüsleriyle ulaşım.">
+
+  <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html">
+  <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html">
+  <link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/plan-your-visit.html">
+  <link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ziyaretçi Bilgileri | Giresun Expo">
-  <meta property="og:description" content="Giresun Expo ziyaret saatleri, giriş koşulları, ulaşım ve konaklama bilgileri.">
+  <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Ziyaret Bilgileri — Giresun EXPO 2026">
+  <meta property="og:description" content="Ziyaret saatleri, adres ve ulaşım. 8–11 Ekim 2026, Yenikapı.">
+  <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/ziyaret-bilgileri.html">
+  <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/brand/favicon-180.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-var-latin-ext.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
 
-  <!-- ==== Ortak header — tüm sayfalarda birebir aynıdır ==================== -->
+  <!-- ==== Ortak header — tüm TR sayfalarda birebir aynıdır ================= -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+      <a class="logo" href="index.html" aria-label="Giresun EXPO 2026 — ana sayfa">
+        <img src="assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="1206" height="703">
+      </a>
 
       <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menüyü aç/kapat">
         <span class="nav-toggle__box"></span>
@@ -30,22 +49,21 @@
       <nav class="site-nav" id="site-nav" aria-label="Ana menü">
         <ul class="nav-list">
           <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
-          <li><a class="nav__link" href="hakkinda.html">Fuar Hakkında</a></li>
+          <li><a class="nav__link" href="hakkinda.html">Hakkında</a></li>
           <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
-          <li><a class="nav__link is-active" href="ziyaretci.html" aria-current="page">Ziyaretçi</a></li>
-          <li><a class="nav__link" href="program.html">Program</a></li>
+          <li><a class="nav__link is-active" href="ziyaret-bilgileri.html" aria-current="page">Ziyaret Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
-          <li><a class="nav__link" href="haberler.html">Haberler</a></li>
+          <li><a class="nav__link" href="basin.html">Basın</a></li>
           <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
         </ul>
 
         <div class="nav__actions">
           <div class="lang-switch">
-            <a class="lang-switch__link is-active" href="ziyaretci.html" lang="tr" hreflang="tr">TR</a>
+            <a class="lang-switch__link is-active" href="ziyaret-bilgileri.html" lang="tr" hreflang="tr">TR</a>
             <span class="lang-switch__sep" aria-hidden="true">|</span>
-            <a class="lang-switch__link" href="en/visitors.html" lang="en" hreflang="en">EN</a>
+            <a class="lang-switch__link" href="en/plan-your-visit.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--accent btn--sm" href="stant-basvurusu.html">Stant Başvurusu</a>
+          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
         </div>
       </nav>
 
@@ -54,85 +72,284 @@
   </header>
 
   <main id="main">
-      <section class="page-header">
-        <div class="container">
-          <h1>Ziyaretçi Bilgileri</h1>
-          <p class="lead">Ziyaret saatleri, giriş koşulları, ulaşım ve konaklama.</p>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container container--narrow">
-          <div class="placeholder">
-            <span class="placeholder__label">Yer tutucu</span>
-            <p class="mb-0">Bu bölümün içeriği henüz eklenmedi.</p>
-          </div>
-        </div>
-      </section>
 
-      <section class="section section--alt">
-        <div class="container">
-          <div class="grid grid--2">
-            <div class="placeholder">
-            <span class="placeholder__label">Yer tutucu</span>
-            <p class="mb-0">Bu bölümün içeriği henüz eklenmedi.</p>
+    <section class="page-header">
+      <div class="container">
+        <nav aria-label="Sayfa yolu">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li aria-hidden="true">›</li>
+            <li>Ziyaret Bilgileri</li>
+          </ol>
+        </nav>
+        <h1>Ziyaret Bilgileri</h1>
+        <p class="lead">Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul Yenikapı'da.
+          Ziyaretinizi planlamak için gereken her şey burada.</p>
+      </div>
+    </section>
+
+    <!-- ==== Tarih ve saatler ============================================== -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">Tarih ve saat</p>
+            <h2 class="section-title">Dört gün açık</h2>
+            <p class="section-subtitle mb-6">Fuar 8–11 Ekim 2026 tarihleri arasında
+              ziyarete açıktır. Giriş koşulları organizasyon tarafından ayrıca
+              duyurulacaktır.</p>
+
+            <div class="scroll-x">
+              <table class="hours">
+                <caption class="visually-hidden">Giresun EXPO 2026 günlük ziyaret saatleri</caption>
+                <thead>
+                  <tr><th scope="col">Gün</th><th scope="col">Tarih</th><th scope="col">Saat</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Perşembe</th><td>8 Ekim 2026</td><td>10.00 – 19.00</td></tr>
+                  <tr><th scope="row">Cuma</th><td>9 Ekim 2026</td><td>10.00 – 19.00</td></tr>
+                  <tr><th scope="row">Cumartesi</th><td>10 Ekim 2026</td><td>10.00 – 20.00</td></tr>
+                  <tr><th scope="row">Pazar</th><td>11 Ekim 2026</td><td>10.00 – 18.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="cluster mt-6">
+              <a class="btn btn--primary" href="assets/files/giresun-expo-2026.ics" download>
+                <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                Takvime ekle
+              </a>
+              <a class="btn btn--secondary" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
+            </div>
           </div>
-            <div class="placeholder">
-            <span class="placeholder__label">Yer tutucu</span>
-            <p class="mb-0">Bu bölümün içeriği henüz eklenmedi.</p>
+
+          <figure class="media media--4x3 reveal">
+            <picture>
+              <source srcset="assets/img/photos/ziyaretciler.webp" type="image/webp">
+              <img src="assets/img/photos/ziyaretciler.jpg" alt="Fuar alanındaki ziyaretçiler" width="844" height="547" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== Adres ========================================================= -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Adres</p>
+          <h2 class="section-title">Fuar alanı</h2>
+        </div>
+
+        <div class="split">
+          <div class="reveal">
+            <address class="venue">
+              <strong class="venue__name">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi</strong>
+              <span class="venue__area">Yenikapı Etkinlik Alanı</span>
+              <span class="venue__addr">Aksaray Mahallesi, Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</span>
+            </address>
+            <p class="mt-6">
+              <a class="btn btn--secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Dr.+Mimar+Kadir+Topba%C5%9F+G%C3%B6steri+ve+Sanat+Merkezi%2C+Yenikap%C4%B1%2C+Fatih%2C+%C4%B0stanbul" target="_blank" rel="noopener noreferrer">
+                Haritada aç
+                <svg class="icon btn__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </a>
+            </p>
           </div>
+
+          <figure class="media media--4x3 reveal">
+            <picture>
+              <source srcset="assets/img/photos/fuar-alani-havadan.webp" type="image/webp">
+              <img src="assets/img/photos/fuar-alani-havadan.jpg" alt="Yenikapı Etkinlik Alanı'nın havadan görünümü" width="941" height="652" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+        </div>
+
+        <div class="map mt-8 reveal" id="map"
+             data-query="Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul"
+             data-title="Fuar alanının haritadaki konumu">
+          <div class="map__prompt">
+            <svg class="icon icon--xl" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            <p class="map__text">Harita Google Haritalar üzerinden yüklenir. Tıkladığınızda
+              Google'a bağlantı kurulur.</p>
+            <button class="btn btn--secondary" type="button" data-map-load>Haritayı yükle</button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <!-- ==== Ulaşım ======================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Ulaşım</p>
+          <h2 class="section-title">Yenikapı'ya nasıl gelinir?</h2>
+          <p class="section-subtitle">Yenikapı; Marmaray ile M1A, M1B ve M2 metro hatlarının
+            kesiştiği bir aktarma noktasıdır. Şehrin her iki yakasından toplu taşımayla
+            doğrudan ulaşılabilir.</p>
+        </div>
+
+        <div class="grid grid--2 reveal">
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon">
+                <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
+              </span>
+              <h3 class="card__title">Anadolu Yakası'ndan</h3>
+              <p class="cluster"><span class="line-badge">M4</span><span class="line-badge line-badge--marmaray">Marmaray</span></p>
+              <p class="card__text">Kadıköy'den M4 metrosu ile Ayrılık Çeşmesi durağına gelerek
+                Marmaray'a aktarma yapabilirsiniz. Üsküdar'dan ise Marmaray'a doğrudan binerek
+                Yenikapı durağında inebilirsiniz.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon">
+                <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
+              </span>
+              <h3 class="card__title">Avrupa Yakası'ndan</h3>
+              <p class="cluster"><span class="line-badge">M1A</span><span class="line-badge">M1B</span><span class="line-badge">M2</span><span class="line-badge line-badge--marmaray">Marmaray</span></p>
+              <p class="card__text">M1A, M1B ve M2 metro hatlarıyla Yenikapı'ya ulaşabilirsiniz.
+                Taksim'den M2 metrosu, Bağcılar yönünden ise M1B metrosu Yenikapı durağına gelir.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon">
+                <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg>
+              </span>
+              <h3 class="card__title">Otobüsle</h3>
+              <p class="cluster">
+                <span class="line-badge line-badge--bus">30D</span><span class="line-badge line-badge--bus">31</span><span class="line-badge line-badge--bus">31Y</span><span class="line-badge line-badge--bus">50Y</span><span class="line-badge line-badge--bus">70FY</span><span class="line-badge line-badge--bus">70KY</span>
+              </p>
+              <p class="card__text">Yenikapı Etkinlik Alanı çevresinde çeşitli İETT hatları
+                hizmet vermektedir.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <span class="pillar__icon">
+                <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              </span>
+              <h3 class="card__title">Özel araçla</h3>
+              <p class="card__text">Özel aracıyla gelecek ziyaretçiler için Yenikapı Etkinlik
+                Alanı çevresinde otopark imkânı bulunmaktadır.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== Salonlar ====================================================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Fuar alanı</p>
+          <h2 class="section-title">Beş salon, 86 firma</h2>
+          <p class="section-subtitle">Stant numarasının ilk harfi bulunduğu salonu gösterir.
+            Katılımcılar sayfasından salona göre filtreleyebilirsiniz.</p>
+        </div>
+
+        <div class="grid grid--4 reveal">
+          <a class="card card--link" href="katilimcilar.html?salon=A">
+            <div class="card__body"><span class="hall-badge">A</span><h3 class="card__title">A Salonu</h3><p class="card__text">11 firma</p></div>
+          </a>
+          <a class="card card--link" href="katilimcilar.html?salon=T">
+            <div class="card__body"><span class="hall-badge">T</span><h3 class="card__title">T Salonu</h3><p class="card__text">17 firma</p></div>
+          </a>
+          <a class="card card--link" href="katilimcilar.html?salon=G">
+            <div class="card__body"><span class="hall-badge">G</span><h3 class="card__title">G Salonu</h3><p class="card__text">19 firma</p></div>
+          </a>
+          <a class="card card--link" href="katilimcilar.html?salon=P">
+            <div class="card__body"><span class="hall-badge">P</span><h3 class="card__title">P Salonu</h3><p class="card__text">31 firma</p></div>
+          </a>
+          <a class="card card--link" href="katilimcilar.html?salon=E">
+            <div class="card__body"><span class="hall-badge">E</span><h3 class="card__title">E Alanı</h3><p class="card__text">8 firma</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--brand on-dark">
+      <div class="container text-center">
+        <h2 class="section-title">Ziyaretinizi planlayın</h2>
+        <p class="lead" style="margin-inline:auto">Ön kaydınızı yapın, fuar günü doğrudan
+          stantlara gidin.</p>
+        <div class="cluster mt-6" style="justify-content:center">
+          <a class="btn btn--light btn--lg" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
+          <a class="btn btn--outline-light btn--lg" href="katilimcilar.html">Katılımcıları Gör</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- ==== Ortak footer — tüm sayfalarda birebir aynıdır ==================== -->
+  <!-- ==== Ortak footer — tüm TR sayfalarda birebir aynıdır ================= -->
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
-        <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
-        <p class="site-footer__text">Giresun Expo; fındık, tarım ve gıda sektörlerini üretici, sanayici ve uluslararası alıcılarla buluşturan bölgesel fuar organizasyonudur.</p>
+        <span class="footer-logo">
+          <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
+        </span>
+        <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü
+          İstanbul'da tanıtan iş dünyası buluşması.</p>
+        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
         <h2 class="site-footer__title">Keşfet</h2>
         <ul class="site-footer__list">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="hakkinda.html">Fuar Hakkında</a></li>
-            <li><a href="program.html">Program</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="haberler.html">Haberler</a></li>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hakkinda.html">Hakkında</a></li>
+          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-            <li><a href="katilimcilar.html">Katılımcılar</a></li>
-            <li><a href="ziyaretci.html">Ziyaretçi</a></li>
-            <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
+          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Fuar Alanı, Giresun, Türkiye</p>
-          <p><a href="mailto:info@giresunexpo.com">info@giresunexpo.com</a></p>
-          <p><a href="tel:+900000000000">+90 (000) 000 00 00</a></p>
+          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
         </address>
-        <ul class="social mt-4">
-          <li><a href="#" aria-label="Instagram">IG</a></li>
-          <li><a href="#" aria-label="LinkedIn">IN</a></li>
-          <li><a href="#" aria-label="X">X</a></li>
-        </ul>
       </div>
     </div>
 
+    <div class="container site-footer__partners">
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+    </div>
+
     <div class="container site-footer__bottom">
-      <p>&copy; <span id="year">2026</span> Giresun Expo. Tüm hakları saklıdır.</p>
-      <p><a href="#">Gizlilik Politikası</a></p>
+      <p>&copy; <span id="year">2026</span> Giresun EXPO. Tüm hakları saklıdır.</p>
+      <p>
+        <a href="kvkk.html">KVKK Aydınlatma Metni</a> ·
+        <a href="cerez-politikasi.html">Çerez Politikası</a> ·
+        <a href="gizlilik.html">Gizlilik</a>
+      </p>
     </div>
   </footer>
+
+  <!-- ==== Çerez bandı ==================================================== -->
+  <div class="cookie-bar" id="cookie-bar" role="region" aria-label="Çerez bildirimi" hidden>
+    <div class="container cookie-bar__inner">
+      <p>Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya
+        reklam çerezi yoktur. Ayrıntı için <a href="cerez-politikasi.html">Çerez Politikası</a>.</p>
+      <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Anladım</button>
+    </div>
+  </div>
 </body>
 </html>

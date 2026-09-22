@@ -1,0 +1,28 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Giresun EXPO 2026//TR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:Europe/Istanbul
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0300
+TZNAME:+03
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:giresun-expo-2026@giresunexpo.com
+DTSTAMP:20260922T000000Z
+DTSTART;TZID=Europe/Istanbul:20261008T100000
+DTEND;TZID=Europe/Istanbul:20261011T180000
+SUMMARY:Giresun EXPO 2026
+LOCATION:Dr. Mimar Kadir Topbas Gosteri ve Sanat Merkezi\, Yenikapi Etkin
+ lik Alani\, Kennedy Caddesi No: 11/1\, Fatih/Istanbul
+DESCRIPTION:Giresun Is Dunyasi Istanbul'da Bulusuyor. 86 katilimci firma
+ \, 5 salon. Ziyaret saatleri: 8-9 Ekim 10.00-19.00\, 10 Ekim 10.00-20.0
+ 0\, 11 Ekim 10.00-18.00
+URL:https://devmustafaozdemir.github.io/giresun-expo/
+END:VEVENT
+END:VCALENDAR
