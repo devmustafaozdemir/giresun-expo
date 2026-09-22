@@ -12,7 +12,7 @@
 - [x] `CLAUDE.md`, `README.md`, `.gitignore`
 - [x] İç link doğrulaması — kırık link yok
 - [x] Tarayıcı doğrulaması (masaüstü + mobil, konsol temiz)
-- [ ] `git init` + ilk commit — **Git kurulu değil, bekliyor**
+- [x] `git init` + ilk commit (`main` dalı, commit `02dda87`)
 
 ## Aşama 2 — İçerik
 
@@ -55,6 +55,10 @@ aynı olması garanti altına alındı. Bundan sonraki değişiklikler elle yap�
 link yok); sayfalar tarayıcıda masaüstü ve mobil genişlikte açıldı, mobil menünün
 açılıp kapanması ve `aria-expanded` senkronu doğrulandı, konsol temiz.
 
-**Açık kalan:** `git init` yapılamadı — makinede Git kurulu değil (`git` PATH'te yok,
-standart kurulum yollarında da bulunamadı). Git kurulduktan sonra tek komutla
-tamamlanacak; adımlar README/aşağıdaki nota göre hazır.
+**Git:** Makinede Git kurulu değildi; kullanıcı onayıyla `winget install Git.Git`
+ile kuruldu (2.55.0), `user.name`/`user.email` global olarak ayarlandı, repo `main`
+dalında başlatılıp tek commit atıldı. Satır sonu gürültüsünü önlemek için
+`.gitattributes` (`* text=auto eol=lf`) eklendi.
+
+**Not — bu oturumdan sonrası:** `git` PATH'e kurulum sırasında eklendi ama mevcut
+kabuk oturumunda görünmeyebilir; yeni bir terminal açmak yeterli.
