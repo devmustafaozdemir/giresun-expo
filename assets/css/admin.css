@@ -154,6 +154,10 @@
 }
 .yan__link.is-active .yan__sayac { background: var(--color-primary); color: #fff; }
 
+/* display:inline-flex, tarayıcının [hidden]{display:none} kuralını yener.
+   Sayaç 0 iken boş bir nokta olarak görünmesin diye açıkça gizliyoruz. */
+.yan__sayac[hidden] { display: none !important; }
+
 
 /* 03. Üst çubuk
    ========================================================================== */
@@ -242,6 +246,9 @@
 }
 .arac-cubugu__ara { flex: 1 1 260px; min-width: 0; }
 .arac-cubugu__sag { margin-left: auto; display: flex; gap: var(--space-2); align-items: center; }
+
+/* form__control genişliği %100; araç çubuğunda süzgeçler satırı kaplamasın */
+.arac-cubugu__suzgec { flex: 0 1 200px; min-width: 140px; }
 
 
 /* 05. Kartlar ve istatistik
@@ -392,10 +399,12 @@
   background: currentColor;
   flex: none;
 }
+/* Anahtarlar 001_init.sql'deki status check kısıtıyla birebir aynı */
 .durum--new        { background: var(--color-info-soft);    color: var(--color-info);    border-color: #C5DCEC; }
-.durum--inceleniyor{ background: var(--color-warning-soft); color: var(--color-warning); border-color: #E8D4A8; }
-.durum--onaylandi  { background: var(--color-success-soft); color: var(--color-success); border-color: #BFDECD; }
-.durum--reddedildi { background: var(--color-danger-soft);  color: var(--color-danger);  border-color: #F0C8C4; }
+.durum--reviewing  { background: var(--color-warning-soft); color: var(--color-warning); border-color: #E8D4A8; }
+.durum--approved   { background: var(--color-success-soft); color: var(--color-success); border-color: #BFDECD; }
+.durum--rejected   { background: var(--color-danger-soft);  color: var(--color-danger);  border-color: #F0C8C4; }
+.durum--contracted { background: var(--color-primary-soft); color: var(--color-primary-dark); border-color: #BFD8CF; }
 .durum--notr       { background: var(--color-surface-2);    color: var(--color-body);    border-color: var(--color-border); }
 
 

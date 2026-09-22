@@ -321,12 +321,18 @@ export function gorece(iso) {
   return tarih(iso);
 }
 
+/* Anahtarlar 001_init.sql'deki check kısıtıyla BİREBİR aynı olmalı:
+   status in ('new','reviewing','approved','rejected','contracted') */
 export const DURUM_ETIKET = {
-  new: 'Yeni',
-  inceleniyor: 'İnceleniyor',
-  onaylandi: 'Onaylandı',
-  reddedildi: 'Reddedildi'
+  new:        'Yeni',
+  reviewing:  'İnceleniyor',
+  approved:   'Onaylandı',
+  rejected:   'Reddedildi',
+  contracted: 'Sözleşme imzalandı'
 };
+
+/** Açılır listelerde kullanılacak sıra */
+export const DURUM_SIRA = ['new', 'reviewing', 'approved', 'rejected', 'contracted'];
 
 export function durumRozeti(durum) {
   const sinif = DURUM_ETIKET[durum] ? durum : 'notr';
