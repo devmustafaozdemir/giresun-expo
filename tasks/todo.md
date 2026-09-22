@@ -27,6 +27,16 @@
 - [ ] İletişim: gerçek adres, telefon, e-posta, harita
 - [ ] Tüm yer tutucuları (`.placeholder`) kaldır, CSS'ten stili sil
 
+## Aşama 2.5 — GitHub Pages alt yolu (tamamlandı)
+
+- [x] Tüm `href`/`src` değerlerini denetle — kök-göreli yol yok
+- [x] CSS `url(...)` ve `@import` denetimi — yalnızca data-URI
+- [x] `fetch`/JSON yolu denetimi — henüz kullanılmıyor, kural CLAUDE.md'ye yazıldı
+- [x] Siteyi `/giresun-expo/` alt yolunda sunup 18 sayfayı gezerek doğrula
+- [x] `.nojekyll` ekle
+- [x] CLAUDE.md'ye "Yayın: GitHub Pages" kuralları
+- [ ] Repoyu GitHub'a push et, Pages'i `main` dalından yayına al
+
 ## Aşama 3 — Teknik tamamlama
 
 - [ ] Logo + favicon

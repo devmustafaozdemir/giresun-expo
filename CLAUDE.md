@@ -47,6 +47,43 @@ giresun-expo/
 - Aynı dil içindeki linkler **öneksizdir** (aynı klasördedirler).
   Sadece diller arası linkler ve `assets/` yolları `../` öneki alır (EN sayfalarında).
 
+## Yayın: GitHub Pages — alt yol (`/giresun-expo/`)
+
+Site **alan adının kökünde değil**, `https://<kullanıcı>.github.io/giresun-expo/`
+alt yolunda yayınlanır. Bunun tek ama katı bir sonucu var:
+
+> **Kök-göreli yol (`/` ile başlayan) kullanma. Hiçbir yerde.**
+
+`/assets/css/style.css` yayında `https://<kullanıcı>.github.io/assets/css/style.css`
+adresine çözümlenir ve 404 verir. Doğrusu sayfanın konumuna göre görelidir:
+
+| Nerede | Asset yolu | Aynı dildeki sayfa | Diğer dildeki sayfa |
+|---|---|---|---|
+| Kök (TR) | `assets/css/style.css` | `hakkinda.html` | `en/about.html` |
+| `en/` (EN) | `../assets/css/style.css` | `about.html` | `../hakkinda.html` |
+
+Bu kural şunların hepsi için geçerlidir: `href`, `src`, CSS `url(...)`,
+`<link rel="alternate" hreflang>`, ileride eklenecek `fetch()` / JSON veri yolları,
+`og:image` ve favicon.
+
+**İleride JS'ten veri çekilirse** (ör. katılımcı listesi için `data/exhibitors.json`),
+yolu string olarak gömmek yerine dokümanın konumuna göre çöz:
+
+```js
+// dogru — sayfa kokte de en/ icinde de calisir
+const url = new URL('data/exhibitors.json', document.baseURI);
+// en/ icindeki bir sayfadan kok seviyesindeki veriye: '../data/exhibitors.json'
+const res = await fetch(url);
+```
+
+`.nojekyll` dosyası repoda bulunur; GitHub Pages'in Jekyll işlemesini atlayıp
+dosyaları olduğu gibi sunmasını sağlar, silinmemeli.
+
+**Bilinen tuzak — `404.html`:** GitHub Pages özel 404 sayfasını her derinlikteki
+bilinmeyen adres için sunar (`/giresun-expo/en/olmayan-sayfa` dahil). Göreli asset
+yolu olan bir `404.html` bu durumda stilsiz görünür. Böyle bir sayfa eklenecekse
+CSS'i `<style>` olarak sayfa içine gömülmelidir.
+
 ## Dosya Adlandırma
 
 - TR sayfa adları Türkçe ama **ASCII**: `stant-basvurusu.html` (ş/ı/ğ kullanma), kebab-case.

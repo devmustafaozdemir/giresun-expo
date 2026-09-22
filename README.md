@@ -37,6 +37,12 @@ tasks/                              todo & lessons
 
 Ayrıntılı yapı, adlandırma ve katkı kuralları için `CLAUDE.md` dosyasına bak.
 
+## Yayın
+
+GitHub Pages, `/giresun-expo/` alt yolunda. Bu yüzden **tüm yollar görelidir** —
+`/` ile başlayan bir yol eklenirse yayında 404 verir. Ayrıntı: `CLAUDE.md` →
+"Yayın: GitHub Pages".
+
 ## Yapılacaklar
 
 Açık işler `tasks/todo.md` içinde takip ediliyor.
