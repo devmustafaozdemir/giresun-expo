@@ -66,14 +66,24 @@ Ayrıntıları yukarıdaki kapananlar tablosunda. Kısaca:
 - **27** Logodaki gömülü tarih: CSS kırpma yerine `giresun-expo-logo-tarihsiz.png` geldi.
 - **28** İkiz PDF: içerik aynıydı (SHA256 eşleşti), NFD kopya silindi, ASCII ada geçildi.
 
-### 🔴 30. Basın sayfasından kitapçık indirmesi
+### ✅ 30. Basın sayfasından kitapçık indirmesi — çözüldü
 
-`.gitignore`'a `docs/*.pdf` eklendi, yani kitapçık PDF'i **repoda ve yayında yok**.
-Basın sayfasında "basın kiti / kitapçık indir" bağlantısı istenirse PDF'in bir kopyası
-`assets/files/` altına konup ayrıca izin verilmesi gerekir (8.4 MB).
+`assets/files/giresun-expo-2026-el-kitapcigi.pdf` eklendi: **8.07 MB → 2.17 MB (%73)**.
 
-Öneri: kitapçık indirmesi gerekiyorsa PDF sıkıştırılıp (hedef < 2 MB) `assets/files/`
-altına alınsın; gerekmiyorsa basın kiti yalnızca logo paketinden oluşsun.
+**Sıkıştırma yöntemi — görüntüleme açısından kayıpsız.** Dosyanın %76'sının tek bir
+nesne olduğu tespit edildi: `/PieceInfo … /Private` altında **Adobe Illustrator'ın
+gömülü düzenleme verisi** (6.1 MB). Hiçbir PDF görüntüleyici bu veriyi okumaz;
+yalnızca dosyanın Illustrator'da katmanlı olarak yeniden açılmasını sağlar.
+Bu veri ve referanssız kalan 4 nesne atıldı.
+
+- **Hiçbir görsel küçültülmedi, hiçbir metin rasterleştirilmedi.**
+- Metin vektör olarak kaldı: seçilebilir, aranabilir, her yakınlaştırmada net.
+- 12 sayfanın tamamı tarayıcıda doğrulandı.
+- Kaybolan tek şey: Illustrator'da katmanlı açılabilme. Orijinal `docs/` altında
+  duruyor (git dışında), gerekirse oradan alınır.
+
+Üretim script'i: `tools/pdf-optimize.mjs`. Orijinal PDF'ler `.gitignore`'da kalmaya
+devam ediyor (`docs/*.pdf`).
 
 ### 29. Özel alan adı — 🟡 alt yol varsayımıyla ilerleniyor
 
