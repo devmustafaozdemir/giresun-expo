@@ -159,7 +159,7 @@ gelen katılımcı adları için de geçerlidir.
 - Dosya numaralı bölümlerden oluşur (01 Tokens … 12 Responsive). Yeni stil, ait olduğu bölüme eklenir.
 - **Renk, boşluk, yarıçap, gölge değerlerini doğrudan yazma** — daima `:root` içindeki
   `--color-*`, `--space-*`, `--radius-*`, `--shadow-*` token'larını kullan.
-- Mobil menü kırılım noktası **1024px**. Değiştirilirse `main.js` içindeki
+- Mobil menü kırılım noktası **1140px**. Değiştirilirse `main.js` içindeki
   `DESKTOP_BREAKPOINT` sabiti de güncellenmeli.
 - Harici font/CDN yok; sistem font yığını kullanılır.
 

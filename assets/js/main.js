@@ -1,14 +1,22 @@
 /* ==========================================================================
-   Giresun Expo — main.js
-   Harici bağımlılık yok. <script defer> ile yüklenir.
-   İçerik: mobil menü (aç/kapat, erişilebilirlik, kapanma senaryoları) + footer yılı.
+   Giresun EXPO 2026 — main.js
+   Harici bağımlılık yok. Her sayfada <script src="…/main.js" defer>.
+
+   İçerik:
+     01. Mobil menü          04. Sekmeler
+     02. Geri sayım          05. Çerez bandı
+     03. Akordeon            06. Reveal + footer yılı
+
+   KURAL: Kullanıcıdan/veriden gelen metin DOM'a asla innerHTML ile basılmaz.
    ========================================================================== */
 (function () {
   "use strict";
 
-  var DESKTOP_BREAKPOINT = 1024; /* style.css bölüm 12 ile aynı olmalı */
+  var DESKTOP_BREAKPOINT = 1140;  /* style.css bölüm 21 ile eş olmalı */
 
-  /* ---- Mobil menü ------------------------------------------------------ */
+  /* =======================================================================
+     01. Mobil menü
+     ======================================================================= */
   function initNav() {
     var header = document.querySelector(".site-header");
     if (!header) return;
@@ -18,9 +26,7 @@
     var overlay = header.querySelector(".nav-overlay");
     if (!toggle || !nav) return;
 
-    function isOpen() {
-      return header.classList.contains("is-open");
-    }
+    function isOpen() { return header.classList.contains("is-open"); }
 
     function setOpen(open) {
       header.classList.toggle("is-open", open);
@@ -34,35 +40,24 @@
       if (refocus) toggle.focus();
     }
 
-    toggle.addEventListener("click", function () {
-      setOpen(!isOpen());
+    toggle.addEventListener("click", function () { setOpen(!isOpen()); });
+
+    if (overlay) overlay.addEventListener("click", function () { close(false); });
+
+    nav.addEventListener("click", function (e) {
+      if (e.target.closest("a")) close(false);
     });
 
-    /* Örtüye tıklama */
-    if (overlay) {
-      overlay.addEventListener("click", function () {
-        close(false);
-      });
-    }
-
-    /* Menü içindeki bir linke tıklanınca kapat */
-    nav.addEventListener("click", function (event) {
-      if (event.target.closest("a")) close(false);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" || e.key === "Esc") close(true);
     });
 
-    /* Esc ile kapat, odağı hamburgere geri ver */
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" || event.key === "Esc") close(true);
-    });
-
-    /* Menü dışına tıklama (örtünün olmadığı durumlar için güvence) */
-    document.addEventListener("click", function (event) {
+    document.addEventListener("click", function (e) {
       if (!isOpen()) return;
-      if (nav.contains(event.target) || toggle.contains(event.target)) return;
+      if (nav.contains(e.target) || toggle.contains(e.target)) return;
       close(false);
     });
 
-    /* Masaüstü genişliğine çıkılınca durumu sıfırla */
     var resizeTimer = null;
     window.addEventListener("resize", function () {
       if (resizeTimer) window.clearTimeout(resizeTimer);
@@ -72,16 +67,195 @@
     });
   }
 
-  /* ---- Footer telif yılı ----------------------------------------------- */
-  function initYear() {
-    var el = document.getElementById("year");
-    if (el) el.textContent = String(new Date().getFullYear());
+  /* =======================================================================
+     02. Geri sayım — üç durum: öncesi / sırasında / sonrası
+     Markup, JS çalışmazsa anlamlı bir yedek metin içerir; JS yalnızca
+     o metnin yerine canlı sayacı koyar.
+     ======================================================================= */
+  function initCountdown() {
+    var el = document.getElementById("countdown");
+    if (!el) return;
+
+    var body = el.querySelector("[data-countdown-body]");
+    var start = Date.parse(el.dataset.start || "");
+    var end = Date.parse(el.dataset.end || "");
+    if (!body || isNaN(start) || isNaN(end)) return;
+
+    var labels = {
+      gun: el.dataset.labelGun || "Gün",
+      saat: el.dataset.labelSaat || "Saat",
+      dakika: el.dataset.labelDakika || "Dakika",
+      saniye: el.dataset.labelSaniye || "Saniye"
+    };
+
+    function statusNode(text) {
+      var p = document.createElement("p");
+      p.className = "countdown__status";
+      p.textContent = text;
+      return p;
+    }
+
+    function unitNode(value, label) {
+      var wrap = document.createElement("div");
+      wrap.className = "countdown__unit";
+      var num = document.createElement("span");
+      num.className = "countdown__num";
+      num.textContent = value < 10 ? "0" + value : String(value);
+      var lab = document.createElement("span");
+      lab.className = "countdown__unit-label";
+      lab.textContent = label;
+      wrap.appendChild(num);
+      wrap.appendChild(lab);
+      return wrap;
+    }
+
+    var timer = null;
+
+    function render() {
+      var now = Date.now();
+
+      /* Fuar bitti */
+      if (now > end) {
+        body.replaceChildren(statusNode(el.dataset.textAfter || ""));
+        if (timer) window.clearInterval(timer);
+        return;
+      }
+
+      /* Fuar devam ediyor */
+      if (now >= start) {
+        el.classList.add("countdown--live");
+        body.replaceChildren(statusNode(el.dataset.textDuring || ""));
+        return;   /* saat başı tekrar bakmaya devam et, bitişi yakalasın */
+      }
+
+      /* Fuara var */
+      var diff = Math.floor((start - now) / 1000);
+      var gun = Math.floor(diff / 86400);
+      var saat = Math.floor((diff % 86400) / 3600);
+      var dakika = Math.floor((diff % 3600) / 60);
+      var saniye = diff % 60;
+
+      var label = document.createElement("span");
+      label.className = "countdown__label";
+      label.textContent = el.dataset.textBefore || "";
+
+      var units = document.createElement("div");
+      units.className = "countdown__units";
+      units.appendChild(unitNode(gun, labels.gun));
+      units.appendChild(unitNode(saat, labels.saat));
+      units.appendChild(unitNode(dakika, labels.dakika));
+      units.appendChild(unitNode(saniye, labels.saniye));
+
+      body.replaceChildren(label, units);
+    }
+
+    render();
+    timer = window.setInterval(render, 1000);
   }
 
-  /* ---- Bölümlere girişte hafif fade/slide ------------------------------
-     .reveal sınıfı olan öğeler görünür alana girince .is-visible alır.
-     prefers-reduced-motion altında hiç gözlem açılmaz, hepsi anında görünür
-     (CSS zaten .reveal'ı nötrler, burada sınıfı da ekleyip garantiye alıyoruz). */
+  /* =======================================================================
+     03. Akordeon (SSS)
+     ======================================================================= */
+  function initAccordions() {
+    var buttons = document.querySelectorAll(".accordion__btn");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", function () {
+        var open = this.getAttribute("aria-expanded") === "true";
+        this.setAttribute("aria-expanded", open ? "false" : "true");
+        var panel = document.getElementById(this.getAttribute("aria-controls"));
+        if (panel) panel.hidden = open;
+      });
+    }
+  }
+
+  /* =======================================================================
+     04. Sekmeler — ok tuşlarıyla gezinme dahil
+     ======================================================================= */
+  function initTabs() {
+    var lists = document.querySelectorAll('[role="tablist"]');
+
+    for (var i = 0; i < lists.length; i++) {
+      (function (list) {
+        var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+        if (!tabs.length) return;
+
+        function select(tab) {
+          for (var j = 0; j < tabs.length; j++) {
+            var on = tabs[j] === tab;
+            tabs[j].setAttribute("aria-selected", on ? "true" : "false");
+            tabs[j].tabIndex = on ? 0 : -1;
+            var panel = document.getElementById(tabs[j].getAttribute("aria-controls"));
+            if (panel) panel.hidden = !on;
+          }
+        }
+
+        list.addEventListener("click", function (e) {
+          var tab = e.target.closest('[role="tab"]');
+          if (tab) select(tab);
+        });
+
+        list.addEventListener("keydown", function (e) {
+          var idx = tabs.indexOf(document.activeElement);
+          if (idx === -1) return;
+          var next = null;
+          if (e.key === "ArrowRight") next = tabs[(idx + 1) % tabs.length];
+          else if (e.key === "ArrowLeft") next = tabs[(idx - 1 + tabs.length) % tabs.length];
+          else if (e.key === "Home") next = tabs[0];
+          else if (e.key === "End") next = tabs[tabs.length - 1];
+          if (!next) return;
+          e.preventDefault();
+          next.focus();
+          select(next);
+        });
+      })(lists[i]);
+    }
+  }
+
+  /* =======================================================================
+     05. Çerez bandı — yalnızca gerekli çerezler, tek onay
+     ======================================================================= */
+  function initCookieBar() {
+    var bar = document.getElementById("cookie-bar");
+    if (!bar) return;
+
+    var KEY = "ge-cerez-onay";
+    var stored = null;
+    try { stored = window.localStorage.getItem(KEY); } catch (e) { /* engelli olabilir */ }
+    if (stored === "1") return;
+
+    bar.hidden = false;
+    var btn = bar.querySelector("[data-cookie-accept]");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      bar.hidden = true;
+      try { window.localStorage.setItem(KEY, "1"); } catch (e) { /* yoksay */ }
+    });
+  }
+
+  /* =======================================================================
+     05b. Gizlilik dostu harita — kullanıcı tıklayana kadar dış istek yok
+     ======================================================================= */
+  function initMap() {
+    var map = document.getElementById("map");
+    if (!map) return;
+    var btn = map.querySelector("[data-map-load]");
+    if (!btn) return;
+
+    btn.addEventListener("click", function () {
+      var q = map.dataset.query || "";
+      var frame = document.createElement("iframe");
+      frame.src = "https://maps.google.com/maps?q=" + encodeURIComponent(q) + "&output=embed";
+      frame.title = map.dataset.title || "Harita";
+      frame.loading = "lazy";
+      frame.referrerPolicy = "no-referrer-when-downgrade";
+      frame.setAttribute("allowfullscreen", "");
+      map.replaceChildren(frame);
+    });
+  }
+
+  /* =======================================================================
+     06. Reveal + footer yılı
+     ======================================================================= */
   function initReveal() {
     var items = document.querySelectorAll(".reveal");
     if (!items.length) return;
@@ -96,14 +270,24 @@
       for (var i = 0; i < entries.length; i++) {
         if (!entries[i].isIntersecting) continue;
         entries[i].target.classList.add("is-visible");
-        observer.unobserve(entries[i].target);   /* bir kez oynar */
+        observer.unobserve(entries[i].target);
       }
-    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
 
     for (var j = 0; j < items.length; j++) observer.observe(items[j]);
   }
 
+  function initYear() {
+    var el = document.getElementById("year");
+    if (el) el.textContent = String(new Date().getFullYear());
+  }
+
   initNav();
-  initYear();
+  initCountdown();
+  initAccordions();
+  initTabs();
+  initCookieBar();
+  initMap();
   initReveal();
+  initYear();
 })();

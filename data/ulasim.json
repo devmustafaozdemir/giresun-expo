@@ -1,0 +1,41 @@
+{
+  "_kaynak": "docs/KITAPCIK-ICERIK.md §4 — kitapçıktaki haliyle, yeni bilgi eklenmedi",
+  "secenekler": [
+    {
+      "slug": "anadolu-yakasi",
+      "ikon": "ulasim-metro",
+      "baslik_tr": "Anadolu Yakası'ndan",
+      "baslik_en": "From the Anatolian Side",
+      "hatlar": ["M4", "Marmaray"],
+      "metin_tr": "Kadıköy'den M4 metrosu ile Ayrılık Çeşmesi durağına gelerek Marmaray'a aktarma yapabilirsiniz. Üsküdar'dan ise Marmaray'a doğrudan binerek Yenikapı durağında inebilirsiniz.",
+      "metin_en": "Take the M4 metro from Kadıköy to Ayrılık Çeşmesi and change to the Marmaray. From Üsküdar you can board the Marmaray directly and get off at Yenikapı."
+    },
+    {
+      "slug": "avrupa-yakasi",
+      "ikon": "ulasim-metro",
+      "baslik_tr": "Avrupa Yakası'ndan",
+      "baslik_en": "From the European Side",
+      "hatlar": ["M1A", "M1B", "M2", "Marmaray"],
+      "metin_tr": "M1A, M1B ve M2 metro hatlarıyla Yenikapı'ya ulaşabilirsiniz. Taksim'den M2 metrosu, Bağcılar yönünden ise M1B metrosu Yenikapı durağına gelir.",
+      "metin_en": "The M1A, M1B and M2 metro lines all reach Yenikapı. Take the M2 from Taksim, or the M1B from the Bağcılar direction."
+    },
+    {
+      "slug": "otobus",
+      "ikon": "ulasim-otobus",
+      "baslik_tr": "Otobüsle",
+      "baslik_en": "By Bus",
+      "hatlar": ["30D", "31", "31Y", "50Y", "70FY", "70KY"],
+      "metin_tr": "Yenikapı Etkinlik Alanı çevresinde 30D, 31, 31Y, 50Y, 70FY ve 70KY gibi çeşitli İETT hatları hizmet veriyor.",
+      "metin_en": "Several IETT bus lines serve the area around the Yenikapı Event Area, including 30D, 31, 31Y, 50Y, 70FY and 70KY."
+    },
+    {
+      "slug": "ozel-arac",
+      "ikon": "ulasim-arac",
+      "baslik_tr": "Özel araçla",
+      "baslik_en": "By Car",
+      "hatlar": [],
+      "metin_tr": "Özel aracıyla gelecek ziyaretçiler için Yenikapı Etkinlik Alanı çevresinde otopark imkânı bulunuyor.",
+      "metin_en": "Parking is available around the Yenikapı Event Area for visitors arriving by car."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "_kaynak": "Yanıtların tamamı docs/KITAPCIK-ICERIK.md'den doğrulanabilir. Kitapçıkta olmayan hiçbir bilgi eklenmedi.",
+  "_not": "C aşamasında faqs tablosuna aktarılacak, admin panelden yönetilecek.",
+  "sorular": [
+    {
+      "slug": "ne-zaman-nerede",
+      "soru_tr": "Giresun EXPO 2026 ne zaman ve nerede düzenleniyor?",
+      "soru_en": "When and where is Giresun EXPO 2026 held?",
+      "cevap_tr": "8–11 Ekim 2026 tarihlerinde, İstanbul Yenikapı Etkinlik Alanı'ndaki Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi'nde düzenlenecek.",
+      "cevap_en": "From 8 to 11 October 2026, at the Dr. Mimar Kadir Topbaş Arts and Performance Centre in the Yenikapı Event Area, Istanbul.",
+      "sira": 1
+    },
+    {
+      "slug": "ziyaret-saatleri",
+      "soru_tr": "Fuar hangi saatlerde açık?",
+      "soru_en": "What are the opening hours?",
+      "cevap_tr": "Perşembe ve Cuma 10.00–19.00, Cumartesi 10.00–20.00, Pazar 10.00–18.00 saatleri arasında ziyarete açık.",
+      "cevap_en": "Thursday and Friday 10:00–19:00, Saturday 10:00–20:00, Sunday 10:00–18:00.",
+      "sira": 2
+    },
+    {
+      "slug": "ulasim",
+      "soru_tr": "Fuar alanına nasıl ulaşabilirim?",
+      "soru_en": "How do I get to the venue?",
+      "cevap_tr": "Yenikapı, Marmaray ile M1A, M1B ve M2 metro hatlarının kesiştiği bir aktarma noktasıdır. Anadolu Yakası'ndan M4 ile Ayrılık Çeşmesi'ne gelip Marmaray'a aktarma yapabilir, Üsküdar'dan doğrudan Marmaray'a binebilirsiniz. Çevrede 30D, 31, 31Y, 50Y, 70FY ve 70KY İETT hatları hizmet veriyor.",
+      "cevap_en": "Yenikapı is an interchange where the Marmaray line meets the M1A, M1B and M2 metro lines. From the Anatolian side you can take the M4 to Ayrılık Çeşmesi and change to the Marmaray, or board the Marmaray directly at Üsküdar. IETT bus lines 30D, 31, 31Y, 50Y, 70FY and 70KY serve the area.",
+      "sira": 3
+    },
+    {
+      "slug": "otopark",
+      "soru_tr": "Otopark imkânı var mı?",
+      "soru_en": "Is there parking?",
+      "cevap_tr": "Evet. Özel aracıyla gelecek ziyaretçiler için Yenikapı Etkinlik Alanı çevresinde otopark imkânı bulunuyor.",
+      "cevap_en": "Yes. Parking is available around the Yenikapı Event Area for visitors arriving by car.",
+      "sira": 4
+    },
+    {
+      "slug": "kimler-katiliyor",
+      "soru_tr": "Fuarda kimler yer alıyor?",
+      "soru_en": "Who takes part in the fair?",
+      "cevap_tr": "86 katılımcı firma beş salonda stant açıyor. Fuar; kamu kurumlarını, özel sektörü, yatırımcıları, üreticileri, sanayicileri, girişimcileri, üniversiteleri, kooperatifleri ve sivil toplum kuruluşlarını aynı çatı altında buluşturuyor.",
+      "cevap_en": "86 exhibiting companies have stands across five halls. The fair brings together public institutions, the private sector, investors, producers, industrialists, entrepreneurs, universities, cooperatives and civil society organisations.",
+      "sira": 5
+    },
+    {
+      "slug": "kim-duzenliyor",
+      "soru_tr": "Fuarı kim düzenliyor?",
+      "soru_en": "Who organises the fair?",
+      "cevap_tr": "Organizasyon; Giresun Vakfı, Giresun Federasyonu ve Şebinkarahisar Sanayici ve İş İnsanları Derneği (ŞEBİNSİAD) ortaklığıyla hayata geçiriliyor.",
+      "cevap_en": "The fair is organised jointly by the Giresun Foundation, the Giresun Federation and the Şebinkarahisar Association of Industrialists and Businesspeople (ŞEBİNSİAD).",
+      "sira": 6
+    },
+    {
+      "slug": "salonlar",
+      "soru_tr": "Salonlar nasıl düzenlenmiş?",
+      "soru_en": "How are the halls organised?",
+      "cevap_tr": "Stantlar A, T, G, P ve E olmak üzere beş alana dağılmış durumda. Stant numarasının ilk harfi bulunduğu alanı gösterir; Katılımcılar sayfasından salona göre filtreleyebilirsiniz.",
+      "cevap_en": "Stands are spread across five areas: A, T, G, P and E. The first letter of a stand number indicates its area; you can filter by hall on the Exhibitors page.",
+      "sira": 7
+    },
+    {
+      "slug": "program",
+      "soru_tr": "Etkinlik programı açıklandı mı?",
+      "soru_en": "Has the event programme been announced?",
+      "cevap_tr": "Panel, sunum ve oturum programı henüz açıklanmadı. Açıklandığında bu sitede yayımlanacak.",
+      "cevap_en": "The programme of panels, presentations and sessions has not been announced yet. It will be published on this site once available.",
+      "sira": 8
+    }
+  ]
+}

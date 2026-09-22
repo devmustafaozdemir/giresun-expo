@@ -15,7 +15,7 @@
      kontrastı 3.18 — yalnızca grafik öğe, ikon ve halka motifi için.
    - Logo yalnızca açık zeminde. Koyu bantta beyaz kart içine alınır.
      Header ve favicon: tarihsiz logo. Hero/footer/OG: tarihli logo.
-   - Mobil menü kırılım noktası 1024px — main.js'teki DESKTOP_BREAKPOINT ile eş.
+   - Mobil menü kırılım noktası 1140px — main.js'teki DESKTOP_BREAKPOINT ile eş.
    ========================================================================== */
 
 
@@ -1070,6 +1070,93 @@ select.form__control {
 }
 
 
+/* Fuar sırasında geri sayım yerine durum mesajı — lacivert bant */
+.countdown--live { background-color: var(--color-secondary); }
+
+/* Ziyaret saatleri tablosu */
+.hours {
+  border-collapse: collapse;
+  min-width: 420px;
+}
+.hours th,
+.hours td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+.hours thead th {
+  color: var(--color-muted);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom-color: var(--color-border-mid);
+}
+.hours tbody th {
+  color: var(--color-ink);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hours tbody td:last-child {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Mekân adresi */
+.venue {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-secondary);
+  border-radius: var(--radius);
+  font-style: normal;
+}
+.venue__name { color: var(--color-ink); font-family: var(--font-display); font-size: 1.0625rem; }
+.venue__area { color: var(--color-primary); font-weight: 600; font-size: 0.9375rem; }
+.venue__addr { color: var(--color-muted); font-size: 0.9375rem; }
+
+/* Ulaşım listesi */
+.transport-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-4); }
+.transport-list li { display: flex; align-items: flex-start; gap: var(--space-3); }
+.transport-list .icon { color: var(--color-primary); margin-top: 0.15rem; }
+.transport-list .line-badge { margin-right: 0.15rem; }
+
+/* Gizlilik dostu harita: kullanıcı tıklamadan dış istek yapılmaz */
+.map {
+  position: relative;
+  /* width:100% ZORUNLU. aspect-ratio + min-height birlikte kullanılırsa tarayıcı
+     genişliği yükseklikten hesaplar ve öğe kabını taşırır (280 × 21/9 = 653px).
+     Dar ekranda şerit gibi görünmemesi için oran değişir, min-height kullanılmaz. */
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+}
+.map__prompt {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  text-align: center;
+}
+.map__prompt .icon { color: var(--color-border-mid); }
+.map__text { color: var(--color-muted); font-size: 0.9375rem; max-width: 46ch; }
+.map__alt { font-size: 0.875rem; }
+.map__alt a { display: inline-flex; align-items: center; gap: var(--space-1); }
+.map iframe { width: 100%; height: 100%; border: 0; display: block; }
+
 /* 16. Medya & fotoğraf
    ========================================================================== */
 .media {
@@ -1439,11 +1526,11 @@ select.form__control {
 
 /* 21. Responsive
    ========================================================================== */
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
   .nav-toggle { display: none; }
 }
 
-@media (max-width: 1023.98px) {
+@media (max-width: 1139.98px) {
   .site-nav {
     position: fixed;
     inset: var(--header-h) 0 0 auto;
@@ -1500,6 +1587,9 @@ select.form__control {
 @media (max-width: 767.98px) {
   :root { --header-h: 68px; }
   .logo img { height: 40px; }
+  .map { aspect-ratio: 4 / 3; }
+  .hours { min-width: 0; }
+  .hours th, .hours td { padding: var(--space-3) var(--space-2); }
   .steps { flex-direction: column; gap: var(--space-3); }
   .steps__item { border-top-width: 2px; }
   .modal__box { padding: var(--space-5); }
