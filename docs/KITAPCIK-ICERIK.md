@@ -102,7 +102,7 @@ Harita arama sorgusu: `Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenika
 - Stant kodlarının ilk harfi salonu/alanı gösteriyor: **A, T, G, P, E**. Katılımcılar sayfasında salon filtresi olarak kullanılabilir.
 - Sektörler kitapçıkta **yok**. Firma adlarından tahmin edildi (`_note` alanına bakın). Admin panelden doğrulanacak.
 - `in_booklet_logo_page: true` olan firmalar kitapçığın "Katılımcı Firmalarımızdan Bazıları" logo sayfasında yer alıyor. "Öne çıkan" için iyi bir başlangıç listesi.
-- Logo sayfasında görünüp stant listesinde bulunmayan markalar var: **Irmak**, **Hız İnşaat**. Organizatöre sorulacak.
+- Logo sayfasında görünüp stant listesinde bulunmayan markalar var: **Irmak**, **Hız İnşaat** ve **FAR Elektrik Teknolojileri**. (FAR, logolar çıkarılırken tespit edildi.) Organizatöre sorulacak.
 - Kitapçıktaki yazımı muhtemelen hatalı olan isimler: "ANADOLU İNDİKSİYON" (İndüksiyon olabilir), "ALİMİNYUM" (Alüminyum olarak düzeltildi). Organizatöre teyit ettirilecek.
 
 ---
