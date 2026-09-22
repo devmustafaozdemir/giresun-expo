@@ -1,0 +1,13 @@
+# Satır sonlarını depoda LF olarak normalize et (Windows/macOS/Linux karışık ekip)
+* text=auto eol=lf
+
+# İkili dosyalar
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.pdf   binary

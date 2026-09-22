@@ -1,0 +1,19 @@
+# İşletim sistemi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editör / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Bağımlılık & çıktı (ileride eklenirse)
+node_modules/
+dist/
+.cache/
+
+# Log & geçici
+*.log
+*.tmp

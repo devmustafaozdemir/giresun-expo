@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stant Başvurusu | Giresun Expo</title>
+  <meta name="description" content="Giresun Expo'da yer almak için stant başvuru formunu doldurun.">
+  <link rel="alternate" hreflang="tr" href="stant-basvurusu.html">
+  <link rel="alternate" hreflang="en" href="en/stand-application.html">
+  <link rel="alternate" hreflang="x-default" href="stant-basvurusu.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stant Başvurusu | Giresun Expo">
+  <meta property="og:description" content="Giresun Expo'da yer almak için stant başvuru formunu doldurun.">
+  <meta property="og:locale" content="tr_TR">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <!-- ==== Ortak header — tüm sayfalarda birebir aynıdır ==================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menüyü aç/kapat">
+        <span class="nav-toggle__box"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Ana menü">
+        <ul class="nav-list">
+          <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
+          <li><a class="nav__link" href="hakkinda.html">Fuar Hakkında</a></li>
+          <li><a class="nav__link" href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a class="nav__link" href="ziyaretci.html">Ziyaretçi</a></li>
+          <li><a class="nav__link" href="program.html">Program</a></li>
+          <li><a class="nav__link" href="galeri.html">Galeri</a></li>
+          <li><a class="nav__link" href="haberler.html">Haberler</a></li>
+          <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <div class="lang-switch">
+            <a class="lang-switch__link is-active" href="stant-basvurusu.html" lang="tr" hreflang="tr">TR</a>
+            <span class="lang-switch__sep" aria-hidden="true">|</span>
+            <a class="lang-switch__link" href="en/stand-application.html" lang="en" hreflang="en">EN</a>
+          </div>
+          <a class="btn btn--accent btn--sm" href="stant-basvurusu.html">Stant Başvurusu</a>
+        </div>
+      </nav>
+
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main id="main">
+      <section class="page-header">
+        <div class="container">
+          <h1>Stant Başvurusu</h1>
+          <p class="lead">Formu doldurun, satış ekibimiz stant seçenekleri ve fiyatlarla size dönsün.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container container--narrow">
+          <p class="form__hint mb-6">Form şu anda bağlı değil; gönderim altyapısı sonraki adımda eklenecek.</p>
+          <form class="form" novalidate>
+
+            <fieldset class="fieldset form">
+              <legend>Firma Bilgileri</legend>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="s-company">Firma Adı <span class="req">*</span></label>
+                  <input class="form__control" id="s-company" name="company" type="text" required>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="s-sector">Sektör <span class="req">*</span></label>
+                  <input class="form__control" id="s-sector" name="sector" type="text" required>
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="s-web">Web Sitesi</label>
+                  <input class="form__control" id="s-web" name="website" type="url" placeholder="https://">
+                  <p class="form__hint">https:// ile başlayacak şekilde yazın.</p>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="s-country">Ülke / Şehir <span class="req">*</span></label>
+                  <input class="form__control" id="s-country" name="country" type="text" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset form">
+              <legend>Yetkili Kişi</legend>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="s-name">Ad Soyad <span class="req">*</span></label>
+                  <input class="form__control" id="s-name" name="contactName" type="text" required>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="s-title">Görev</label>
+                  <input class="form__control" id="s-title" name="contactTitle" type="text">
+                </div>
+              </div>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="s-mail">E-posta <span class="req">*</span></label>
+                  <input class="form__control" id="s-mail" name="email" type="email" required>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="s-phone">Telefon <span class="req">*</span></label>
+                  <input class="form__control" id="s-phone" name="phone" type="tel" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="fieldset form">
+              <legend>Stant Talebi</legend>
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="s-area">Talep Edilen Stant Alanı <span class="req">*</span></label>
+                  <select class="form__control" id="s-area" name="area" required>
+                    <option value="">Seçiniz</option>
+                    <option>9 m² (3x3)</option>
+                    <option>18 m² (6x3)</option>
+                    <option>36 m² (6x6)</option>
+                    <option>Diğer</option>
+                  </select>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="s-type">Stant Tipi <span class="req">*</span></label>
+                  <select class="form__control" id="s-type" name="standType" required>
+                    <option value="">Seçiniz</option>
+                    <option>Boş alan</option>
+                    <option>Ahşap konstrüksiyon</option>
+                    <option>Özel tasarım</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="s-note">Ek Notlar</label>
+                <textarea class="form__control" id="s-note" name="note"></textarea>
+              </div>
+            </fieldset>
+
+            <label class="form__check">
+              <input type="checkbox" name="consent" required>
+              <span>Kişisel verilerimin başvuru sürecinde işlenmesini kabul ediyorum. <span class="req">*</span></span>
+            </label>
+
+            <div class="form__actions">
+              <button class="btn btn--primary btn--lg" type="submit">Başvuruyu Gönder</button>
+              <button class="btn btn--ghost" type="reset">Formu Temizle</button>
+            </div>
+          </form>
+        </div>
+      </section>
+  </main>
+
+  <!-- ==== Ortak footer — tüm sayfalarda birebir aynıdır ==================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+        <p class="site-footer__text">Giresun Expo; fındık, tarım ve gıda sektörlerini üretici, sanayici ve uluslararası alıcılarla buluşturan bölgesel fuar organizasyonudur.</p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__title">Keşfet</h2>
+        <ul class="site-footer__list">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="hakkinda.html">Fuar Hakkında</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="haberler.html">Haberler</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__title">Katılım</h2>
+        <ul class="site-footer__list">
+            <li><a href="katilimcilar.html">Katılımcılar</a></li>
+            <li><a href="ziyaretci.html">Ziyaretçi</a></li>
+            <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="site-footer__title">İletişim</h2>
+        <address>
+          <p>Fuar Alanı, Giresun, Türkiye</p>
+          <p><a href="mailto:info@giresunexpo.com">info@giresunexpo.com</a></p>
+          <p><a href="tel:+900000000000">+90 (000) 000 00 00</a></p>
+        </address>
+        <ul class="social mt-4">
+          <li><a href="#" aria-label="Instagram">IG</a></li>
+          <li><a href="#" aria-label="LinkedIn">IN</a></li>
+          <li><a href="#" aria-label="X">X</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; <span id="year">2026</span> Giresun Expo. Tüm hakları saklıdır.</p>
+      <p><a href="#">Gizlilik Politikası</a></p>
+    </div>
+  </footer>
+</body>
+</html>
