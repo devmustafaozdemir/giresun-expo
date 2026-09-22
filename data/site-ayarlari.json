@@ -1,8 +1,8 @@
 {
-  "_kaynak": "docs/KITAPCIK-ICERIK.md — Giresun EXPO 2026 A5 El Kitapçığı",
+  "_kaynak": "docs/KITAPCIK-ICERIK.md — Giresun EXPO A5 El Kitapçığı",
   "_not": "Bu dosya C aşamasında Supabase site_settings tablosuna taşınacak. O zamana kadar sitenin tek veri kaynağıdır. Boş bırakılan alanlar sitede HİÇ GÖRÜNMEZ (kırık link veya 'TODO' yazısı çıkmaz).",
   "etkinlik": {
-    "ad": "Giresun EXPO 2026",
+    "ad": "Giresun EXPO",
     "baslangic": "2026-10-08",
     "bitis": "2026-10-11",
     "geri_sayim_hedefi": "2026-10-08T10:00:00+03:00",

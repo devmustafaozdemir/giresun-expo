@@ -1,4 +1,4 @@
-# Giresun EXPO 2026
+# Giresun EXPO
 User-agent: *
 Allow: /
 

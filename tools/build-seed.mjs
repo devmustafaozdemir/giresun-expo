@@ -37,7 +37,7 @@ const yaz = (...x) => out.push(...x);
 
 yaz(
   '-- =============================================================================',
-  '-- Giresun EXPO 2026 — seed.sql',
+  '-- Giresun EXPO — seed.sql',
   '--',
   '-- BU DOSYA ELLE DÜZENLENMEZ. tools/build-seed.mjs tarafından data/*.json\'dan',
   '-- üretilir. Değişiklik için JSON\'u düzenleyip script\'i yeniden çalıştırın.',

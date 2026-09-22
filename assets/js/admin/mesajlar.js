@@ -93,7 +93,7 @@ const liste = await listeSayfasi(icerik, {
     }
 
     /* Yanıt: mailto:. Konu ve alıntı hazır gelir. */
-    const konu = 'Re: ' + (r.subject || 'Giresun EXPO 2026');
+    const konu = 'Re: ' + (r.subject || 'Giresun EXPO');
     const govdeMetni =
       `\n\n--- ${tarihSaat(r.created_at)} tarihinde ${r.name} yazdı ---\n` +
       r.message.split('\n').map((s) => '> ' + s).join('\n');

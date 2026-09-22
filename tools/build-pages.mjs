@@ -28,7 +28,7 @@ const NAV = ['index', 'about', 'exhibitors', 'visit', 'gallery', 'press', 'conta
 const L = {
   tr: {
     skip: 'İçeriğe geç', menu: 'Menüyü aç/kapat', nav: 'Ana menü',
-    logoAria: 'Giresun EXPO 2026 — ana sayfa',
+    logoAria: 'Giresun EXPO — ana sayfa',
     cta: 'Ziyaretçi Kayıt', cta2: 'Firma Kayıt', ctaKey: 'register',
     footAbout: 'Giresun\'un üretim, yatırım ve ticaret gücünü İstanbul\'da tanıtan iş dünyası buluşması.',
     slogan: 'Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği',
@@ -42,7 +42,7 @@ const L = {
   },
   en: {
     skip: 'Skip to content', menu: 'Toggle menu', nav: 'Main menu',
-    logoAria: 'Giresun EXPO 2026 — home',
+    logoAria: 'Giresun EXPO — home',
     cta: 'Visitor Registration', cta2: 'Company Registration', ctaKey: 'register',
     footAbout: 'A business gathering presenting Giresun\'s production, investment and trade capacity in Istanbul.',
     slogan: 'Cooperation for Giresun,<br>Strength for Türkiye',
@@ -131,7 +131,7 @@ function footer(lang) {
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
         <span class="footer-logo">
-          <img src="${r}assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
+          <img src="${r}assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO" width="1207" height="703" loading="lazy">
         </span>
         <p class="site-footer__text">${t.footAbout}</p>
         <p class="site-footer__slogan" data-ayar="slogan">${t.slogan}</p>
@@ -230,7 +230,7 @@ function head(key, lang) {
   <link rel="alternate" hreflang="x-default" href="${trUrl}">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Giresun EXPO 2026">
+  <meta property="og:site_name" content="Giresun EXPO">
   <meta property="og:locale" content="${lang === 'tr' ? 'tr_TR' : 'en_US'}">
   <meta property="og:title" content="${p.title}">
   <meta property="og:description" content="${p.ogDesc || p.desc}">
@@ -356,7 +356,7 @@ ${entries.join('\n')}
 </urlset>
 `);
 
-writeFileSync(join(ROOT, 'robots.txt'), `# Giresun EXPO 2026
+writeFileSync(join(ROOT, 'robots.txt'), `# Giresun EXPO
 User-agent: *
 Allow: /
 

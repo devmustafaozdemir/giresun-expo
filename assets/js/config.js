@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Giresun EXPO 2026 — Supabase yapılandırması
+   Giresun EXPO — Supabase yapılandırması
 
    BURAYI DOLDURUN. İki değer de Supabase panelinde:
      Project Settings -> API

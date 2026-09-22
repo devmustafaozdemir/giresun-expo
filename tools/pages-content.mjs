@@ -12,59 +12,59 @@
 
 export const PAGES = {
   index: {
-    tr: { file: 'index.html', nav: 'Ana Sayfa', title: 'Giresun EXPO 2026 — Giresun İş Dünyası İstanbul\'da Buluşuyor',
-          desc: 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul\'da Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Üretim, yatırım, ticaret ve iş birliği tek çatı altında.',
+    tr: { file: 'index.html', nav: 'Ana Sayfa', title: 'Giresun EXPO — Giresun İş Dünyası İstanbul\'da Buluşuyor',
+          desc: 'Giresun EXPO, 8–11 Ekim 2026 tarihlerinde İstanbul\'da Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Üretim, yatırım, ticaret ve iş birliği tek çatı altında.',
           ogDesc: '8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, İstanbul.' },
-    en: { file: 'index.html', nav: 'Home', title: 'Giresun EXPO 2026 — Giresun\'s Business Community Meets in Istanbul',
-          desc: 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Production, investment, trade and cooperation.',
+    en: { file: 'index.html', nav: 'Home', title: 'Giresun EXPO — Giresun\'s Business Community Meets in Istanbul',
+          desc: 'Giresun EXPO takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Production, investment, trade and cooperation.',
           ogDesc: '8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul.' },
   },
   about: {
-    tr: { file: 'hakkinda.html', nav: 'Hakkında', title: 'Fuar Hakkında — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026\'nın amacı, vizyonu ve organizatörleri. Giresun Vakfı, Giresun Federasyonu ve ŞEBİNSİAD ortaklığı.' },
-    en: { file: 'about.html', nav: 'About', title: 'About the Expo — Giresun EXPO 2026',
-          desc: 'The purpose, vision and organisers of Giresun EXPO 2026, held jointly by the Giresun Foundation, the Giresun Federation and ŞEBİNSİAD.' },
+    tr: { file: 'hakkinda.html', nav: 'Hakkında', title: 'Fuar Hakkında — Giresun EXPO',
+          desc: 'Giresun EXPO\'nun amacı, vizyonu ve organizatörleri. Giresun Vakfı, Giresun Federasyonu ve ŞEBİNSİAD ortaklığı.' },
+    en: { file: 'about.html', nav: 'About', title: 'About the Expo — Giresun EXPO',
+          desc: 'The purpose, vision and organisers of Giresun EXPO, held jointly by the Giresun Foundation, the Giresun Federation and ŞEBİNSİAD.' },
   },
   exhibitors: {
-    tr: { file: 'katilimcilar.html', nav: 'Katılımcı Firmalar', title: 'Katılımcı Firmalar — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026\'da yer alan katılımcı firmalar. Firma arayın, sektöre göre filtreleyin, stand numaralarını görün.',
-          ogDesc: 'Giresun EXPO 2026 katılımcı firmaları ve stand numaraları.', modules: ['katilimcilar.js'] },
-    en: { file: 'exhibitors.html', nav: 'Exhibitors', title: 'Exhibitors — Giresun EXPO 2026',
-          desc: 'The companies exhibiting at Giresun EXPO 2026. Search, filter by sector and find stand numbers.',
-          ogDesc: 'Giresun EXPO 2026 exhibitors and stand numbers.', modules: ['katilimcilar.js'] },
+    tr: { file: 'katilimcilar.html', nav: 'Katılımcı Firmalar', title: 'Katılımcı Firmalar — Giresun EXPO',
+          desc: 'Giresun EXPO\'da yer alan katılımcı firmalar. Firma arayın, sektöre göre filtreleyin, stand numaralarını görün.',
+          ogDesc: 'Giresun EXPO katılımcı firmaları ve stand numaraları.', modules: ['katilimcilar.js'] },
+    en: { file: 'exhibitors.html', nav: 'Exhibitors', title: 'Exhibitors — Giresun EXPO',
+          desc: 'The companies exhibiting at Giresun EXPO. Search, filter by sector and find stand numbers.',
+          ogDesc: 'Giresun EXPO exhibitors and stand numbers.', modules: ['katilimcilar.js'] },
   },
   visit: {
-    tr: { file: 'ziyaret-bilgileri.html', nav: 'Fuar Bilgileri', title: 'Fuar Bilgileri — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 ziyaret saatleri, adres ve ulaşım. Yenikapı\'ya Marmaray, M1A, M1B, M2 metro hatları ve İETT otobüsleriyle ulaşım.' },
-    en: { file: 'plan-your-visit.html', nav: 'Fair Information', title: 'Fair Information — Giresun EXPO 2026',
-          desc: 'Opening hours, address and travel information for Giresun EXPO 2026. Yenikapı is served by the Marmaray and the M1A, M1B and M2 metro lines.' },
+    tr: { file: 'ziyaret-bilgileri.html', nav: 'Fuar Bilgileri', title: 'Fuar Bilgileri — Giresun EXPO',
+          desc: 'Giresun EXPO ziyaret saatleri, adres ve ulaşım. Yenikapı\'ya Marmaray, M1A, M1B, M2 metro hatları ve İETT otobüsleriyle ulaşım.' },
+    en: { file: 'plan-your-visit.html', nav: 'Fair Information', title: 'Fair Information — Giresun EXPO',
+          desc: 'Opening hours, address and travel information for Giresun EXPO. Yenikapı is served by the Marmaray and the M1A, M1B and M2 metro lines.' },
   },
   gallery: {
-    tr: { file: 'galeri.html', nav: 'Galeri', title: 'Galeri — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 fuar alanı ve Giresun\'dan kareler.', scripts: ['galeri.js'] },
-    en: { file: 'gallery.html', nav: 'Gallery', title: 'Gallery — Giresun EXPO 2026',
-          desc: 'Images from the Giresun EXPO 2026 venue and from Giresun.', scripts: ['galeri.js'] },
+    tr: { file: 'galeri.html', nav: 'Galeri', title: 'Galeri — Giresun EXPO',
+          desc: 'Giresun EXPO fuar alanı ve Giresun\'dan kareler.', scripts: ['galeri.js'] },
+    en: { file: 'gallery.html', nav: 'Gallery', title: 'Gallery — Giresun EXPO',
+          desc: 'Images from the Giresun EXPO venue and from Giresun.', scripts: ['galeri.js'] },
   },
   press: {
-    tr: { file: 'basin.html', nav: 'Basın', title: 'Basın — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 basın kiti: logo paketi, el kitapçığı ve künye bilgileri.' },
-    en: { file: 'press.html', nav: 'Press', title: 'Press — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 press kit: logo pack, handbook and event details.' },
+    tr: { file: 'basin.html', nav: 'Basın', title: 'Basın — Giresun EXPO',
+          desc: 'Giresun EXPO basın kiti: logo paketi, el kitapçığı ve künye bilgileri.' },
+    en: { file: 'press.html', nav: 'Press', title: 'Press — Giresun EXPO',
+          desc: 'Giresun EXPO press kit: logo pack, handbook and event details.' },
   },
   contact: {
-    tr: { file: 'iletisim.html', nav: 'İletişim', title: 'İletişim — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 organizasyon ekibine ulaşın. Telefon, adres ve iletişim formu.',
+    tr: { file: 'iletisim.html', nav: 'İletişim', title: 'İletişim — Giresun EXPO',
+          desc: 'Giresun EXPO organizasyon ekibine ulaşın. Telefon, adres ve iletişim formu.',
           scripts: ['config.js'], modules: ['form-gonder.js'] },
-    en: { file: 'contact.html', nav: 'Contact', title: 'Contact — Giresun EXPO 2026',
-          desc: 'Get in touch with the Giresun EXPO 2026 team. Phone, address and contact form.',
+    en: { file: 'contact.html', nav: 'Contact', title: 'Contact — Giresun EXPO',
+          desc: 'Get in touch with the Giresun EXPO team. Phone, address and contact form.',
           scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   register: {
-    tr: { file: 'ziyaretci-kaydi.html', nav: 'Ziyaretçi Kayıt', title: 'Ziyaretçi Kayıt — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 için ziyaretçi kaydı. Kaydınızı yapın, fuar günü doğrudan stantlara gidin.',
+    tr: { file: 'ziyaretci-kaydi.html', nav: 'Ziyaretçi Kayıt', title: 'Ziyaretçi Kayıt — Giresun EXPO',
+          desc: 'Giresun EXPO için ziyaretçi kaydı. Kaydınızı yapın, fuar günü doğrudan stantlara gidin.',
           scripts: ['config.js'], modules: ['form-gonder.js'] },
-    en: { file: 'visitor-registration.html', nav: 'Visitor Registration', title: 'Visitor Registration — Giresun EXPO 2026',
-          desc: 'Register as a visitor for Giresun EXPO 2026 and head straight to the stands on the day.',
+    en: { file: 'visitor-registration.html', nav: 'Visitor Registration', title: 'Visitor Registration — Giresun EXPO',
+          desc: 'Register as a visitor for Giresun EXPO and head straight to the stands on the day.',
           scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   stand: {
@@ -76,28 +76,28 @@ export const PAGES = {
           scripts: ['config.js'], modules: ['form-gonder.js'] },
   },
   program: {
-    tr: { file: 'program.html', nav: 'Program', title: 'Etkinlik Programı — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 etkinlik programı. Panel ve oturum programı açıklandığında burada yayımlanacak.' },
-    en: { file: 'program.html', nav: 'Programme', title: 'Programme — Giresun EXPO 2026',
-          desc: 'The Giresun EXPO 2026 programme. Panels and sessions will be published here once announced.' },
+    tr: { file: 'program.html', nav: 'Program', title: 'Etkinlik Programı — Giresun EXPO',
+          desc: 'Giresun EXPO etkinlik programı. Panel ve oturum programı açıklandığında burada yayımlanacak.' },
+    en: { file: 'program.html', nav: 'Programme', title: 'Programme — Giresun EXPO',
+          desc: 'The Giresun EXPO programme. Panels and sessions will be published here once announced.' },
   },
   kvkk: {
-    tr: { file: 'kvkk.html', nav: 'KVKK Aydınlatma Metni', title: 'KVKK Aydınlatma Metni — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 kişisel verilerin korunması aydınlatma metni.' },
-    en: { file: 'data-protection.html', nav: 'Data Protection Notice', title: 'Data Protection Notice — Giresun EXPO 2026',
-          desc: 'Personal data protection notice for Giresun EXPO 2026.' },
+    tr: { file: 'kvkk.html', nav: 'KVKK Aydınlatma Metni', title: 'KVKK Aydınlatma Metni — Giresun EXPO',
+          desc: 'Giresun EXPO kişisel verilerin korunması aydınlatma metni.' },
+    en: { file: 'data-protection.html', nav: 'Data Protection Notice', title: 'Data Protection Notice — Giresun EXPO',
+          desc: 'Personal data protection notice for Giresun EXPO.' },
   },
   cookies: {
-    tr: { file: 'cerez-politikasi.html', nav: 'Çerez Politikası', title: 'Çerez Politikası — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 sitesinde kullanılan çerezler.' },
-    en: { file: 'cookie-policy.html', nav: 'Cookie Policy', title: 'Cookie Policy — Giresun EXPO 2026',
-          desc: 'Cookies used on the Giresun EXPO 2026 website.' },
+    tr: { file: 'cerez-politikasi.html', nav: 'Çerez Politikası', title: 'Çerez Politikası — Giresun EXPO',
+          desc: 'Giresun EXPO sitesinde kullanılan çerezler.' },
+    en: { file: 'cookie-policy.html', nav: 'Cookie Policy', title: 'Cookie Policy — Giresun EXPO',
+          desc: 'Cookies used on the Giresun EXPO website.' },
   },
   privacy: {
-    tr: { file: 'gizlilik.html', nav: 'Gizlilik', title: 'Gizlilik — Giresun EXPO 2026',
-          desc: 'Giresun EXPO 2026 gizlilik açıklaması.' },
-    en: { file: 'privacy.html', nav: 'Privacy', title: 'Privacy — Giresun EXPO 2026',
-          desc: 'Privacy statement for Giresun EXPO 2026.' },
+    tr: { file: 'gizlilik.html', nav: 'Gizlilik', title: 'Gizlilik — Giresun EXPO',
+          desc: 'Giresun EXPO gizlilik açıklaması.' },
+    en: { file: 'privacy.html', nav: 'Privacy', title: 'Privacy — Giresun EXPO',
+          desc: 'Privacy statement for Giresun EXPO.' },
   },
 };
 
@@ -495,14 +495,14 @@ MAIN['index:en'] = `    <section class="hero">
     </section>`;
 
 /* ---------- Hakkinda ---------------------------------------------------- */
-MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Giresun\'un ekonomik ve ticari potansiyelini İstanbul\'da tanıtan bir iş dünyası buluşmasıdır.', 'Hakkında')}
+MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO, Giresun\'un ekonomik ve ticari potansiyelini İstanbul\'da tanıtan bir iş dünyası buluşmasıdır.', 'Hakkında')}
 
     <section class="section">
       <div class="container wide-text">
         <div class="reveal">
           <p class="eyebrow">Amaç</p>
-          <h2 class="section-title">Giresun EXPO 2026 nedir?</h2>
-          <p>Giresun EXPO 2026, Giresun'un ekonomik, ticari ve girişimcilik potansiyelini
+          <h2 class="section-title">Giresun EXPO nedir?</h2>
+          <p>Giresun EXPO, Giresun'un ekonomik, ticari ve girişimcilik potansiyelini
             ulusal ve uluslararası ölçekte tanıtmayı amaçlayan kapsamlı bir iş dünyası
             buluşmasıdır. Organizasyon; yatırımcıları, üreticileri ve girişimcileri bir araya
             getirerek yeni iş birliklerinin kurulmasına ve Giresun'un marka değerinin
@@ -592,14 +592,14 @@ MAIN['about:tr'] = `${pageHeader('tr', 'Fuar Hakkında', 'Giresun EXPO 2026, Gir
       </div>
     </section>`;
 
-MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO 2026 is a business gathering that presents Giresun\'s economic and commercial potential in Istanbul.', 'About')}
+MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO is a business gathering that presents Giresun\'s economic and commercial potential in Istanbul.', 'About')}
 
     <section class="section">
       <div class="container wide-text">
         <div class="reveal">
           <p class="eyebrow">Purpose</p>
-          <h2 class="section-title">What is Giresun EXPO 2026?</h2>
-          <p>Giresun EXPO 2026 is a comprehensive business gathering that sets out to present
+          <h2 class="section-title">What is Giresun EXPO?</h2>
+          <p>Giresun EXPO is a comprehensive business gathering that sets out to present
             Giresun's economic, commercial and entrepreneurial potential on a national and
             international scale. By bringing investors, producers and entrepreneurs together,
             it aims to help new partnerships form and to strengthen Giresun's standing as a
@@ -697,7 +697,7 @@ MAIN['program:tr'] = `${pageHeader('tr', 'Etkinlik Programı', 'Panel, sunum ve 
         <div class="empty reveal">
           ${I.calendar.replace('class="icon"', 'class="empty__icon"')}
           <p class="empty__title">Program yakında açıklanacak</p>
-          <p class="empty__text">Giresun EXPO 2026'nın panel, sunum ve oturum programı
+          <p class="empty__text">Giresun EXPO'nun panel, sunum ve oturum programı
             organizasyon tarafından hazırlanıyor. Açıklandığında bu sayfada yayımlanacak.</p>
           <div class="cluster mt-4" style="justify-content:center">
             <a class="btn btn--primary" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a>
@@ -722,7 +722,7 @@ MAIN['program:en'] = `${pageHeader('en', 'Programme', 'The programme of panels, 
           ${I.calendar.replace('class="icon"', 'class="empty__icon"')}
           <p class="empty__title">The programme will be announced soon</p>
           <p class="empty__text">The programme of panels, presentations and sessions for
-            Giresun EXPO 2026 is being prepared by the organisers and will be published on this
+            Giresun EXPO is being prepared by the organisers and will be published on this
             page once announced.</p>
           <div class="cluster mt-4" style="justify-content:center">
             <a class="btn btn--primary" href="plan-your-visit.html">Plan Your Visit</a>
@@ -818,9 +818,9 @@ MAIN['press:tr'] = `${pageHeader('tr', 'Basın', 'Giresun EXPO hakkında basın 
         </div>
         <div class="scroll-x reveal">
           <table class="hours">
-            <caption class="visually-hidden">Giresun EXPO 2026 künye bilgileri</caption>
+            <caption class="visually-hidden">Giresun EXPO künye bilgileri</caption>
             <tbody>
-              <tr><th scope="row">Etkinlik</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO 2026</td></tr>
+              <tr><th scope="row">Etkinlik</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO</td></tr>
               <tr><th scope="row">Tarih</th><td colspan="2" data-ayar="tarih">8–11 Ekim 2026</td></tr>
               <tr><th scope="row">Yer</th><td colspan="2">Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı Etkinlik Alanı, İstanbul</td></tr>
               <tr><th scope="row">Katılımcı</th><td colspan="2"><span data-sayi="firma">86</span> firma, <span data-sayi="stand">100</span> stand</td></tr>
@@ -900,9 +900,9 @@ MAIN['press:en'] = `${pageHeader('en', 'Press', 'Resources for members of the pr
         </div>
         <div class="scroll-x reveal">
           <table class="hours">
-            <caption class="visually-hidden">Giresun EXPO 2026 key details</caption>
+            <caption class="visually-hidden">Giresun EXPO key details</caption>
             <tbody>
-              <tr><th scope="row">Event</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO 2026</td></tr>
+              <tr><th scope="row">Event</th><td colspan="2" data-ayar="etkinlik_adi">Giresun EXPO</td></tr>
               <tr><th scope="row">Dates</th><td colspan="2">8–11 October 2026</td></tr>
               <tr><th scope="row">Venue</th><td colspan="2">Dr. Mimar Kadir Topbaş Arts and Performance Centre, Yenikapı Event Area, Istanbul</td></tr>
               <tr><th scope="row">Exhibitors</th><td colspan="2"><span data-sayi="firma">86</span> companies, <span data-sayi="stand">100</span> stands</td></tr>
@@ -1051,8 +1051,8 @@ const registerBody = (lang) => {
       <div class="container container--narrow">
         <div class="reveal">
           <p>${tr
-    ? 'Giresun EXPO 2026, 8–11 Ekim 2026 tarihlerinde İstanbul\'da, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Giriş ücretsizdir.'
-    : 'Giresun EXPO 2026 takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Admission is free.'}</p>
+    ? 'Giresun EXPO, 8–11 Ekim 2026 tarihlerinde İstanbul\'da, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi\'nde düzenleniyor. Giriş ücretsizdir.'
+    : 'Giresun EXPO takes place from 8 to 11 October 2026 at the Dr. Mimar Kadir Topbaş Arts and Performance Centre, Istanbul. Admission is free.'}</p>
         </div>
 
         <form class="form mt-8 reveal" data-form="visitor" novalidate>

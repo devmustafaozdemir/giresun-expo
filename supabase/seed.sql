@@ -1,5 +1,5 @@
 -- =============================================================================
--- Giresun EXPO 2026 — seed.sql
+-- Giresun EXPO — seed.sql
 --
 -- BU DOSYA ELLE DÜZENLENMEZ. tools/build-seed.mjs tarafından data/*.json'dan
 -- üretilir. Değişiklik için JSON'u düzenleyip script'i yeniden çalıştırın.
@@ -778,7 +778,7 @@ insert into public.site_settings (
   stant_basvuru_acik, stant_baslik_tr, stant_baslik_en, stant_kapali_tr, stant_kapali_en,
   ziyaretci_kaydi_acik, program_yayinda
 ) values (
-  true, 'Giresun EXPO 2026', '2026-10-08', '2026-10-11', '2026-10-08T10:00:00+03:00',
+  true, 'Giresun EXPO', '2026-10-08', '2026-10-11', '2026-10-08T10:00:00+03:00',
   'Giresun İş Dünyası İstanbul''da Buluşuyor', 'Giresun''s Business Community Meets in Istanbul', 'Giresun İçin İş Birliği, Türkiye İçin Güç Birliği', 'Cooperation for Giresun, Strength for Türkiye',
   'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi', 'Dr. Mimar Kadir Topbaş Arts and Performance Centre', 'Yenikapı Etkinlik Alanı', 'Yenikapı Event Area', 'İstanbul',
   'Aksaray Mahallesi, Yenikapı Etkinlik Alanı, Kennedy Caddesi No: 11/1, Fatih/İstanbul', 'Aksaray Mahallesi, Yenikapı Event Area, Kennedy Caddesi No: 11/1, Fatih/Istanbul', 'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul',

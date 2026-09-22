@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Giresun EXPO 2026 — main.js
+   Giresun EXPO — main.js
    Harici bağımlılık yok. Her sayfada <script src="…/main.js" defer>.
 
    İçerik:
