@@ -1,27 +1,47 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-root="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Katılımcılar | Giresun Expo</title>
-  <meta name="description" content="Giresun Expo katılımcı firmaları, sektörleri ve stant bilgileri.">
-  <link rel="alternate" hreflang="tr" href="katilimcilar.html">
-  <link rel="alternate" hreflang="en" href="en/exhibitors.html">
-  <link rel="alternate" hreflang="x-default" href="katilimcilar.html">
+  <script>document.documentElement.classList.add('js')</script>
+
+  <title>Katılımcılar — Giresun EXPO 2026</title>
+  <meta name="description" content="Giresun EXPO 2026'da yer alan 86 katılımcı firma. Sektöre ve salona göre filtreleyin, stant numaralarını görün.">
+
+  <link rel="canonical" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html">
+  <link rel="alternate" hreflang="tr" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html">
+  <link rel="alternate" hreflang="en" href="https://devmustafaozdemir.github.io/giresun-expo/en/exhibitors.html">
+  <link rel="alternate" hreflang="x-default" href="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Katılımcılar | Giresun Expo">
-  <meta property="og:description" content="Giresun Expo katılımcı firmaları, sektörleri ve stant bilgileri.">
+  <meta property="og:site_name" content="Giresun EXPO 2026">
   <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Katılımcılar — Giresun EXPO 2026">
+  <meta property="og:description" content="86 katılımcı firma, 5 salon, 17 sektör.">
+  <meta property="og:url" content="https://devmustafaozdemir.github.io/giresun-expo/katilimcilar.html">
+  <meta property="og:image" content="https://devmustafaozdemir.github.io/giresun-expo/assets/img/brand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/brand/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/brand/favicon-180.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-var-latin-ext.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/katilimcilar.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
 
-  <!-- ==== Ortak header — tüm sayfalarda birebir aynıdır ==================== -->
+  <!-- ==== Ortak header — tüm TR sayfalarda birebir aynıdır ================= -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
+      <a class="logo" href="index.html" aria-label="Giresun EXPO 2026 — ana sayfa">
+        <img src="assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="1206" height="703">
+      </a>
 
       <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menüyü aç/kapat">
         <span class="nav-toggle__box"></span>
@@ -30,12 +50,11 @@
       <nav class="site-nav" id="site-nav" aria-label="Ana menü">
         <ul class="nav-list">
           <li><a class="nav__link" href="index.html">Ana Sayfa</a></li>
-          <li><a class="nav__link" href="hakkinda.html">Fuar Hakkında</a></li>
+          <li><a class="nav__link" href="hakkinda.html">Hakkında</a></li>
           <li><a class="nav__link is-active" href="katilimcilar.html" aria-current="page">Katılımcılar</a></li>
-          <li><a class="nav__link" href="ziyaretci.html">Ziyaretçi</a></li>
-          <li><a class="nav__link" href="program.html">Program</a></li>
+          <li><a class="nav__link" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
           <li><a class="nav__link" href="galeri.html">Galeri</a></li>
-          <li><a class="nav__link" href="haberler.html">Haberler</a></li>
+          <li><a class="nav__link" href="basin.html">Basın</a></li>
           <li><a class="nav__link" href="iletisim.html">İletişim</a></li>
         </ul>
 
@@ -45,7 +64,7 @@
             <span class="lang-switch__sep" aria-hidden="true">|</span>
             <a class="lang-switch__link" href="en/exhibitors.html" lang="en" hreflang="en">EN</a>
           </div>
-          <a class="btn btn--accent btn--sm" href="stant-basvurusu.html">Stant Başvurusu</a>
+          <a class="btn btn--primary btn--sm" href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a>
         </div>
       </nav>
 
@@ -54,128 +73,1566 @@
   </header>
 
   <main id="main">
-      <section class="page-header">
-        <div class="container">
-          <h1>Katılımcılar</h1>
-          <p class="lead">Fuarda yer alan firmalar, sektörleri ve stant konumları.</p>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <div class="grid grid--3">
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
+
+    <section class="page-header">
+      <div class="container">
+        <nav aria-label="Sayfa yolu">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li aria-hidden="true">›</li>
+            <li>Katılımcılar</li>
+          </ol>
+        </nav>
+        <h1>Katılımcılar</h1>
+        <p class="lead">Giresun EXPO 2026'da 86 firma beş salonda stant açıyor.
+          Aşağıdan arayabilir, sektöre ve salona göre filtreleyebilirsiniz.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+
+        <!-- ==== Filtre araç çubuğu ====================================== -->
+        <form class="toolbar" id="ex-toolbar" role="search" aria-label="Katılımcı filtreleme">
+          <div class="toolbar__row">
+            <div class="toolbar__field toolbar__field--grow">
+              <label class="form__label" for="ex-search">Firma ara</label>
+              <div class="input-icon">
+                <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                <input class="form__control" id="ex-search" type="search" name="q"
+                       placeholder="Firma adı, sektör veya stant no" autocomplete="off">
               </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
-            <article class="card card--link">
-              <div class="card__media placeholder placeholder--media">
-                <span class="placeholder__label">Yer tutucu</span>
-              </div>
-              <div class="card__body">
-                <p class="card__meta">Yer tutucu</p>
-                <h3 class="card__title">Bu bölümün içeriği henüz eklenmedi.</h3>
-                <p class="card__text">Bu bölümün içeriği henüz eklenmedi.</p>
-              </div>
-            </article>
+            </div>
+
+            <div class="toolbar__field">
+              <label class="form__label" for="ex-sector">Sektör</label>
+              <select class="form__control" id="ex-sector" name="sector">
+                <option value="">Tüm sektörler</option>
+<!-- sectors:start -->
+            <option value="gida">Gıda &amp; İçecek (9)</option>
+            <option value="yapi">Yapı &amp; İnşaat (10)</option>
+            <option value="metal">Metal, Makine &amp; Sanayi (18)</option>
+            <option value="enerji">Enerji &amp; Elektrik (7)</option>
+            <option value="mobilya">Mobilya &amp; İç Mimari (4)</option>
+            <option value="otomotiv">Otomotiv &amp; Lojistik (5)</option>
+            <option value="turizm">Turizm &amp; Konaklama (3)</option>
+            <option value="saglik">Sağlık (2)</option>
+            <option value="kimya">Kimya, Boya &amp; Plastik (4)</option>
+            <option value="reklam">Reklam, Medya &amp; Basım (6)</option>
+            <option value="denizcilik">Denizcilik &amp; Gemi İnşa (2)</option>
+            <option value="teknoloji">Teknoloji &amp; Bilişim (2)</option>
+            <option value="tekstil">Tekstil (2)</option>
+            <option value="su">Su &amp; Çevre Teknolojileri (2)</option>
+            <option value="tarim">Tarım (1)</option>
+            <option value="hizmet">Hizmet, Finans &amp; Ticaret (7)</option>
+            <option value="diger">Diğer (2)</option>
+<!-- sectors:end -->
+              </select>
+            </div>
+
+            <div class="toolbar__field">
+              <label class="form__label" for="ex-sort">Sıralama</label>
+              <select class="form__control" id="ex-sort" name="sort">
+                <option value="stand">Stant numarası</option>
+                <option value="name">Firma adı (A–Z)</option>
+              </select>
+            </div>
           </div>
+
+          <div class="toolbar__row toolbar__row--halls">
+            <fieldset class="chips">
+              <legend class="form__label">Salon</legend>
+              <label class="chip"><input type="radio" name="hall" value="" checked><span>Tümü</span></label>
+              <label class="chip"><input type="radio" name="hall" value="A"><span>A</span></label>
+              <label class="chip"><input type="radio" name="hall" value="T"><span>T</span></label>
+              <label class="chip"><input type="radio" name="hall" value="G"><span>G</span></label>
+              <label class="chip"><input type="radio" name="hall" value="P"><span>P</span></label>
+              <label class="chip"><input type="radio" name="hall" value="E"><span>E</span></label>
+            </fieldset>
+
+            <p class="toolbar__count" id="ex-count" role="status" aria-live="polite">86 firma</p>
+          </div>
+        </form>
+
+        <!-- ==== Kart ızgarası ==========================================
+             Kartlar tools/build-exhibitors.mjs tarafından data/exhibitors.json'dan
+             üretilir. Statiktir: JS olmadan da 86 firma görünür ve indekslenir.
+             JS yalnızca var olan düğümleri gizleyip gösterir.
+             ============================================================ -->
+        <div class="grid grid--4 mt-8" id="ex-grid">
+<!-- exhibitors:start -->
+        <article class="card exhibitor" data-ex
+                 data-search="tok ticaret (hirdavat malzemeleri) yapi &amp; insaat a1-14"
+                 data-sector="yapi"
+                 data-hall="A"
+                 data-name="tok ticaret (hirdavat malzemeleri)"
+                 data-stand="A 001 014">
+          <div class="monogram" aria-hidden="true">TT</div>
+          <div class="card__body">
+            <h3 class="card__title">Tok Ticaret (Hırdavat Malzemeleri)</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A1-14</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="noma yapi yapi &amp; insaat a2-02"
+                 data-sector="yapi"
+                 data-hall="A"
+                 data-name="noma yapi"
+                 data-stand="A 002 002">
+          <div class="monogram monogram--navy" aria-hidden="true">NY</div>
+          <div class="card__body">
+            <h3 class="card__title">Noma Yapı</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A2-02</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="hisar plastik kimya, boya &amp; plastik a2-12"
+                 data-sector="kimya"
+                 data-hall="A"
+                 data-name="hisar plastik"
+                 data-stand="A 002 012">
+          <div class="monogram" aria-hidden="true">HP</div>
+          <div class="card__body">
+            <h3 class="card__title">Hisar Plastik</h3>
+            <p class="card__text">Kimya, Boya &amp; Plastik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A2-12</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="burak sigorta hizmet, finans &amp; ticaret a3-02"
+                 data-sector="hizmet"
+                 data-hall="A"
+                 data-name="burak sigorta"
+                 data-stand="A 003 002">
+          <div class="monogram monogram--navy" aria-hidden="true">BS</div>
+          <div class="card__body">
+            <h3 class="card__title">Burak Sigorta</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-02</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="anadolu indiksiyon metal, makine &amp; sanayi a3-03"
+                 data-sector="metal"
+                 data-hall="A"
+                 data-name="anadolu indiksiyon"
+                 data-stand="A 003 003">
+          <div class="monogram" aria-hidden="true">Aİ</div>
+          <div class="card__body">
+            <h3 class="card__title">Anadolu İndiksiyon</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-03</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="asir taahhut yapi &amp; insaat a3-05"
+                 data-sector="yapi"
+                 data-hall="A"
+                 data-name="asir taahhut"
+                 data-stand="A 003 005">
+          <div class="monogram monogram--navy" aria-hidden="true">AT</div>
+          <div class="card__body">
+            <h3 class="card__title">Asır Taahhüt</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="osed elektrik enerji &amp; elektrik a3-07"
+                 data-sector="enerji"
+                 data-hall="A"
+                 data-name="osed elektrik"
+                 data-stand="A 003 007">
+          <div class="monogram" aria-hidden="true">OE</div>
+          <div class="card__body">
+            <h3 class="card__title">Osed Elektrik</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="tiryaki matbaacilik reklam, medya &amp; basim a3-08"
+                 data-sector="reklam"
+                 data-hall="A"
+                 data-name="tiryaki matbaacilik"
+                 data-stand="A 003 008">
+          <div class="monogram monogram--navy" aria-hidden="true">TM</div>
+          <div class="card__body">
+            <h3 class="card__title">Tiryaki Matbaacılık</h3>
+            <p class="card__text">Reklam, Medya &amp; Basım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-08</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="izya ic mimarlik mobilya &amp; ic mimari a3-10 a3-12"
+                 data-sector="mobilya"
+                 data-hall="A"
+                 data-name="izya ic mimarlik"
+                 data-stand="A 003 010" data-featured="1">
+          <div class="monogram" aria-hidden="true">İİ</div>
+          <div class="card__body">
+            <h3 class="card__title">İzya İç Mimarlık</h3>
+            <p class="card__text">Mobilya &amp; İç Mimari</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-10</span><span class="badge">A3-12</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="simurg mobilya mobilya &amp; ic mimari a3-13"
+                 data-sector="mobilya"
+                 data-hall="A"
+                 data-name="simurg mobilya"
+                 data-stand="A 003 013">
+          <div class="monogram monogram--navy" aria-hidden="true">SM</div>
+          <div class="card__body">
+            <h3 class="card__title">Simurg Mobilya</h3>
+            <p class="card__text">Mobilya &amp; İç Mimari</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-13</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ansan primanova (mutfak ve banyo aksesuarlari) yapi &amp; insaat a3-14"
+                 data-sector="yapi"
+                 data-hall="A"
+                 data-name="ansan primanova (mutfak ve banyo aksesuarlari)"
+                 data-stand="A 003 014">
+          <div class="monogram" aria-hidden="true">AP</div>
+          <div class="card__body">
+            <h3 class="card__title">Ansan Primanova (Mutfak ve Banyo Aksesuarları)</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon A">A</span>
+              <span class="badge">A3-14</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="aydin grup insaat yapi &amp; insaat e-07"
+                 data-sector="yapi"
+                 data-hall="E"
+                 data-name="aydin grup insaat"
+                 data-stand="E 000 007" data-featured="1">
+          <div class="monogram" aria-hidden="true">AG</div>
+          <div class="card__body">
+            <h3 class="card__title">Aydın Grup İnşaat</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="asir otomotiv otomotiv &amp; lojistik e-08 e-09"
+                 data-sector="otomotiv"
+                 data-hall="E"
+                 data-name="asir otomotiv"
+                 data-stand="E 000 008" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">AO</div>
+          <div class="card__body">
+            <h3 class="card__title">Asır Otomotiv</h3>
+            <p class="card__text">Otomotiv &amp; Lojistik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-08</span><span class="badge">E-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="sazak yemek gida &amp; icecek e-10"
+                 data-sector="gida"
+                 data-hall="E"
+                 data-name="sazak yemek"
+                 data-stand="E 000 010">
+          <div class="monogram" aria-hidden="true">SY</div>
+          <div class="card__body">
+            <h3 class="card__title">Sazak Yemek</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-10</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ocak kalip metal, makine &amp; sanayi e-18 e-19"
+                 data-sector="metal"
+                 data-hall="E"
+                 data-name="ocak kalip"
+                 data-stand="E 000 018" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">OK</div>
+          <div class="card__body">
+            <h3 class="card__title">Ocak Kalıp</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-18</span><span class="badge">E-19</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ajanssis / mecra medya reklam, medya &amp; basim e-32 e-33"
+                 data-sector="reklam"
+                 data-hall="E"
+                 data-name="ajanssis / mecra medya"
+                 data-stand="E 000 032">
+          <div class="monogram" aria-hidden="true">AM</div>
+          <div class="card__body">
+            <h3 class="card__title">Ajanssis / Mecra Medya</h3>
+            <p class="card__text">Reklam, Medya &amp; Basım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-32</span><span class="badge">E-33</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="tikla gelsin hizmet, finans &amp; ticaret e-35"
+                 data-sector="hizmet"
+                 data-hall="E"
+                 data-name="tikla gelsin"
+                 data-stand="E 000 035">
+          <div class="monogram monogram--navy" aria-hidden="true">TG</div>
+          <div class="card__body">
+            <h3 class="card__title">Tıkla Gelsin</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-35</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="dmr tuketim hizmet, finans &amp; ticaret e-38"
+                 data-sector="hizmet"
+                 data-hall="E"
+                 data-name="dmr tuketim"
+                 data-stand="E 000 038">
+          <div class="monogram" aria-hidden="true">DT</div>
+          <div class="card__body">
+            <h3 class="card__title">DMR Tüketim</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-38</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ford kent oto otomotiv &amp; lojistik e-43 e-44"
+                 data-sector="otomotiv"
+                 data-hall="E"
+                 data-name="ford kent oto"
+                 data-stand="E 000 043">
+          <div class="monogram monogram--navy" aria-hidden="true">FK</div>
+          <div class="card__body">
+            <h3 class="card__title">Ford Kent Oto</h3>
+            <p class="card__text">Otomotiv &amp; Lojistik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon E">E</span>
+              <span class="badge">E-43</span><span class="badge">E-44</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="assu gida &amp; icecek g1-02"
+                 data-sector="gida"
+                 data-hall="G"
+                 data-name="assu"
+                 data-stand="G 001 002" data-featured="1">
+          <div class="monogram" aria-hidden="true">AS</div>
+          <div class="card__body">
+            <h3 class="card__title">Assu</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G1-02</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="kocel celik esya metal, makine &amp; sanayi g1-05"
+                 data-sector="metal"
+                 data-hall="G"
+                 data-name="kocel celik esya"
+                 data-stand="G 001 005" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">KÇ</div>
+          <div class="card__body">
+            <h3 class="card__title">Koçel Çelik Eşya</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G1-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="tuna aluminyum metal, makine &amp; sanayi g1-06"
+                 data-sector="metal"
+                 data-hall="G"
+                 data-name="tuna aluminyum"
+                 data-stand="G 001 006" data-featured="1">
+          <div class="monogram" aria-hidden="true">TA</div>
+          <div class="card__body">
+            <h3 class="card__title">Tuna Alüminyum</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G1-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="hyundai kaynak metal, makine &amp; sanayi g1-07 g1-09"
+                 data-sector="metal"
+                 data-hall="G"
+                 data-name="hyundai kaynak"
+                 data-stand="G 001 007" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">HK</div>
+          <div class="card__body">
+            <h3 class="card__title">Hyundai Kaynak</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G1-07</span><span class="badge">G1-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="sms grup insaat yapi &amp; insaat g1-08 g2-07"
+                 data-sector="yapi"
+                 data-hall="G"
+                 data-name="sms grup insaat"
+                 data-stand="G 001 008" data-featured="1">
+          <div class="monogram" aria-hidden="true">SG</div>
+          <div class="card__body">
+            <h3 class="card__title">SMS Grup İnşaat</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G1-08</span><span class="badge">G2-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="toptantr hizmet, finans &amp; ticaret g2-01"
+                 data-sector="hizmet"
+                 data-hall="G"
+                 data-name="toptantr"
+                 data-stand="G 002 001" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">TO</div>
+          <div class="card__body">
+            <h3 class="card__title">ToptanTR</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-01</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="micansan tanker otomotiv &amp; lojistik g2-03"
+                 data-sector="otomotiv"
+                 data-hall="G"
+                 data-name="micansan tanker"
+                 data-stand="G 002 003">
+          <div class="monogram" aria-hidden="true">MT</div>
+          <div class="card__body">
+            <h3 class="card__title">Micansan Tanker</h3>
+            <p class="card__text">Otomotiv &amp; Lojistik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-03</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="konut tesis yonetim hizmet, finans &amp; ticaret g2-04"
+                 data-sector="hizmet"
+                 data-hall="G"
+                 data-name="konut tesis yonetim"
+                 data-stand="G 002 004">
+          <div class="monogram monogram--navy" aria-hidden="true">KT</div>
+          <div class="card__body">
+            <h3 class="card__title">Konut Tesis Yönetim</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-04</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ates neon reklamcilik reklam, medya &amp; basim g2-05"
+                 data-sector="reklam"
+                 data-hall="G"
+                 data-name="ates neon reklamcilik"
+                 data-stand="G 002 005" data-featured="1">
+          <div class="monogram" aria-hidden="true">AN</div>
+          <div class="card__body">
+            <h3 class="card__title">Ateş Neon Reklamcılık</h3>
+            <p class="card__text">Reklam, Medya &amp; Basım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="fresa gida &amp; icecek g2-06"
+                 data-sector="gida"
+                 data-hall="G"
+                 data-name="fresa"
+                 data-stand="G 002 006" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">FR</div>
+          <div class="card__body">
+            <h3 class="card__title">Freşa</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="alfa solar enerji enerji &amp; elektrik g2-08"
+                 data-sector="enerji"
+                 data-hall="G"
+                 data-name="alfa solar enerji"
+                 data-stand="G 002 008" data-featured="1">
+          <div class="monogram" aria-hidden="true">AS</div>
+          <div class="card__body">
+            <h3 class="card__title">Alfa Solar Enerji</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-08</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="alpi dis saglik g2-09"
+                 data-sector="saglik"
+                 data-hall="G"
+                 data-name="alpi dis"
+                 data-stand="G 002 009" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">AD</div>
+          <div class="card__body">
+            <h3 class="card__title">Alpi Diş</h3>
+            <p class="card__text">Sağlık</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G2-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="by toom mobilya mobilya &amp; ic mimari g3-02"
+                 data-sector="mobilya"
+                 data-hall="G"
+                 data-name="by toom mobilya"
+                 data-stand="G 003 002">
+          <div class="monogram" aria-hidden="true">BT</div>
+          <div class="card__body">
+            <h3 class="card__title">By Toom Mobilya</h3>
+            <p class="card__text">Mobilya &amp; İç Mimari</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-02</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="akpinar civata metal, makine &amp; sanayi g3-03"
+                 data-sector="metal"
+                 data-hall="G"
+                 data-name="akpinar civata"
+                 data-stand="G 003 003">
+          <div class="monogram monogram--navy" aria-hidden="true">AC</div>
+          <div class="card__body">
+            <h3 class="card__title">Akpınar Cıvata</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-03</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="bi ofis buro mobilyalari mobilya &amp; ic mimari g3-04"
+                 data-sector="mobilya"
+                 data-hall="G"
+                 data-name="bi ofis buro mobilyalari"
+                 data-stand="G 003 004" data-featured="1">
+          <div class="monogram" aria-hidden="true">BO</div>
+          <div class="card__body">
+            <h3 class="card__title">Bi Ofis Büro Mobilyaları</h3>
+            <p class="card__text">Mobilya &amp; İç Mimari</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-04</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="giresun teknopark teknoloji &amp; bilisim g3-05"
+                 data-sector="teknoloji"
+                 data-hall="G"
+                 data-name="giresun teknopark"
+                 data-stand="G 003 005" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">GT</div>
+          <div class="card__body">
+            <h3 class="card__title">Giresun Teknopark</h3>
+            <p class="card__text">Teknoloji &amp; Bilişim</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="kapela semsiye diger g3-06"
+                 data-sector="diger"
+                 data-hall="G"
+                 data-name="kapela semsiye"
+                 data-stand="G 003 006">
+          <div class="monogram" aria-hidden="true">KŞ</div>
+          <div class="card__body">
+            <h3 class="card__title">Kapela Şemsiye</h3>
+            <p class="card__text">Diğer</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="teknik fuarcilik reklam, medya &amp; basim g3-07 g3-09"
+                 data-sector="reklam"
+                 data-hall="G"
+                 data-name="teknik fuarcilik"
+                 data-stand="G 003 007" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">TF</div>
+          <div class="card__body">
+            <h3 class="card__title">Teknik Fuarcılık</h3>
+            <p class="card__text">Reklam, Medya &amp; Basım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-07</span><span class="badge">G3-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="mir water su &amp; cevre teknolojileri g3-08"
+                 data-sector="su"
+                 data-hall="G"
+                 data-name="mir water"
+                 data-stand="G 003 008" data-featured="1">
+          <div class="monogram" aria-hidden="true">MW</div>
+          <div class="card__body">
+            <h3 class="card__title">Mir Water</h3>
+            <p class="card__text">Su &amp; Çevre Teknolojileri</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon G">G</span>
+              <span class="badge">G3-08</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="karli metal metal, makine &amp; sanayi p1-01"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="karli metal"
+                 data-stand="P 001 001">
+          <div class="monogram monogram--navy" aria-hidden="true">KM</div>
+          <div class="card__body">
+            <h3 class="card__title">Karlı Metal</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-01</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="yunus gemi insaat denizcilik &amp; gemi insa p1-02"
+                 data-sector="denizcilik"
+                 data-hall="P"
+                 data-name="yunus gemi insaat"
+                 data-stand="P 001 002" data-featured="1">
+          <div class="monogram" aria-hidden="true">YG</div>
+          <div class="card__body">
+            <h3 class="card__title">Yunus Gemi İnşaat</h3>
+            <p class="card__text">Denizcilik &amp; Gemi İnşa</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-02</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="resun otel turizm &amp; konaklama p1-03 p1-06"
+                 data-sector="turizm"
+                 data-hall="P"
+                 data-name="resun otel"
+                 data-stand="P 001 003" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">RO</div>
+          <div class="card__body">
+            <h3 class="card__title">Resun Otel</h3>
+            <p class="card__text">Turizm &amp; Konaklama</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-03</span><span class="badge">P1-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="bilir basim reklam, medya &amp; basim p1-04"
+                 data-sector="reklam"
+                 data-hall="P"
+                 data-name="bilir basim"
+                 data-stand="P 001 004">
+          <div class="monogram" aria-hidden="true">BB</div>
+          <div class="card__body">
+            <h3 class="card__title">Bilir Basım</h3>
+            <p class="card__text">Reklam, Medya &amp; Basım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-04</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="makro byc insaat yapi &amp; insaat p1-05"
+                 data-sector="yapi"
+                 data-hall="P"
+                 data-name="makro byc insaat"
+                 data-stand="P 001 005">
+          <div class="monogram monogram--navy" aria-hidden="true">MB</div>
+          <div class="card__body">
+            <h3 class="card__title">Makro BYC İnşaat</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="alp tekstil tekstil p1-07"
+                 data-sector="tekstil"
+                 data-hall="P"
+                 data-name="alp tekstil"
+                 data-stand="P 001 007">
+          <div class="monogram" aria-hidden="true">AT</div>
+          <div class="card__body">
+            <h3 class="card__title">Alp Tekstil</h3>
+            <p class="card__text">Tekstil</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="crk otomotiv otomotiv &amp; lojistik p1-08"
+                 data-sector="otomotiv"
+                 data-hall="P"
+                 data-name="crk otomotiv"
+                 data-stand="P 001 008" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">CO</div>
+          <div class="card__body">
+            <h3 class="card__title">CRK Otomotiv</h3>
+            <p class="card__text">Otomotiv &amp; Lojistik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-08</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="bayramlar metal metal, makine &amp; sanayi p1-09"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="bayramlar metal"
+                 data-stand="P 001 009">
+          <div class="monogram" aria-hidden="true">BM</div>
+          <div class="card__body">
+            <h3 class="card__title">Bayramlar Metal</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="turkuaz gemi insa denizcilik &amp; gemi insa p1-10"
+                 data-sector="denizcilik"
+                 data-hall="P"
+                 data-name="turkuaz gemi insa"
+                 data-stand="P 001 010" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">TG</div>
+          <div class="card__body">
+            <h3 class="card__title">Turkuaz Gemi İnşa</h3>
+            <p class="card__text">Denizcilik &amp; Gemi İnşa</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-10</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ozgunes surucu kursu hizmet, finans &amp; ticaret p1-11"
+                 data-sector="hizmet"
+                 data-hall="P"
+                 data-name="ozgunes surucu kursu"
+                 data-stand="P 001 011">
+          <div class="monogram" aria-hidden="true">ÖS</div>
+          <div class="card__body">
+            <h3 class="card__title">Özgüneş Sürücü Kursu</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-11</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="agrapar tarim tarim p1-12"
+                 data-sector="tarim"
+                 data-hall="P"
+                 data-name="agrapar tarim"
+                 data-stand="P 001 012">
+          <div class="monogram monogram--navy" aria-hidden="true">AT</div>
+          <div class="card__body">
+            <h3 class="card__title">Agrapar Tarım</h3>
+            <p class="card__text">Tarım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-12</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="gunes metal metal, makine &amp; sanayi p1-13"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="gunes metal"
+                 data-stand="P 001 013" data-featured="1">
+          <div class="monogram" aria-hidden="true">GM</div>
+          <div class="card__body">
+            <h3 class="card__title">Güneş Metal</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-13</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="abramak bilgi teknolojileri teknoloji &amp; bilisim p1-14"
+                 data-sector="teknoloji"
+                 data-hall="P"
+                 data-name="abramak bilgi teknolojileri"
+                 data-stand="P 001 014" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">AB</div>
+          <div class="card__body">
+            <h3 class="card__title">Abramak Bilgi Teknolojileri</h3>
+            <p class="card__text">Teknoloji &amp; Bilişim</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-14</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="findiko gida gida &amp; icecek p1-15"
+                 data-sector="gida"
+                 data-hall="P"
+                 data-name="findiko gida"
+                 data-stand="P 001 015">
+          <div class="monogram" aria-hidden="true">FG</div>
+          <div class="card__body">
+            <h3 class="card__title">Fındıko Gıda</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-15</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ozdemir makina metal, makine &amp; sanayi p1-16"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="ozdemir makina"
+                 data-stand="P 001 016" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">ÖM</div>
+          <div class="card__body">
+            <h3 class="card__title">Özdemir Makina</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-16</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="goresun seyahat turizm &amp; konaklama p1-17"
+                 data-sector="turizm"
+                 data-hall="P"
+                 data-name="goresun seyahat"
+                 data-stand="P 001 017">
+          <div class="monogram" aria-hidden="true">GS</div>
+          <div class="card__body">
+            <h3 class="card__title">Göresun Seyahat</h3>
+            <p class="card__text">Turizm &amp; Konaklama</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-17</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="brosis lazer kesim metal, makine &amp; sanayi p1-18"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="brosis lazer kesim"
+                 data-stand="P 001 018" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">BL</div>
+          <div class="card__body">
+            <h3 class="card__title">Brosis Lazer Kesim</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-18</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="heatemp (bina otomasyonu ve endustriyel iklimlendirme cozumleri) enerji &amp; elektrik p1-19"
+                 data-sector="enerji"
+                 data-hall="P"
+                 data-name="heatemp (bina otomasyonu ve endustriyel iklimlendirme cozumleri)"
+                 data-stand="P 001 019">
+          <div class="monogram" aria-hidden="true">HE</div>
+          <div class="card__body">
+            <h3 class="card__title">Heatemp (Bina Otomasyonu ve Endüstriyel İklimlendirme Çözümleri)</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-19</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="switch elektronik enerji &amp; elektrik p1-20"
+                 data-sector="enerji"
+                 data-hall="P"
+                 data-name="switch elektronik"
+                 data-stand="P 001 020">
+          <div class="monogram monogram--navy" aria-hidden="true">SE</div>
+          <div class="card__body">
+            <h3 class="card__title">Switch Elektronik</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-20</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="arstek metal metal, makine &amp; sanayi p1-21"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="arstek metal"
+                 data-stand="P 001 021" data-featured="1">
+          <div class="monogram" aria-hidden="true">AM</div>
+          <div class="card__body">
+            <h3 class="card__title">Arstek Metal</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-21</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="enes civata metal, makine &amp; sanayi p1-22"
+                 data-sector="metal"
+                 data-hall="P"
+                 data-name="enes civata"
+                 data-stand="P 001 022" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">EC</div>
+          <div class="card__body">
+            <h3 class="card__title">Enes Cıvata</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-22</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="inovoltis enerji ve elektronik enerji &amp; elektrik p1-23"
+                 data-sector="enerji"
+                 data-hall="P"
+                 data-name="inovoltis enerji ve elektronik"
+                 data-stand="P 001 023" data-featured="1">
+          <div class="monogram" aria-hidden="true">İE</div>
+          <div class="card__body">
+            <h3 class="card__title">İnovoltis Enerji ve Elektronik</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-23</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="tusaser su aritma sistemleri su &amp; cevre teknolojileri p1-24"
+                 data-sector="su"
+                 data-hall="P"
+                 data-name="tusaser su aritma sistemleri"
+                 data-stand="P 001 024" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">TS</div>
+          <div class="card__body">
+            <h3 class="card__title">Tusaser Su Arıtma Sistemleri</h3>
+            <p class="card__text">Su &amp; Çevre Teknolojileri</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P1-24</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="mujdat karayilan diger p2-01 p2-02 p2-03 p2-04 p2-05 p2-06"
+                 data-sector="diger"
+                 data-hall="P"
+                 data-name="mujdat karayilan"
+                 data-stand="P 002 001">
+          <div class="monogram" aria-hidden="true">MK</div>
+          <div class="card__body">
+            <h3 class="card__title">Müjdat Karayılan</h3>
+            <p class="card__text">Diğer</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-01</span><span class="badge">P2-02</span><span class="badge">P2-03</span><span class="badge">P2-04</span><span class="badge">P2-05</span><span class="badge">P2-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="nok grup insaat yapi &amp; insaat p2-07"
+                 data-sector="yapi"
+                 data-hall="P"
+                 data-name="nok grup insaat"
+                 data-stand="P 002 007" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">NG</div>
+          <div class="card__body">
+            <h3 class="card__title">NOK Grup İnşaat</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="hakan reklam reklam, medya &amp; basim p2-09"
+                 data-sector="reklam"
+                 data-hall="P"
+                 data-name="hakan reklam"
+                 data-stand="P 002 009">
+          <div class="monogram" aria-hidden="true">HR</div>
+          <div class="card__body">
+            <h3 class="card__title">Hakan Reklam</h3>
+            <p class="card__text">Reklam, Medya &amp; Basım</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="abega nuclear (radyoaktif ve nukleer hizmetler) enerji &amp; elektrik p2-10"
+                 data-sector="enerji"
+                 data-hall="P"
+                 data-name="abega nuclear (radyoaktif ve nukleer hizmetler)"
+                 data-stand="P 002 010" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">AN</div>
+          <div class="card__body">
+            <h3 class="card__title">Abega Nuclear (Radyoaktif ve Nükleer Hizmetler)</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-10</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="cesurlar muhendislik yapi &amp; insaat p2-13"
+                 data-sector="yapi"
+                 data-hall="P"
+                 data-name="cesurlar muhendislik"
+                 data-stand="P 002 013">
+          <div class="monogram" aria-hidden="true">CM</div>
+          <div class="card__body">
+            <h3 class="card__title">Cesurlar Mühendislik</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-13</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="syvera findik isleme ve lezzet atolyesi gida &amp; icecek p2-16"
+                 data-sector="gida"
+                 data-hall="P"
+                 data-name="syvera findik isleme ve lezzet atolyesi"
+                 data-stand="P 002 016" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">SF</div>
+          <div class="card__body">
+            <h3 class="card__title">Syvera Fındık İşleme ve Lezzet Atölyesi</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-16</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="kkg elektrik ve aydinlatma enerji &amp; elektrik p2-19"
+                 data-sector="enerji"
+                 data-hall="P"
+                 data-name="kkg elektrik ve aydinlatma"
+                 data-stand="P 002 019" data-featured="1">
+          <div class="monogram" aria-hidden="true">KE</div>
+          <div class="card__body">
+            <h3 class="card__title">KKG Elektrik ve Aydınlatma</h3>
+            <p class="card__text">Enerji &amp; Elektrik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-19</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="hidir findik gida &amp; icecek p2-22"
+                 data-sector="gida"
+                 data-hall="P"
+                 data-name="hidir findik"
+                 data-stand="P 002 022">
+          <div class="monogram monogram--navy" aria-hidden="true">HF</div>
+          <div class="card__body">
+            <h3 class="card__title">Hıdır Fındık</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon P">P</span>
+              <span class="badge">P2-22</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="en boya kimya, boya &amp; plastik t1-07"
+                 data-sector="kimya"
+                 data-hall="T"
+                 data-name="en boya"
+                 data-stand="T 001 007" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">EB</div>
+          <div class="card__body">
+            <h3 class="card__title">En Boya</h3>
+            <p class="card__text">Kimya, Boya &amp; Plastik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="eksen kimya kimya, boya &amp; plastik t1-08"
+                 data-sector="kimya"
+                 data-hall="T"
+                 data-name="eksen kimya"
+                 data-stand="T 001 008" data-featured="1">
+          <div class="monogram" aria-hidden="true">EK</div>
+          <div class="card__body">
+            <h3 class="card__title">Eksen Kimya</h3>
+            <p class="card__text">Kimya, Boya &amp; Plastik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-08</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="kbt konveyor ve otomasyon sistemleri metal, makine &amp; sanayi t1-09"
+                 data-sector="metal"
+                 data-hall="T"
+                 data-name="kbt konveyor ve otomasyon sistemleri"
+                 data-stand="T 001 009">
+          <div class="monogram monogram--navy" aria-hidden="true">KK</div>
+          <div class="card__body">
+            <h3 class="card__title">KBT Konveyör ve Otomasyon Sistemleri</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="meksan savunma metal sac sanayi metal, makine &amp; sanayi t1-10"
+                 data-sector="metal"
+                 data-hall="T"
+                 data-name="meksan savunma metal sac sanayi"
+                 data-stand="T 001 010" data-featured="1">
+          <div class="monogram" aria-hidden="true">MS</div>
+          <div class="card__body">
+            <h3 class="card__title">Meksan Savunma Metal Sac Sanayi</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-10</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="giteks (damat tween) tekstil t1-11"
+                 data-sector="tekstil"
+                 data-hall="T"
+                 data-name="giteks (damat tween)"
+                 data-stand="T 001 011" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">Gİ</div>
+          <div class="card__body">
+            <h3 class="card__title">Giteks (Damat Tween)</h3>
+            <p class="card__text">Tekstil</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-11</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="yil-ka (tirebolu cayi) gida &amp; icecek t1-12"
+                 data-sector="gida"
+                 data-hall="T"
+                 data-name="yil-ka (tirebolu cayi)"
+                 data-stand="T 001 012">
+          <div class="monogram" aria-hidden="true">YK</div>
+          <div class="card__body">
+            <h3 class="card__title">Yıl-Ka (Tirebolu Çayı)</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-12</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="endow (kapi ve pencere aksesuarlari) yapi &amp; insaat t1-14"
+                 data-sector="yapi"
+                 data-hall="T"
+                 data-name="endow (kapi ve pencere aksesuarlari)"
+                 data-stand="T 001 014" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">EN</div>
+          <div class="card__body">
+            <h3 class="card__title">Endow (Kapı ve Pencere Aksesuarları)</h3>
+            <p class="card__text">Yapı &amp; İnşaat</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T1-14</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="chef erdal restaurant gida &amp; icecek t2-05"
+                 data-sector="gida"
+                 data-hall="T"
+                 data-name="chef erdal restaurant"
+                 data-stand="T 002 005">
+          <div class="monogram" aria-hidden="true">CE</div>
+          <div class="card__body">
+            <h3 class="card__title">Chef Erdal Restaurant</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="karanci kaucuk kimya, boya &amp; plastik t2-06"
+                 data-sector="kimya"
+                 data-hall="T"
+                 data-name="karanci kaucuk"
+                 data-stand="T 002 006" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">KK</div>
+          <div class="card__body">
+            <h3 class="card__title">Karancı Kauçuk</h3>
+            <p class="card__text">Kimya, Boya &amp; Plastik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="titanic otel turizm &amp; konaklama t2-07"
+                 data-sector="turizm"
+                 data-hall="T"
+                 data-name="titanic otel"
+                 data-stand="T 002 007" data-featured="1">
+          <div class="monogram" aria-hidden="true">TO</div>
+          <div class="card__body">
+            <h3 class="card__title">Titanic Otel</h3>
+            <p class="card__text">Turizm &amp; Konaklama</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-07</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="ozturk yemek / balo / davet gida &amp; icecek t2-08"
+                 data-sector="gida"
+                 data-hall="T"
+                 data-name="ozturk yemek / balo / davet"
+                 data-stand="T 002 008">
+          <div class="monogram monogram--navy" aria-hidden="true">ÖY</div>
+          <div class="card__body">
+            <h3 class="card__title">Öztürk Yemek / Balo / Davet</h3>
+            <p class="card__text">Gıda &amp; İçecek</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-08</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="eka metal metal, makine &amp; sanayi t2-09"
+                 data-sector="metal"
+                 data-hall="T"
+                 data-name="eka metal"
+                 data-stand="T 002 009">
+          <div class="monogram" aria-hidden="true">EM</div>
+          <div class="card__body">
+            <h3 class="card__title">Eka Metal</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-09</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="maslak peugeot otomotiv &amp; lojistik t2-10"
+                 data-sector="otomotiv"
+                 data-hall="T"
+                 data-name="maslak peugeot"
+                 data-stand="T 002 010">
+          <div class="monogram monogram--navy" aria-hidden="true">MP</div>
+          <div class="card__body">
+            <h3 class="card__title">Maslak Peugeot</h3>
+            <p class="card__text">Otomotiv &amp; Lojistik</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-10</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="bayramlar aluminyum metal, makine &amp; sanayi t2-11"
+                 data-sector="metal"
+                 data-hall="T"
+                 data-name="bayramlar aluminyum"
+                 data-stand="T 002 011">
+          <div class="monogram" aria-hidden="true">BA</div>
+          <div class="card__body">
+            <h3 class="card__title">Bayramlar Alüminyum</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-11</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="as bakir metal, makine &amp; sanayi t2-12"
+                 data-sector="metal"
+                 data-hall="T"
+                 data-name="as bakir"
+                 data-stand="T 002 012">
+          <div class="monogram monogram--navy" aria-hidden="true">BA</div>
+          <div class="card__body">
+            <h3 class="card__title">As Bakır</h3>
+            <p class="card__text">Metal, Makine &amp; Sanayi</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-12</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="bahat saglik grubu saglik t2-13"
+                 data-sector="saglik"
+                 data-hall="T"
+                 data-name="bahat saglik grubu"
+                 data-stand="T 002 013" data-featured="1">
+          <div class="monogram" aria-hidden="true">BS</div>
+          <div class="card__body">
+            <h3 class="card__title">Bahat Sağlık Grubu</h3>
+            <p class="card__text">Sağlık</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-13</span>
+            </div>
+          </div>
+        </article>
+        <article class="card exhibitor" data-ex
+                 data-search="gen yatirim hizmet, finans &amp; ticaret t2-14"
+                 data-sector="hizmet"
+                 data-hall="T"
+                 data-name="gen yatirim"
+                 data-stand="T 002 014" data-featured="1">
+          <div class="monogram monogram--navy" aria-hidden="true">GY</div>
+          <div class="card__body">
+            <h3 class="card__title">Gen Yatırım</h3>
+            <p class="card__text">Hizmet, Finans &amp; Ticaret</p>
+            <div class="exhibitor__stands">
+              <span class="hall-badge" title="Salon T">T</span>
+              <span class="badge">T2-14</span>
+            </div>
+          </div>
+        </article>
+<!-- exhibitors:end -->
         </div>
-      </section>
+
+        <!-- Sonuç yoksa -->
+        <div class="empty mt-8" id="ex-empty" hidden>
+          <svg class="empty__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <p class="empty__title">Aramanızla eşleşen firma bulunamadı</p>
+          <p class="empty__text">Farklı bir sektör veya salon seçmeyi ya da arama
+            teriminizi kısaltmayı deneyin.</p>
+          <button class="btn btn--secondary btn--sm mt-4" type="button" id="ex-reset">Filtreleri temizle</button>
+        </div>
+
+        <p class="text-muted mt-8" style="font-size:.875rem">
+          Stant numarasının ilk harfi salonu gösterir: A, T, G, P, E.
+          Firma sektörleri firma adlarından türetilmiştir ve organizasyon tarafından
+          doğrulanmaktadır.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="section section--brand on-dark">
+      <div class="container text-center">
+        <h2 class="section-title">Siz de katılmak ister misiniz?</h2>
+        <p class="lead" style="margin-inline:auto">Giresun EXPO 2027 için ön başvuru
+          formunu doldurun, sizinle iletişime geçelim.</p>
+        <p class="mt-6"><a class="btn btn--light btn--lg" href="stant-basvurusu.html">Stant Başvurusu</a></p>
+      </div>
+    </section>
+
   </main>
 
-  <!-- ==== Ortak footer — tüm sayfalarda birebir aynıdır ==================== -->
+  <!-- ==== Ortak footer — tüm TR sayfalarda birebir aynıdır ================= -->
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
-        <a class="logo" href="index.html">Giresun<span class="logo__mark">Expo</span></a>
-        <p class="site-footer__text">Giresun Expo; fındık, tarım ve gıda sektörlerini üretici, sanayici ve uluslararası alıcılarla buluşturan bölgesel fuar organizasyonudur.</p>
+        <span class="footer-logo">
+          <img src="assets/img/brand/giresun-expo-logo.png" alt="Giresun EXPO 2026" width="1207" height="703" loading="lazy">
+        </span>
+        <p class="site-footer__text">Giresun'un üretim, yatırım ve ticaret gücünü
+          İstanbul'da tanıtan iş dünyası buluşması.</p>
+        <p class="site-footer__slogan">Giresun İçin İş Birliği,<br>Türkiye İçin Güç Birliği</p>
       </div>
 
       <div>
         <h2 class="site-footer__title">Keşfet</h2>
         <ul class="site-footer__list">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="hakkinda.html">Fuar Hakkında</a></li>
-            <li><a href="program.html">Program</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="haberler.html">Haberler</a></li>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hakkinda.html">Hakkında</a></li>
+          <li><a href="katilimcilar.html">Katılımcılar</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">Katılım</h2>
         <ul class="site-footer__list">
-            <li><a href="katilimcilar.html">Katılımcılar</a></li>
-            <li><a href="ziyaretci.html">Ziyaretçi</a></li>
-            <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
-            <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a></li>
+          <li><a href="ziyaretci-kaydi.html">Ziyaretçi Ön Kaydı</a></li>
+          <li><a href="stant-basvurusu.html">Stant Başvurusu</a></li>
+          <li><a href="basin.html">Basın</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="site-footer__title">İletişim</h2>
         <address>
-          <p>Fuar Alanı, Giresun, Türkiye</p>
-          <p><a href="mailto:info@giresunexpo.com">info@giresunexpo.com</a></p>
-          <p><a href="tel:+900000000000">+90 (000) 000 00 00</a></p>
+          <p>Yenikapı Etkinlik Alanı<br>Kennedy Caddesi No: 11/1<br>Fatih / İstanbul</p>
+          <p><a href="tel:+905416622828">0541 662 28 28</a></p>
         </address>
-        <ul class="social mt-4">
-          <li><a href="#" aria-label="Instagram">IG</a></li>
-          <li><a href="#" aria-label="LinkedIn">IN</a></li>
-          <li><a href="#" aria-label="X">X</a></li>
-        </ul>
       </div>
     </div>
 
+    <div class="container site-footer__partners">
+      <div class="partner"><img src="assets/img/partners/giresun-vakfi.png" alt="Giresun Vakfı" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/giresun-federasyonu.png" alt="Giresun Federasyonu" width="320" height="120" loading="lazy"></div>
+      <div class="partner"><img src="assets/img/partners/sebinsiad.png" alt="ŞEBİNSİAD" width="320" height="120" loading="lazy"></div>
+    </div>
+
     <div class="container site-footer__bottom">
-      <p>&copy; <span id="year">2026</span> Giresun Expo. Tüm hakları saklıdır.</p>
-      <p><a href="#">Gizlilik Politikası</a></p>
+      <p>&copy; <span id="year">2026</span> Giresun EXPO. Tüm hakları saklıdır.</p>
+      <p>
+        <a href="kvkk.html">KVKK Aydınlatma Metni</a> ·
+        <a href="cerez-politikasi.html">Çerez Politikası</a> ·
+        <a href="gizlilik.html">Gizlilik</a>
+      </p>
     </div>
   </footer>
+
+  <!-- ==== Çerez bandı ==================================================== -->
+  <div class="cookie-bar" id="cookie-bar" role="region" aria-label="Çerez bildirimi" hidden>
+    <div class="container cookie-bar__inner">
+      <p>Bu sitede yalnızca sitenin çalışması için gerekli çerezler kullanılır; takip veya
+        reklam çerezi yoktur. Ayrıntı için <a href="cerez-politikasi.html">Çerez Politikası</a>.</p>
+      <button class="btn btn--light btn--sm" type="button" data-cookie-accept>Anladım</button>
+    </div>
+  </div>
 </body>
 </html>

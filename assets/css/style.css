@@ -721,6 +721,95 @@ select.form__control {
   overflow: hidden;
 }
 
+/* Filtre araç çubuğu (katılımcılar, galeri)
+   JS yokken filtreler çalışmaz; çalışmayan bir arama kutusu göstermek yerine
+   araç çubuğu tamamen gizlenir. Kartların tamamı zaten statik olarak görünür. */
+.toolbar { display: none; }
+.js .toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.toolbar__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: flex-end;
+}
+.toolbar__row--halls { justify-content: space-between; align-items: center; }
+.toolbar__field { display: flex; flex-direction: column; gap: var(--space-2); min-width: 180px; }
+.toolbar__field--grow { flex: 1 1 260px; }
+.toolbar__count {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* İkonlu arama alanı */
+.input-icon { position: relative; display: flex; }
+.input-icon .icon {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-muted);
+  pointer-events: none;
+}
+.input-icon .form__control { padding-left: 2.75rem; }
+/* Tarayıcının kendi temizleme düğmesi */
+.input-icon input[type="search"]::-webkit-search-cancel-button { cursor: pointer; }
+
+/* Seçim çipleri (salon filtresi) — radyo düğmeleri üzerine kurulu */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.chips > .form__label { width: 100%; margin-bottom: var(--space-1); padding: 0; }
+.chip { position: relative; display: inline-flex; }
+.chip input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  padding: 0.4rem 0.875rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg);
+  color: var(--color-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition);
+}
+.chip input:hover + span { border-color: var(--color-primary); color: var(--color-primary); }
+.chip input:checked + span {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.chip input:focus-visible + span {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
 /* Çok adımlı form ilerleme göstergesi */
 .steps { display: flex; gap: var(--space-2); list-style: none; margin-bottom: var(--space-7); }
 .steps__item {
