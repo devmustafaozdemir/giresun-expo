@@ -365,6 +365,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /docs/
 Disallow: /davetiye.html
+Disallow: /kurumsaldavetiye/
 
 Sitemap: ${SITE}/sitemap.xml
 `);

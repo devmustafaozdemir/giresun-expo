@@ -6,5 +6,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /docs/
 Disallow: /davetiye.html
+Disallow: /kurumsaldavetiye/
 
 Sitemap: https://giresunexpo.com/sitemap.xml
