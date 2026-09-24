@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yönetim Paneli — Giresun EXPO</title>
 <meta name="robots" content="noindex, nofollow">
+<script>
+/* Adres "/admin" (sondaki egik cizgi olmadan) acilirsa goreli yollar site
+   kokune cozulur ve giristen sonra pano.html 404 verir. Adresi normalize et.
+   Uzantisi olan adreslere (".html") dokunulmaz. */
+(function () {
+  var y = location.pathname;
+  if (!/\/$/.test(y) && !/\.[a-z0-9]+$/i.test(y)) {
+    location.replace(y + '/' + location.search + location.hash);
+  }
+})();
+</script>
 <script>document.documentElement.classList.add('js')</script>
 <link rel="icon" href="../assets/img/brand/favicon-32.png" sizes="32x32">
 <link rel="stylesheet" href="../assets/css/style.css">
