@@ -136,7 +136,7 @@ const I = {
   image: icon('<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>'),
 };
 
-/* Galeri: mevcut 6 fotograf */
+/* Galeri: 6 tanitim gorseli + 33 arsiv fotografi */
 const PHOTOS = [
   { f: 'fuar-giris', w: 625, h: 370, tr: 'Giresun EXPO bayraklarıyla fuar girişi', en: 'Fair entrance with Giresun EXPO flags' },
   { f: 'fuar-alani-havadan', w: 941, h: 652, tr: 'Yenikapı Etkinlik Alanı, havadan görünüm', en: 'Yenikapı Event Area, aerial view' },
@@ -144,6 +144,41 @@ const PHOTOS = [
   { f: 'ziyaretciler', w: 844, h: 547, tr: 'Fuar alanındaki ziyaretçiler', en: 'Visitors at the fairground' },
   { f: 'uretim-sanayi', w: 783, h: 457, tr: 'Robotik üretim hattı', en: 'Robotic production line' },
   { f: 'yatirim-insaat', w: 428, h: 673, tr: 'Vinç ve inşaat alanı', en: 'Crane and construction site' },
+
+  /* 2026 tanıtım turu ve basın lansmanı — Drive arşivinden */
+  { f: 'basin-lansmani-kursu', w: 1400, h: 933, tr: 'Basın Lansmanı ve İmza Töreni kürsüsünde konuşmacılar', en: 'Speakers at the press launch and signing ceremony' },
+  { f: 'protokol-imza', w: 1400, h: 993, tr: 'İş birliği protokolünün imzalanması', en: 'Signing of the cooperation protocol' },
+  { f: 'basin-lansmani-salon', w: 1400, h: 933, tr: 'Basın lansmanı salonu ve kamera kurulumu', en: 'Press launch hall with cameras set up' },
+  { f: 'basin-lansmani-kamera', w: 1400, h: 1054, tr: 'Basın lansmanını görüntüleyen kameramanlar', en: 'Camera crews filming the press launch' },
+  { f: 'basin-lansmani-masa', w: 1400, h: 933, tr: 'Basın lansmanında katılımcılar', en: 'Attendees at the press launch' },
+  { f: 'tanitim-toplantisi', w: 1400, h: 1050, tr: 'Giresun EXPO bilgilendirme ve tanıtım toplantısı', en: 'Giresun EXPO briefing and introduction meeting' },
+  { f: 'toplanti-grup', w: 1400, h: 1050, tr: 'Tanıtım toplantısı sonrası grup fotoğrafı', en: 'Group photo after the introduction meeting' },
+  { f: 'toplanti-grup-2', w: 1400, h: 933, tr: 'Toplantı salonunda katılımcı grubu', en: 'Participants in the meeting hall' },
+  { f: 'sunum-1', w: 1200, h: 900, tr: 'Giresun EXPO sunumu yapılan toplantı', en: 'Meeting with the Giresun EXPO presentation' },
+  { f: 'sunum-2', w: 1200, h: 900, tr: 'Toplantıda söz alan katılımcı', en: 'A participant speaking at the meeting' },
+  { f: 'belge-takdimi', w: 1400, h: 1050, tr: 'Ziyaret sırasında katılım belgesi takdimi', en: 'Presentation of a participation certificate during a visit' },
+  { f: 'ziyaret-01', w: 1050, h: 1400, tr: 'Kurum ziyaretinde grup fotoğrafı', en: 'Group photo during an institutional visit' },
+  { f: 'ziyaret-02', w: 1400, h: 1050, tr: 'Makam ziyaretinde grup fotoğrafı', en: 'Group photo during an official visit' },
+  { f: 'ziyaret-03', w: 1400, h: 1050, tr: 'Ofis ziyaretinde grup fotoğrafı', en: 'Group photo during an office visit' },
+  { f: 'ziyaret-04', w: 1400, h: 1050, tr: 'Oturma düzeninde iş görüşmesi', en: 'Business meeting in a lounge setting' },
+  { f: 'ziyaret-05', w: 1400, h: 1050, tr: 'Makam odasında ziyaret', en: 'Visit in an executive office' },
+  { f: 'ziyaret-06', w: 1400, h: 1050, tr: 'Resmî kurum binasında grup fotoğrafı', en: 'Group photo at a public institution building' },
+  { f: 'ziyaret-07', w: 1400, h: 1050, tr: 'Kurum binasında ziyaret grubu', en: 'Visiting group at an institution building' },
+  { f: 'ziyaret-08', w: 1400, h: 1050, tr: 'Oturma grubunda yapılan görüşme', en: 'Meeting held in a seating area' },
+  { f: 'ziyaret-09', w: 1368, h: 912, tr: 'Makam odasında grup fotoğrafı', en: 'Group photo in an executive office' },
+  { f: 'isletme-ziyareti-01', w: 1400, h: 1050, tr: 'İşletme ziyaretinde grup fotoğrafı', en: 'Group photo during a company visit' },
+  { f: 'ziyaret-10', w: 1400, h: 1050, tr: 'Kurum ziyaretinde katılımcılar', en: 'Participants during an institutional visit' },
+  { f: 'ziyaret-11', w: 1400, h: 647, tr: 'Ofiste yapılan görüşme', en: 'Meeting held at an office' },
+  { f: 'ziyaret-12', w: 1400, h: 1232, tr: 'Makam odasında toplantı', en: 'Meeting in an executive office' },
+  { f: 'ziyaret-13', w: 1400, h: 1050, tr: 'Makam ziyareti', en: 'An official visit' },
+  { f: 'ziyaret-14', w: 1400, h: 1050, tr: 'Ofiste grup fotoğrafı', en: 'Group photo at an office' },
+  { f: 'isletme-ziyareti-02', w: 1400, h: 933, tr: 'İşletme ziyareti sonrası grup fotoğrafı', en: 'Group photo after a company visit' },
+  { f: 'ziyaret-15', w: 1400, h: 934, tr: 'Oturma düzeninde kurum ziyareti', en: 'Institutional visit in a lounge setting' },
+  { f: 'ziyaret-16', w: 1400, h: 1050, tr: 'Kurum ziyaretinde katılımcı grubu', en: 'Visiting group at an institution' },
+  { f: 'ziyaret-17', w: 1400, h: 1050, tr: 'Açık havada grup fotoğrafı', en: 'Group photo outdoors' },
+  { f: 'ziyaret-18', w: 1400, h: 1050, tr: 'Ofiste yapılan tanıtım görüşmesi', en: 'Introductory meeting at an office' },
+  { f: 'ziyaret-19', w: 1400, h: 890, tr: 'Ziyaret sonrası grup fotoğrafı', en: 'Group photo after a visit' },
+  { f: 'ziyaret-20', w: 1400, h: 1050, tr: 'Toplantı masasında yapılan görüşme', en: 'Meeting around a conference table' },
 ];
 
 const galleryItems = (lang, r) => PHOTOS.map((p, i) => `          <figure class="gallery__item">

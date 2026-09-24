@@ -195,7 +195,7 @@
         "A3-08"
       ],
       "hall": "A",
-      "logo": "",
+      "logo": "assets/img/exhibitors/tiryaki-matbaacilik.png",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -280,7 +280,7 @@
         "T1-09"
       ],
       "hall": "T",
-      "logo": "",
+      "logo": "assets/img/exhibitors/kbt-konveyor-ve-otomasyon-sistemleri.png",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -448,7 +448,7 @@
         "T2-12"
       ],
       "hall": "T",
-      "logo": "",
+      "logo": "assets/img/exhibitors/as-bakir.png",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -716,7 +716,7 @@
         "G3-06"
       ],
       "hall": "G",
-      "logo": "",
+      "logo": "assets/img/exhibitors/kapela-semsiye.png",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -998,7 +998,7 @@
         "P1-19"
       ],
       "hall": "P",
-      "logo": "",
+      "logo": "assets/img/exhibitors/heatemp-bina-otomasyonu-ve-endustriyel-iklimlendirme-cozumleri.png",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
@@ -1012,7 +1012,7 @@
         "P1-20"
       ],
       "hall": "P",
-      "logo": "",
+      "logo": "assets/img/exhibitors/switch-elektronik.png",
       "in_booklet_logo_page": false,
       "featured": false,
       "published": true,
