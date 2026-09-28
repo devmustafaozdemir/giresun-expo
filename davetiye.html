@@ -44,6 +44,14 @@
     .dv-ozet dd { margin: 0 0 var(--space-3); }
     .dv-ozet dd:last-child { margin-bottom: 0; }
     .dv-uyari { color: #8A4B00; }
+
+    /* İndirme butonu asıl eylem: geniş ve ortalı, mobilde parmakla rahat basılır */
+    .dv-eylem {
+      display: grid; gap: var(--space-3); justify-items: center;
+      margin-top: var(--space-5);
+    }
+    .dv-eylem #dv-indir { justify-content: center; max-width: 24rem; }
+    .dv-durum { text-align: center; }
   </style>
 </head>
 <body>
@@ -81,7 +89,7 @@
           <div class="form__group">
             <label class="form__label" for="dv-ad">Davet edilen kişi</label>
             <input class="form__control" id="dv-ad" type="text" maxlength="60"
-                   placeholder="Ör. Mehmet Fatih Kacır" autocomplete="off" spellcheck="false">
+                   placeholder="Ad Soyad" autocomplete="off" spellcheck="false">
             <p class="form__hint">Uzun isimler otomatik küçülür, kutunun dışına taşmaz.</p>
           </div>
 
@@ -92,11 +100,13 @@
             <p class="form__hint">Gerekirse elle değiştirebilirsiniz.</p>
           </div>
 
-          <div class="cluster">
-            <button class="btn btn--primary" type="button" id="dv-indir">PNG indir</button>
+          <div class="dv-eylem">
+            <button class="btn btn--primary btn--lg btn--block" type="button" id="dv-indir">
+              Davetiye Görselini İndir
+            </button>
             <button class="btn btn--ghost" type="button" id="dv-temizle">Alanları temizle</button>
           </div>
-          <p class="form__hint" id="dv-durum" role="status" aria-live="polite"></p>
+          <p class="form__hint dv-durum" id="dv-durum" role="status" aria-live="polite"></p>
         </form>
 
         <div>
