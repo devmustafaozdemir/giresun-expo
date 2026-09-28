@@ -121,29 +121,25 @@
             <select class="form__control" id="dv-firma">
               <option value="">Yükleniyor…</option>
             </select>
-            <p class="form__hint" id="dv-firma-not">Logo ve stant numarası firmaya göre gelir.</p>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="dv-ad">Davet edilen kişi</label>
             <input class="form__control" id="dv-ad" type="text" maxlength="60"
                    placeholder="Ad Soyad" autocomplete="off" spellcheck="false">
-            <p class="form__hint">Uzun isimler otomatik küçülür, kutunun dışına taşmaz.</p>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="dv-stant">Stant numarası</label>
             <input class="form__control" id="dv-stant" type="text" maxlength="30"
                    placeholder="Firma seçince dolar" autocomplete="off" spellcheck="false">
-            <p class="form__hint">Gerekirse elle değiştirebilirsiniz.</p>
           </div>
 
           <div class="form__group" id="dv-olcek-grup" hidden>
             <label class="form__label" for="dv-olcek">
               Logo boyutu <span class="dv-olcek-deger" id="dv-olcek-deger">%100</span>
             </label>
-            <input class="dv-olcek" id="dv-olcek" type="range" min="60" max="140" step="5" value="100">
-            <p class="form__hint">Logoyu davetiyede büyütüp küçültmek için sürükleyin.</p>
+            <input class="dv-olcek" id="dv-olcek" type="range" min="50" max="200" step="5" value="100">
           </div>
 
           <div class="dv-eylem">
@@ -182,10 +178,10 @@
                   solPay: 26, punto: 34, enAz: 19 };
   const STANT = { x: 589, y: 1211, en: 213, boy: 76, r: 9, zemin: '#003366', renk: '#FFFFFF',
                   punto: 40, enAz: 18 };
-  const LOGO  = { silX: 82, silY: 1197, silEn: 424, silBoy: 101, zemin: '#FDFDFD',
-                  ortaX: 292, ortaY: 1246, maxEn: 320, maxBoy: 74,
+  const LOGO  = { silX: 82, silY: 1196, silEn: 424, silBoy: 104, zemin: '#FDFDFD',
+                  ortaX: 292, ortaY: 1248, maxEn: 320, maxBoy: 74,
                   /* kayar çubuk büyütse bile hücreden taşmasın */
-                  sinirEn: 408, sinirBoy: 92,
+                  sinirEn: 414, sinirBoy: 96,
                   yaziPunto: 26, yaziEnAz: 15, yaziRenk: '#0E2E61' };
 
   const tuval  = document.getElementById('dv-tuval');
@@ -256,8 +252,6 @@
       o.textContent = st ? `${ex.name} — ${st}` : ex.name;
       secim.appendChild(o);
     });
-    document.getElementById('dv-firma-not').textContent =
-      `${firmalar.length} firma listelendi. Logo ve stant numarası seçime göre gelir.`;
   })();
 
   secim.addEventListener('change', async () => {
@@ -379,6 +373,9 @@
       const o = Math.min(temel * k, kirp);
       const w = logoGorsel.naturalWidth * o, h = logoGorsel.naturalHeight * o;
       ctx.drawImage(logoGorsel, LOGO.ortaX - w / 2, LOGO.ortaY - h / 2, w, h);
+      /* Hücreye sığan en büyük orana gelindiyse yüzdeyi olduğu gibi göster */
+      const enBuyuk = Math.round((kirp / temel) * 100);
+      olcekDeger.textContent = k * 100 >= enBuyuk ? `%${enBuyuk} (en büyük)` : `%${olcek.value}`;
     } else if (ex) {
       ctx.fillStyle = LOGO.yaziRenk;
       ctx.textAlign = 'center';
@@ -409,7 +406,7 @@
 
   olcek.addEventListener('input', () => {
     olcekDeger.textContent = `%${olcek.value}`;
-    ciz();
+    ciz();   /* sınıra gelinmişse ciz() yüzdeyi düzeltir */
   });
 
   let zaman = null;
