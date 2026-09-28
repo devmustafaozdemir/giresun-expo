@@ -429,21 +429,57 @@
       .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'davetiye';
   }
 
+  /** data: URL -> Blob (senkron; paylaşım için dokunma hareketi korunur) */
+  function dataUrlBlob(dataUrl) {
+    const [bas, veri] = dataUrl.split(',');
+    const tur = (bas.match(/:(.*?);/) || [, 'image/png'])[1];
+    const ham = atob(veri);
+    const dizi = new Uint8Array(ham.length);
+    for (let i = 0; i < ham.length; i++) dizi[i] = ham.charCodeAt(i);
+    return new Blob([dizi], { type: tur });
+  }
+
+  function indir(blob, dosyaAdi) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = dosyaAdi;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+    durum.textContent = 'Davetiye indirildi.';
+  }
+
   document.getElementById('dv-indir').addEventListener('click', () => {
     if (!sablonHazir) { durum.textContent = 'Şablon henüz yüklenmedi, biraz bekleyin.'; return; }
     ciz();
+
     const ex = firmalar[Number(secim.value)];
-    const parca = [slug(adGiris.value), ex ? slug(ex.name) : ''].filter(Boolean).join('-');
-    tuval.toBlob((blob) => {
-      if (!blob) { durum.textContent = 'Görsel oluşturulamadı.'; return; }
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `giresun-expo-davetiye-${parca || 'davetiye'}.png`;
-      document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 4000);
-      durum.textContent = 'Davetiye indirildi.';
-    }, 'image/png');
+    const kisalt = (t) => t.slice(0, 28).replace(/-+$/, '');
+    const parca = [kisalt(slug(adGiris.value)), ex ? kisalt(slug(ex.name)) : '']
+      .filter(Boolean).join('-');
+    const dosyaAdi = `giresun-expo-davetiye-${parca || 'davetiye'}.png`;
+
+    /* toDataURL senkron: aynı dokunma hareketi içinde kaldığımız için
+       iOS ve Android paylaşım penceresini engellemez. */
+    let blob;
+    try { blob = dataUrlBlob(tuval.toDataURL('image/png')); }
+    catch { durum.textContent = 'Görsel oluşturulamadı.'; return; }
+
+    /* Telefonda paylaşım penceresi: oradan "Fotoğraflara kaydet" ile
+       davetiye doğrudan galeriye gider. Desteklenmiyorsa normal indirme. */
+    const dosya = (typeof File === 'function') ? new File([blob], dosyaAdi, { type: 'image/png' }) : null;
+    if (dosya && navigator.canShare && navigator.canShare({ files: [dosya] })) {
+      durum.textContent = 'Paylaşım penceresi açılıyor…';
+      navigator.share({ files: [dosya], title: 'Giresun EXPO 2026 Davetiyesi' })
+        .then(() => { durum.textContent = 'Davetiye kaydedildi.'; })
+        .catch((e) => {
+          if (e && e.name === 'AbortError') { durum.textContent = ''; return; }
+          indir(blob, dosyaAdi);   // paylaşım başarısızsa indirmeye düş
+        });
+      return;
+    }
+
+    indir(blob, dosyaAdi);
   });
   </script>
 </body>
