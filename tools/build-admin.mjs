@@ -24,6 +24,7 @@ const SAYFALAR = [
   { dosya: 'ziyaretci-kayitlari.html', baslik: 'Ziyaretçi Kayıtları', modul: 'ziyaretci-kayitlari.js' },
   { dosya: 'mesajlar.html',           baslik: 'Mesajlar',             modul: 'mesajlar.js' },
   { dosya: 'katilimcilar.html',       baslik: 'Katılımcılar',         modul: 'katilimcilar.js' },
+  { dosya: 'sektorler.html',          baslik: 'Sektörler',            modul: 'sektorler.js' },
   { dosya: 'ayarlar.html',            baslik: 'Site Ayarları',        modul: 'ayarlar.js' },
   { dosya: 'icerik.html',             baslik: 'Diğer İçerik',         modul: 'icerik.js' },
   { dosya: 'kullanicilar.html',       baslik: 'Kullanıcılar',         modul: 'kullanicilar.js' },

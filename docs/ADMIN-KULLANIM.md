@@ -127,6 +127,31 @@ logosu görünmez.
 
 ---
 
+## Sektörler
+
+Katılımcıların bağlandığı sektör listesi. Sitedeki Katılımcılar sayfasının
+**sektör süzgeci** ve firma kartlarındaki **sektör adı** buradan gelir.
+
+Üstteki kartlarda kaç sektörde firma olduğunu ve kaç firmanın henüz sektörü
+seçilmediğini görürsünüz. Tablodaki **Katılımcı** sayısına tıklarsanız
+Katılımcılar sayfası o sektöre süzülmüş olarak açılır.
+
+- **Ad (TR / EN)** — ikisi de zorunlu; İngilizce ad İngilizce sitede görünür
+- **Kimlik** — kısa ad (ör. `gida`). Yalnızca eklerken yazılır; boş bırakırsanız
+  Türkçe addan üretilir. Katılımcılar ve sitedeki süzgeç adresi buna bağlı
+  olduğu için sonradan **değiştirilemez**
+- **İkon** — hazır sektör ikonlarından biri
+- **Sıra** — küçük sayı önce gösterilir
+
+**Silmek** yalnızca **sahip** rolünde mümkün. Sektöre bağlı firmalar varsa kaç
+tane olduğu önce gösterilir; silerseniz bu firmaların sektörü boşalır ve sitede
+"Diğer" olarak görünürler. Önce firmaları başka bir sektöre taşıyın.
+
+> Firma Kayıt formundaki sektör seçenekleri bu listeden değil, sayfaya sabit
+> yazılı listeden gelir.
+
+---
+
 ## Site Ayarları
 
 Sitenin genelini etkileyen ayarlar. **Kaydettiğiniz anda siteye yansır.**
@@ -167,7 +192,8 @@ tarafından** reddedilir — yani formu teknik bir yolla zorlamak da işe yarama
 
 ## Diğer İçerik
 
-Dört bölüm sekmeli olarak burada: **SSS**, **Sektörler**, **Ulaşım**, **Paydaşlar**.
+Dört bölüm sekmeli olarak burada: **SSS**, **Ulaşım**, **Paydaşlar**, **Program**.
+Sektörler kendi sayfasına taşındı (yukarıda).
 
 Hepsinde aynı mantık: listeden bir kayda tıklayıp düzenlersiniz, **+ Yeni ekle**
 ile yenisini oluşturursunuz.
@@ -176,7 +202,6 @@ ile yenisini oluşturursunuz.
 - **Sitede yayında** — kapatırsanız kayıt durur ama sitede görünmez
 - **Slug** — adresi belirleyen kısa ad; küçük harf, rakam ve tire.
   Var olan bir kaydın slug'ını değiştirmeyin, bağlantılar kırılır
-- **Sektörlerdeki Kimlik** alanı değiştirilemez: katılımcılar ona bağlı
 
 ---
 

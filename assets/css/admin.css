@@ -578,12 +578,17 @@
   padding: 2px;
   line-height: 0;
 }
+/* ikon('kapat', '') sınıfsız SVG üretir; boyut verilmezse 0×0 kalıyor ve
+   çekmece/toast kapat düğmesi görünmüyordu (mobilde çekmece kapatılamıyordu) */
+.toast__kapat svg { width: 20px; height: 20px; }
 
 .onay-ortu {
   position: fixed;
   inset: 0;
   background: rgba(18, 33, 27, 0.5);
-  z-index: var(--z-modal);
+  /* Onay çoğu zaman çekmecenin içinden açılır (Sil, Logoyu kaldır): çekmecenin
+     (+1) ve mobil yan menünün (+2) üstünde durmalı, yoksa düğmeleri tıklanamaz */
+  z-index: calc(var(--z-modal) + 3);
   display: grid;
   place-items: center;
   padding: var(--space-5);

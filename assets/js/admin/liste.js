@@ -116,7 +116,9 @@ export async function listeSayfasi(kok, ayar) {
     const p = new URLSearchParams(location.search);
     durum.q = p.get('q') || '';
     durum.sirala = p.get('sirala') || (ayar.varsayilanSirala || 'created_at');
-    durum.artan = p.get('yon') === 'asc';
+    /* yon yoksa sayfanın varsayılan yönü: önceden her zaman azalana düşüyordu,
+       varsayilanArtan yok sayılıyordu */
+    durum.artan = p.has('yon') ? p.get('yon') === 'asc' : !!ayar.varsayilanArtan;
     durum.sayfa = Math.max(0, parseInt(p.get('s') || '0', 10) || 0);
     for (const s of suzgecKutulari) {
       durum.suzgec[s.tanim.ad] = p.get(s.tanim.ad) || '';
@@ -129,7 +131,7 @@ export async function listeSayfasi(kok, ayar) {
     if (durum.q) p.set('q', durum.q);
     for (const [k, v] of Object.entries(durum.suzgec)) if (v) p.set(k, v);
     if (durum.sirala !== (ayar.varsayilanSirala || 'created_at')) p.set('sirala', durum.sirala);
-    if (durum.artan) p.set('yon', 'asc');
+    if (durum.artan !== !!ayar.varsayilanArtan) p.set('yon', durum.artan ? 'asc' : 'desc');
     if (durum.sayfa) p.set('s', String(durum.sayfa));
     history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p : ''));
   }

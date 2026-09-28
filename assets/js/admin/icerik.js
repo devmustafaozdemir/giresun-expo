@@ -2,16 +2,25 @@
    Yönetim paneli — Diğer İçerik
    assets/js/admin/icerik.js
 
-   SSS, sektörler, ulaşım seçenekleri, paydaşlar ve etkinlik programı tek
-   sayfada sekmeli olarak yönetilir. Hepsi de "kısa kayıt listesi + TR/EN alanlar + sıra" biçiminde
+   SSS, ulaşım seçenekleri, paydaşlar ve etkinlik programı tek sayfada sekmeli
+   olarak yönetilir. Hepsi de "kısa kayıt listesi + TR/EN alanlar + sıra" biçiminde
    olduğu için ortak bir CRUD üzerinden kuruluyor; her sekme yalnızca alan
    tanımını veriyor.
+
+   Sektörler eskiden burada bir sekmeydi; artık kendi sayfası var
+   (sektorler.html). Eski ?sekme=sektor bağlantıları oraya yönlendirilir.
    ========================================================================== */
 
 import { getClient } from '../supabase-client.js';
 import { korumaliSayfa, oturumIzle } from './auth.js';
 import { gunlukYaz } from './gunluk.js';
 import { el, kabukKur, durumKutusu, iskelet, toast, onayla } from './ui.js';
+
+/* Eski yer imleri: Sektörler kendi sayfasına taşındı */
+if (new URLSearchParams(location.search).get('sekme') === 'sektor') {
+  location.replace('sektorler.html');
+  await new Promise(() => {});
+}
 
 const oturum = await korumaliSayfa();
 oturumIzle();
@@ -33,18 +42,6 @@ const SEKMELER = [
       { ad: 'soru_en', etiket: 'Soru (EN)' },
       { ad: 'cevap_tr', etiket: 'Cevap (TR)', cokSatir: true },
       { ad: 'cevap_en', etiket: 'Cevap (EN)', cokSatir: true }
-    ]
-  },
-  {
-    id: 'sektor', ad: 'Sektörler', tablo: 'sectors',
-    secim: 'id, name_tr, name_en, ikon, sira',
-    baslikAlan: 'name_tr',
-    kimlikAlan: 'id',          // uuid değil, elle verilen metin kimlik
-    yayinVar: false,
-    alanlar: [
-      { ad: 'id', etiket: 'Kimlik', ipucu: 'Küçük harf, tire. Örn: gida. Sonradan değiştirmeyin.' },
-      { ad: 'name_tr', etiket: 'Ad (TR)' },
-      { ad: 'name_en', etiket: 'Ad (EN)' }
     ]
   },
   {
@@ -138,7 +135,7 @@ icerik.append(
     el('div', { class: 'sayfa-bas__metin' },
       el('h1', null, 'Diğer İçerik'),
       el('p', { class: 'sayfa-bas__alt' },
-        'Sık sorulan sorular, sektörler, ulaşım bilgileri, paydaşlar ve etkinlik programı.')))
+        'Sık sorulan sorular, ulaşım bilgileri, paydaşlar ve etkinlik programı.')))
 );
 
 const sekmeCubugu = el('div', {

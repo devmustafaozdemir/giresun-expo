@@ -64,6 +64,7 @@ const IKONLAR = {
   ziyaretci: [{ d: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' }, { t: 'circle', cx: '9', cy: '7', r: '4' }, { d: 'M22 21v-2a4 4 0 0 0-3-3.87' }],
   mesaj:     [{ d: 'M4 4h16v12H5.2L4 17.5V4Z' }],
   katilimci: [{ d: 'M3 21V7l9-4 9 4v14M9 21v-6h6v6' }, { t: 'circle', cx: '12', cy: '11', r: '1.5' }],
+  sektor:    [{ d: 'M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z' }, { t: 'circle', cx: '7.5', cy: '7.5', r: '.5', fill: 'currentColor' }],
   ayar:      [{ t: 'circle', cx: '12', cy: '12', r: '3' }, { d: 'M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z' }],
   sayfa:     [{ d: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z' }, { d: 'M14 2v6h6M9 13h6M9 17h6' }],
   kullanici: [{ d: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' }, { t: 'circle', cx: '12', cy: '7', r: '4' }],
@@ -95,6 +96,7 @@ export const MENU = [
   ]},
   { grup: 'İçerik', ogeler: [
     { id: 'katilimci', ad: 'Katılımcılar', dosya: 'katilimcilar.html', ikon: 'katilimci' },
+    { id: 'sektor',    ad: 'Sektörler',    dosya: 'sektorler.html',    ikon: 'sektor' },
     { id: 'ayar',      ad: 'Site Ayarları', dosya: 'ayarlar.html',     ikon: 'ayar' },
     { id: 'sayfa',     ad: 'Diğer İçerik',  dosya: 'icerik.html',      ikon: 'sayfa' }
   ]},
