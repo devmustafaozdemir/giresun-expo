@@ -120,9 +120,11 @@
   const EN = 975, BOY = 1463, OLCEK = 2;
 
   /* Üzeri boyanıp yeniden yazılan üç alan */
-  const ISIM  = { x: 74, y: 593, en: 447, boy: 65, zemin: '#E7EBF6', renk: '#0E2E61',
-                  solPay: 30, punto: 34, enAz: 19 };
-  const STANT = { x: 589, y: 1215, en: 217, boy: 72, zemin: '#003366', renk: '#FFFFFF',
+  /* Kutular şablondaki yuvarlak köşeli kutularla birebir örtüşmeli; düz
+     dikdörtgen boyanırsa köşelerde çıkıntı kalıyor. */
+  const ISIM  = { x: 79, y: 593, en: 438, boy: 65, r: 8, zemin: '#E7EBF6', renk: '#0E2E61',
+                  solPay: 26, punto: 34, enAz: 19 };
+  const STANT = { x: 589, y: 1211, en: 213, boy: 76, r: 9, zemin: '#003366', renk: '#FFFFFF',
                   punto: 40, enAz: 18 };
   const LOGO  = { silX: 112, silY: 1198, silEn: 392, silBoy: 94, zemin: '#FDFDFD',
                   ortaX: 288, ortaY: 1244, maxEn: 340, maxBoy: 80,
@@ -239,6 +241,23 @@
     return `${agirlik} ${punto}px Poppins, system-ui, sans-serif`;
   }
 
+  /** Yuvarlak köşeli dolu dikdörtgen (roundRect desteklenmeyen tarayıcıda elle) */
+  function yuvarlakKutu(x, y, en, boy, r, renk) {
+    ctx.fillStyle = renk;
+    ctx.beginPath();
+    if (typeof ctx.roundRect === 'function') {
+      ctx.roundRect(x, y, en, boy, r);
+    } else {
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + en, y, x + en, y + boy, r);
+      ctx.arcTo(x + en, y + boy, x, y + boy, r);
+      ctx.arcTo(x, y + boy, x, y, r);
+      ctx.arcTo(x, y, x + en, y, r);
+      ctx.closePath();
+    }
+    ctx.fill();
+  }
+
   /** Metni verilen genişliğe sığdıran punto */
   function sigdir(metin, punto, enAz, maxEn, agirlik) {
     let p = punto;
@@ -274,8 +293,7 @@
     ctx.drawImage(sablon, 0, 0, EN, BOY);
 
     /* 1) İsim — şablondaki ismi zeminle kapat, yenisini yaz */
-    ctx.fillStyle = ISIM.zemin;
-    ctx.fillRect(ISIM.x, ISIM.y, ISIM.en, ISIM.boy);
+    yuvarlakKutu(ISIM.x, ISIM.y, ISIM.en, ISIM.boy, ISIM.r, ISIM.zemin);
     if (ad) {
       sigdir(ad, ISIM.punto, ISIM.enAz, ISIM.en - ISIM.solPay * 2, 600);
       ctx.fillStyle = ISIM.renk;
@@ -308,8 +326,7 @@
     }
 
     /* 3) Stant numarası — lacivert kutuyu boyayıp yeniden yaz */
-    ctx.fillStyle = STANT.zemin;
-    ctx.fillRect(STANT.x, STANT.y, STANT.en, STANT.boy);
+    yuvarlakKutu(STANT.x, STANT.y, STANT.en, STANT.boy, STANT.r, STANT.zemin);
     if (stant) {
       sigdir(stant, STANT.punto, STANT.enAz, STANT.en - 28, 700);
       ctx.fillStyle = STANT.renk;
