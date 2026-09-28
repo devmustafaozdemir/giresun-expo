@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Davetiye Oluştur — Giresun EXPO</title>
+  <title>Fuar Davetiyesi Oluştur — Giresun EXPO</title>
   <script>
   /* Adres uzantısız ve sondaki eğik çizgi olmadan açılırsa göreli yollar
      bozulur. Normalize et. */
@@ -52,6 +52,43 @@
     }
     .dv-eylem #dv-indir { justify-content: center; max-width: 24rem; }
     .dv-durum { text-align: center; }
+
+    .dv-olcek { width: 100%; accent-color: var(--color-primary); height: 1.75rem; }
+    .dv-olcek-deger {
+      float: right; font-variant-numeric: tabular-nums; color: var(--color-primary);
+    }
+
+    /* Mobilde araları sıkıştır: bir alanı değiştirince önizleme
+       ekrandan uzağa kaçmasın. */
+    @media (max-width: 899.98px) {
+      .page-header { padding-block: var(--space-5) var(--space-4); }
+      .page-header h1 { font-size: 1.75rem; margin-bottom: var(--space-2); }
+      .page-header .lead { font-size: .9375rem; line-height: 1.5; }
+      .section--compact { padding-block: var(--space-4); }
+      .dv-duzen { gap: var(--space-4); }
+      #dv-form { gap: var(--space-3); }
+      .form__group { gap: .25rem; }
+      .form__hint { font-size: .8125rem; line-height: 1.4; }
+      .dv-eylem { margin-top: var(--space-3); gap: var(--space-2); }
+      .dv-onizleme { padding: var(--space-3); }
+      .dv-onizleme canvas { max-width: 232px; }
+      .dv-ozet { margin-top: var(--space-3); padding: var(--space-3); }
+
+      /* Önizleme yukarı alınır ve yapışkan durur: alanları değiştirirken
+         davetiye hep ekranda kalır, aşağı yukarı kaydırmak gerekmez. */
+      .dv-duzen { display: flex; flex-direction: column; align-items: stretch; }
+      .dv-duzen > div:last-child {
+        order: -1;
+        position: sticky;
+        top: calc(var(--header-h, 84px) - 24px);   /* yapışkan başlığın altına */
+        z-index: 5;
+        background-color: var(--color-bg, #fff);
+        padding-bottom: var(--space-2);
+      }
+      /* Özet masaüstünde kalsın; mobilde yer kaplamasın (bilgi zaten
+         davetiyenin üzerinde görünüyor). */
+      .dv-ozet { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -68,9 +105,10 @@
   <main id="main">
     <section class="page-header">
       <div class="container">
-        <h1>Davetiye Oluştur</h1>
-        <p class="lead">Katılımcı firmayı ve davet edilen kişiyi seçin; firma logosu ve
-          stant numarası otomatik gelir. Bu sayfa menüde görünmez ve arama motorlarına kapalıdır.</p>
+        <h1>Fuar Davetiyesi Oluştur</h1>
+        <p class="lead">Katılımcı firmalarımız, müşterileri ve iş ortakları için kişiye özel
+          dijital davetiyelerini buradan oluşturabilir. Giresun Expo 2026’da verimli, keyifli
+          ve bol iş birlikleriyle dolu bir fuar geçirmenizi dileriz.</p>
       </div>
     </section>
 
@@ -98,6 +136,14 @@
             <input class="form__control" id="dv-stant" type="text" maxlength="30"
                    placeholder="Firma seçince dolar" autocomplete="off" spellcheck="false">
             <p class="form__hint">Gerekirse elle değiştirebilirsiniz.</p>
+          </div>
+
+          <div class="form__group" id="dv-olcek-grup" hidden>
+            <label class="form__label" for="dv-olcek">
+              Logo boyutu <span class="dv-olcek-deger" id="dv-olcek-deger">%100</span>
+            </label>
+            <input class="dv-olcek" id="dv-olcek" type="range" min="60" max="140" step="5" value="100">
+            <p class="form__hint">Logoyu davetiyede büyütüp küçültmek için sürükleyin.</p>
           </div>
 
           <div class="dv-eylem">
@@ -136,8 +182,10 @@
                   solPay: 26, punto: 34, enAz: 19 };
   const STANT = { x: 589, y: 1211, en: 213, boy: 76, r: 9, zemin: '#003366', renk: '#FFFFFF',
                   punto: 40, enAz: 18 };
-  const LOGO  = { silX: 112, silY: 1198, silEn: 392, silBoy: 94, zemin: '#FDFDFD',
-                  ortaX: 288, ortaY: 1244, maxEn: 340, maxBoy: 80,
+  const LOGO  = { silX: 82, silY: 1197, silEn: 424, silBoy: 101, zemin: '#FDFDFD',
+                  ortaX: 292, ortaY: 1246, maxEn: 320, maxBoy: 74,
+                  /* kayar çubuk büyütse bile hücreden taşmasın */
+                  sinirEn: 408, sinirBoy: 92,
                   yaziPunto: 26, yaziEnAz: 15, yaziRenk: '#0E2E61' };
 
   const tuval  = document.getElementById('dv-tuval');
@@ -146,6 +194,9 @@
   const adGiris    = document.getElementById('dv-ad');
   const stantGiris = document.getElementById('dv-stant');
   const durum  = document.getElementById('dv-durum');
+  const olcek      = document.getElementById('dv-olcek');
+  const olcekGrup  = document.getElementById('dv-olcek-grup');
+  const olcekDeger = document.getElementById('dv-olcek-deger');
   const ozet   = document.getElementById('dv-ozet');
   const oFirma = document.getElementById('dv-o-firma');
   const oLogo  = document.getElementById('dv-o-logo');
@@ -212,7 +263,7 @@
   secim.addEventListener('change', async () => {
     const ex = firmalar[Number(secim.value)];
     logoGorsel = null;
-    if (!ex) { stantGiris.value = ''; ozet.hidden = true; ciz(); return; }
+    if (!ex) { stantGiris.value = ''; ozet.hidden = true; olcekGrup.hidden = true; ciz(); return; }
 
     stantGiris.value = standMetni(ex);
     ozet.hidden = false;
@@ -221,6 +272,7 @@
     const url = logoAdresi(ex.logo_url || ex.logo);
     if (!url) {
       oLogo.innerHTML = '<span class="dv-uyari">Logo yok — firma adı yazıyla basılacak.</span>';
+      olcekGrup.hidden = true;
       ciz();
       return;
     }
@@ -228,8 +280,10 @@
     try {
       logoGorsel = await gorselYukle(url);
       oLogo.textContent = 'Logo kullanılıyor.';
+      olcekGrup.hidden = false;
     } catch {
       logoGorsel = null;
+      olcekGrup.hidden = true;
       oLogo.innerHTML = '<span class="dv-uyari">Logo açılamadı — firma adı yazıyla basılacak.</span>';
     }
     ciz();
@@ -316,8 +370,13 @@
     ctx.fillStyle = LOGO.zemin;
     ctx.fillRect(LOGO.silX, LOGO.silY, LOGO.silEn, LOGO.silBoy);
     if (logoGorsel) {
-      const o = Math.min(LOGO.maxEn / logoGorsel.naturalWidth,
-                         LOGO.maxBoy / logoGorsel.naturalHeight);
+      const k = Number(olcek.value || 100) / 100;
+      /* Önce hücreye sığdır, sonra kaydırıcıyla ölçekle, sonra sınırla kırp */
+      const temel = Math.min(LOGO.maxEn / logoGorsel.naturalWidth,
+                             LOGO.maxBoy / logoGorsel.naturalHeight);
+      const kirp = Math.min(LOGO.sinirEn / logoGorsel.naturalWidth,
+                            LOGO.sinirBoy / logoGorsel.naturalHeight);
+      const o = Math.min(temel * k, kirp);
       const w = logoGorsel.naturalWidth * o, h = logoGorsel.naturalHeight * o;
       ctx.drawImage(logoGorsel, LOGO.ortaX - w / 2, LOGO.ortaY - h / 2, w, h);
     } else if (ex) {
@@ -348,6 +407,11 @@
 
   /* --- Etkileşim -------------------------------------------------------- */
 
+  olcek.addEventListener('input', () => {
+    olcekDeger.textContent = `%${olcek.value}`;
+    ciz();
+  });
+
   let zaman = null;
   const gecikmeliCiz = () => { clearTimeout(zaman); zaman = setTimeout(ciz, 120); };
   adGiris.addEventListener('input', gecikmeliCiz);
@@ -355,7 +419,9 @@
 
   document.getElementById('dv-temizle').addEventListener('click', () => {
     adGiris.value = ''; stantGiris.value = ''; secim.value = '';
-    logoGorsel = null; ozet.hidden = true; ciz(); secim.focus();
+    logoGorsel = null; ozet.hidden = true;
+    olcekGrup.hidden = true; olcek.value = '100'; olcekDeger.textContent = '%100';
+    ciz(); secim.focus();
   });
 
   function slug(t) {
