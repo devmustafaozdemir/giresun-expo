@@ -5,12 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Davetiye Oluştur — Giresun EXPO</title>
+  <script>
+  /* Adres uzantısız ve sondaki eğik çizgi olmadan açılırsa göreli yollar
+     bozulur. Normalize et. */
+  (function () {
+    var y = location.pathname;
+    if (!/\/$/.test(y) && !/\.[a-z0-9]+$/i.test(y)) {
+      location.replace(y + '/' + location.search + location.hash);
+    }
+  })();
+  </script>
   <script>document.documentElement.classList.add('js')</script>
   <link rel="icon" href="assets/img/brand/favicon-32.png" sizes="32x32">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/config.js"></script>
   <style>
     .dv-duzen { display: grid; gap: var(--space-7); align-items: start; }
-    @media (min-width: 900px) { .dv-duzen { grid-template-columns: 22rem 1fr; } }
+    @media (min-width: 900px) { .dv-duzen { grid-template-columns: 23rem 1fr; } }
     .dv-onizleme {
       background-color: var(--color-surface-alt, #F4F7F5);
       border: 1px solid var(--color-border);
@@ -19,11 +30,20 @@
       display: flex; justify-content: center;
     }
     .dv-onizleme canvas {
-      width: 100%; max-width: 480px; height: auto; display: block;
+      width: 100%; max-width: 460px; height: auto; display: block;
       box-shadow: var(--shadow-md, 0 10px 30px rgba(0,0,0,.12));
       background-color: #fff;
     }
-    .dv-yukleniyor { color: var(--color-muted); font-size: .9375rem; }
+    .dv-ozet {
+      margin-top: var(--space-4); padding: var(--space-4);
+      border: 1px solid var(--color-border); border-radius: var(--radius-md);
+      background-color: var(--color-surface-alt, #F4F7F5);
+      font-size: .9375rem; line-height: 1.6;
+    }
+    .dv-ozet dt { font-weight: 600; color: var(--color-muted); font-size: .8125rem; }
+    .dv-ozet dd { margin: 0 0 var(--space-3); }
+    .dv-ozet dd:last-child { margin-bottom: 0; }
+    .dv-uyari { color: #8A4B00; }
   </style>
 </head>
 <body>
@@ -41,26 +61,35 @@
     <section class="page-header">
       <div class="container">
         <h1>Davetiye Oluştur</h1>
-        <p class="lead">Ad soyad ve ünvanı yazın, davetiyeyi görsel olarak indirin.
-          Bu sayfa menüde görünmez ve arama motorlarına kapalıdır.</p>
+        <p class="lead">Katılımcı firmayı ve davet edilen kişiyi seçin; firma logosu ve
+          stant numarası otomatik gelir. Bu sayfa menüde görünmez ve arama motorlarına kapalıdır.</p>
       </div>
     </section>
 
     <section class="section section--compact">
       <div class="container dv-duzen">
         <form class="form" id="dv-form" novalidate>
+
           <div class="form__group">
-            <label class="form__label" for="dv-ad">Ad Soyad</label>
-            <input class="form__control" id="dv-ad" type="text" maxlength="60"
-                   placeholder="Ör. Fuat KÖSE" autocomplete="off" spellcheck="false">
-            <p class="form__hint">Davetiyede kalın yazıyla çıkar.</p>
+            <label class="form__label" for="dv-firma">Katılımcı firma</label>
+            <select class="form__control" id="dv-firma">
+              <option value="">Yükleniyor…</option>
+            </select>
+            <p class="form__hint" id="dv-firma-not">Logo ve stant numarası firmaya göre gelir.</p>
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="dv-unvan">Ünvan</label>
-            <input class="form__control" id="dv-unvan" type="text" maxlength="90"
-                   placeholder="Ör. Giresun Belediye Başkanı" autocomplete="off" spellcheck="false">
-            <p class="form__hint">Uzun ünvanlar otomatik küçülür, gerekirse iki satıra iner.</p>
+            <label class="form__label" for="dv-ad">Davet edilen kişi</label>
+            <input class="form__control" id="dv-ad" type="text" maxlength="60"
+                   placeholder="Ör. Mehmet Fatih Kacır" autocomplete="off" spellcheck="false">
+            <p class="form__hint">Uzun isimler otomatik küçülür, kutunun dışına taşmaz.</p>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="dv-stant">Stant numarası</label>
+            <input class="form__control" id="dv-stant" type="text" maxlength="30"
+                   placeholder="Firma seçince dolar" autocomplete="off" spellcheck="false">
+            <p class="form__hint">Gerekirse elle değiştirebilirsiniz.</p>
           </div>
 
           <div class="cluster">
@@ -70,150 +99,262 @@
           <p class="form__hint" id="dv-durum" role="status" aria-live="polite"></p>
         </form>
 
-        <div class="dv-onizleme">
-          <canvas id="dv-tuval" width="905" height="1280" aria-label="Davetiye önizlemesi"></canvas>
+        <div>
+          <div class="dv-onizleme">
+            <canvas id="dv-tuval" width="975" height="1463" aria-label="Davetiye önizlemesi"></canvas>
+          </div>
+          <dl class="dv-ozet" id="dv-ozet" hidden>
+            <dt>Firma</dt><dd id="dv-o-firma">—</dd>
+            <dt>Logo</dt><dd id="dv-o-logo">—</dd>
+          </dl>
         </div>
       </div>
     </section>
   </main>
 
-  <script>
-  (function () {
-    'use strict';
+  <script type="module">
+  import { katilimcilar } from './assets/js/data.js';
 
-    /* Şablondaki ölçüler (905×1280 px görselin kendi koordinatları) ------- */
-    var SABLON = 'assets/img/davetiye/davet-sablon.png';
-    var EN = 905, BOY = 1280;
-    var ORTA = 452;                 // çerçeve içi yatay orta
-    var KUTU = { x: 58, y: 476, en: 789, boy: 104 };  // üzeri beyazlanan alan
-    var AD = { taban: 519, punto: 28, enAz: 17, maxEn: 700 };
-    var UNVAN = { taban: 550, punto: 25, enAz: 15, maxEn: 720, satirAralik: 27 };
-    var OLCEK = 2;                  // indirilen görsel 2 kat çözünürlükte
+  /* Şablon ölçüleri — 975×1463 px görselin kendi koordinatları ------------ */
+  const SABLON = 'assets/img/davetiye/davet-sablon-2026.jpg';
+  const EN = 975, BOY = 1463, OLCEK = 2;
 
-    var tuval = document.getElementById('dv-tuval');
-    var ctx = tuval.getContext('2d');
-    var adGiris = document.getElementById('dv-ad');
-    var unvanGiris = document.getElementById('dv-unvan');
-    var durum = document.getElementById('dv-durum');
-    var gorsel = new Image();
-    var hazir = false;
+  /* Üzeri boyanıp yeniden yazılan üç alan */
+  const ISIM  = { x: 74, y: 593, en: 447, boy: 65, zemin: '#E7EBF6', renk: '#0E2E61',
+                  solPay: 30, punto: 34, enAz: 19 };
+  const STANT = { x: 589, y: 1215, en: 217, boy: 72, zemin: '#003366', renk: '#FFFFFF',
+                  punto: 40, enAz: 18 };
+  const LOGO  = { silX: 112, silY: 1198, silEn: 392, silBoy: 94, zemin: '#FDFDFD',
+                  ortaX: 288, ortaY: 1244, maxEn: 340, maxBoy: 80,
+                  yaziPunto: 26, yaziEnAz: 15, yaziRenk: '#0E2E61' };
 
-    tuval.width = EN * OLCEK;
-    tuval.height = BOY * OLCEK;
+  const tuval  = document.getElementById('dv-tuval');
+  const ctx    = tuval.getContext('2d');
+  const secim  = document.getElementById('dv-firma');
+  const adGiris    = document.getElementById('dv-ad');
+  const stantGiris = document.getElementById('dv-stant');
+  const durum  = document.getElementById('dv-durum');
+  const ozet   = document.getElementById('dv-ozet');
+  const oFirma = document.getElementById('dv-o-firma');
+  const oLogo  = document.getElementById('dv-o-logo');
 
-    gorsel.onload = function () { hazir = true; durum.textContent = ''; ciz(); };
-    gorsel.onerror = function () { durum.textContent = 'Davetiye şablonu yüklenemedi.'; };
-    durum.textContent = 'Şablon yükleniyor…';
-    gorsel.src = SABLON;
+  tuval.width = EN * OLCEK;
+  tuval.height = BOY * OLCEK;
 
-    /* Yazı tipi hazır olunca yeniden çiz (aksi halde yedek font ile çizer) */
-    if (document.fonts && document.fonts.load) {
-      Promise.all([
-        document.fonts.load('600 28px Inter', 'Fuat KÖSE'),
-        document.fonts.load('400 25px Inter', 'Giresun Belediye Başkanı')
-      ]).then(function () { if (hazir) ciz(); }).catch(function () {});
-    }
+  let sablonHazir = false;
+  let logoGorsel = null;          // seçili firmanın yüklenmiş logosu
+  let firmalar = [];
 
-    function yaziTipi(kalin, punto) {
-      return (kalin ? '600 ' : '400 ') + punto + 'px Inter, system-ui, sans-serif';
-    }
+  const sablon = new Image();
+  sablon.onload = () => { sablonHazir = true; durum.textContent = ''; ciz(); };
+  sablon.onerror = () => { durum.textContent = 'Davetiye şablonu yüklenemedi.'; };
+  durum.textContent = 'Şablon yükleniyor…';
+  sablon.src = SABLON;
 
-    /** Metni verilen genişliğe sığdıracak punto */
-    function sigdir(metin, ayar, kalin) {
-      var punto = ayar.punto;
-      while (punto > ayar.enAz) {
-        ctx.font = yaziTipi(kalin, punto);
-        if (ctx.measureText(metin).width <= ayar.maxEn) break;
-        punto -= 0.5;
-      }
-      ctx.font = yaziTipi(kalin, punto);
-      return punto;
-    }
+  /* Yazı tipleri hazır olunca yeniden çiz */
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('600 34px Poppins', 'Mehmet Fatih Kacır'),
+      document.fonts.load('700 40px Poppins', 'P1-19')
+    ]).then(() => { if (sablonHazir) ciz(); }).catch(() => {});
+  }
 
-    /** Ünvanı iki satıra böler (kelime sınırında) */
-    function ikiSatir(metin, punto) {
-      var kelimeler = metin.split(/\s+/);
-      ctx.font = yaziTipi(false, punto);
-      var ilk = '', ikinci = '';
-      for (var i = 0; i < kelimeler.length; i++) {
-        var deneme = ilk ? ilk + ' ' + kelimeler[i] : kelimeler[i];
-        if (ctx.measureText(deneme).width <= UNVAN.maxEn || !ilk) ilk = deneme;
-        else ikinci = ikinci ? ikinci + ' ' + kelimeler[i] : kelimeler[i];
-      }
-      return ikinci ? [ilk, ikinci] : [ilk];
-    }
+  /* --- Firma listesi ---------------------------------------------------- */
 
-    function ciz() {
-      if (!hazir) return;
-      var ad = adGiris.value.trim();
-      var unvan = unvanGiris.value.trim();
+  function logoAdresi(yol) {
+    if (!yol) return '';
+    if (/^https?:\/\//i.test(yol)) return yol;
+    if (yol.startsWith('assets/')) return new URL(yol, document.baseURI).href;
+    const c = window.GE_CONFIG || {};
+    return c.SUPABASE_URL
+      ? `${c.SUPABASE_URL.replace(/\/$/, '')}/storage/v1/object/public/public-media/${yol}`
+      : '';
+  }
 
-      ctx.setTransform(OLCEK, 0, 0, OLCEK, 0, 0);
-      ctx.clearRect(0, 0, EN, BOY);
-      ctx.drawImage(gorsel, 0, 0, EN, BOY);
+  function standMetni(ex) {
+    const s = Array.isArray(ex.stands) ? ex.stands
+            : String(ex.stands || '').split(/[,;]\s*/).filter(Boolean);
+    return s.join(' / ');
+  }
 
-      /* Eski isim ve ünvanın üzerini beyazla kapat */
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(KUTU.x, KUTU.y, KUTU.en, KUTU.boy);
+  const trSirala = (a, b) => a.name.localeCompare(b.name, 'tr');
 
-      ctx.fillStyle = '#1a1a1a';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'alphabetic';
-
-      if (ad) {
-        sigdir(ad, AD, true);
-        ctx.fillText(ad, ORTA, AD.taban);
-      }
-
-      if (unvan) {
-        var punto = sigdir(unvan, UNVAN, false);
-        var satirlar = [unvan];
-        if (punto <= UNVAN.enAz && ctx.measureText(unvan).width > UNVAN.maxEn) {
-          punto = 21;
-          satirlar = ikiSatir(unvan, punto);
-          ctx.font = yaziTipi(false, punto);
-        }
-        if (satirlar.length === 1) {
-          ctx.fillText(satirlar[0], ORTA, UNVAN.taban);
-        } else {
-          ctx.fillText(satirlar[0], ORTA, UNVAN.taban - 12);
-          ctx.fillText(satirlar[1], ORTA, UNVAN.taban - 12 + UNVAN.satirAralik);
-        }
-      }
-    }
-
-    function slug(t) {
-      return String(t || 'davetiye').toLocaleLowerCase('tr')
-        .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
-        .replace(/ö/g, 'o').replace(/ç/g, 'c')
-        .normalize('NFD').replace(/[̀-ͯ]/g, '')
-        .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'davetiye';
-    }
-
-    var zaman = null;
-    function gecikmeliCiz() { clearTimeout(zaman); zaman = setTimeout(ciz, 120); }
-    adGiris.addEventListener('input', gecikmeliCiz);
-    unvanGiris.addEventListener('input', gecikmeliCiz);
-
-    document.getElementById('dv-temizle').addEventListener('click', function () {
-      adGiris.value = ''; unvanGiris.value = ''; ciz(); adGiris.focus();
+  (async function firmalariYukle() {
+    const sonuc = await katilimcilar();
+    firmalar = (sonuc.veri || []).slice().sort(trSirala);
+    secim.innerHTML = '';
+    const bos = document.createElement('option');
+    bos.value = ''; bos.textContent = 'Firma seçin…';
+    secim.appendChild(bos);
+    firmalar.forEach((ex, i) => {
+      const o = document.createElement('option');
+      o.value = String(i);
+      const st = standMetni(ex);
+      o.textContent = st ? `${ex.name} — ${st}` : ex.name;
+      secim.appendChild(o);
     });
-
-    document.getElementById('dv-indir').addEventListener('click', function () {
-      if (!hazir) { durum.textContent = 'Şablon henüz yüklenmedi, biraz bekleyin.'; return; }
-      ciz();
-      tuval.toBlob(function (blob) {
-        if (!blob) { durum.textContent = 'Görsel oluşturulamadı.'; return; }
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'giresun-expo-davetiye-' + slug(adGiris.value) + '.png';
-        document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-        durum.textContent = 'Davetiye indirildi.';
-      }, 'image/png');
-    });
+    document.getElementById('dv-firma-not').textContent =
+      `${firmalar.length} firma listelendi. Logo ve stant numarası seçime göre gelir.`;
   })();
+
+  secim.addEventListener('change', async () => {
+    const ex = firmalar[Number(secim.value)];
+    logoGorsel = null;
+    if (!ex) { stantGiris.value = ''; ozet.hidden = true; ciz(); return; }
+
+    stantGiris.value = standMetni(ex);
+    ozet.hidden = false;
+    oFirma.textContent = ex.name;
+
+    const url = logoAdresi(ex.logo_url || ex.logo);
+    if (!url) {
+      oLogo.innerHTML = '<span class="dv-uyari">Logo yok — firma adı yazıyla basılacak.</span>';
+      ciz();
+      return;
+    }
+    oLogo.textContent = 'Yükleniyor…';
+    try {
+      logoGorsel = await gorselYukle(url);
+      oLogo.textContent = 'Logo kullanılıyor.';
+    } catch {
+      logoGorsel = null;
+      oLogo.innerHTML = '<span class="dv-uyari">Logo açılamadı — firma adı yazıyla basılacak.</span>';
+    }
+    ciz();
+  });
+
+  function gorselYukle(src) {
+    return new Promise((tamam, hata) => {
+      const g = new Image();
+      g.crossOrigin = 'anonymous';
+      g.onload = () => tamam(g);
+      g.onerror = () => hata(new Error('yüklenemedi'));
+      g.src = src;
+    });
+  }
+
+  /* --- Çizim ------------------------------------------------------------ */
+
+  function yaziTipi(agirlik, punto) {
+    return `${agirlik} ${punto}px Poppins, system-ui, sans-serif`;
+  }
+
+  /** Metni verilen genişliğe sığdıran punto */
+  function sigdir(metin, punto, enAz, maxEn, agirlik) {
+    let p = punto;
+    while (p > enAz) {
+      ctx.font = yaziTipi(agirlik, p);
+      if (ctx.measureText(metin).width <= maxEn) break;
+      p -= 0.5;
+    }
+    ctx.font = yaziTipi(agirlik, p);
+    return p;
+  }
+
+  /** Metni iki satıra böler (kelime sınırında) */
+  function ikiSatir(metin, maxEn) {
+    const kelimeler = String(metin).split(/\s+/);
+    let ilk = '', ikinci = '';
+    for (const k of kelimeler) {
+      const deneme = ilk ? `${ilk} ${k}` : k;
+      if (ctx.measureText(deneme).width <= maxEn || !ilk) ilk = deneme;
+      else ikinci = ikinci ? `${ikinci} ${k}` : k;
+    }
+    return ikinci ? [ilk, ikinci] : [ilk];
+  }
+
+  function ciz() {
+    if (!sablonHazir) return;
+    const ad = adGiris.value.trim();
+    const stant = stantGiris.value.trim();
+    const ex = firmalar[Number(secim.value)];
+
+    ctx.setTransform(OLCEK, 0, 0, OLCEK, 0, 0);
+    ctx.clearRect(0, 0, EN, BOY);
+    ctx.drawImage(sablon, 0, 0, EN, BOY);
+
+    /* 1) İsim — şablondaki ismi zeminle kapat, yenisini yaz */
+    ctx.fillStyle = ISIM.zemin;
+    ctx.fillRect(ISIM.x, ISIM.y, ISIM.en, ISIM.boy);
+    if (ad) {
+      sigdir(ad, ISIM.punto, ISIM.enAz, ISIM.en - ISIM.solPay * 2, 600);
+      ctx.fillStyle = ISIM.renk;
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(ad, ISIM.x + ISIM.solPay, ISIM.y + ISIM.boy / 2 + 1);
+    }
+
+    /* 2) Logo hücresi — eski logoyu kapat */
+    ctx.fillStyle = LOGO.zemin;
+    ctx.fillRect(LOGO.silX, LOGO.silY, LOGO.silEn, LOGO.silBoy);
+    if (logoGorsel) {
+      const o = Math.min(LOGO.maxEn / logoGorsel.naturalWidth,
+                         LOGO.maxBoy / logoGorsel.naturalHeight);
+      const w = logoGorsel.naturalWidth * o, h = logoGorsel.naturalHeight * o;
+      ctx.drawImage(logoGorsel, LOGO.ortaX - w / 2, LOGO.ortaY - h / 2, w, h);
+    } else if (ex) {
+      ctx.fillStyle = LOGO.yaziRenk;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      let p = sigdir(ex.name, LOGO.yaziPunto, LOGO.yaziEnAz, LOGO.maxEn, 600);
+      if (ctx.measureText(ex.name).width > LOGO.maxEn) {
+        p = 20; ctx.font = yaziTipi(600, p);
+        const satir = ikiSatir(ex.name, LOGO.maxEn);
+        ctx.fillText(satir[0], LOGO.ortaX, LOGO.ortaY - 13);
+        if (satir[1]) ctx.fillText(satir[1], LOGO.ortaX, LOGO.ortaY + 13);
+      } else {
+        ctx.fillText(ex.name, LOGO.ortaX, LOGO.ortaY);
+      }
+    }
+
+    /* 3) Stant numarası — lacivert kutuyu boyayıp yeniden yaz */
+    ctx.fillStyle = STANT.zemin;
+    ctx.fillRect(STANT.x, STANT.y, STANT.en, STANT.boy);
+    if (stant) {
+      sigdir(stant, STANT.punto, STANT.enAz, STANT.en - 28, 700);
+      ctx.fillStyle = STANT.renk;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(stant, STANT.x + STANT.en / 2, STANT.y + STANT.boy / 2 + 1);
+    }
+  }
+
+  /* --- Etkileşim -------------------------------------------------------- */
+
+  let zaman = null;
+  const gecikmeliCiz = () => { clearTimeout(zaman); zaman = setTimeout(ciz, 120); };
+  adGiris.addEventListener('input', gecikmeliCiz);
+  stantGiris.addEventListener('input', gecikmeliCiz);
+
+  document.getElementById('dv-temizle').addEventListener('click', () => {
+    adGiris.value = ''; stantGiris.value = ''; secim.value = '';
+    logoGorsel = null; ozet.hidden = true; ciz(); secim.focus();
+  });
+
+  function slug(t) {
+    return String(t || 'davetiye').toLocaleLowerCase('tr')
+      .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+      .replace(/ö/g, 'o').replace(/ç/g, 'c')
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'davetiye';
+  }
+
+  document.getElementById('dv-indir').addEventListener('click', () => {
+    if (!sablonHazir) { durum.textContent = 'Şablon henüz yüklenmedi, biraz bekleyin.'; return; }
+    ciz();
+    const ex = firmalar[Number(secim.value)];
+    const parca = [slug(adGiris.value), ex ? slug(ex.name) : ''].filter(Boolean).join('-');
+    tuval.toBlob((blob) => {
+      if (!blob) { durum.textContent = 'Görsel oluşturulamadı.'; return; }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `giresun-expo-davetiye-${parca || 'davetiye'}.png`;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      durum.textContent = 'Davetiye indirildi.';
+    }, 'image/png');
+  });
   </script>
 </body>
 </html>
