@@ -156,7 +156,8 @@ async function main() {
     ['B3', 'contact_messages'],
     ['B4', 'newsletter_subscribers'],
     ['B5', 'admins'],
-    ['B6', 'activity_log']
+    ['B6', 'activity_log'],
+    ['B7', 'invitation_downloads']
   ];
   for (const [no, tablo] of kapaliTablolar) {
     await dene(no, `anon SELECT ${tablo}`, '0 satır veya 401/403',

@@ -8,6 +8,10 @@
 --   davetiye_indirildi() RPC'si üzerinden olur; firma adı istemciden değil,
 --   yayındaki katılımcılardan slug ile bulunur — sahte firma adı basılamaz.
 --
+--   Şişirmeye karşı: son 1 dakikada 30'dan fazla kayıt varsa yenisi sessizce
+--   yazılmaz. Fuar davetiyesi için gerçek kullanımda bu sınıra yaklaşılmaz;
+--   tek bir betiğin sayacı binlerce şişirmesini engeller. IP saklanmaz (KVKK).
+--
 -- Tekrar çalıştırılabilir (idempotent). SQL Editor'da tek seferde çalıştırın.
 -- =============================================================================
 
@@ -43,8 +47,14 @@ as $$
 declare
   v_ad text;
 begin
-  if p_cihaz not in ('mobil', 'masaustu') or p_yontem not in ('paylasim', 'indirme') then
+  if coalesce(p_cihaz, '') not in ('mobil', 'masaustu')
+     or coalesce(p_yontem, '') not in ('paylasim', 'indirme') then
     raise exception 'GECERSIZ_DEGER';
+  end if;
+
+  if (select count(*) from public.invitation_downloads
+      where created_at > now() - interval '1 minute') >= 30 then
+    return;
   end if;
 
   if p_slug is not null and p_slug <> '' then

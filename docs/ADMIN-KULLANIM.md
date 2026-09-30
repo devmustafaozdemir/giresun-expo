@@ -22,7 +22,14 @@ sağ üstteki **Çıkış**'a basın.
 
 ## Pano
 
-Açılış ekranı. Dört sayı, son 30 günün başvuru grafiği, son 5 başvuru ve son 5 mesaj.
+Açılış ekranı. Beş sayı, son 30 günün başvuru grafiği, son 5 başvuru, son 5 mesaj
+ve davetiye indirmeleri.
+
+**Davetiye indirmeleri:** davetiye sayfasından (`davetiye.html`) her başarılı indirme
+ya da telefonda galeriye kaydetme bir kez sayılır; paylaşım penceresini kapatıp
+vazgeçen sayılmaz. Kartta toplam ve bugünkü sayı, panelde firma bazında döküm ile
+telefon/bilgisayar dağılımı görünür. Kart "Sayaç kurulmamış" diyorsa
+`supabase/migrations/006_davetiye_indirme.sql` henüz çalıştırılmamıştır.
 
 Sol menüdeki yeşil rozetler bekleyen işi gösterir: **Stant Başvuruları**'ndaki sayı
 henüz incelenmemiş başvuruları, **Mesajlar**'daki sayı okunmamış mesajları sayar.
