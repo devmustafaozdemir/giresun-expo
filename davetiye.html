@@ -466,8 +466,12 @@
     catch { durum.textContent = 'Görsel oluşturulamadı.'; return; }
 
     /* Telefonda paylaşım penceresi: oradan "Fotoğraflara kaydet" ile
-       davetiye doğrudan galeriye gider. Desteklenmiyorsa normal indirme. */
-    const dosya = (typeof File === 'function') ? new File([blob], dosyaAdi, { type: 'image/png' }) : null;
+       davetiye doğrudan galeriye gider. Masaüstü Safari/Chrome da dosya
+       paylaşımını desteklediği için yalnızca dokunmatik cihazlarda açılır;
+       bilgisayarda ve desteklenmeyen yerde normal indirme. */
+    const dokunmatik = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+      (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches);
+    const dosya = (dokunmatik && typeof File === 'function') ? new File([blob], dosyaAdi, { type: 'image/png' }) : null;
     if (dosya && navigator.canShare && navigator.canShare({ files: [dosya] })) {
       durum.textContent = 'Paylaşım penceresi açılıyor…';
       navigator.share({ files: [dosya], title: 'Giresun EXPO 2026 Davetiyesi' })
