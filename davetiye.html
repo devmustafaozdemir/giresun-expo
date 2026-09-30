@@ -435,13 +435,16 @@
 
   /** İndirme sayacı — admin panelindeki Pano okur. Sessizdir: kayıt
       yazılamazsa (Supabase yok, ağ hatası) kullanıcı hiçbir şey fark etmez. */
-  function sayacaYaz(ex, cihaz, yontem) {
-    getClient()
-      .then((sb) => sb && sb.rpc('davetiye_indirildi', {
-        p_slug: ex ? ex.slug : null, p_cihaz: cihaz, p_yontem: yontem
-      }))
-      .then((r) => { if (r && r.error) console.warn('[GE] Davetiye sayacı:', r.error.message); })
-      .catch(() => {});
+  function sayacaYaz(ex, cihaz, yontem, davetli) {
+    const temel = { p_slug: ex ? ex.slug : null, p_cihaz: cihaz, p_yontem: yontem };
+    getClient().then(async (sb) => {
+      if (!sb) return;
+      let r = await sb.rpc('davetiye_indirildi', { ...temel, p_davetli: davetli || null });
+      /* 007 migration'ı henüz çalıştırılmadıysa 4 parametreli imza yoktur:
+         kişi adı olmadan eski imzayla say, indirme kaybolmasın. */
+      if (r.error && r.error.code === 'PGRST202') r = await sb.rpc('davetiye_indirildi', temel);
+      if (r.error) console.warn('[GE] Davetiye sayacı:', r.error.message);
+    }).catch(() => {});
   }
 
   function indir(blob, dosyaAdi) {
@@ -477,24 +480,25 @@
     const dokunmatik = (navigator.userAgentData && navigator.userAgentData.mobile) ||
       (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches);
     const cihaz = dokunmatik ? 'mobil' : 'masaustu';
+    const davetli = adGiris.value.trim();
     const dosya = (dokunmatik && typeof File === 'function') ? new File([blob], dosyaAdi, { type: 'image/png' }) : null;
     if (dosya && navigator.canShare && navigator.canShare({ files: [dosya] })) {
       durum.textContent = 'Paylaşım penceresi açılıyor…';
       navigator.share({ files: [dosya], title: 'Giresun EXPO 2026 Davetiyesi' })
         .then(() => {
           durum.textContent = 'Davetiye kaydedildi.';
-          sayacaYaz(ex, cihaz, 'paylasim');
+          sayacaYaz(ex, cihaz, 'paylasim', davetli);
         })
         .catch((e) => {
           if (e && e.name === 'AbortError') { durum.textContent = ''; return; }   // vazgeçti: sayılmaz
           indir(blob, dosyaAdi);   // paylaşım başarısızsa indirmeye düş
-          sayacaYaz(ex, cihaz, 'indirme');
+          sayacaYaz(ex, cihaz, 'indirme', davetli);
         });
       return;
     }
 
     indir(blob, dosyaAdi);
-    sayacaYaz(ex, cihaz, 'indirme');
+    sayacaYaz(ex, cihaz, 'indirme', davetli);
   });
   </script>
 </body>

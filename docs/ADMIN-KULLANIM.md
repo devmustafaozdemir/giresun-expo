@@ -41,8 +41,11 @@ Davetiye sayfasından yapılan indirmelerin ayrıntısı. Salt okunurdur.
   indirilen firma sayısı.
 - **Firma bazında:** en çok indirilen 10 firma; **Tümünü göster** ile hepsi.
   Firma seçmeden indirilenler "Firma seçilmeden" satırında toplanır.
-- **Liste:** her indirme ayrı satır. Firma adıyla arayın, cihaz veya yönteme göre
-  süzün, **CSV indir** ile Excel'e aktarın.
+- **Liste:** her indirme ayrı satır; **Davet edilen** sütunu firmanın davetiyeye
+  yazdığı kişiyi gösterir (boş bırakıldıysa "—"). Firma veya kişi adıyla arayın,
+  cihaz veya yönteme göre süzün, **CSV indir** ile Excel'e aktarın.
+  "Davet edilen" sütunu görünmüyorsa `supabase/migrations/007_davetiye_davetli.sql`
+  henüz çalıştırılmamıştır.
 
 Sol menüdeki yeşil rozetler bekleyen işi gösterir: **Stant Başvuruları**'ndaki sayı
 henüz incelenmemiş başvuruları, **Mesajlar**'daki sayı okunmamış mesajları sayar.

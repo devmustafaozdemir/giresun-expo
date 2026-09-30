@@ -4,7 +4,8 @@
 
    davetiye.html'deki her başarılı indirme / galeriye kaydetme bir satır
    (supabase/migrations/006_davetiye_indirme.sql). Üstte özet kartları ve
-   firma bazında döküm, altta tüm indirmelerin listesi. Salt okunur.
+   firma bazında döküm, altta tüm indirmelerin listesi: hangi firma kimi
+   davet etti (007_davetiye_davetli.sql). Salt okunur.
    ========================================================================== */
 
 import { getClient } from '../supabase-client.js';
@@ -23,18 +24,25 @@ const YONTEM = { paylasim: 'Galeriye kaydetme', indirme: 'Dosya indirme' };
 const FIRMASIZ = 'Firma seçilmeden';
 const ILK_FIRMA = 10;
 
+/* "Davet edilen" sütunu 007 migration'ıyla geldi. Çalıştırılmadıysa
+   select hata verip bütün listeyi düşürmesin: sütun yoksa gösterme. */
+const davetliVar = !!sb &&
+  !(await sb.from('invitation_downloads').select('invitee_name').limit(1)).error;
+const davetliAd = (r) => (r.invitee_name || '').trim() || '—';
+
 /* Özet, liste başlığının hemen altına yerleşir (bkz. sondaki after) */
 const ozet = el('div');
 
 /* --- Liste --- */
 await listeSayfasi(icerik, {
   baslik: 'Davetiye İndirmeleri',
-  altBaslik: 'Davetiye sayfasından yapılan her indirme ve galeriye kaydetme. ' +
-             'Paylaşım penceresini kapatıp vazgeçenler sayılmaz.',
+  altBaslik: 'Davetiye sayfasından yapılan her indirme ve galeriye kaydetme: ' +
+             'hangi firma kimi davet etti. Paylaşım penceresini kapatıp vazgeçenler sayılmaz.',
   tablo: 'invitation_downloads',
-  secim: 'id, exhibitor_slug, exhibitor_name, cihaz, yontem, created_at',
-  aramaAlanlari: ['exhibitor_name'],
-  aramaIpucu: 'Firma adı…',
+  secim: 'id, exhibitor_slug, exhibitor_name, cihaz, yontem, created_at' +
+         (davetliVar ? ', invitee_name' : ''),
+  aramaAlanlari: davetliVar ? ['exhibitor_name', 'invitee_name'] : ['exhibitor_name'],
+  aramaIpucu: davetliVar ? 'Firma veya davet edilen kişi…' : 'Firma adı…',
 
   suzgecler: [
     {
@@ -53,6 +61,7 @@ await listeSayfasi(icerik, {
     { baslik: 'Tarih', sirala: 'created_at', sinif: 'tablo__tarih',
       render: (r) => tarihSaat(r.created_at) },
     { baslik: 'Firma', sirala: 'exhibitor_name', render: (r) => r.exhibitor_name || FIRMASIZ },
+    ...(davetliVar ? [{ baslik: 'Davet edilen', sirala: 'invitee_name', render: davetliAd }] : []),
     { baslik: 'Cihaz', sirala: 'cihaz', render: (r) =>
         el('span', { class: 'durum durum--' + (r.cihaz === 'mobil' ? 'new' : 'notr') },
            CIHAZ[r.cihaz] || r.cihaz) },
@@ -64,8 +73,9 @@ await listeSayfasi(icerik, {
 
   csv: {
     dosya: 'giresun-expo-davetiye-indirmeleri',
-    basliklar: ['Tarih', 'Firma', 'Cihaz', 'Yöntem'],
+    basliklar: ['Tarih', 'Firma', ...(davetliVar ? ['Davet edilen'] : []), 'Cihaz', 'Yöntem'],
     satir: (r) => [tarihSaat(r.created_at), r.exhibitor_name || FIRMASIZ,
+                   ...(davetliVar ? [(r.invitee_name || '').trim()] : []),
                    CIHAZ[r.cihaz] || r.cihaz, YONTEM[r.yontem] || r.yontem]
   },
 
@@ -74,6 +84,7 @@ await listeSayfasi(icerik, {
     govde: el('dl', { class: 'kunye' },
       kunye('Tarih', tarihSaat(r.created_at)),
       kunye('Firma', r.exhibitor_name || FIRMASIZ),
+      davetliVar ? kunye('Davet edilen', davetliAd(r)) : null,
       kunye('Cihaz', CIHAZ[r.cihaz] || r.cihaz),
       kunye('Yöntem', YONTEM[r.yontem] || r.yontem))
   })
