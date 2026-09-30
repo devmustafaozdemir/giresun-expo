@@ -74,17 +74,10 @@
       .dv-onizleme canvas { max-width: 232px; }
       .dv-ozet { margin-top: var(--space-3); padding: var(--space-3); }
 
-      /* Önizleme yukarı alınır ve yapışkan durur: alanları değiştirirken
-         davetiye hep ekranda kalır, aşağı yukarı kaydırmak gerekmez. */
+      /* Önizleme formun üstüne alınır. Yapışkan DEĞİL: sabit durduğunda
+         telefonda ekranın yarısını kaplıyor ve formu kaydırmayı zorlaştırıyordu. */
       .dv-duzen { display: flex; flex-direction: column; align-items: stretch; }
-      .dv-duzen > div:last-child {
-        order: -1;
-        position: sticky;
-        top: calc(var(--header-h, 84px) - 24px);   /* yapışkan başlığın altına */
-        z-index: 5;
-        background-color: var(--color-bg, #fff);
-        padding-bottom: var(--space-2);
-      }
+      .dv-duzen > div:last-child { order: -1; }
       /* Özet masaüstünde kalsın; mobilde yer kaplamasın (bilgi zaten
          davetiyenin üzerinde görünüyor). */
       .dv-ozet { display: none; }
