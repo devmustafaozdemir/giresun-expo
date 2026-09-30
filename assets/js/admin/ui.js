@@ -86,7 +86,8 @@ const IKONLAR = {
  */
 export const MENU = [
   { grup: 'Genel', ogeler: [
-    { id: 'pano', ad: 'Pano', dosya: 'pano.html', ikon: 'pano' }
+    { id: 'pano', ad: 'Pano', dosya: 'pano.html', ikon: 'pano' },
+    { id: 'davetiye', ad: 'Davetiye İndirmeleri', dosya: 'davetiye-indirmeleri.html', ikon: 'indir' }
   ]},
   { grup: 'Başvurular', ogeler: [
     { id: 'stant',     ad: 'Firma Kayıtları', dosya: 'stant-basvurulari.html', ikon: 'stant',     sayac: 'stant' },

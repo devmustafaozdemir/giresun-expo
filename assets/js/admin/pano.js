@@ -340,8 +340,8 @@ function davetiyeIndirmeleri({ data, error }, toplam) {
   return el('section', { class: 'panel' },
     el('div', { class: 'panel__bas' },
       el('h2', { class: 'panel__baslik' }, 'Davetiye indirmeleri'),
-      el('a', { class: 'btn btn--ghost btn--sm', href: '../davetiye.html',
-                target: '_blank', rel: 'noopener', style: 'margin-left:auto' }, 'Sayfayı aç')),
+      el('a', { class: 'btn btn--ghost btn--sm', href: 'davetiye-indirmeleri.html',
+                style: 'margin-left:auto' }, 'Tümü')),
     el('div', { class: 'panel__govde panel__govde--sikisik' }, govde)
   );
 }

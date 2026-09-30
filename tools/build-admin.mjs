@@ -20,6 +20,7 @@ const kok = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const SAYFALAR = [
   { dosya: 'pano.html',               baslik: 'Pano',                 modul: 'pano.js' },
+  { dosya: 'davetiye-indirmeleri.html', baslik: 'Davetiye İndirmeleri', modul: 'davetiye-indirmeleri.js' },
   { dosya: 'stant-basvurulari.html',  baslik: 'Stant Başvuruları',    modul: 'stant-basvurulari.js' },
   { dosya: 'ziyaretci-kayitlari.html', baslik: 'Ziyaretçi Kayıtları', modul: 'ziyaretci-kayitlari.js' },
   { dosya: 'mesajlar.html',           baslik: 'Mesajlar',             modul: 'mesajlar.js' },

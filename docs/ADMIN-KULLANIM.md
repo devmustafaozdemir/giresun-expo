@@ -31,6 +31,19 @@ vazgeçen sayılmaz. Kartta toplam ve bugünkü sayı, panelde firma bazında d�
 telefon/bilgisayar dağılımı görünür. Kart "Sayaç kurulmamış" diyorsa
 `supabase/migrations/006_davetiye_indirme.sql` henüz çalıştırılmamıştır.
 
+---
+
+## Davetiye İndirmeleri
+
+Davetiye sayfasından yapılan indirmelerin ayrıntısı. Salt okunurdur.
+
+- **Özet kartları:** toplam, bugün, telefon, bilgisayar ve en az bir davetiyesi
+  indirilen firma sayısı.
+- **Firma bazında:** en çok indirilen 10 firma; **Tümünü göster** ile hepsi.
+  Firma seçmeden indirilenler "Firma seçilmeden" satırında toplanır.
+- **Liste:** her indirme ayrı satır. Firma adıyla arayın, cihaz veya yönteme göre
+  süzün, **CSV indir** ile Excel'e aktarın.
+
 Sol menüdeki yeşil rozetler bekleyen işi gösterir: **Stant Başvuruları**'ndaki sayı
 henüz incelenmemiş başvuruları, **Mesajlar**'daki sayı okunmamış mesajları sayar.
 Rozet yoksa bekleyen iş yok demektir.
