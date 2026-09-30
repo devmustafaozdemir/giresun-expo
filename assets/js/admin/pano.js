@@ -2,7 +2,8 @@
    Yönetim paneli — Pano
    assets/js/admin/pano.js
 
-   Özet kartları, 30 günlük başvuru grafiği, son kayıtlar, hızlı eylemler.
+   Özet kartları, 30 günlük başvuru grafiği, son kayıtlar, davetiye
+   indirmeleri, hızlı eylemler.
    Grafik elle üretilen SVG'dir; kütüphane/CDN bağımlılığı yok (açık soru #30).
    ========================================================================== */
 
@@ -38,7 +39,7 @@ const altIzgara = el('div', {
 
 icerik.append(istAlan, grafikAlan, altIzgara);
 
-istAlan.append(...[1, 2, 3, 4].map(() => el('div', { class: 'ist-kart' },
+istAlan.append(...[1, 2, 3, 4, 5].map(() => el('div', { class: 'ist-kart' },
   el('div', { class: 'iskelet iskelet--satir', style: 'width:60%' }),
   el('div', { class: 'iskelet iskelet--satir', style: 'width:40%;height:28px' })
 )));
@@ -69,7 +70,7 @@ async function yukle() {
 
   const [
     stantTop, stantYeni, ziyTop, mesajOkunmamis,
-    katTop, stantSon, mesajSon, stantSeri
+    katTop, stantSon, mesajSon, stantSeri, davetiyeTop, davetiyeSatir
   ] = await Promise.all([
     say('stand_applications'),
     say('stand_applications', (s) => s.eq('status', 'new')),
@@ -83,7 +84,12 @@ async function yukle() {
       .select('id, name, subject, is_read, created_at')
       .order('created_at', { ascending: false }).limit(5),
     sb.from('stand_applications')
-      .select('created_at').gte('created_at', otuzGunOnce).limit(2000)
+      .select('created_at').gte('created_at', otuzGunOnce).limit(2000),
+    say('invitation_downloads'),
+    /* Firma dökümü için satırlar; toplam sayı yukarıdaki head+count'tan gelir */
+    sb.from('invitation_downloads')
+      .select('exhibitor_name, cihaz, created_at')
+      .order('created_at', { ascending: false }).limit(10000)
   ]);
 
   const hata = [stantTop, ziyTop, katTop].find((r) => r.error);
@@ -102,7 +108,9 @@ async function yukle() {
     istKart('Firma kaydı', stantTop.count, `${stantYeni.count ?? 0} tanesi yeni`),
     istKart('Ziyaretçi kaydı', ziyTop.count),
     istKart('Okunmamış mesaj', mesajOkunmamis.count),
-    istKart('Yayındaki katılımcı', katTop.count)
+    istKart('Yayındaki katılımcı', katTop.count),
+    istKart('İndirilen davetiye', davetiyeTop.error ? null : davetiyeTop.count,
+      davetiyeTop.error ? 'Sayaç kurulmamış' : `${bugunSay(davetiyeSatir.data || [])} tanesi bugün`)
   );
 
   sayacGuncelle('stant', stantYeni.count ?? 0);
@@ -121,7 +129,8 @@ async function yukle() {
   /* --- Son başvurular ve mesajlar --- */
   altIzgara.replaceChildren(
     sonBasvurular(stantSon),
-    sonMesajlar(mesajSon)
+    sonMesajlar(mesajSon),
+    davetiyeIndirmeleri(davetiyeSatir, davetiyeTop.count)
   );
 }
 
@@ -135,11 +144,17 @@ function istKart(etiket, deger, alt) {
   );
 }
 
+/* Yerel (Türkiye) takvim günü — toISOString UTC'ye çevirip günü kaydırıyordu */
+const yerelGun = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+function bugunSay(satirlar) {
+  const bugun = yerelGun(new Date());
+  return satirlar.filter((s) => yerelGun(new Date(s.created_at)) === bugun).length;
+}
+
 /** ISO tarih listesini son N günün günlük sayımına çevirir. */
 function gunlukSay(satirlar, gun) {
   const kova = new Map();
-  /* Yerel (Türkiye) takvim günü — toISOString UTC'ye çevirip günü kaydırıyordu */
-  const yerelGun = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const bugun = new Date(); bugun.setHours(12, 0, 0, 0);
 
   for (let i = gun - 1; i >= 0; i--) {
@@ -275,6 +290,58 @@ function sonMesajlar({ data, error }) {
       el('h2', { class: 'panel__baslik' }, 'Son mesajlar'),
       el('a', { class: 'btn btn--ghost btn--sm', href: 'mesajlar.html',
                 style: 'margin-left:auto' }, 'Tümü')),
+    el('div', { class: 'panel__govde panel__govde--sikisik' }, govde)
+  );
+}
+
+/** Davetiye indirmeleri — firma bazında döküm ve cihaz dağılımı. */
+function davetiyeIndirmeleri({ data, error }, toplam) {
+  let govde;
+  if (error) {
+    govde = durumKutusu({
+      tur: 'hata',
+      baslik: 'Sayaç okunamadı',
+      metin: 'supabase/migrations/006_davetiye_indirme.sql çalıştırılmamış olabilir. ' + error.message
+    });
+  } else if (!data || !data.length) {
+    govde = durumKutusu({ baslik: 'Henüz davetiye indirilmedi',
+                          metin: 'Davetiye sayfasından yapılan indirmeler burada görünecek.' });
+  } else {
+    const firma = new Map();
+    let mobil = 0;
+    for (const s of data) {
+      const ad = s.exhibitor_name || 'Firma seçilmeden';
+      firma.set(ad, (firma.get(ad) || 0) + 1);
+      if (s.cihaz === 'mobil') mobil++;
+    }
+    const sira = [...firma.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'tr'));
+    const kesik = toplam > data.length
+      ? el('p', { class: 'ist-kart__alt', style: 'margin:0;padding:var(--space-3) var(--space-5)' },
+          `Döküm son ${data.length} indirmeye göredir.`)
+      : null;
+
+    govde = el('div', null,
+      el('p', { class: 'ist-kart__alt', style: 'margin:0;padding:var(--space-3) var(--space-5)' },
+        `Telefon: ${mobil} · Bilgisayar: ${data.length - mobil}`),
+      el('div', { class: 'tablo-sarmal' },
+        el('table', { class: 'tablo' },
+          el('thead', null, el('tr', null,
+            el('th', null, 'Firma'), el('th', null, 'İndirme'))),
+          el('tbody', null, sira.map(([ad, sayi]) => el('tr', null,
+            el('td', null, ad),
+            el('td', null, String(sayi))
+          )))
+        )),
+      kesik
+    );
+  }
+
+  return el('section', { class: 'panel' },
+    el('div', { class: 'panel__bas' },
+      el('h2', { class: 'panel__baslik' }, 'Davetiye indirmeleri'),
+      el('a', { class: 'btn btn--ghost btn--sm', href: '../davetiye.html',
+                target: '_blank', rel: 'noopener', style: 'margin-left:auto' }, 'Sayfayı aç')),
     el('div', { class: 'panel__govde panel__govde--sikisik' }, govde)
   );
 }

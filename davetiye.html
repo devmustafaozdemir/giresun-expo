@@ -166,6 +166,7 @@
 
   <script type="module">
   import { katilimcilar } from './assets/js/data.js';
+  import { getClient } from './assets/js/supabase-client.js';
 
   /* Şablon ölçüleri — 975×1463 px görselin kendi koordinatları ------------ */
   const SABLON = 'assets/img/davetiye/davet-sablon-2026.jpg';
@@ -439,6 +440,17 @@
     return new Blob([dizi], { type: tur });
   }
 
+  /** İndirme sayacı — admin panelindeki Pano okur. Sessizdir: kayıt
+      yazılamazsa (Supabase yok, ağ hatası) kullanıcı hiçbir şey fark etmez. */
+  function sayacaYaz(ex, cihaz, yontem) {
+    getClient()
+      .then((sb) => sb && sb.rpc('davetiye_indirildi', {
+        p_slug: ex ? ex.slug : null, p_cihaz: cihaz, p_yontem: yontem
+      }))
+      .then((r) => { if (r && r.error) console.warn('[GE] Davetiye sayacı:', r.error.message); })
+      .catch(() => {});
+  }
+
   function indir(blob, dosyaAdi) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -471,19 +483,25 @@
        bilgisayarda ve desteklenmeyen yerde normal indirme. */
     const dokunmatik = (navigator.userAgentData && navigator.userAgentData.mobile) ||
       (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches);
+    const cihaz = dokunmatik ? 'mobil' : 'masaustu';
     const dosya = (dokunmatik && typeof File === 'function') ? new File([blob], dosyaAdi, { type: 'image/png' }) : null;
     if (dosya && navigator.canShare && navigator.canShare({ files: [dosya] })) {
       durum.textContent = 'Paylaşım penceresi açılıyor…';
       navigator.share({ files: [dosya], title: 'Giresun EXPO 2026 Davetiyesi' })
-        .then(() => { durum.textContent = 'Davetiye kaydedildi.'; })
+        .then(() => {
+          durum.textContent = 'Davetiye kaydedildi.';
+          sayacaYaz(ex, cihaz, 'paylasim');
+        })
         .catch((e) => {
-          if (e && e.name === 'AbortError') { durum.textContent = ''; return; }
+          if (e && e.name === 'AbortError') { durum.textContent = ''; return; }   // vazgeçti: sayılmaz
           indir(blob, dosyaAdi);   // paylaşım başarısızsa indirmeye düş
+          sayacaYaz(ex, cihaz, 'indirme');
         });
       return;
     }
 
     indir(blob, dosyaAdi);
+    sayacaYaz(ex, cihaz, 'indirme');
   });
   </script>
 </body>
