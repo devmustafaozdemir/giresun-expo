@@ -92,6 +92,15 @@ await listeSayfasi(icerik, {
 
 const bas = icerik.querySelector('.sayfa-bas');
 if (bas) bas.after(ozet); else icerik.prepend(ozet);
+
+/* Sütun yoksa sessizce gizlemek yetmiyor: yönetici bilginin neden
+   görünmediğini sayfada görsün. */
+if (sb && !davetliVar) {
+  ozet.before(el('p', { class: 'uyari-bant', role: 'status' },
+    '"Davet edilen kişi" bilgisi henüz kaydedilmiyor. Supabase SQL Editor\'da ',
+    el('code', null, 'supabase/migrations/007_davetiye_davetli.sql'),
+    ' dosyasını çalıştırın; sonraki indirmelerde kişi adı burada görünecek.'));
+}
 ozetYukle();
 
 /* --- Özet ----------------------------------------------------------------- */
