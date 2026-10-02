@@ -309,15 +309,16 @@ function duzenle(r) {
         if (dosya.size > 5 * 1024 * 1024) { toast('Dosya 5 MB\'tan büyük olamaz.', 'hata'); yukleyici.value = ''; return; }
         const uzanti = (dosya.name.split('.').pop() || 'png').toLowerCase().replace(/[^a-z0-9]/g, '');
         const ad = slugla(giris[s.baslikAlan] && giris[s.baslikAlan].eleman.value);
-        const yol = `${a.yukleme}/${ad}.${uzanti}`;
+        /* Benzersiz ad: aynı yolun üzerine yazınca adres değişmiyor, tarayıcı
+           ve CDN eski görseli 1 saate kadar göstermeye devam ediyordu. */
+        const yol = `${a.yukleme}/${ad}-${Date.now().toString(36)}.${uzanti}`;
         yukleyici.disabled = true;
         const { error } = await sb.storage.from(BUCKET)
-          .upload(yol, dosya, { upsert: true, contentType: dosya.type, cacheControl: '3600' });
+          .upload(yol, dosya, { contentType: dosya.type, cacheControl: '3600' });
         yukleyici.disabled = false;
         if (error) { toast('Yüklenemedi: ' + error.message, 'hata', 9000); return; }
         g.value = yol;
         goster();
-        onizleme.src = onizleme.src.split('?')[0] + '?t=' + Date.now();
         toast('Dosya yüklendi. Kalıcı olması için "Kaydet"e basın.', 'basari');
       });
     }

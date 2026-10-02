@@ -5,8 +5,10 @@
    Liste, arama, sektör/yayın/logo süzgeçleri, düzenleme, logo yükleme.
 
    Logo yükleme: dosya Storage'daki public-media bucket'ına
-   exhibitors/<slug>.<uzanti> yolunda yazılır, ardından exhibitors.logo_url
-   güncellenir. Bucket 5 MB ve sabit MIME listesiyle sınırlı (002_storage.sql);
+   exhibitors/<slug>-<zaman>.<uzanti> yolunda yazılır, ardından
+   exhibitors.logo_url güncellenir. Her yüklemede ad değişir: aynı yolun
+   üzerine yazınca adres aynı kalıyor, tarayıcı ve CDN eski logoyu 1 saate
+   kadar göstermeye devam ediyordu. Bucket 5 MB ve sabit MIME listesiyle sınırlı (002_storage.sql);
    burada ayrıca istemci tarafında kontrol ediyoruz ki kullanıcı 20 MB'lık bir
    dosyayı boşuna yüklemeye çalışmasın.
    ========================================================================== */
@@ -300,10 +302,11 @@ function duzenleCekmecesi(r, arac) {
 
     const uzanti = ({ 'image/png': 'png', 'image/jpeg': 'jpg',
                       'image/webp': 'webp', 'image/svg+xml': 'svg' })[dosya.type];
-    const yol = `exhibitors/${r.slug}.${uzanti}`;
+    /* Benzersiz ad: adres değişsin ki önbellekteki eski logo gelmesin */
+    const yol = `exhibitors/${r.slug}-${Date.now().toString(36)}.${uzanti}`;
 
     const { error: yuklemeHatasi } = await sb.storage.from(BUCKET)
-      .upload(yol, dosya, { upsert: true, contentType: dosya.type, cacheControl: '3600' });
+      .upload(yol, dosya, { contentType: dosya.type, cacheControl: '3600' });
 
     if (yuklemeHatasi) {
       dosyaGiris.disabled = false;
@@ -325,9 +328,7 @@ function duzenleCekmecesi(r, arac) {
     }
 
     r.logo_url = yol;
-    /* Önbelleği atlatmak için sorgu parametresi — aynı yola yazdık */
-    const taze = logoUrl(yol) + '?t=' + Date.now();
-    const g = el('img', { src: taze, alt: '' });
+    const g = el('img', { src: logoUrl(yol), alt: '' });
     g.style.maxWidth = '100%'; g.style.maxHeight = '100%'; g.style.objectFit = 'contain';
     onizleme.replaceChildren(g);
     yukleDurum.textContent = 'Logo yüklendi.';
