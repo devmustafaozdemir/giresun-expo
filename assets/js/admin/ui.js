@@ -73,6 +73,7 @@ const IKONLAR = {
   kapat:     [{ d: 'M18 6 6 18M6 6l12 12' }],
   bos:       [{ d: 'M21 8v13H3V8M1 3h22v5H1zM10 12h4' }],
   hata:      [{ t: 'circle', cx: '12', cy: '12', r: '9' }, { d: 'M12 8v4M12 16h.01' }],
+  kart:      [{ t: 'rect', x: '3', y: '5', width: '18', height: '14', rx: '2' }, { t: 'circle', cx: '9', cy: '11', r: '2' }, { d: 'M6 16c.5-1.5 1.7-2.2 3-2.2s2.5.7 3 2.2M14 10h4M14 14h3' }],
   indir:     [{ d: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3' }],
   nokta:     [{ t: 'circle', cx: '12', cy: '12', r: '3' }]
 };
@@ -92,7 +93,8 @@ export const MENU = [
   { grup: 'Başvurular', ogeler: [
     { id: 'stant',     ad: 'Firma Kayıtları', dosya: 'stant-basvurulari.html', ikon: 'stant',     sayac: 'stant' },
     { id: 'ziyaretci', ad: 'Ziyaretçi Kayıtları', dosya: 'ziyaretci-kayitlari.html', ikon: 'ziyaretci' },
-    { id: 'mesaj',     ad: 'Mesajlar',          dosya: 'mesajlar.html',          ikon: 'mesaj',     sayac: 'mesaj' }
+    { id: 'mesaj',     ad: 'Mesajlar',          dosya: 'mesajlar.html',          ikon: 'mesaj',     sayac: 'mesaj' },
+    { id: 'kart',      ad: 'Araç ve Yaka Kartları', dosya: 'arac-yaka-kartlari.html', ikon: 'kart' }
   ]},
   { grup: 'İçerik', ogeler: [
     { id: 'katilimci', ad: 'Katılımcılar', dosya: 'katilimcilar.html', ikon: 'katilimci' },

@@ -53,6 +53,27 @@ Rozet yoksa bekleyen iş yok demektir.
 
 ---
 
+## Araç ve Yaka Kartları
+
+Katılımcı firmalar **giresunexpo.com/yakakarti** formundan 1 araç plakası ve stantta
+görevli en fazla 4 personelin ad soyadını gönderir. Bu adresi firmalara siz iletirsiniz;
+sitenin menüsünde yer almaz.
+
+- **Özet kartları:** kaç firma gönderdi, kaç araç kartı ve yaka kartı hazırlanacak,
+  kaçı teslim edildi.
+- **Liste:** her gönderim ayrı satır. Firma adı veya plakayla arayın, *Bekliyor* /
+  *Teslim edildi* durumuna göre süzün. **CSV indir** her personeli ayrı sütunda verir;
+  kart basımı için bu dosyayı kullanın.
+- **Teslim:** satıra tıklayın, **Kartlar teslim edildi**'ye basın. Yanlışlıkla
+  işaretlediyseniz aynı yerden **Teslimi geri al**.
+- Bir firma formu ikinci kez doldurursa yeni bir satır oluşur; en üstteki en
+  günceldir. Eskisini yalnızca *owner* rolündeki kullanıcı silebilir.
+
+Liste "Kayıtlar okunamadı" diyorsa `supabase/migrations/008_stant_personel.sql`
+henüz çalıştırılmamıştır.
+
+---
+
 ## Stant Başvuruları
 
 Siteden gelen firma başvuruları.

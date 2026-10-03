@@ -7,6 +7,11 @@
       "permanent": false
     },
     {
+      "source": "/yakakarti",
+      "destination": "/yaka-karti.html",
+      "permanent": false
+    },
+    {
       "source": "/admin",
       "destination": "/admin/",
       "permanent": false

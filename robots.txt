@@ -7,5 +7,6 @@ Disallow: /admin/
 Disallow: /docs/
 Disallow: /davetiye.html
 Disallow: /kurumsaldavetiye/
+Disallow: /yaka-karti.html
 
 Sitemap: https://giresunexpo.com/sitemap.xml

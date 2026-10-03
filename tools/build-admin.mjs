@@ -24,6 +24,7 @@ const SAYFALAR = [
   { dosya: 'stant-basvurulari.html',  baslik: 'Stant Başvuruları',    modul: 'stant-basvurulari.js' },
   { dosya: 'ziyaretci-kayitlari.html', baslik: 'Ziyaretçi Kayıtları', modul: 'ziyaretci-kayitlari.js' },
   { dosya: 'mesajlar.html',           baslik: 'Mesajlar',             modul: 'mesajlar.js' },
+  { dosya: 'arac-yaka-kartlari.html', baslik: 'Araç ve Yaka Kartları', modul: 'arac-yaka-kartlari.js' },
   { dosya: 'katilimcilar.html',       baslik: 'Katılımcılar',         modul: 'katilimcilar.js' },
   { dosya: 'ayarlar.html',            baslik: 'Site Ayarları',        modul: 'ayarlar.js' },
   { dosya: 'icerik.html',             baslik: 'Diğer İçerik',         modul: 'icerik.js' },

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="tr" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Araç Kartı ve Yaka Kartı Bilgileri — Giresun EXPO</title>
+  <script>
+  /* Adres uzantısız ve sondaki eğik çizgi olmadan açılırsa göreli yollar
+     bozulur. Normalize et. */
+  (function () {
+    var y = location.pathname;
+    if (!/\/$/.test(y) && !/\.[a-z0-9]+$/i.test(y)) {
+      location.replace(y + '/' + location.search + location.hash);
+    }
+  })();
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/img/brand/favicon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/config.js"></script>
+  <style>
+    .yk-sarmal { max-width: 40rem; }
+    #yk-form { display: grid; gap: var(--space-5); }
+    .yk-personel { display: grid; gap: var(--space-4); }
+    .yk-plaka { text-transform: uppercase; letter-spacing: .04em; }
+    .yk-gonder { justify-self: start; }
+    @media (max-width: 639.98px) {
+      .page-header { padding-block: var(--space-5) var(--space-4); }
+      .page-header h1 { font-size: 1.75rem; margin-bottom: var(--space-2); }
+      .section--compact { padding-block: var(--space-4); }
+      #yk-form { gap: var(--space-4); }
+      .yk-gonder { justify-self: stretch; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html" aria-label="Giresun EXPO — ana sayfa">
+        <img src="assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="600" height="242">
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container yk-sarmal">
+        <h1>Araç Kartı ve Yaka Kartı</h1>
+        <p class="lead">Katılımcı firmalarımız, fuar alanına girecek 1 aracın plakasını ve
+          stantta görevli personelin ad soyadını buradan iletebilir. Kartlar stant
+          tesliminde verilecektir.</p>
+      </div>
+    </section>
+
+    <section class="section section--compact">
+      <div class="container yk-sarmal">
+        <form class="form" id="yk-form" novalidate>
+
+          <div class="form__group">
+            <label class="form__label" for="yk-firma">Katılımcı firma <span class="req" aria-hidden="true">*</span></label>
+            <select class="form__control" id="yk-firma" required>
+              <option value="">Yükleniyor…</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="yk-plaka">Araç plakası <span class="req" aria-hidden="true">*</span></label>
+            <input class="form__control yk-plaka" id="yk-plaka" type="text" maxlength="15" required
+                   placeholder="28 ABC 123" autocomplete="off" spellcheck="false" autocapitalize="characters">
+            <p class="form__hint">Firma başına 1 araç.</p>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="yk-sayi">Stantta görevli personel sayısı <span class="req" aria-hidden="true">*</span></label>
+            <select class="form__control" id="yk-sayi" required>
+              <option value="">Seçin…</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+
+          <div class="yk-personel" id="yk-personel">
+            <div class="form__group" hidden>
+              <label class="form__label" for="yk-p1">1. personel ad soyad <span class="req" aria-hidden="true">*</span></label>
+              <input class="form__control" id="yk-p1" type="text" maxlength="60" autocomplete="off" placeholder="Ad Soyad">
+            </div>
+            <div class="form__group" hidden>
+              <label class="form__label" for="yk-p2">2. personel ad soyad <span class="req" aria-hidden="true">*</span></label>
+              <input class="form__control" id="yk-p2" type="text" maxlength="60" autocomplete="off" placeholder="Ad Soyad">
+            </div>
+            <div class="form__group" hidden>
+              <label class="form__label" for="yk-p3">3. personel ad soyad <span class="req" aria-hidden="true">*</span></label>
+              <input class="form__control" id="yk-p3" type="text" maxlength="60" autocomplete="off" placeholder="Ad Soyad">
+            </div>
+            <div class="form__group" hidden>
+              <label class="form__label" for="yk-p4">4. personel ad soyad <span class="req" aria-hidden="true">*</span></label>
+              <input class="form__control" id="yk-p4" type="text" maxlength="60" autocomplete="off" placeholder="Ad Soyad">
+            </div>
+          </div>
+
+          <p class="form__hint">Bu bilgiler yalnızca araç kartı ve yaka kartlarının hazırlanması
+            için kullanılır.</p>
+
+          <button class="btn btn--primary btn--lg yk-gonder" type="submit" id="yk-gonder">Kaydet ve Gönder</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+  import { katilimcilar } from './assets/js/data.js';
+  import { getClient } from './assets/js/supabase-client.js';
+
+  const BASARI = 'Bilgileriniz alındı, stant tesliminizde araç kartınız ve yaka kartlarınız teslim edilecektir.';
+
+  const form    = document.getElementById('yk-form');
+  const firma   = document.getElementById('yk-firma');
+  const plaka   = document.getElementById('yk-plaka');
+  const sayi    = document.getElementById('yk-sayi');
+  const gonder  = document.getElementById('yk-gonder');
+  const kisiler = [...document.querySelectorAll('#yk-personel .form__group')];
+
+  /* --- Firma listesi ---------------------------------------------------- */
+  (async function firmalariYukle() {
+    const sonuc = await katilimcilar();
+    const liste = (sonuc.veri || []).filter((e) => e.slug)
+      .sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+    firma.replaceChildren();
+    const bos = document.createElement('option');
+    bos.value = ''; bos.textContent = liste.length ? 'Firma seçin…' : 'Firma listesi yüklenemedi';
+    firma.append(bos);
+    for (const ex of liste) {
+      const o = document.createElement('option');
+      o.value = ex.slug; o.textContent = ex.name;
+      firma.append(o);
+    }
+  })();
+
+  /* --- Personel sayısı: seçilen kadar ad soyad alanı ---------------------
+     Alanlar silinmez, gizlenir: sayı düşürülüp yeniden artırılırsa yazılan
+     isimler kaybolmaz. Gizli alan gönderilmez. */
+  sayi.addEventListener('change', () => {
+    const n = Number(sayi.value) || 0;
+    kisiler.forEach((g, i) => { g.hidden = i >= n; if (i >= n) hataTemizle(g); });
+    if (n) kisiler[0].querySelector('input').focus();
+  });
+
+  plaka.addEventListener('input', () => {
+    const k = plaka.selectionStart;
+    plaka.value = plaka.value.toLocaleUpperCase('tr');
+    plaka.setSelectionRange(k, k);
+  });
+
+  /* --- Doğrulama -------------------------------------------------------- */
+  function grup(alan) { return alan.closest('.form__group'); }
+
+  function hataTemizle(g) {
+    g.classList.remove('has-error');
+    const h = g.querySelector('.form__error');
+    if (h) h.remove();
+    const a = g.querySelector('.form__control');
+    if (a) { a.removeAttribute('aria-invalid'); a.removeAttribute('aria-describedby'); }
+  }
+
+  function hataYaz(alan, mesaj) {
+    const g = grup(alan);
+    hataTemizle(g);
+    g.classList.add('has-error');
+    const p = document.createElement('p');
+    p.className = 'form__error';
+    p.id = alan.id + '-hata';
+    p.textContent = mesaj;
+    g.append(p);
+    alan.setAttribute('aria-invalid', 'true');
+    alan.setAttribute('aria-describedby', p.id);
+  }
+
+  /* Alan düzeltilince hatası hemen kalksın; yeniden gönder'e basmayı beklemesin */
+  const duzeltildi = (e) => {
+    if (e.target.classList.contains('form__control')) hataTemizle(grup(e.target));
+  };
+  form.addEventListener('input', duzeltildi);
+  form.addEventListener('change', duzeltildi);
+
+  const normal = (t) => t.trim().replace(/\s+/g, ' ');
+  const PLAKA = /^[0-9A-ZÇĞİÖŞÜ ]{2,15}$/;
+
+  function dogrula() {
+    let ilkHata = null;
+    const yaz = (alan, mesaj) => { hataYaz(alan, mesaj); ilkHata = ilkHata || alan; };
+
+    [firma, plaka, sayi, ...kisiler.map((g) => g.querySelector('input'))]
+      .forEach((a) => hataTemizle(grup(a)));
+
+    if (!firma.value) yaz(firma, 'Firmanızı seçin.');
+
+    const p = normal(plaka.value);
+    if (!p) yaz(plaka, 'Araç plakasını yazın.');
+    else if (!PLAKA.test(p)) yaz(plaka, 'Plakada yalnızca harf, rakam ve boşluk olabilir.');
+
+    const n = Number(sayi.value) || 0;
+    if (!n) yaz(sayi, 'Görevli personel sayısını seçin.');
+
+    const adlar = [];
+    for (let i = 0; i < n; i++) {
+      const a = kisiler[i].querySelector('input');
+      const v = normal(a.value);
+      if (!v) yaz(a, 'Ad soyad yazın.');
+      else if (v.length < 3) yaz(a, 'Ad soyad en az 3 karakter olmalı.');
+      adlar.push(v);
+    }
+
+    if (ilkHata) { ilkHata.focus(); return null; }
+    return { slug: firma.value, plaka: p, adlar };
+  }
+
+  /* --- Gönderim --------------------------------------------------------- */
+  const HATA = {
+    FIRMA_YOK: 'Seçilen firma bulunamadı. Sayfayı yenileyip tekrar deneyin.',
+    PLAKA_GECERSIZ: 'Plaka geçersiz. Yalnızca harf, rakam ve boşluk kullanın.',
+    PERSONEL_GECERSIZ: 'Personel ad soyadlarını kontrol edin.',
+    COK_FAZLA_ISTEK: 'Şu anda çok fazla gönderim var. Bir dakika sonra tekrar deneyin.'
+  };
+
+  function genelHata(mesaj) {
+    let kutu = form.querySelector('[data-submit-error]');
+    if (!kutu) {
+      kutu = document.createElement('div');
+      kutu.className = 'notice notice--danger';
+      kutu.setAttribute('data-submit-error', '');
+      kutu.setAttribute('role', 'alert');
+      kutu.append(document.createElement('p'));
+      form.prepend(kutu);
+    }
+    kutu.querySelector('p').textContent = mesaj;
+    kutu.hidden = false;
+    kutu.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  function basariGoster() {
+    const kutu = document.createElement('div');
+    kutu.className = 'basari';
+    kutu.setAttribute('role', 'status');
+    kutu.setAttribute('tabindex', '-1');
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    for (const [k, v] of Object.entries({ viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor',
+      'stroke-width': '1.75', 'stroke-linecap': 'round', 'stroke-linejoin': 'round',
+      'aria-hidden': 'true', class: 'icon icon--xl basari__icon' })) svg.setAttribute(k, v);
+    for (const d of ['M21.801 10A10 10 0 1 1 17 3.335', 'm9 11 3 3L22 4']) {
+      const p = document.createElementNS(ns, 'path'); p.setAttribute('d', d); svg.append(p);
+    }
+    const b = document.createElement('h2');
+    b.className = 'basari__title';
+    b.textContent = BASARI;
+    kutu.append(svg, b);
+    form.replaceWith(kutu);
+    kutu.focus();
+    kutu.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const hataKutu = form.querySelector('[data-submit-error]');
+    if (hataKutu) hataKutu.hidden = true;
+
+    const v = dogrula();
+    if (!v) return;
+
+    gonder.disabled = true;
+    gonder.classList.add('is-loading');
+    const eski = gonder.textContent;
+    gonder.textContent = 'Gönderiliyor…';
+
+    try {
+      const sb = await getClient();
+      if (!sb) throw new Error('Sunucuya bağlanılamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.');
+      const { error } = await sb.rpc('submit_stant_personel', {
+        p_slug: v.slug, p_plaka: v.plaka, p_personel: v.adlar
+      });
+      if (error) {
+        const kod = Object.keys(HATA).find((k) => (error.message || '').includes(k));
+        throw new Error(kod ? HATA[kod]
+          : error.code === 'PGRST202' ? 'Form şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.'
+          : 'Gönderilemedi. Lütfen tekrar deneyin.');
+      }
+      basariGoster();
+    } catch (err) {
+      genelHata(err.message);
+      gonder.disabled = false;
+      gonder.classList.remove('is-loading');
+      gonder.textContent = eski;
+    }
+  });
+  </script>
+</body>
+</html>

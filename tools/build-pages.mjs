@@ -366,6 +366,7 @@ Disallow: /admin/
 Disallow: /docs/
 Disallow: /davetiye.html
 Disallow: /kurumsaldavetiye/
+Disallow: /yaka-karti.html
 
 Sitemap: ${SITE}/sitemap.xml
 `);
