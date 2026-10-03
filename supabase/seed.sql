@@ -714,7 +714,7 @@ insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) value
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
-  ('ziyaret-saatleri', 'Fuar hangi saatlerde açık?', 'What are the opening hours?', 'Perşembe ve Cuma 10.00–19.00, Cumartesi 10.00–20.00, Pazar 10.00–18.00 saatleri arasında ziyarete açık.', 'Thursday and Friday 10:00–19:00, Saturday 10:00–20:00, Sunday 10:00–18:00.', 2)
+  ('ziyaret-saatleri', 'Fuar hangi saatlerde açık?', 'What are the opening hours?', 'Perşembe, Cuma ve Pazar 10.00–18.00, Cumartesi 10.00–19.00 saatleri arasında ziyarete açık.', 'Thursday, Friday and Sunday 10:00–18:00, Saturday 10:00–19:00.', 2)
 on conflict (slug) do update set soru_tr=excluded.soru_tr, soru_en=excluded.soru_en,
   cevap_tr=excluded.cevap_tr, cevap_en=excluded.cevap_en, sira=excluded.sira;
 insert into public.faqs (slug, soru_tr, soru_en, cevap_tr, cevap_en, sira) values
@@ -783,7 +783,7 @@ insert into public.site_settings (
   'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi', 'Dr. Mimar Kadir Topbaş Arts and Performance Centre', 'Yenikapı Etkinlik Alanı', 'Yenikapı Event Area', 'İstanbul',
   'Aksaray Mahallesi, Yenikapı Etkinlik Alanı, Kennedy Caddesi No: 11/1, Fatih/İstanbul', 'Aksaray Mahallesi, Yenikapı Event Area, Kennedy Caddesi No: 11/1, Fatih/Istanbul', 'Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi, Yenikapı, Fatih, İstanbul',
   '0541 662 28 28', '', 'giresunexpo.com', '{"_not":"Kitapçıkta yok. Hepsi boş olduğu sürece sosyal medya bölümü sitede hiç render edilmez.","instagram":"","linkedin":"","x":"","facebook":"","youtube":""}'::jsonb,
-  '[{"tarih":"2026-10-08","gun_tr":"Perşembe","gun_en":"Thursday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-09","gun_tr":"Cuma","gun_en":"Friday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-10","gun_tr":"Cumartesi","gun_en":"Saturday","acilis":"10:00","kapanis":"20:00"},{"tarih":"2026-10-11","gun_tr":"Pazar","gun_en":"Sunday","acilis":"10:00","kapanis":"18:00"}]'::jsonb, '[{"deger":"","etiket_tr":"Katılımcı firma","etiket_en":"Exhibiting companies"},{"deger":"4","etiket_tr":"Gün","etiket_en":"Days"},{"deger":"3","etiket_tr":"Paydaş kuruluş","etiket_en":"Partner institutions"},{"deger":"100","etiket_tr":"Stand sayısı","etiket_en":"Stands"}]'::jsonb,
+  '[{"tarih":"2026-10-08","gun_tr":"Perşembe","gun_en":"Thursday","acilis":"10:00","kapanis":"18:00"},{"tarih":"2026-10-09","gun_tr":"Cuma","gun_en":"Friday","acilis":"10:00","kapanis":"18:00"},{"tarih":"2026-10-10","gun_tr":"Cumartesi","gun_en":"Saturday","acilis":"10:00","kapanis":"19:00"},{"tarih":"2026-10-11","gun_tr":"Pazar","gun_en":"Sunday","acilis":"10:00","kapanis":"18:00"}]'::jsonb, '[{"deger":"","etiket_tr":"Katılımcı firma","etiket_en":"Exhibiting companies"},{"deger":"4","etiket_tr":"Gün","etiket_en":"Days"},{"deger":"3","etiket_tr":"Paydaş kuruluş","etiket_en":"Partner institutions"},{"deger":"100","etiket_tr":"Stand sayısı","etiket_en":"Stands"}]'::jsonb,
   false, '', '', '',
   'Fuara kalan süre', 'Time until the fair', 'Fuar devam ediyor — 8–11 Ekim 2026, Dr. Mimar Kadir Topbaş Gösteri ve Sanat Merkezi', 'The fair is open — 8–11 October 2026, Dr. Mimar Kadir Topbaş Arts and Performance Centre',
   'Giresun EXPO için teşekkürler. 2027''de görüşmek üzere.', 'Thank you for Giresun EXPO. See you in 2027.',

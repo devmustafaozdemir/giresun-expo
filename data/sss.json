@@ -14,8 +14,8 @@
       "slug": "ziyaret-saatleri",
       "soru_tr": "Fuar hangi saatlerde açık?",
       "soru_en": "What are the opening hours?",
-      "cevap_tr": "Perşembe ve Cuma 10.00–19.00, Cumartesi 10.00–20.00, Pazar 10.00–18.00 saatleri arasında ziyarete açık.",
-      "cevap_en": "Thursday and Friday 10:00–19:00, Saturday 10:00–20:00, Sunday 10:00–18:00.",
+      "cevap_tr": "Perşembe, Cuma ve Pazar 10.00–18.00, Cumartesi 10.00–19.00 saatleri arasında ziyarete açık.",
+      "cevap_en": "Thursday, Friday and Sunday 10:00–18:00, Saturday 10:00–19:00.",
       "sira": 2
     },
     {

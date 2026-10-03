@@ -385,9 +385,9 @@ MAIN['index:en'] = `    <section class="hero">
                 <caption class="visually-hidden">Daily opening hours for Giresun EXPO</caption>
                 <thead><tr><th scope="col">Day</th><th scope="col">Date</th><th scope="col">Hours</th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">Thursday</th><td>8 October 2026</td><td>10:00 – 19:00</td></tr>
-                  <tr><th scope="row">Friday</th><td>9 October 2026</td><td>10:00 – 19:00</td></tr>
-                  <tr><th scope="row">Saturday</th><td>10 October 2026</td><td>10:00 – 20:00</td></tr>
+                  <tr><th scope="row">Thursday</th><td>8 October 2026</td><td>10:00 – 18:00</td></tr>
+                  <tr><th scope="row">Friday</th><td>9 October 2026</td><td>10:00 – 18:00</td></tr>
+                  <tr><th scope="row">Saturday</th><td>10 October 2026</td><td>10:00 – 19:00</td></tr>
                   <tr><th scope="row">Sunday</th><td>11 October 2026</td><td>10:00 – 18:00</td></tr>
                 </tbody>
               </table>
@@ -468,7 +468,7 @@ MAIN['index:en'] = `    <section class="hero">
               ${icon('<path d="m6 9 6 6 6-6"/>').replace('class="icon"', 'class="accordion__icon"')}
             </button></h3>
             <div class="accordion__panel" id="faq-2" hidden>
-              <p>Thursday and Friday 10:00–19:00, Saturday 10:00–20:00, Sunday 10:00–18:00.</p>
+              <p>Thursday, Friday and Sunday 10:00–18:00, Saturday 10:00–19:00.</p>
             </div>
           </div>
           <div class="accordion__item">

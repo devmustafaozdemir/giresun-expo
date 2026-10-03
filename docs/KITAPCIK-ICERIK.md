@@ -27,9 +27,9 @@
 ### Ziyaret saatleri
 | Gün | Saat |
 |---|---|
-| 8 Ekim 2026, Perşembe | 10:00 – 19:00 |
-| 9 Ekim 2026, Cuma | 10:00 – 19:00 |
-| 10 Ekim 2026, Cumartesi | 10:00 – 20:00 |
+| 8 Ekim 2026, Perşembe | 10:00 – 18:00 |
+| 9 Ekim 2026, Cuma | 10:00 – 18:00 |
+| 10 Ekim 2026, Cumartesi | 10:00 – 19:00 |
 | 11 Ekim 2026, Pazar | 10:00 – 18:00 |
 
 ---
