@@ -56,7 +56,7 @@ Rozet yoksa bekleyen iş yok demektir.
 ## Araç ve Yaka Kartları
 
 Katılımcı firmalar **giresunexpo.com/yakakarti** formundan 1 araç plakası ve stantta
-görevli en fazla 4 personelin ad soyadını gönderir. Bu adresi firmalara siz iletirsiniz;
+görevli en fazla 5 personelin ad soyadını gönderir. Bu adresi firmalara siz iletirsiniz;
 sitenin menüsünde yer almaz.
 
 - **Özet kartları:** kaç firma gönderdi, kaç araç kartı ve yaka kartı hazırlanacak,

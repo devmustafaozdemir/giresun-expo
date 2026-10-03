@@ -3,7 +3,7 @@
    assets/js/admin/arac-yaka-kartlari.js
 
    yaka-karti.html formundan gelen kayıtlar: firma başına 1 araç plakası ve
-   stantta görevli en fazla 4 personel (supabase/migrations/008_stant_personel.sql).
+   stantta görevli en fazla 5 personel (008_stant_personel.sql, 009_stant_personel_5.sql).
    Kartlar stant tesliminde verilir; buradan teslim edildi olarak işaretlenir.
    ========================================================================== */
 
@@ -61,11 +61,11 @@ await listeSayfasi(icerik, {
 
   csv: {
     dosya: 'giresun-expo-arac-yaka-kartlari',
-    basliklar: ['Firma', 'Plaka', 'Personel 1', 'Personel 2', 'Personel 3', 'Personel 4',
+    basliklar: ['Firma', 'Plaka', 'Personel 1', 'Personel 2', 'Personel 3', 'Personel 4', 'Personel 5',
                 'Personel sayısı', 'Kart durumu', 'Teslim zamanı', 'Gönderim'],
     satir: (r) => {
       const p = personel(r);
-      return [r.exhibitor_name, r.plate, p[0] || '', p[1] || '', p[2] || '', p[3] || '',
+      return [r.exhibitor_name, r.plate, p[0] || '', p[1] || '', p[2] || '', p[3] || '', p[4] || '',
               p.length, r.delivered_at ? 'Teslim edildi' : 'Bekliyor',
               r.delivered_at ? tarihSaat(r.delivered_at) : '', tarihSaat(r.created_at)];
     }
