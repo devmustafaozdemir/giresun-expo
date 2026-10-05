@@ -430,24 +430,115 @@ const GUN_AD = {
   tr: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
   en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 };
+const PRG = {
+  tr: { gunler: 'Program günleri', moderator: 'Moderatör', simdi: 'Şimdi', oturum: 'oturum' },
+  en: { gunler: 'Programme days', moderator: 'Moderator', simdi: 'Now', oturum: 'sessions' }
+};
+/* Konuşmacısız oturumlar (açılış, tören, müzik, kapanış) vurgulu kart olarak, ikonla */
+const PRG_IKON = {
+  acilis: [['path', { d: 'M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528' }]],
+  toren: [['path', { d: 'M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z' }]],
+  kulturel: [['path', { d: 'M9 18V5l12-2v13' }], ['circle', { cx: 6, cy: 18, r: 3 }], ['circle', { cx: 18, cy: 16, r: 3 }]],
+  kapanis: [['path', { d: 'm15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526' }], ['circle', { cx: 12, cy: 8, r: 6 }]],
+  grup: [['path', { d: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' }], ['circle', { cx: 9, cy: 7, r: 4 }], ['path', { d: 'M22 21v-2a4 4 0 0 0-3-3.87' }], ['path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' }]]
+};
+function ikonCiz(parcalar) {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  for (const [a, v] of Object.entries({ class: 'icon', 'aria-hidden': 'true', focusable: 'false', viewBox: '0 0 24 24',
+    fill: 'none', stroke: 'currentColor', 'stroke-width': '1.75', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' })) {
+    svg.setAttribute(a, v);
+  }
+  for (const [etiket, nit] of parcalar) {
+    const e = document.createElementNS(SVG_NS, etiket);
+    for (const [a, v] of Object.entries(nit)) e.setAttribute(a, String(v));
+    svg.appendChild(e);
+  }
+  return svg;
+}
+
 /* Açıklama "Ad SOYAD | Görev" satırlarından oluşuyorsa konuşmacı listesi,
-   değilse düz paragraf. Görevi olmayan satır (ör. "Medya Mensupları") olduğu gibi. */
-function programAciklama(metin) {
+   değilse düz paragraf. Görevi olmayan satır (ör. "Medya Mensupları") grup
+   olarak gösterilir. Görevdeki "Moderatör" ayrı bir rozete dönüşür. */
+const MODERATOR = /(?:^|\s*[-–]\s*)moderat(?:ö|o)r\s*$/i;
+function basHarfler(ad) {
+  const t = ad.split(/\s+/).filter((x) => x && !x.includes('.'));
+  const k = t.length ? [t[0], t[t.length - 1]] : [ad];
+  return [...new Set(k)].map((x) => x.charAt(0)).join('').toLocaleUpperCase('tr');
+}
+function konusmacilar(metin) {
   if (!metin) return null;
   const satirlar = metin.split('\n').map((s) => s.trim()).filter(Boolean);
-  if (!satirlar.some((s) => s.includes(' | '))) return h('p', { class: 'program__aciklama' }, metin);
-  return h('ul', { class: 'program__kisiler' }, satirlar.map((s) => {
+  if (!satirlar.some((s) => s.includes(' | '))) return h('p', { class: 'program-kart__aciklama' }, metin);
+
+  const kisiler = satirlar.map((s) => {
     const i = s.indexOf(' | ');
-    return h('li', null, i < 0 ? s
-      : [h('strong', null, s.slice(0, i)), h('span', { class: 'program__gorev' }, s.slice(i + 3))]);
-  }));
+    if (i < 0) return { grup: true, ad: s };
+    const ad = s.slice(0, i), gorev = s.slice(i + 3);
+    const mod = MODERATOR.test(gorev);
+    return { ad, gorev: mod ? gorev.replace(MODERATOR, '').trim() : gorev, mod };
+  });
+  kisiler.sort((a, b) => Number(!!b.mod) - Number(!!a.mod));   // moderatör başta
+
+  return h('ul', { class: 'program-kisiler' }, kisiler.map((k) => k.grup
+    ? h('li', { class: 'program-kisi program-kisi--grup' },
+        h('span', { class: 'program-kisi__harf', 'aria-hidden': 'true' }, ikonCiz(PRG_IKON.grup)),
+        h('span', { class: 'program-kisi__bilgi' }, h('span', { class: 'program-kisi__ad' }, k.ad)))
+    : h('li', { class: 'program-kisi' + (k.mod ? ' program-kisi--moderator' : '') },
+        h('span', { class: 'program-kisi__harf', 'aria-hidden': 'true' }, basHarfler(k.ad)),
+        h('span', { class: 'program-kisi__bilgi' },
+          h('span', { class: 'program-kisi__ad' }, k.ad,
+            k.mod ? h('span', { class: 'badge badge--navy program-kisi__rozet' }, PRG[DIL].moderator) : null),
+          k.gorev ? h('span', { class: 'program-kisi__gorev' }, k.gorev) : null))));
+}
+
+/* İstanbul saatine göre bugün ve şu an — fuar günlerinde ilgili gün açılır,
+   süren oturum "Şimdi" ile işaretlenir */
+function istanbulSimdi() {
+  try {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Istanbul', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+    }).formatToParts(new Date()).map((x) => [x.type, x.value]));
+    return { gun: `${p.year}-${p.month}-${p.day}`, saat: `${p.hour}:${p.minute}` };
+  } catch { return { gun: '', saat: '' }; }
+}
+function suankiOturum(oturumlar, simdi) {
+  const s5 = (t) => String(t || '').slice(0, 5);
+  let aday = -1;
+  oturumlar.forEach((o, i) => { if (s5(o.baslangic) <= simdi) aday = i; });
+  if (aday < 0) return null;
+  const o = oturumlar[aday], sonraki = oturumlar[aday + 1];
+  const bitis = o.bitis ? s5(o.bitis) : sonraki ? s5(sonraki.baslangic) : null;
+  if (bitis) return simdi < bitis ? o : null;
+  const [hh, mm] = s5(o.baslangic).split(':').map(Number);          // son oturum: 1 saat say
+  const bir = `${String(Math.min(hh + 1, 23)).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+  return simdi < bir ? o : null;
+}
+
+function oturumKarti(o, gun, suanki) {
+  const vurgu = !dil(o, 'aciklama') && o.tur !== 'panel';
+  const simdi = o === suanki;
+  const rozetler = h('p', { class: 'program-kart__ust' },
+    h('time', { class: 'program-kart__saat', datetime: `${gun}T${String(o.baslangic).slice(0, 5)}` },
+      saat(o.baslangic) + (o.bitis ? ` – ${saat(o.bitis)}` : '')),
+    h('span', { class: 'badge ' + (o.tur === 'panel' ? 'badge--primary' : 'badge--navy') }, TUR_AD[DIL][o.tur] || o.tur),
+    o.salon ? h('span', { class: 'badge' }, o.salon) : null,
+    simdi ? h('span', { class: 'badge program-kart__simdi' }, PRG[DIL].simdi) : null);
+
+  return h('li', { class: 'program-akis__oge' + (simdi ? ' is-now' : '') },
+    h('p', { class: 'program-akis__saat', 'aria-hidden': 'true' }, saat(o.baslangic)),
+    h('article', { class: 'program-kart' + (vurgu ? ' program-kart--vurgu' : '') },
+      vurgu && PRG_IKON[o.tur] ? h('span', { class: 'program-kart__ikon' }, ikonCiz(PRG_IKON[o.tur])) : null,
+      h('div', { class: 'program-kart__govde' },
+        rozetler,
+        h('h3', { class: 'program-kart__baslik' }, dil(o, 'baslik')),
+        konusmacilar(dil(o, 'aciklama')))));
 }
 
 async function programYaz(a) {
   const liste = $('[data-program-liste]');
   if (!liste) return;
-  const bos = $$('[data-program-bos]');
-  if (!a.program_yayinda) return;              // kapalıysa "yakında açıklanacak" kalır
+  if (!a.program_yayinda) return;              // kapalıysa yalnızca afiş görünür
   const r = await programOturumlari();
   if (r.kaynak !== 'supabase' || !r.veri.length) return;
 
@@ -456,22 +547,71 @@ async function programYaz(a) {
     if (!gunler.has(o.gun)) gunler.set(o.gun, []);
     gunler.get(o.gun).push(o);
   }
-  liste.replaceChildren(...[...gunler.entries()].map(([gun, oturumlar]) => {
+  const simdi = istanbulSimdi();
+  const kimlik = (gun) => 'gun-' + gun;
+  const istenen = location.hash.slice(1);
+  const ilk = [...gunler.keys()].find((g) => kimlik(g) === istenen)
+    || (gunler.has(simdi.gun) ? simdi.gun : [...gunler.keys()][0]);
+
+  const sekmeler = [], paneller = [];
+  for (const [gun, oturumlar] of gunler) {
     const d = new Date(gun + 'T12:00:00');
-    return h('section', { class: 'program__gun' },
-      h('h2', { class: 'program__tarih' }, `${tekTarih(gun)}${isNaN(d) ? '' : ' · ' + GUN_AD[DIL][d.getDay()]}`),
-      h('ol', { class: 'program__liste' }, oturumlar.map((o) => h('li', { class: 'program__oturum' },
-        h('p', { class: 'program__saat' }, saat(o.baslangic) + (o.bitis ? ` – ${saat(o.bitis)}` : '')),
-        h('div', { class: 'program__govde' },
-          h('p', { class: 'program__tur' }, [TUR_AD[DIL][o.tur] || o.tur, o.salon].filter(Boolean).join(' · ')),
-          h('h3', { class: 'program__baslik' }, dil(o, 'baslik')),
-          programAciklama(dil(o, 'aciklama')))))));
-  }));
+    const secili = gun === ilk;
+    const haftaGunu = isNaN(d) ? '' : GUN_AD[DIL][d.getDay()];
+    sekmeler.push(h('button', {
+      class: 'program-gunler__btn', type: 'button', role: 'tab', id: kimlik(gun) + '-sekme',
+      'aria-selected': String(secili), 'aria-controls': kimlik(gun), tabindex: secili ? '0' : '-1'
+    },
+      h('span', { class: 'program-gunler__no' }, isNaN(d) ? gun : String(d.getDate())),
+      h('span', { class: 'program-gunler__ay' }, isNaN(d) ? '' : AYLAR[DIL][d.getMonth()]),
+      h('span', { class: 'program-gunler__hafta' }, haftaGunu)));
+
+    const suanki = gun === simdi.gun ? suankiOturum(oturumlar, simdi.saat) : null;
+    paneller.push(h('section', {
+      class: 'program-gun', id: kimlik(gun), role: 'tabpanel', 'aria-labelledby': kimlik(gun) + '-sekme',
+      tabindex: '0', hidden: !secili
+    },
+      h('h2', { class: 'program-gun__baslik' }, `${tekTarih(gun)}${haftaGunu ? ', ' + haftaGunu : ''}`,
+        h('span', { class: 'program-gun__sayi' }, ` · ${oturumlar.length} ${PRG[DIL].oturum}`)),
+      h('ol', { class: 'program-akis' }, oturumlar.map((o) => oturumKarti(o, gun, suanki)))));
+  }
+
+  const sekmeCubugu = h('div', { class: 'program-gunler', role: 'tablist', 'aria-label': PRG[DIL].gunler }, sekmeler);
+  function sec(btn, odakla) {
+    for (const b of sekmeler) {
+      const on = b === btn;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById(b.getAttribute('aria-controls')).hidden = !on;
+    }
+    if (odakla) btn.focus();
+    history.replaceState(null, '', '#' + btn.getAttribute('aria-controls'));
+    /* Sekme çubuğu yapışkan: aşağıdayken gün değişirse listenin başına dön */
+    const ust = sekmeCubugu.getBoundingClientRect().top;
+    const cubukUst = parseFloat(getComputedStyle(sekmeCubugu).top) || 0;
+    if (ust <= cubukUst + 1) {
+      const azHareket = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hedef = liste.getBoundingClientRect().top + scrollY - cubukUst;
+      scrollTo({ top: hedef, behavior: azHareket ? 'auto' : 'smooth' });
+    }
+  }
+  sekmeCubugu.addEventListener('click', (e) => {
+    const b = e.target.closest('[role="tab"]');
+    if (b) sec(b, false);
+  });
+  sekmeCubugu.addEventListener('keydown', (e) => {
+    const i = sekmeler.indexOf(document.activeElement);
+    if (i < 0) return;
+    const n = sekmeler.length;
+    const hedef = e.key === 'ArrowRight' ? sekmeler[(i + 1) % n] : e.key === 'ArrowLeft' ? sekmeler[(i - 1 + n) % n]
+      : e.key === 'Home' ? sekmeler[0] : e.key === 'End' ? sekmeler[n - 1] : null;
+    if (!hedef) return;
+    e.preventDefault();
+    sec(hedef, true);
+  });
+
+  liste.replaceChildren(sekmeCubugu, ...paneller);
   liste.hidden = false;
-  for (const e of bos) e.hidden = true;
-  metinYaz('.page-header .lead', DIL === 'en'
-    ? 'Panels, presentations and sessions at Giresun EXPO.'
-    : 'Giresun EXPO panel, sunum ve oturum programı.');
 }
 
 baslat().catch((e) => console.warn('[GE] Site verisi uygulanamadı:', e && e.message));

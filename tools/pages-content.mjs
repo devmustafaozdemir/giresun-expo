@@ -732,41 +732,39 @@ const programAfisi = (lang) => {
   const tr = lang === 'tr';
   const r = tr ? '' : '../';
   const dosya = `${r}assets/img/program/giresun-expo-2026-program`;
-  return `        <div class="program-afis reveal">
+  return `        <div class="program-afis">
           <a class="program-afis__gorsel" href="${dosya}.jpg" target="_blank" rel="noopener">
             <picture>
               <source srcset="${dosya}.webp" type="image/webp">
-              <img src="${dosya}.jpg" alt="${tr ? 'Giresun EXPO 2026 etkinlik programı afişi' : 'Giresun EXPO 2026 programme poster'}" width="1024" height="1280" loading="lazy" decoding="async">
+              <img src="${dosya}.jpg" alt="${tr ? 'Program afişini büyük boyutta aç' : 'Open the programme poster full size'}" width="1024" height="1280" loading="lazy" decoding="async">
             </picture>
           </a>
-          <div class="program-afis__metin">
-            <h2 class="program-afis__baslik">${tr ? 'Program afişi' : 'Programme poster'}</h2>
-            <p>${tr ? '8–11 Ekim 2026 programının tamamı tek görselde. İndirip paylaşabilirsiniz.'
-                    : 'The full programme for 8–11 October 2026 in a single image (in Turkish). Download and share it.'}</p>
-            <div class="cluster mt-4">
-              <a class="btn btn--primary" href="${dosya}.jpg" download="giresun-expo-2026-program.jpg">${I.download} ${tr ? 'Programı indir' : 'Download programme'}</a>
-            </div>
+          <div>
+            <p class="program-afis__baslik">${tr ? 'Program afişi' : 'Programme poster'}</p>
+            <p class="program-afis__alt">${tr ? 'Tüm program tek görselde. İndirip paylaşabilirsiniz.'
+                                               : 'The full programme in one image (in Turkish).'}</p>
           </div>
+          <a class="btn btn--secondary btn--sm program-afis__indir" href="${dosya}.jpg" download="giresun-expo-2026-program.jpg">${I.download} ${tr ? 'İndir' : 'Download'}</a>
         </div>`;
 };
 
 MAIN['program:tr'] = `${pageHeader('tr', 'Etkinlik Programı', 'Giresun EXPO panel, sunum ve oturum programı.', 'Program')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container container--narrow">
 ${programAfisi('tr')}
 
-        <div class="program mt-8" data-program-liste hidden></div>
+        <div class="program" data-program-liste hidden></div>
       </div>
     </section>`;
 
 MAIN['program:en'] = `${pageHeader('en', 'Programme', 'Panels, presentations and sessions at Giresun EXPO.', 'Programme')}
 
-    <section class="section">
+    <section class="section section--compact">
       <div class="container container--narrow">
 ${programAfisi('en')}
 
-        <div class="program mt-8" data-program-liste hidden></div>
+        <div class="program" data-program-liste hidden></div>
       </div>
     </section>`;
 
