@@ -77,9 +77,9 @@ export const PAGES = {
   },
   program: {
     tr: { file: 'program.html', nav: 'Program', title: 'Etkinlik Programı — Giresun EXPO',
-          desc: 'Giresun EXPO etkinlik programı. Panel ve oturum programı açıklandığında burada yayımlanacak.' },
+          desc: 'Giresun EXPO 8–11 Ekim 2026 etkinlik programı: paneller, konuşmacılar ve törenler. Program afişini indirebilirsiniz.' },
     en: { file: 'program.html', nav: 'Programme', title: 'Programme — Giresun EXPO',
-          desc: 'The Giresun EXPO programme. Panels and sessions will be published here once announced.' },
+          desc: 'The Giresun EXPO programme for 8–11 October 2026: panels, speakers and ceremonies. Download the programme poster.' },
   },
   kvkk: {
     tr: { file: 'kvkk.html', nav: 'KVKK Aydınlatma Metni', title: 'KVKK Aydınlatma Metni — Giresun EXPO',
@@ -724,57 +724,49 @@ MAIN['about:en'] = `${pageHeader('en', 'About the Expo', 'Giresun EXPO is a busi
       </div>
     </section>`;
 
-/* ---------- Program ----------------------------------------------------- */
-MAIN['program:tr'] = `${pageHeader('tr', 'Etkinlik Programı', 'Panel, sunum ve oturum programı henüz açıklanmadı.', 'Program')}
+/* ---------- Program -----------------------------------------------------
+   Üstte organizasyonun gönderdiği program afişi (indirilebilir), altında
+   admin panelinden yönetilen oturum listesi (site-veri.js → programYaz).
+   Liste yalnızca Site Ayarları > "Program yayında" açıkken doldurulur. */
+const programAfisi = (lang) => {
+  const tr = lang === 'tr';
+  const r = tr ? '' : '../';
+  const dosya = `${r}assets/img/program/giresun-expo-2026-program`;
+  return `        <div class="program-afis reveal">
+          <a class="program-afis__gorsel" href="${dosya}.jpg" target="_blank" rel="noopener">
+            <picture>
+              <source srcset="${dosya}.webp" type="image/webp">
+              <img src="${dosya}.jpg" alt="${tr ? 'Giresun EXPO 2026 etkinlik programı afişi' : 'Giresun EXPO 2026 programme poster'}" width="1024" height="1280" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="program-afis__metin">
+            <h2 class="program-afis__baslik">${tr ? 'Program afişi' : 'Programme poster'}</h2>
+            <p>${tr ? '8–11 Ekim 2026 programının tamamı tek görselde. İndirip paylaşabilirsiniz.'
+                    : 'The full programme for 8–11 October 2026 in a single image (in Turkish). Download and share it.'}</p>
+            <div class="cluster mt-4">
+              <a class="btn btn--primary" href="${dosya}.jpg" download="giresun-expo-2026-program.jpg">${I.download} ${tr ? 'Programı indir' : 'Download programme'}</a>
+            </div>
+          </div>
+        </div>`;
+};
+
+MAIN['program:tr'] = `${pageHeader('tr', 'Etkinlik Programı', 'Giresun EXPO panel, sunum ve oturum programı.', 'Program')}
 
     <section class="section">
       <div class="container container--narrow">
-        <div class="program" data-program-liste hidden></div>
+${programAfisi('tr')}
 
-        <div class="empty reveal" data-program-bos>
-          ${I.calendar.replace('class="icon"', 'class="empty__icon"')}
-          <p class="empty__title">Program yakında açıklanacak</p>
-          <p class="empty__text">Giresun EXPO'nun panel, sunum ve oturum programı
-            organizasyon tarafından hazırlanıyor. Açıklandığında bu sayfada yayımlanacak.</p>
-          <div class="cluster mt-4" style="justify-content:center">
-            <a class="btn btn--primary" href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a>
-            <a class="btn btn--secondary" href="katilimcilar.html">Katılımcılar</a>
-          </div>
-        </div>
-
-        <div class="mt-8 reveal" data-program-bos>
-          <h2 class="section-title">Şimdilik bilinenler</h2>
-          <p>Fuar <span data-ayar="tarih">8–11 Ekim 2026</span> tarihleri arasında dört gün boyunca ziyarete açık olacak.
-            Günlük ziyaret saatlerini ve ulaşım bilgilerini
-            <a href="ziyaret-bilgileri.html">Ziyaret Bilgileri</a> sayfasından görebilirsiniz.</p>
-        </div>
+        <div class="program mt-8" data-program-liste hidden></div>
       </div>
     </section>`;
 
-MAIN['program:en'] = `${pageHeader('en', 'Programme', 'The programme of panels, presentations and sessions has not been announced yet.', 'Programme')}
+MAIN['program:en'] = `${pageHeader('en', 'Programme', 'Panels, presentations and sessions at Giresun EXPO.', 'Programme')}
 
     <section class="section">
       <div class="container container--narrow">
-        <div class="program" data-program-liste hidden></div>
+${programAfisi('en')}
 
-        <div class="empty reveal" data-program-bos>
-          ${I.calendar.replace('class="icon"', 'class="empty__icon"')}
-          <p class="empty__title">The programme will be announced soon</p>
-          <p class="empty__text">The programme of panels, presentations and sessions for
-            Giresun EXPO is being prepared by the organisers and will be published on this
-            page once announced.</p>
-          <div class="cluster mt-4" style="justify-content:center">
-            <a class="btn btn--primary" href="plan-your-visit.html">Plan Your Visit</a>
-            <a class="btn btn--secondary" href="exhibitors.html">Exhibitors</a>
-          </div>
-        </div>
-
-        <div class="mt-8 reveal" data-program-bos>
-          <h2 class="section-title">What we know so far</h2>
-          <p>The fair will be open to visitors for four days, on <span data-ayar="tarih">8–11 October 2026</span>. Daily
-            opening hours and travel information are on the
-            <a href="plan-your-visit.html">Plan Your Visit</a> page.</p>
-        </div>
+        <div class="program mt-8" data-program-liste hidden></div>
       </div>
     </section>`;
 

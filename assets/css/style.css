@@ -1939,8 +1939,32 @@ fieldset.form__group > legend { padding: 0; margin-bottom: var(--space-2); }
 .program__tur { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--color-muted); }
 .program__baslik { margin-top: var(--space-1); font-family: var(--font-display); font-size: 1.0625rem; font-weight: 600; color: var(--color-ink); }
 .program__aciklama { margin-top: var(--space-2); color: var(--color-muted); }
+/* Açıklama "Ad SOYAD | Görev" satırlarından oluşuyorsa konuşmacı listesi */
+.program__kisiler { list-style: none; margin: var(--space-2) 0 0; padding: 0; display: grid; gap: var(--space-1); }
+.program__kisiler li { color: var(--color-body); line-height: 1.45; }
+.program__kisiler strong { font-weight: 600; color: var(--color-ink); }
+.program__gorev { color: var(--color-muted); margin-left: 0.35em; }
 @media (max-width: 640px) {
   .program__oturum { grid-template-columns: 1fr; gap: var(--space-1); }
+}
+
+/* Program afişi (Ekim 2026) — küçük önizleme + indirme */
+.program-afis {
+  display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: var(--space-5); align-items: center;
+  padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius);
+  background-color: var(--color-bg); box-shadow: var(--shadow-sm);
+}
+.program-afis__gorsel { display: block; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--color-border); }
+.program-afis__gorsel img { display: block; width: 100%; height: auto; transition: transform var(--transition); }
+.program-afis__gorsel:hover img { transform: scale(1.03); }
+.program-afis__baslik { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--color-primary); margin: 0 0 var(--space-2); }
+.program-afis__metin p { margin: 0; color: var(--color-body); }
+@media (max-width: 640px) {
+  .program-afis { grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-4); padding: var(--space-4); align-items: start; }
+  .program-afis__baslik { font-size: 1.0625rem; }
+  .program-afis__metin p { font-size: 0.9375rem; }
+  .program-afis .cluster { margin-top: var(--space-3); }
+  .program-afis .btn { width: 100%; justify-content: center; white-space: normal; }
 }
 
 /* --- Mobilde dört başlık ortalanır (Eylül 2026) -------------------------- */

@@ -423,13 +423,26 @@ async function ulasimYaz() {
 
 /* --- Program -------------------------------------------------------------- */
 const TUR_AD = {
-  tr: { acilis: 'Açılış', panel: 'Panel', atolye: 'Atölye', b2b: 'B2B görüşmeler', kulturel: 'Kültürel etkinlik', kapanis: 'Kapanış' },
-  en: { acilis: 'Opening', panel: 'Panel', atolye: 'Workshop', b2b: 'B2B meetings', kulturel: 'Cultural event', kapanis: 'Closing' }
+  tr: { acilis: 'Açılış', panel: 'Panel', atolye: 'Atölye', b2b: 'B2B görüşmeler', kulturel: 'Kültürel etkinlik', toren: 'Tören', kapanis: 'Kapanış' },
+  en: { acilis: 'Opening', panel: 'Panel', atolye: 'Workshop', b2b: 'B2B meetings', kulturel: 'Cultural event', toren: 'Ceremony', kapanis: 'Closing' }
 };
 const GUN_AD = {
   tr: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
   en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 };
+/* Açıklama "Ad SOYAD | Görev" satırlarından oluşuyorsa konuşmacı listesi,
+   değilse düz paragraf. Görevi olmayan satır (ör. "Medya Mensupları") olduğu gibi. */
+function programAciklama(metin) {
+  if (!metin) return null;
+  const satirlar = metin.split('\n').map((s) => s.trim()).filter(Boolean);
+  if (!satirlar.some((s) => s.includes(' | '))) return h('p', { class: 'program__aciklama' }, metin);
+  return h('ul', { class: 'program__kisiler' }, satirlar.map((s) => {
+    const i = s.indexOf(' | ');
+    return h('li', null, i < 0 ? s
+      : [h('strong', null, s.slice(0, i)), h('span', { class: 'program__gorev' }, s.slice(i + 3))]);
+  }));
+}
+
 async function programYaz(a) {
   const liste = $('[data-program-liste]');
   if (!liste) return;
@@ -452,7 +465,7 @@ async function programYaz(a) {
         h('div', { class: 'program__govde' },
           h('p', { class: 'program__tur' }, [TUR_AD[DIL][o.tur] || o.tur, o.salon].filter(Boolean).join(' · ')),
           h('h3', { class: 'program__baslik' }, dil(o, 'baslik')),
-          dil(o, 'aciklama') ? h('p', { class: 'program__aciklama' }, dil(o, 'aciklama')) : null)))));
+          programAciklama(dil(o, 'aciklama')))))));
   }));
   liste.hidden = false;
   for (const e of bos) e.hidden = true;

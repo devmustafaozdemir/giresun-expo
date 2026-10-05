@@ -114,11 +114,14 @@ const SEKMELER = [
         secenekler: [
           { deger: 'acilis', etiket: 'Açılış' }, { deger: 'panel', etiket: 'Panel' },
           { deger: 'atolye', etiket: 'Atölye' }, { deger: 'b2b', etiket: 'B2B görüşmeler' },
-          { deger: 'kulturel', etiket: 'Kültürel etkinlik' }, { deger: 'kapanis', etiket: 'Kapanış' }
+          { deger: 'kulturel', etiket: 'Kültürel etkinlik' }, { deger: 'toren', etiket: 'Tören' },
+          { deger: 'kapanis', etiket: 'Kapanış' }
         ] },
       { ad: 'salon', etiket: 'Salon / yer', ipucu: 'İsteğe bağlı.' },
-      { ad: 'aciklama_tr', etiket: 'Açıklama (TR)', cokSatir: true },
-      { ad: 'aciklama_en', etiket: 'Açıklama (EN)', cokSatir: true }
+      { ad: 'aciklama_tr', etiket: 'Açıklama / konuşmacılar (TR)', cokSatir: true,
+        ipucu: 'Konuşmacıları her satıra bir kişi yazın: Ad SOYAD | Görevi. Sitede liste olarak görünür.' },
+      { ad: 'aciklama_en', etiket: 'Açıklama / konuşmacılar (EN)', cokSatir: true,
+        ipucu: 'Same format: Name SURNAME | Role, one per line.' }
     ]
   }
 ];
