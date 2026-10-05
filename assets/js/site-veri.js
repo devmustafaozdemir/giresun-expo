@@ -18,7 +18,7 @@
 
    XSS: veritabanından gelen hiçbir değer innerHTML ile basılmaz.
    ========================================================================== */
-import { siteAyarlari, katilimcilar, sss, sektorler, paydaslar, ulasimSecenekleri, programOturumlari } from './data.js';
+import { siteAyarlari, katilimcilar, sss, sektorler, paydaslar, ulasimSecenekleri, programOturumlari, programHizli } from './data.js';
 
 const DIL = document.documentElement.lang === 'en' ? 'en' : 'tr';
 const KOK = document.documentElement.dataset.root || '';
@@ -82,7 +82,6 @@ async function baslat() {
     duyuru(a);
     geriSayim(a);
     basvurular(a);
-    programYaz(a);
   }
 
   sssYukle();
@@ -535,15 +534,43 @@ function oturumKarti(o, gun, suanki) {
         konusmacilar(dil(o, 'aciklama')))));
 }
 
-async function programYaz(a) {
+/* Liste sitenin geri kalanını (ayarlar, katılımcılar, paydaşlar) beklemeden,
+   modül çalışır çalışmaz istenir; gelene kadar iskelet görünür. Hızlı yol
+   (doğrudan REST) olmazsa kütüphane yoluna düşülür. "Program yayında"
+   kapalıysa ya da oturum yoksa yalnızca afiş kalır. */
+async function programYukle() {
   const liste = $('[data-program-liste]');
   if (!liste) return;
-  if (!a.program_yayinda) return;              // kapalıysa yalnızca afiş görünür
-  const r = await programOturumlari();
-  if (r.kaynak !== 'supabase' || !r.veri.length) return;
+  iskeletGoster(liste);
+  let s = await programHizli();
+  if (!s) {
+    const [ayar, r] = await Promise.all([siteAyarlari(), programOturumlari()]);
+    s = {
+      yayinda: !!(ayar && ayar.kaynak === 'supabase' && ayar.veri && ayar.veri.program_yayinda),
+      veri: r.kaynak === 'supabase' ? r.veri : []
+    };
+  }
+  liste.removeAttribute('aria-busy');
+  if (!s.yayinda || !s.veri.length) { liste.replaceChildren(); liste.hidden = true; return; }
+  programCiz(liste, s.veri);
+}
 
+function iskeletGoster(liste) {
+  const kutu = (sinif) => h('div', { class: 'skeleton ' + sinif });
+  liste.setAttribute('aria-busy', 'true');
+  liste.replaceChildren(
+    h('p', { class: 'visually-hidden', role: 'status' }, DIL === 'en' ? 'Loading programme…' : 'Program yükleniyor…'),
+    h('div', { class: 'program-iskelet', 'aria-hidden': 'true' },
+      h('div', { class: 'program-iskelet__gunler' }, [0, 1, 2, 3].map(() => kutu('program-iskelet__gun'))),
+      [0, 1].map(() => h('div', { class: 'program-iskelet__kart' },
+        kutu('skeleton--text program-iskelet__kisa'), kutu('skeleton--title'),
+        kutu('skeleton--text'), kutu('skeleton--text program-iskelet__orta'), kutu('skeleton--text program-iskelet__kisa')))));
+  liste.hidden = false;
+}
+
+function programCiz(liste, veri) {
   const gunler = new Map();
-  for (const o of r.veri) {
+  for (const o of veri) {
     if (!gunler.has(o.gun)) gunler.set(o.gun, []);
     gunler.get(o.gun).push(o);
   }
@@ -653,4 +680,5 @@ function afisPaylasimi() {
 }
 
 afisPaylasimi();
+programYukle().catch((e) => console.warn('[GE] Program yüklenemedi:', e && e.message));
 baslat().catch((e) => console.warn('[GE] Site verisi uygulanamadı:', e && e.message));

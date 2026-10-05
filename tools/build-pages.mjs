@@ -214,6 +214,8 @@ function head(key, lang) {
   const moduller = modules.map((s) => `  <script type="module" src="${r}assets/js/${s}"></script>`);
   const extra = [...klasik, ...moduller].join('\n');
   const noindex = p.noindex ? '\n  <meta name="robots" content="noindex, nofollow">' : '';
+  /* Sayfa açılır açılmaz veri istenecek sunuculara bağlantıyı önceden kur */
+  const preconnect = (p.preconnect || []).map((u) => `\n  <link rel="preconnect" href="${u}" crossorigin>`).join('');
 
   return `<!doctype html>
 <html lang="${lang}" data-root="${r}">
@@ -246,7 +248,7 @@ function head(key, lang) {
 
   <link rel="preload" as="font" type="font/woff2" href="${r}assets/fonts/inter-var-latin-ext.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="${r}assets/fonts/poppins-700-latin-ext.woff2" crossorigin>
-  <link rel="stylesheet" href="${r}assets/css/style.css">
+${preconnect ? preconnect.slice(1) + '\n' : ''}  <link rel="stylesheet" href="${r}assets/css/style.css">
   <script src="${r}assets/js/main.js" defer></script>
 ${extra}${p.jsonLd ? '\n' + p.jsonLd : ''}
 </head>`;

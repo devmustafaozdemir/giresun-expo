@@ -119,6 +119,38 @@ export async function ulasimSecenekleri() {
   return { kaynak: sb ? 'supabase' : 'yok', veri: sb || [] };
 }
 
+/* Program sayfası için hızlı yol: supabase-js kütüphanesinin CDN'den birkaç
+   parça hâlinde inmesini beklemeden PostgREST'e doğrudan iki paralel GET.
+   Başlıklar supabase-js'in gönderdiğiyle aynı; herkese açık okuma, RLS aynı
+   kuralları uygular. Başarısız olursa null döner, çağıran programOturumlari()
+   yoluna düşer. */
+export async function programHizli() {
+  const cfg = window.GE_CONFIG;
+  if (!cfg || !cfg.hazir) return null;
+  const kok = cfg.SUPABASE_URL.trim().replace(/\/$/, '') + '/rest/v1/';
+  const anahtar = cfg.SUPABASE_ANON_KEY.trim();
+  const iptal = new AbortController();
+  const zaman = setTimeout(() => iptal.abort(), ZAMAN_ASIMI);
+  const al = (yol) => fetch(kok + yol, {
+    headers: { apikey: anahtar, Authorization: `Bearer ${anahtar}`, Accept: 'application/json' },
+    signal: iptal.signal
+  }).then((r) => (r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status))));
+  try {
+    const [ayar, oturumlar] = await Promise.all([
+      al('site_settings?select=program_yayinda&limit=1'),
+      al('program_sessions?select=gun,baslangic,bitis,baslik_tr,baslik_en,aciklama_tr,aciklama_en,tur,salon,sira' +
+         '&published=eq.true&order=gun.asc,baslangic.asc')
+    ]);
+    if (!Array.isArray(ayar) || !Array.isArray(oturumlar)) return null;
+    return { yayinda: !!(ayar[0] && ayar[0].program_yayinda), veri: oturumlar };
+  } catch (e) {
+    console.warn('[GE] Program hızlı yoldan okunamadı, kütüphaneyle deneniyor:', e && e.message);
+    return null;
+  } finally {
+    clearTimeout(zaman);
+  }
+}
+
 export async function programOturumlari() {
   const sb = await supabaseDene((c) =>
     c.from('program_sessions').select('*').eq('published', true)

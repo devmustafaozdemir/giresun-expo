@@ -10,6 +10,9 @@
  * tools/check-content.mjs bunlari makineyle denetler.
  */
 
+/* Program listesi sayfa açılınca doğrudan buradan okunur (assets/js/config.js ile aynı adres) */
+const SUPABASE_KOKU = 'https://ktjchovsqvjeuurhxvck.supabase.co';
+
 export const PAGES = {
   index: {
     tr: { file: 'index.html', nav: 'Ana Sayfa', title: 'Giresun EXPO — Giresun İş Dünyası İstanbul\'da Buluşuyor',
@@ -77,9 +80,11 @@ export const PAGES = {
   },
   program: {
     tr: { file: 'program.html', nav: 'Program', title: 'Etkinlik Programı — Giresun EXPO',
-          desc: 'Giresun EXPO 8–11 Ekim 2026 etkinlik programı: paneller, konuşmacılar ve törenler. Program afişini indirebilirsiniz.' },
+          desc: 'Giresun EXPO 8–11 Ekim 2026 etkinlik programı: paneller, konuşmacılar ve törenler. Program afişini indirebilirsiniz.',
+          preconnect: [SUPABASE_KOKU] },
     en: { file: 'program.html', nav: 'Programme', title: 'Programme — Giresun EXPO',
-          desc: 'The Giresun EXPO programme for 8–11 October 2026: panels, speakers and ceremonies. Download the programme poster.' },
+          desc: 'The Giresun EXPO programme for 8–11 October 2026: panels, speakers and ceremonies. Download the programme poster.',
+          preconnect: [SUPABASE_KOKU] },
   },
   kvkk: {
     tr: { file: 'kvkk.html', nav: 'KVKK Aydınlatma Metni', title: 'KVKK Aydınlatma Metni — Giresun EXPO',
