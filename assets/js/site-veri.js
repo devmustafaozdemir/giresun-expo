@@ -614,4 +614,43 @@ async function programYaz(a) {
   liste.hidden = false;
 }
 
+/* --- Program afişi: telefonda paylaşım menüsü, bilgisayarda doğrudan indirme ---
+   Dokunmatik cihazlarda (iPhone, iPad, Android) "İndir", görseli Web Share API
+   ile paylaşım menüsüne verir: Görüntüyü Kaydet, WhatsApp, Mail… Paylaşım
+   çağrısı kullanıcının dokunuşuna bağlı kalmalı; ağ beklemesi bunu bozabildiği
+   (özellikle Safari) için dosya sayfa açılınca önceden indirilip hazır tutulur.
+   Bilgisayarda (fare/touchpad) bağlantının download niteliği dosyayı doğrudan indirir. */
+function afisPaylasimi() {
+  const btn = $('.program-afis__indir');
+  if (!btn || !navigator.canShare || !matchMedia('(pointer: coarse)').matches) return;
+
+  const ad = btn.getAttribute('download') || 'giresun-expo-program.jpg';
+  let dosya;                                      // undefined: hazırlanıyor, null: paylaşılamaz
+  const hazir = new Promise((coz) => {
+    const indir = () => fetch(btn.href)
+      .then((r) => (r.ok ? r.blob() : Promise.reject(new Error('HTTP ' + r.status))))
+      .then((b) => {
+        const f = new File([b], ad, { type: b.type || 'image/jpeg' });
+        coz(dosya = navigator.canShare({ files: [f] }) ? f : null);
+      })
+      .catch(() => coz(dosya = null));
+    if (document.readyState === 'complete') indir();
+    else addEventListener('load', indir, { once: true });
+  });
+
+  btn.addEventListener('click', async (e) => {
+    if (dosya === null) return;                   // paylaşım desteklenmiyor: normal indirme
+    e.preventDefault();
+    const f = dosya || await hazir;
+    if (!f) { location.href = btn.href; return; }
+    try {
+      await navigator.share({ files: [f], title: DIL === 'en' ? 'Giresun EXPO 2026 Programme' : 'Giresun EXPO 2026 Programı' });
+    } catch (err) {
+      if (err && err.name === 'AbortError') return;          // kullanıcı menüyü kapattı
+      location.href = btn.href;                              // izin verilmedi: görseli aç, uzun basıp kaydedilir
+    }
+  });
+}
+
+afisPaylasimi();
 baslat().catch((e) => console.warn('[GE] Site verisi uygulanamadı:', e && e.message));
