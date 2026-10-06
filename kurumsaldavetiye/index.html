@@ -1,25 +1,386 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-root="../">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Davetiye Oluştur — Giresun EXPO</title>
-  <!-- Kısa adres: giresunexpo.com/kurumsaldavetiye → davetiye.html
-       Statik sunucuda (GitHub Pages) yönlendirme kuralı yazılamadığı için
-       sayfa içi yönlendirme kullanılıyor. -->
-  <link rel="canonical" href="https://giresunexpo.com/davetiye.html">
-  <meta http-equiv="refresh" content="0; url=../davetiye.html">
-  <script>location.replace('../davetiye.html' + location.search + location.hash);</script>
-  <style>
-    body {
-      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; color: #12211B; background-color: #F4F7F5;
+  <title>Kurumsal Davetiye Oluştur — Giresun EXPO</title>
+  <script>
+  /* Adres sondaki eğik çizgi olmadan açılırsa (giresunexpo.com/kurumsaldavetiye)
+     göreli yollar kökten çözülür ve bozulur. Normalize et. */
+  (function () {
+    var y = location.pathname;
+    if (!/\/$/.test(y) && !/\.[a-z0-9]+$/i.test(y)) {
+      location.replace(y + '/' + location.search + location.hash);
     }
-    a { color: #005E44; }
+  })();
+  </script>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="../assets/img/brand/favicon-32.png" sizes="32x32">
+  <link rel="preload" as="image" href="../assets/img/davetiye/kurumsal-davet-2026.jpg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .kd-duzen { display: grid; gap: var(--space-7); align-items: start; }
+    @media (min-width: 900px) { .kd-duzen { grid-template-columns: 22rem 1fr; } }
+    #kd-form { display: grid; gap: var(--space-4); }
+    .kd-onizleme {
+      display: flex; justify-content: center; padding: var(--space-5);
+      border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+      background-color: var(--color-surface);
+    }
+    .kd-onizleme canvas {
+      display: block; width: 100%; max-width: 480px; height: auto;
+      background-color: var(--color-bg); box-shadow: var(--shadow-lg);
+    }
+    .kd-eylem { display: grid; gap: var(--space-3); justify-items: center; margin-top: var(--space-2); }
+    .kd-eylem #kd-indir { justify-content: center; }
+    .kd-durum { text-align: center; min-height: 1.4em; }
+
+    @media (max-width: 899.98px) {
+      .page-header { padding-block: var(--space-5) var(--space-4); }
+      .page-header h1 { font-size: 1.75rem; margin-bottom: var(--space-2); }
+      .page-header .lead { font-size: .9375rem; line-height: 1.5; }
+      .section--compact { padding-block: var(--space-4); }
+      .kd-duzen { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-4); }
+      /* Önizleme formun üstünde; yazarken değişimi görmek için küçük tutulur */
+      .kd-duzen > div:last-child { order: -1; }
+      .kd-onizleme { padding: var(--space-3); }
+      .kd-onizleme canvas { max-width: 250px; }
+      #kd-form { gap: var(--space-3); }
+    }
   </style>
 </head>
 <body>
-  <p>Davetiye sayfasına yönlendiriliyorsunuz… <a href="../davetiye.html">Açılmazsa buraya tıklayın.</a></p>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="logo" href="../index.html" aria-label="Giresun EXPO — ana sayfa">
+        <img src="../assets/img/brand/giresun-expo-logo-tarihsiz.png" alt="Giresun EXPO" width="600" height="242">
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-header">
+      <div class="container">
+        <h1>Kurumsal Davetiye</h1>
+        <p class="lead">Davet edeceğiniz kişinin adını ve ünvanını yazın; Giresun EXPO 2026
+          davetiyesi kişiye özel olarak hazırlansın.</p>
+      </div>
+    </section>
+
+    <section class="section section--compact">
+      <div class="container kd-duzen">
+        <form class="form" id="kd-form" novalidate>
+          <div class="form__group">
+            <label class="form__label" for="kd-ad">Ad Soyad</label>
+            <input class="form__control" id="kd-ad" type="text" maxlength="60"
+                   placeholder="Ör. Ahmet YILMAZ" autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="kd-unvan">Ünvan</label>
+            <input class="form__control" id="kd-unvan" type="text" maxlength="120"
+                   placeholder="Ör. Giresun Ticaret Odası Başkanı" autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="kd-eylem">
+            <button class="btn btn--primary btn--lg btn--block" type="button" id="kd-indir">
+              <svg class="icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+              Davetiyeyi İndir
+            </button>
+            <button class="btn btn--ghost" type="button" id="kd-temizle">Alanları temizle</button>
+          </div>
+          <p class="form__hint kd-durum" id="kd-durum" role="status" aria-live="polite"></p>
+        </form>
+
+        <div>
+          <div class="kd-onizleme">
+            <canvas id="kd-tuval" width="1131" height="1600" role="img" aria-label="Davetiye önizlemesi"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* --- Şablon ve yerleşim --------------------------------------------------
+       Davetiye görseli (1131×1600) yatay şeritlere bölünür. Ad girilince
+       "Davet" biraz yukarı çıkar, altına "Sayın Ad SOYAD" ve ünvan yazılır;
+       metin ve imzalar aşağı iner. Şeritler arasındaki boşluk, yalnızca çerçeve
+       çizgilerini içeren beyaz bir satırın uzatılmasıyla doldurulur, böylece
+       çerçeve kesintisiz kalır. Üst (çerçeve + logo) ve alt (slogan + logolar +
+       çerçeve) sabittir. Koordinatlar şablonun kendi pikselleridir. */
+    var SABLON = '../assets/img/davetiye/kurumsal-davet-2026.jpg';
+    var EN = 1131, BOY = 1600, OLCEK = 2;
+    var UST_SON = 336;          // logo bitişi (333) + pay
+    var ALT_BAS = 1303;         // slogan başlangıcı (1307) − pay
+    var BOS_SATIR = 630;        // yalnızca çerçeve çizgileri olan satır
+    var ORTA = EN / 2;          // içerik ortası (çerçeve 57–1073)
+    var MAX_EN = 900;           // yazı için en geniş alan
+
+    /* İçerik şeritleri: kaynaktaki üst/alt sınırları (her biri ±4 px boşluk payıyla) */
+    var SERIT = {
+      davet: { y: 436, boy: 151 },   // "Davet" (440–582)
+      metin: { y: 677, boy: 146 },   // davet metni (681–818)
+      imza:  { y: 894, boy: 73 },    // imzalar (898–962)
+      bilgi: { y: 1042, boy: 227 }   // tarih, saat, yer, irtibat (1046–1264)
+    };
+    /* Ad eklenince şeritler arası boşluklar (piksel); ad bloğu büyürse
+       aynı oranda daraltılır. Sıra: logo→Davet, Davet→ad, ad→metin,
+       metin→imza, imza→bilgi, bilgi→slogan */
+    var BOSLUK = [68, 30, 50, 56, 66, 42];
+
+    var YAZI = {
+      sayin: { agirlik: 400, punto: 30, renk: '#1E1E1E' },
+      ad:    { agirlik: 700, punto: 42, enAz: 26, renk: '#123F7D' },
+      unvan: { agirlik: 400, punto: 28, tekSatirEnAz: 24, enAz: 20, renk: '#1E1E1E' },
+      daralt: 0.92,     // davetiyedeki dar yazı tipine yaklaşmak için yatay ölçek
+      arada: 14         // ad satırı ile ünvan arası
+    };
+
+    var tuval = document.getElementById('kd-tuval');
+    var ctx = tuval.getContext('2d');
+    var adGiris = document.getElementById('kd-ad');
+    var unvanGiris = document.getElementById('kd-unvan');
+    var durum = document.getElementById('kd-durum');
+
+    tuval.width = EN * OLCEK;
+    tuval.height = BOY * OLCEK;
+
+    var sablon = new Image();
+    var hazir = false;
+    var t = 0;                 // 0: özgün yerleşim, 1: ad eklenmiş yerleşim
+    var animasyon = null;
+
+    sablon.onload = function () { hazir = true; durum.textContent = ''; gecis(true); };
+    sablon.onerror = function () { durum.textContent = 'Davetiye şablonu yüklenemedi. Sayfayı yenileyin.'; };
+    durum.textContent = 'Davetiye yükleniyor…';
+    sablon.src = SABLON;
+
+    if (document.fonts && document.fonts.load) {
+      Promise.all([
+        document.fonts.load('700 42px Inter', 'Ahmet ŞENER'),
+        document.fonts.load('400 28px Inter', 'Giresun Başkanı')
+      ]).then(function () { if (hazir) ciz(); }).catch(function () {});
+    }
+
+    function yaziTipi(agirlik, punto) {
+      return agirlik + ' ' + punto + 'px Inter, system-ui, sans-serif';
+    }
+    function genislik(metin, agirlik, punto) {
+      ctx.font = yaziTipi(agirlik, punto);
+      return ctx.measureText(metin).width * YAZI.daralt;
+    }
+
+    /* Ünvan önce tek satıra sığdırılır (biraz küçülterek); olmazsa iki satıra
+       bölünür, o da olmazsa punto en aza iner */
+    function unvanSatirlari(metin) {
+      var p = YAZI.unvan.punto;
+      for (; p >= YAZI.unvan.tekSatirEnAz; p -= 1) {
+        if (genislik(metin, YAZI.unvan.agirlik, p) <= MAX_EN) return { punto: p, satirlar: [metin] };
+      }
+      p = YAZI.unvan.punto;
+      for (; p >= YAZI.unvan.enAz; p -= 1) {
+        var kelimeler = metin.split(/\s+/), ilk = '', ikinci = '';
+        for (var i = 0; i < kelimeler.length; i++) {
+          var deneme = ilk ? ilk + ' ' + kelimeler[i] : kelimeler[i];
+          if (!ikinci && (genislik(deneme, YAZI.unvan.agirlik, p) <= MAX_EN || !ilk)) ilk = deneme;
+          else ikinci = ikinci ? ikinci + ' ' + kelimeler[i] : kelimeler[i];
+        }
+        if (genislik(ikinci, YAZI.unvan.agirlik, p) <= MAX_EN) return { punto: p, satirlar: [ilk, ikinci] };
+      }
+      return { punto: YAZI.unvan.enAz, satirlar: [metin] };
+    }
+
+    /* "Sayın" + ad tek satır; sığmazsa ad puntosu küçülür */
+    function adSatiri(ad) {
+      var onEk = 'Sayın ';
+      for (var p = YAZI.ad.punto; p >= YAZI.ad.enAz; p -= 1) {
+        var sp = Math.round(p * (YAZI.sayin.punto / YAZI.ad.punto));
+        var w1 = genislik(onEk, YAZI.sayin.agirlik, sp), w2 = genislik(ad, YAZI.ad.agirlik, p);
+        if (w1 + w2 <= MAX_EN || p === YAZI.ad.enAz) return { punto: p, sayinPunto: sp, w1: w1, w2: w2, onEk: onEk };
+      }
+    }
+
+    function blokOlc(ad, unvan) {
+      var a = adSatiri(ad);
+      var u = unvan ? unvanSatirlari(unvan) : null;
+      var boy = a.punto + (u ? YAZI.arada + u.punto + (u.satirlar.length - 1) * (u.punto + 8) : 0);
+      return { a: a, u: u, boy: Math.round(boy) };
+    }
+
+    /* Şeritlerin hedef y konumları (ad eklenmiş yerleşim) */
+    function yerlesim(blokBoy) {
+      var bolge = ALT_BAS + 4 - (UST_SON - 3);           // logo bitişi → slogan başı (974)
+      var icerik = SERIT.davet.boy - 8 + blokBoy + SERIT.metin.boy - 8 + SERIT.imza.boy - 8 + SERIT.bilgi.boy - 8;
+      var toplam = BOSLUK.reduce(function (s, b) { return s + b; }, 0);
+      var k = Math.max(0.55, Math.min(1.3, (bolge - icerik) / toplam));
+      var b = BOSLUK.map(function (x) { return x * k; });
+      var y = UST_SON - 3 + b[0];                          // içerik üstleri
+      var davet = y; y += SERIT.davet.boy - 8 + b[1];
+      var blok = y; y += blokBoy + b[2];
+      var metin = y; y += SERIT.metin.boy - 8 + b[3];
+      var imza = y; y += SERIT.imza.boy - 8 + b[4];
+      var bilgi = y;
+      /* Şerit çizim konumu = içerik üstü − 4 (pay) */
+      return { davet: davet - 4, blok: blok, metin: metin - 4, imza: imza - 4, bilgi: bilgi - 4 };
+    }
+
+    function karis(a, b, t) { return a + (b - a) * t; }
+
+    function ciz() {
+      if (!hazir) return;
+      var ad = adGiris.value.trim().replace(/\s+/g, ' ');
+      var unvan = unvanGiris.value.trim().replace(/\s+/g, ' ');
+      var olcu = blokOlc(ad || 'Ad Soyad', unvan);
+      var hedef = yerlesim(olcu.boy);
+      var e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;   // yumuşak geçiş
+
+      ctx.setTransform(OLCEK, 0, 0, OLCEK, 0, 0);
+      ctx.imageSmoothingQuality = 'high';
+      ctx.clearRect(0, 0, EN, BOY);
+
+      /* Sabit üst ve alt */
+      ctx.drawImage(sablon, 0, 0, EN, UST_SON, 0, 0, EN, UST_SON);
+      ctx.drawImage(sablon, 0, ALT_BAS, EN, BOY - ALT_BAS, 0, ALT_BAS, EN, BOY - ALT_BAS);
+      /* Ortayı çerçeveli boş satırla doldur */
+      ctx.drawImage(sablon, 0, BOS_SATIR, EN, 1, 0, UST_SON, EN, ALT_BAS - UST_SON);
+
+      /* İçerik şeritleri: özgün konumdan hedefe */
+      ['davet', 'metin', 'imza', 'bilgi'].forEach(function (ad) {
+        var s = SERIT[ad];
+        var y = Math.round(karis(s.y, hedef[ad], e));
+        ctx.drawImage(sablon, 0, s.y, EN, s.boy, 0, y, EN, s.boy);
+      });
+
+      /* Kişiye özel blok */
+      if (ad && e > 0) {
+        ctx.save();
+        ctx.globalAlpha = e;
+        ctx.textBaseline = 'alphabetic';
+        var a = olcu.a, ust = hedef.blok;
+        var x0 = ORTA - (a.w1 + a.w2) / 2;
+        var taban = ust + a.punto * 0.86;
+        ctx.save();
+        ctx.translate(x0, taban);
+        ctx.scale(YAZI.daralt, 1);
+        ctx.textAlign = 'left';
+        ctx.font = yaziTipi(YAZI.sayin.agirlik, a.sayinPunto);
+        ctx.fillStyle = YAZI.sayin.renk;
+        ctx.fillText(a.onEk, 0, 0);
+        ctx.font = yaziTipi(YAZI.ad.agirlik, a.punto);
+        ctx.fillStyle = YAZI.ad.renk;
+        ctx.fillText(ad, a.w1 / YAZI.daralt, 0);
+        ctx.restore();
+
+        if (olcu.u) {
+          var u = olcu.u, y = ust + a.punto + YAZI.arada + u.punto * 0.86;
+          u.satirlar.forEach(function (satir, i) {
+            ctx.save();
+            ctx.translate(ORTA, y + i * (u.punto + 8));
+            ctx.scale(YAZI.daralt, 1);
+            ctx.textAlign = 'center';
+            ctx.font = yaziTipi(YAZI.unvan.agirlik, u.punto);
+            ctx.fillStyle = YAZI.unvan.renk;
+            ctx.fillText(satir, 0, 0);
+            ctx.restore();
+          });
+        }
+        ctx.restore();
+      }
+    }
+
+    /* Ad varken yerleşime geç, silinince geri dön (hareket azaltılmışsa anında) */
+    function gecis(anlik) {
+      var hedefT = adGiris.value.trim() ? 1 : 0;
+      cancelAnimationFrame(animasyon);
+      var azHareket = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (anlik || azHareket || t === hedefT) { t = hedefT; ciz(); return; }
+      var bas = performance.now(), t0 = t, sure = 450;
+      (function adim(simdi) {
+        var p = Math.min(1, (simdi - bas) / sure);
+        t = t0 + (hedefT - t0) * p;
+        ciz();
+        if (p < 1) animasyon = requestAnimationFrame(adim);
+      })(bas);
+    }
+
+    var zaman = null;
+    adGiris.addEventListener('input', function () {
+      var varMi = !!adGiris.value.trim();
+      if (varMi !== (t > 0.5)) gecis(false);
+      else { clearTimeout(zaman); zaman = setTimeout(ciz, 60); }
+    });
+    unvanGiris.addEventListener('input', function () { clearTimeout(zaman); zaman = setTimeout(ciz, 60); });
+
+    document.getElementById('kd-temizle').addEventListener('click', function () {
+      adGiris.value = ''; unvanGiris.value = ''; durum.textContent = '';
+      gecis(false); adGiris.focus();
+    });
+
+    /* --- İndirme ------------------------------------------------------------ */
+    function slug(metin) {
+      return String(metin || '').toLocaleLowerCase('tr')
+        .replace(/ı/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's')
+        .replace(/ö/g, 'o').replace(/ç/g, 'c').normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40).replace(/-+$/, '');
+    }
+
+    /** data: URL → Blob (senkron; paylaşım penceresi için dokunma hareketi korunur) */
+    function dataUrlBlob(dataUrl) {
+      var parca = dataUrl.split(','), tur = (parca[0].match(/:(.*?);/) || [0, 'image/jpeg'])[1];
+      var ham = atob(parca[1]), dizi = new Uint8Array(ham.length);
+      for (var i = 0; i < ham.length; i++) dizi[i] = ham.charCodeAt(i);
+      return new Blob([dizi], { type: tur });
+    }
+
+    function indir(blob, dosyaAdi) {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = dosyaAdi;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      durum.textContent = 'Davetiye indirildi.';
+    }
+
+    document.getElementById('kd-indir').addEventListener('click', function () {
+      if (!hazir) { durum.textContent = 'Davetiye henüz yüklenmedi, biraz bekleyin.'; return; }
+      if (!adGiris.value.trim()) {
+        durum.textContent = 'Önce davet edilen kişinin adını yazın.';
+        adGiris.focus();
+        return;
+      }
+      cancelAnimationFrame(animasyon); t = 1; ciz();
+
+      var dosyaAdi = 'giresun-expo-davet-' + (slug(adGiris.value) || 'kurumsal') + '.jpg';
+      var blob;
+      try { blob = dataUrlBlob(tuval.toDataURL('image/jpeg', 0.92)); }
+      catch (e) { durum.textContent = 'Görsel oluşturulamadı.'; return; }
+
+      /* Telefonda paylaşım penceresi (Görüntüyü Kaydet, WhatsApp…);
+         bilgisayarda doğrudan indirme */
+      var dokunmatik = (navigator.userAgentData && navigator.userAgentData.mobile) ||
+        (window.matchMedia && matchMedia('(hover: none) and (pointer: coarse)').matches);
+      var dosya = (dokunmatik && typeof File === 'function')
+        ? new File([blob], dosyaAdi, { type: 'image/jpeg' }) : null;
+      if (dosya && navigator.canShare && navigator.canShare({ files: [dosya] })) {
+        durum.textContent = 'Paylaşım penceresi açılıyor…';
+        navigator.share({ files: [dosya], title: 'Giresun EXPO 2026 Davetiyesi' })
+          .then(function () { durum.textContent = 'Davetiye hazır.'; })
+          .catch(function (e) {
+            if (e && e.name === 'AbortError') { durum.textContent = ''; return; }
+            indir(blob, dosyaAdi);
+          });
+        return;
+      }
+      indir(blob, dosyaAdi);
+    });
+  })();
+  </script>
 </body>
 </html>

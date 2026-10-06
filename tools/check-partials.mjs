@@ -25,7 +25,7 @@ const SKIP = [
   '404.html',              // stili gomulu, sadelestirilmis header
   'docs/ui-kit.html',      // bilesen vitrini
   'davetiye.html',         // gizli davetiye uretici (menude yok)
-  'kurumsaldavetiye/index.html', // kisa adres: davetiye.html'e yonlendirir
+  'kurumsaldavetiye/index.html', // gizli kurumsal davetiye olusturucu (menude yok)
   'yaka-karti.html',       // gizli arac/yaka karti formu (menude yok)
 ];
 const SKIP_DIRS = ['admin', 'node_modules', '.git', 'assets', 'data', 'supabase', 'tools'];
