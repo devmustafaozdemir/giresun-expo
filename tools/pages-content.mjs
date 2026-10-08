@@ -741,7 +741,7 @@ const programAfisi = (lang) => {
           <a class="program-afis__gorsel" href="${dosya}.jpg" target="_blank" rel="noopener">
             <picture>
               <source srcset="${dosya}.webp" type="image/webp">
-              <img src="${dosya}.jpg" alt="${tr ? 'Program afişini büyük boyutta aç' : 'Open the programme poster full size'}" width="1024" height="1280" loading="lazy" decoding="async">
+              <img src="${dosya}.jpg" alt="${tr ? 'Program afişini büyük boyutta aç' : 'Open the programme poster full size'}" width="1280" height="1600" loading="lazy" decoding="async">
             </picture>
           </a>
           <div>
